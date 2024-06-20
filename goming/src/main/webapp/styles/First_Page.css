@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import "./reset.css";
+
+@font-face {
+	font-family: 'S-CoreDream-3Light';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.join:active {
+	background-color: darkgrey;
+}
+
+.login:active {
+	background-color: darkgrey;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bg_video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	overflow: hidden;
+}
+
+.bg_video_content {
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.join, .login {
+	position: absolute;
+	z-index: 2;
+	background-color: black;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	font-size: 20px;
+	border-radius: 10px;
+	/* 버튼 모서리를 둥글게 설정 */
+}
+
+.join {
+	bottom: 120px;
+	left: 50%;
+	transform: translate(-50%);
+	padding: 10px 30px;
+}
+
+.login {
+	bottom: 50px;
+	left: 50%;
+	transform: translate(-50%);
+	padding: 10px 37px;
+}
+
+.title {
+	position: absolute;
+	top: 200px;
+	left: 50%;
+	font-size: 100px;
+	font-weight: bold;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-family: "S-CoreDream-3Light", cursive;
+	margin-top: 200px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	color: white;
+}
