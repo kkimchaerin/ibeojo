@@ -26,18 +26,20 @@ public class user_DAO
 			int count = session.selectOne("com.goming.user.database.user_mapper.selectuser_email", dto);
 
 	        Integer emailCount = session.selectOne("com.goming.user.database.user_mapper.selectuser_email", dto);
-	        if (emailCount != null) {
+	        if (emailCount != 0) {
 	            count += emailCount;
 	            cnt = -1;
 	        }
 	        System.out.println("user_DAO : " + "이메일 체크 : " + emailCount);
+	        System.out.println("user_DAO : " + "이메일 체크 : " + cnt);
 
 	        Integer nickCount = session.selectOne("com.goming.user.database.user_mapper.selectuser_nick", dto);
-	        if (nickCount != null) {
+	        if (nickCount != 0) {
 	            count += nickCount;
 	            cnt = -2;
 	        }
-	        System.out.println("user_DAO : " + "이메일 체크" + nickCount);
+	        System.out.println("user_DAO : " + "닉네임 체크 : " + nickCount);
+	        System.out.println("user_DAO : " + "닉네임 체크 : " + cnt);
 	        
 			if (count == 0)
 			{

@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.goming.user.model.user_DAO;
 import com.goming.user.model.user_DTO;
 
-public class JoinController extends HttpServlet {
+public class JoinController extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException
+	{
 
 		System.out.println("JoinController : " + "join");
 //		1. 한글 인코딩
@@ -31,7 +33,7 @@ public class JoinController extends HttpServlet {
 		System.out.println("JoinController : " + nick);
 		System.out.println("JoinController : " + gender);
 		System.out.println("JoinController : " + pre);
-		
+
 		System.out.println("String pre = request.getParameter(\"uesr_preference\");");
 		user_DTO dto = new user_DTO(id, pw, nick, gender, pre);
 		System.out.println("user_DTO dto = new user_DTO(id, pw, nick, gender, pre);");
@@ -43,16 +45,19 @@ public class JoinController extends HttpServlet {
 
 //		로그인, 회원가입 성공하면 dao의 row 값 받기
 //		row라고 변수명 동일하게 설정
-		if (row > 0) {
+		if (row > 0)
+		{
 			// 회원가입 성공
 			System.out.println("JoinController : " + "success");
-			response.sendRedirect("First_Page.jsp"); 
-		} else {
-			if(row ==  -1)
-			{	
+			response.sendRedirect("First_Page.jsp");
+		} else
+		{
+			System.out.println("JoinController : " + "에러값 : " + row);
+			
+			if (row == -1)
+			{
 				System.out.println("JoinController : " + "아이디 중복");
-			}
-			else
+			} else
 			{
 				System.out.println("JoinController : " + "닉네임 중복");
 			}
@@ -61,8 +66,6 @@ public class JoinController extends HttpServlet {
 //			response.sendRedirect("First_Page.jsp"); 
 		}
 
-		
-		
 	}
 
 }
