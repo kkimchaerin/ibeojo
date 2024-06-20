@@ -10,9 +10,11 @@
 
     <!-- 날짜와 시간이 모두 일치하는 데이터 검색 -->
 <select id="selectByFcstDateTime" parameterType="com.goming.weather.model.WeatherDTO" resultType="int">
-    SELECT COUNT(*)
-    FROM weather_info
-    WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime}
+SELECT COUNT(*)
+FROM weather_info
+WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime}
+  AND lat = #{lat} AND lon = #{lon}
+
 </select>
 
 
@@ -27,7 +29,20 @@
         UPDATE weather_info
         SET temperature = #{temperature}, humidity = #{humidity}, weather_info = #{weatherInfo},
             wind = #{wind}, rainy_prob = #{rainy_prob}, precipitation = #{precipitation}, lat = #{lat}, lon = #{lon}
-        WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime}
+        WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime} AND lat = #{lat} AND lon = #{lon}
+    </update>
+
+    <!-- 기존 인덱스 삭제 -->
+    <update id="dropIndexUcFcstDatetime">
+        DELETE FROM weather_info;
+
+
+    </update>
+    
+    <!-- 새로운 복합 유니크 키 추가 -->
+    <update id="addUniqueConstraintUcFcstDatetimeLatLon">
+        ALTER TABLE weather_info AUTO_INCREMENT = 1;
+
     </update>
 
 </mapper>
