@@ -2,32 +2,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goming.weather.database.weather_mapper">
 
-    <resultMap id="weatherResultMap" type="com.goming.weather.model.WeatherDTO">
-        <!-- 기타 필드 매핑 -->
-        <result property="fcstTime" column="fcst_time" jdbcType="TIME" typeHandler="com.goming.weather.database.LocalTimeTypeHandler"/>
-        <!-- 나머지 필드들에 대한 매핑 -->
-    </resultMap>
+	<resultMap id="weatherResultMap"
+		type="com.goming.weather.model.WeatherDTO">
+		<!-- 기타 필드 매핑 -->
+		<result property="fcstTime" column="fcst_time" jdbcType="TIME"
+			typeHandler="com.goming.weather.database.LocalTimeTypeHandler" />
+		<!-- 나머지 필드들에 대한 매핑 -->
+	</resultMap>
 
-    <!-- 날짜와 시간이 모두 일치하는 데이터 검색 -->
-<select id="selectByFcstDateTime" parameterType="com.goming.weather.model.WeatherDTO" resultType="int">
-    SELECT COUNT(*)
-    FROM weather_info
-    WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime}
-</select>
+	<!-- 날짜와 시간이 모두 일치하는 데이터 검색 -->
+	<select id="selectByFcstDateTime"
+		parameterType="com.goming.weather.model.WeatherDTO" resultType="int">
+		SELECT COUNT(*)
+		FROM weather_info
+		WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime}
+		AND lat = #{lat} AND lon = #{lon}
+
+	</select>
 
 
-    <!-- 새로운 날씨 정보 삽입 -->
-    <insert id="insertWeatherInfo" parameterType="com.goming.weather.model.WeatherDTO">
-        INSERT INTO weather_info (fcst_date, fcst_time, temperature, humidity, weather_info, wind, rainy_prob, precipitation, lat, lon)
-        VALUES (#{fcstDate}, #{fcstTime}, #{temperature}, #{humidity}, #{weatherInfo}, #{wind}, #{rainy_prob}, #{precipitation}, #{lat}, #{lon})
-    </insert>
+	<!-- 새로운 날씨 정보 삽입 -->
+	<insert id="insertWeatherInfo"
+		parameterType="com.goming.weather.model.WeatherDTO">
+		INSERT INTO weather_info (fcst_date, fcst_time, temperature, humidity,
+		weather_info, wind, rainy_prob, precipitation, lat, lon)
+		VALUES (#{fcstDate}, #{fcstTime}, #{temperature}, #{humidity},
+		#{weatherInfo}, #{wind}, #{rainy_prob}, #{precipitation}, #{lat},
+		#{lon})
+	</insert>
 
-    <!-- 날씨 정보 업데이트 -->
-    <update id="updateWeatherInfo" parameterType="com.goming.weather.model.WeatherDTO">
-        UPDATE weather_info
-        SET temperature = #{temperature}, humidity = #{humidity}, weather_info = #{weatherInfo},
-            wind = #{wind}, rainy_prob = #{rainy_prob}, precipitation = #{precipitation}, lat = #{lat}, lon = #{lon}
-        WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime}
-    </update>
+	<!-- 날씨 정보 업데이트 -->
+	<update id="updateWeatherInfo"
+		parameterType="com.goming.weather.model.WeatherDTO">
+		UPDATE weather_info
+		SET temperature = #{temperature}, humidity = #{humidity}, weather_info =
+		#{weatherInfo},
+		wind = #{wind}, rainy_prob = #{rainy_prob}, precipitation =
+		#{precipitation}, lat = #{lat}, lon = #{lon}
+		WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime} AND lat = #{lat}
+		AND lon = #{lon}
+	</update>
+
+	<!-- 기존 인덱스 삭제 -->
+	<update id="dropIndexUcFcstDatetime">
+		DELETE FROM weather_info;
+
+
+	</update>
+
+	<!-- 새로운 복합 유니크 키 추가 -->
+	<update id="addUniqueConstraintUcFcstDatetimeLatLon">
+		ALTER TABLE weather_info AUTO_INCREMENT = 1;
+
+	</update>
 
 </mapper>

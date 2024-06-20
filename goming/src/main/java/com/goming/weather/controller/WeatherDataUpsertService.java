@@ -37,15 +37,20 @@ public class WeatherDataUpsertService extends HttpServlet
 		// 날씨정보 리스트를 순회하여 하나씩 업소트를 해준다
 		for (int i = 0; i < weatherDTOs.size(); i++)
 		{
+			System.out.println("WeatherDataUpsertService : " +i+ "번째 입력시작");
+			
 			int cnt = dao.weatherUpsert(weatherDTOs.get(i));
 			if(cnt == 0)
 			{
 				System.out.println("WeatherDataUpsertService : " + "중간에 에러가 났습니다");
 				break;
 			}
+			System.out.println("WeatherDataUpsertService : " +i+ "번째 입력후");
 		}
-
 		
+		System.out.println("WeatherDAO : " + "게시글 업소트 완료!");
+		System.out.println("WeatherDAO : " + "게시글 업소트 완료!");
+		System.out.println("WeatherDAO : " + "게시글 업소트 완료!");
 
 	}
 

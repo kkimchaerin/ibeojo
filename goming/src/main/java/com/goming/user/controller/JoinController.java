@@ -15,7 +15,7 @@ public class JoinController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println("join");
+		System.out.println("JoinController : " + "join");
 //		1. 한글 인코딩
 		request.setCharacterEncoding("UTF-8");
 
@@ -26,11 +26,11 @@ public class JoinController extends HttpServlet {
 		String gender = request.getParameter("user_gender");
 		String pre = request.getParameter("user_preference");
 
-		System.out.println(id);
-		System.out.println(pw);
-		System.out.println(nick);
-		System.out.println(gender);
-		System.out.println(pre);
+		System.out.println("JoinController : " + id);
+		System.out.println("JoinController : " + pw);
+		System.out.println("JoinController : " + nick);
+		System.out.println("JoinController : " + gender);
+		System.out.println("JoinController : " + pre);
 		
 		System.out.println("String pre = request.getParameter(\"uesr_preference\");");
 		user_DTO dto = new user_DTO(id, pw, nick, gender, pre);
@@ -45,11 +45,19 @@ public class JoinController extends HttpServlet {
 //		row라고 변수명 동일하게 설정
 		if (row > 0) {
 			// 회원가입 성공
-			System.out.println("success");
+			System.out.println("JoinController : " + "success");
 			response.sendRedirect("First_Page.jsp"); 
 		} else {
+			if(row ==  -1)
+			{	
+				System.out.println("JoinController : " + "아이디 중복");
+			}
+			else
+			{
+				System.out.println("JoinController : " + "닉네임 중복");
+			}
 			// 회원가입 실패
-			System.out.println("fail");
+			System.out.println("JoinController : " + "fail");
 //			response.sendRedirect("First_Page.jsp"); 
 		}
 
