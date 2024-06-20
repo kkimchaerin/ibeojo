@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import "./reset.css";
+@import "./Reset.css";
 
 @font-face {
 	font-family: 'S-CoreDream-3Light';
@@ -75,15 +75,30 @@ html, body {
 }
 
 .title {
-	position: absolute;
-	top: 200px;
-	left: 50%;
-	font-size: 100px;
+	font-size: 50px;
 	font-weight: bold;
-	transform: translate(-50%, -50%);
 	text-align: center;
 	font-family: "S-CoreDream-3Light", cursive;
-	margin-top: 200px;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	color: white;
+	color: black;
+	margin-bottom: 80px;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	padding: 40px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	z-index: 1;
+	width: 800px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }

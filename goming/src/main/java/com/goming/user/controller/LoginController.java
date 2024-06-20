@@ -6,40 +6,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smhrd.maven.model.Member;
-import com.smhrd.maven.model.MemberDAO;
+import com.goming.user.model.user_DAO;
+import com.goming.user.model.user_DTO;
 
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		// 1. 한글 인코딩
 		request.setCharacterEncoding("UTF-8");
-		
+
 		// 2. 데이터 가지고 오기
 		String id = request.getParameter("user_id");
 		String pw = request.getParameter("user_pw");
 
-		// 3. Member 객체 생성
-		Member member = new Member();
-		member.setId(id);
-		member.setPw(pw);
+		
+		// 3. dto 객체 생성
+		user_DTO dto = new user_DTO();
+		dto.setUser_email(id);
+		dto.setUser_pw(pw);
+
 		
 		// 4. DAO 객체 생성 -> 메소드 실행
-		MemberDAO dao = new MemberDAO();
-		Member m = dao.login(member);
+		user_DAO dao = new user_DAO();
+		user_DTO m = dao.login(dto);
 
-		if(m != null) {
+		if (m != null) {
 			// 로그인 성공
 			System.out.println("success");
-			
+
 			// 이동
 			response.sendRedirect("index.jsp");
-		}
-		else {
+		} else {
 			// 로그인 실패
-			System.out.println("fail");
+			System.out.println("LoginController : fail");
 		}
 	}
 

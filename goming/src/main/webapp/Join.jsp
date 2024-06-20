@@ -7,15 +7,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
-<link rel="stylesheet" href="styles/Join_Page.css">
-<link rel="stylesheet" href="styles/reset.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="Join_Js.js"></script>
+<link rel="stylesheet" type="text/css" href="./styles/Join.css?ver=3" />
+<link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 </head>
 <body>
 	<form action="JoinController" method="post" class="join" id="joinForm">
 		<h1>회원가입</h1>
 		<h3>아이디 입력</h3>
 		<br> <input type="text" name="user_id" placeholder="아이디를 입력하세요">
-		<button type="button" onclick="checkId">아이디 중복확인</button>
+		<button type="button" onclick="checkId()">아이디 중복확인</button>
 		<br>
 		<h3>비밀번호 입력</h3>
 		<br> <input type="password" name="user_pw"
@@ -24,7 +26,7 @@
 
 		<h3>닉네임 입력</h3>
 		<br> <input type="text" name="user_nick" placeholder="닉네임을 입력하세요">
-		<button type="button" onclick="checkNick">닉네임 중복확인</button>
+		<button type="button" onclick="checkNick()">닉네임 중복확인</button>
 		<br>
 		<h3>성별선택</h3>
 		<br>
@@ -49,32 +51,8 @@
 			<source src="video/4753-179739298_medium.mp4" type="video/mp4">
 		</video>
 	</div>
+	
+	
 
-	<script>
-		function checkId() {
-			var userId = $('input[name="user_id"]').val(); // 입력된 아이디 가져오기
-
-			$.ajax({
-				type : 'POST', // HTTP 요청 방식 (POST 추천)
-				url : 'checkUserId.jsp', // 실제 서버에서 아이디 중복 확인을 처리하는 경로
-				data : {
-					user_email : userId
-				}, // 서버로 보낼 데이터 (아이디)
-				success : function(response) {
-					// 서버에서의 처리가 성공하면 이 함수가 호출됨
-					if (response === "available") {
-						alert("사용 가능한 아이디입니다.");
-					} else {
-						alert("이미 사용 중인 아이디입니다.");
-					}
-				},
-				error : function(xhr, status, error) {
-					// 서버에서의 처리가 실패하면 이 함수가 호출됨
-					alert("AJAX 호출이 실패했습니다.");
-					console.error(xhr, status, error);
-				}
-			});
-		}
-	</script>
 </body>
 </html>

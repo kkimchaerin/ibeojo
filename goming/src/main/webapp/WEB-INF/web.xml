@@ -22,6 +22,18 @@
   	<description></description>
   	<servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>FindIdController</servlet-name>
+  	<display-name>FindIdController</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.user.controller.FindIdController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>FindPwController</servlet-name>
+  	<display-name>FindPwController</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.user.controller.FindPwController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinController</servlet-name>
   	<url-pattern>/JoinController</url-pattern>
@@ -33,5 +45,13 @@
   <servlet-mapping>
   	<servlet-name>WeatherDataUpsertService</servlet-name>
   	<url-pattern>/WeatherDataUpsertService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FindIdController</servlet-name>
+  	<url-pattern>/FindIdController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FindPwController</servlet-name>
+  	<url-pattern>/FindPwController</url-pattern>
   </servlet-mapping>
 </web-app>
