@@ -48,6 +48,14 @@ public class JoinController extends HttpServlet {
 			System.out.println("JoinController : " + "success");
 			response.sendRedirect("First_Page.jsp"); 
 		} else {
+			if(row ==  -1)
+			{	
+				System.out.println("JoinController : " + "아이디 중복");
+			}
+			else
+			{
+				System.out.println("JoinController : " + "닉네임 중복");
+			}
 			// 회원가입 실패
 			System.out.println("JoinController : " + "fail");
 //			response.sendRedirect("First_Page.jsp"); 
