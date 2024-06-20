@@ -3,85 +3,105 @@ package com.goming.post.model;
 import java.security.Timestamp;
 
 public class PostDTO {
+	// 글 식별자
+	private int PostIdx;
 
-   // 글 식별자 
-    private int post_idx;
+	// 회원 이메일
+	private String UserEmail;
 
-    // 회원 이메일 
-    private String user_email;
+	// 글 첨부파일
+	private String PostImg;
 
-    // 글 내용 
-    private String post_content;
+	// 성별
+	private String UserGender;
 
-    // 글 첨부파일 
-    private String post_img;
+	// 선호 스타일
+	private String Style;
 
-    // 스타일 
-    private String style_tag;
+	// 계절
+	private String Season;
 
-    // 작성일자 
-    private Timestamp created_at;
+	// 작성일자
+	private Timestamp CreatedAt;
 
-    public PostDTO() {}
-    
-   public PostDTO(int post_idx, String user_email, String post_content, String post_img, String style_tag,
-         Timestamp created_at) {
-      super();
-      this.post_idx = post_idx;
-      this.user_email = user_email;
-      this.post_content = post_content;
-      this.post_img = post_img;
-      this.style_tag = style_tag;
-      this.created_at = created_at;
-   }
+	public PostDTO() {
+	}
 
-   public int getPost_idx() {
-      return post_idx;
-   }
+	public PostDTO(int postIdx, String userEmail, String postImg, String userGender, String style, String season,
+			Timestamp createdAt) {
+		super();
+		PostIdx = postIdx;
+		UserEmail = userEmail;
+		PostImg = postImg;
+		UserGender = userGender;
+		Style = style;
+		Season = season;
+		CreatedAt = createdAt;
+	}
 
-   public void setPost_idx(int post_idx) {
-      this.post_idx = post_idx;
-   }
+	public PostDTO(String userEmail, String postImg, String userGender, String style, String season) {
+		super();
+		UserEmail = userEmail;
+		PostImg = postImg;
+		UserGender = userGender;
+		Style = style;
+		Season = season;
+	}
 
-   public String getUser_email() {
-      return user_email;
-   }
+	public int getPostIdx() {
+		return PostIdx;
+	}
 
-   public void setUser_email(String user_email) {
-      this.user_email = user_email;
-   }
+	public void setPostIdx(int postIdx) {
+		PostIdx = postIdx;
+	}
 
-   public String getPost_content() {
-      return post_content;
-   }
+	public String getUserEmail() {
+		return UserEmail;
+	}
 
-   public void setPost_content(String post_content) {
-      this.post_content = post_content;
-   }
+	public void setUserEmail(String userEmail) {
+		UserEmail = userEmail;
+	}
 
-   public String getPost_img() {
-      return post_img;
-   }
+	public String getPostImg() {
+		return PostImg;
+	}
 
-   public void setPost_img(String post_img) {
-      this.post_img = post_img;
-   }
+	public void setPostImg(String postImg) {
+		PostImg = postImg;
+	}
 
-   public String getStyle_tag() {
-      return style_tag;
-   }
+	public String getUserGender() {
+		return UserGender;
+	}
 
-   public void setStyle_tag(String style_tag) {
-      this.style_tag = style_tag;
-   }
+	public void setUserGender(String userGender) {
+		UserGender = userGender;
+	}
 
-   public Timestamp getCreated_at() {
-      return created_at;
-   }
+	public String getStyle() {
+		return Style;
+	}
 
-   public void setCreated_at(Timestamp created_at) {
-      this.created_at = created_at;
-   }
-   
-   
+	public void setStyle(String style) {
+		Style = style;
+	}
+
+	public String getSeason() {
+		return Season;
+	}
+
+	public void setSeason(String season) {
+		Season = season;
+	}
+
+	public Timestamp getCreatedAt() {
+		return CreatedAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		CreatedAt = createdAt;
+	}
+
 }
