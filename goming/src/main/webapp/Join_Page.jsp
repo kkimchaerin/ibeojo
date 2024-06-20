@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
-<link rel="stylesheet" href="styles/Join_Page.css">
-<link rel="stylesheet" href="styles/reset.css">
+<link rel="stylesheet" type="text/css" href="styles/Join_Page.css?ver=2"/>
+<link rel="stylesheet" type="text/css" href="styles/reset.css?ver=2"/>
 </head>
 <body>
 	<form action="JoinController" method="post" class="join" id="joinForm">
@@ -19,8 +19,7 @@
 		<br>
 		<h3>비밀번호 입력</h3>
 		<br> <input type="password" name="user_pw"
-			placeholder="비밀번호를 입력하세요"> <input type="password"
-			placeholder="비밀번호를 다시 한 번입력하세요"><br>
+			placeholder="비밀번호를 입력하세요"><br>
 
 		<h3>닉네임 입력</h3>
 		<br> <input type="text" name="user_nick" placeholder="닉네임을 입력하세요">

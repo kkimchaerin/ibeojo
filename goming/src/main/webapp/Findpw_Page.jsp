@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../styles/Findpw_Page.css">
-<link rel="stylesheet" href="../styles/reset.css">
+<link rel="stylesheet" type="text/css" href="./styles/Findpw_Page.css?ver=2" />
+<link rel="stylesheet" type="text/css" href="./styles/reset.css?ver=2" />
 </head>
 <body>
 	<form action="" class="Findpw">
@@ -21,7 +21,7 @@
 
 	<div class="bg_video">
 		<video autoplay muted loop class="bg_video_content">
-			<source src="../video/4753-179739298_medium.mp4" type="video/mp4">
+			<source src="./video/4753-179739298_medium.mp4" type="video/mp4">
 		</video>
 	</div>
 
