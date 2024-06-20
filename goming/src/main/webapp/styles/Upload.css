@@ -29,7 +29,7 @@ main{
 form{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .form-label{
@@ -48,6 +48,106 @@ form{
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-top: 10px;
+}
+
+.test{
+display: flex;
+flex-direction: row;
+}
+
+#face-mosaic-wrapper{
+}
+
+#face-masic-label{
+  font-size: 13px;
+}
+
+/* Toggle switch styles */
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  display: inline-block;
+  text-align: left;
+  top: 6px;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 26px;
+  padding: 0;
+  line-height: 26px;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #ddd;
+  transition: background-color 0.3s ease-in;
+}
+
+.toggle-label .toggle-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in;
+}
+
+.toggle-label .toggle-inner:before, .toggle-label .toggle-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 24px;
+  padding: 0;
+  line-height: 24px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.toggle-label .toggle-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: black;
+  color: #fff;
+}
+
+.toggle-label .toggle-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #bbb;
+  color: #fff;
+  text-align: right;
+}
+
+.toggle-label .toggle-switch {
+  display: block;
+  width: 18px;
+  margin: 3px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 24px;
+  border: 2px solid #ddd;
+  border-radius: 24px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.toggle-switch input:checked + .toggle-label {
+  background-color: black;
+}
+
+.toggle-switch input:checked + .toggle-label .toggle-inner {
+  margin-left: 0;
+}
+
+.toggle-switch input:checked + .toggle-label .toggle-switch {
+  right: 0;
 }
 
 .content-wrapper ul{

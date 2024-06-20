@@ -1,6 +1,7 @@
 package com.goming.post.controller;
 
 import java.io.IOException;
+import java.io.Writer;
 import java.security.Timestamp;
 
 import javax.servlet.ServletContext;
@@ -33,17 +34,16 @@ request.setCharacterEncoding("UTF-8");
 		MultipartRequest multi = null;
 		multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 		
-//		String userEmail = multi.getParameter("userEmail");
-//		String postImg = multi.getParameter("postImg");
-//		String userGender = multi.getParameter("userGender");
-//		String style = multi.getParameter("style");
-//		String season = multi.getParameter("season");
-		
 		String userEmail = "crong@gmail.com";
+//		String userEmail = multi.getParameter("userEmail");
 		String postImg = multi.getFilesystemName("postImg");
-		String userGender = "M";
-		String style = "미니멀";
-		String season = "겨울";
+		String userGender = multi.getParameter("userGender");
+		String style = multi.getParameter("style");
+		String season = multi.getParameter("season");
+		
+        System.out.println("userGender: " + userGender);
+        System.out.println("style: " + style);
+        System.out.println("season: " + season);
 		
 		// String userEmail, String postImg, String userGender, String style, String season
 		
@@ -51,7 +51,10 @@ request.setCharacterEncoding("UTF-8");
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);
 		
+		Writer out = response.getWriter();
+		
 		if(cnt > 0) {
+			out.write("<script>alert('업로드되었습니다 :)');</script>");
 			System.out.println("업로드 완료");
 			// response.sendRedirect("BoardSelectAllService"); // 데이터 전달 없이 이동만 하기 때문에 redirect 사용
 			// 전달할 데이터가 있다면 forward 사용
