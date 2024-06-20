@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>com.goming.user.controller.CheckUserIdService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CheckUserNickService</servlet-name>
+  	<display-name>CheckUserNickService</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.user.controller.CheckUserNickService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinController</servlet-name>
   	<url-pattern>/JoinController</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>CheckUserIdService</servlet-name>
   	<url-pattern>/CheckUserIdService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckUserNickService</servlet-name>
+  	<url-pattern>/CheckUserNickService</url-pattern>
   </servlet-mapping>
 </web-app>

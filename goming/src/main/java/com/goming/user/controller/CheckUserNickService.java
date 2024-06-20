@@ -7,28 +7,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.goming.user.model.user_DAO;
-import com.goming.user.model.user_DTO;
 
-public class CheckUserIdService extends HttpServlet
+public class CheckUserNickService extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-//		user_id
-		String id = request.getParameter("user_id");
-		System.out.println("CheckUserIdService : " + id);
+
+		String nick = request.getParameter("user_nick");
+		System.out.println("CheckUserIdService : " + nick);
 		
 		user_DAO dao = new user_DAO();
 		
-		int user = dao.selectemail(id);
+		int user = dao.selectnick(nick);
 		
 		
 		
 	    response.setContentType("text/plain");
 	    response.setCharacterEncoding("UTF-8");
 	    response.getWriter().write(String.valueOf(user));
+		
 		
 	}
 
