@@ -1,0 +1,36 @@
+@charset "UTF-8";
+@import "Reset.css";
+
+/* header */
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  /* margin-bottom: 70px; */
+}
+
+.header-logo{
+  width: 100px;
+  font-family: "EF_cucumbersalad", cursive;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-logo img{
+  width: 100%;
+}
+
+#logout{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
