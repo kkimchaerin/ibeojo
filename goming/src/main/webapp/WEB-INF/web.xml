@@ -22,6 +22,12 @@
   	<description></description>
   	<servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CheckUserIdService</servlet-name>
+  	<display-name>CheckUserIdService</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.user.controller.CheckUserIdService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinController</servlet-name>
   	<url-pattern>/JoinController</url-pattern>
@@ -33,5 +39,9 @@
   <servlet-mapping>
   	<servlet-name>WeatherDataUpsertService</servlet-name>
   	<url-pattern>/WeatherDataUpsertService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckUserIdService</servlet-name>
+  	<url-pattern>/CheckUserIdService</url-pattern>
   </servlet-mapping>
 </web-app>
