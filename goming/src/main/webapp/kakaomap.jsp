@@ -25,7 +25,7 @@
 <p>개발자도구를 통해 직접 확인해 보세요.</p>
 <p id="result"></p>  
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
-<script src="kakaomapjs.js"></script>
+<script src="./javascripts/kakaomapjs.js"></script>
 <form id="locationForm" action="WeatherDataUpsertService" method="post" style="display:none;">
     <input type="hidden" id="latitude" name="lat" value="">
     <input type="hidden" id="longitude" name="lng" value="">

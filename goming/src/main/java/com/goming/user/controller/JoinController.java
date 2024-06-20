@@ -49,7 +49,7 @@ public class JoinController extends HttpServlet
 		{
 			// 회원가입 성공
 			System.out.println("JoinController : " + "success");
-			response.sendRedirect("First_Page.jsp");
+			response.sendRedirect("First.jsp");
 		} else
 		{
 			System.out.println("JoinController : " + "에러값 : " + row);
