@@ -30,16 +30,14 @@ public class user_DAO {
 	        System.out.println("user_DAO : " + "이메일 체크 : " + emailCount);
 	        System.out.println("user_DAO : " + "이메일 체크 : " + cnt);
 
-	        Integer nickCount = session.selectOne("com.goming.user.database.user_mapper.selectuser_nick", dto);
-	        if (nickCount != 0) {
-	            count += nickCount;
-	            cnt = -2;
-	        }
-	        System.out.println("user_DAO : " + "닉네임 체크 : " + nickCount);
-	        System.out.println("user_DAO : " + "닉네임 체크 : " + cnt);
-	        
-			if (count == 0)
-			{
+			Integer nickCount = session.selectOne("com.goming.user.database.user_mapper.selectuser_nick", dto);
+			if (nickCount != null) {
+				count += nickCount;
+				cnt = -2;
+			}
+			System.out.println("user_DAO : " + "이메일 체크" + nickCount);
+
+			if (count == 0) {
 				System.out.println("user_DAO : " + "중복값이 존재하지않습니다");
 				// 검색 결과가 있으면 기존 데이터 업데이트
 				cnt = session.insert("com.goming.user.database.user_mapper.join", dto);

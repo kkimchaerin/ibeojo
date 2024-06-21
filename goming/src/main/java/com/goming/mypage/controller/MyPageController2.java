@@ -36,6 +36,7 @@ public class MyPageController2 extends HttpServlet {
 		
 		if(dto != null) {
 			session.setAttribute("userinfo", dto);
+			// 이미지 불러오는 con으로 연결
 			response.sendRedirect("ImgController");
 		}else {
 			System.out.println("회원 정보 가져오기 실패");
