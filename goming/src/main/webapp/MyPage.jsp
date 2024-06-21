@@ -34,19 +34,24 @@
         </div>
 
         <div class="gallery">
-            <!-- 이미지 추가 -->
-            <img src="./images/1.jpg" alt="">
-            <img src="./images/2.jpg" alt="">
-            <img src="./images/3.jpg" alt="">
-            <img src="./images/4.jpg" alt="">
-            <img src="./images/5.jpg" alt="">
-            <img src="./images/6.jpg" alt="">
-            <img src="./images/7.jpg" alt="">
-            <img src="./images/8.jpg" alt="">
-        </div>
-        
+        <!-- 이미지 추가 -->
+        <img src="./images/1.jpg" alt="" onclick="openPopup('./images/1.jpg')">
+        <img src="./images/2.jpg" alt="" onclick="openPopup('./images/2.jpg')">
+        <img src="./images/3.jpg" alt="" onclick="openPopup('./images/3.jpg')">
+        <img src="./images/4.jpg" alt="" onclick="openPopup('./images/4.jpg')">
+        <img src="./images/5.jpg" alt="" onclick="openPopup('./images/5.jpg')">
+        <img src="./images/6.jpg" alt="" onclick="openPopup('./images/6.jpg')">
+        <img src="./images/7.jpg" alt="" onclick="openPopup('./images/7.jpg')">
+        <img src="./images/8.jpg" alt="" onclick="openPopup('./images/8.jpg')">
+    </div>
+    
+    <jsp:include page="Likeimg.jsp" />
+    
         <button>좋아요 한 게시물 보기</button><br>
         <button class="red">회원탈퇴</button>
     </div>
+    <!-- bottom nav -->
+	<%@ include file="BottomNav.jsp"%>
+
 </body>
 </html>
