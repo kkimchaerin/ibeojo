@@ -22,18 +22,6 @@
   	<description></description>
   	<servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>JoinController</servlet-name>
-  	<url-pattern>/JoinController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>LoginController</servlet-name>
-  	<url-pattern>/LoginController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>WeatherDataUpsertService</servlet-name>
-  	<url-pattern>/WeatherDataUpsertService</url-pattern>
-  </servlet-mapping>
   <servlet>
   	<servlet-name>MyPageController2</servlet-name>
   	<display-name>MyPageController2</display-name>
@@ -46,6 +34,24 @@
   	<description></description>
   	<servlet-class>com.goming.mypage.controller.ImgController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<display-name>DeleteUser</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.mypage.controller.DeleteUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>JoinController</servlet-name>
+  	<url-pattern>/JoinController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginController</servlet-name>
+  	<url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WeatherDataUpsertService</servlet-name>
+  	<url-pattern>/WeatherDataUpsertService</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>MyPageController2</servlet-name>
   	<url-pattern>/MyPageController2</url-pattern>
@@ -54,4 +60,9 @@
   	<servlet-name>ImgController</servlet-name>
   	<url-pattern>/ImgController</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<url-pattern>/DeleteUser</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

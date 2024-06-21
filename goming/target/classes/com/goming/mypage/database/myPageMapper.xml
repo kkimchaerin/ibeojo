@@ -15,5 +15,9 @@
 	 where user_email = #{user_email}
 </select>
 
+<delete id="delete_user" parameterType="com.goming.mypage.model.MyPageDTO">
+	delete from user_info where user_email = #{user_email} and user_nick = #{user_nick} and user_pw = #{user_pw} 
+</delete>
+
 
 </mapper>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>회원탈퇴</h2>
-    <form id="deleteForm" action="/deleteUser" method="post" onsubmit="return validateForm()">
+    <form id="deleteForm" action="/DeleteUser" method="post" onsubmit="return validateForm()">
         <div class="info-container">
             <div class="info-item">
                 <strong>아이디(이메일)</strong>
