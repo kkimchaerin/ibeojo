@@ -10,12 +10,12 @@
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 </head>
 <body>
-	<form action="LoginController" class="login">
+	<form action="LoginController" class="login" method="post">
 
 		<h1>로그인</h1>
 		<input type="text" name="user_id" placeholder="아이디를 입력하세요"><br>
 		<input type="password" name="user_pw" placeholder="비밀번호를 입력하세요"><br>
-		<input type="submit" onclick="location.href='index.jsp'" value="로그인">
+		<input type="submit" value="로그인">
 
 		<div class="button-group">
 			<button type="button" onclick="location.href='FindId.jsp'">아이디
@@ -33,6 +33,16 @@
 			<source src="./video/4753-179739298_medium.mp4" type="video/mp4">
 		</video>
 	</div>
+
+	<script>
+    // 서버에서 전달된 에러 메시지 확인 및 경고창 표시
+    window.onload = function() {
+        const errorMessage = '<%=request.getAttribute("errorMessage") != null ? request.getAttribute("errorMessage") : ""%>';
+			if (errorMessage) {
+				alert(errorMessage);
+			}
+		};
+	</script>
 
 </body>
 </html>
