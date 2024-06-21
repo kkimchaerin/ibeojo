@@ -5,45 +5,44 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
-    <!-- Servlet 정의 -->
+    <!-- JoinController Servlet 정의 -->
     <servlet>
         <servlet-name>JoinController</servlet-name>
+        <display-name>JoinController</display-name>
+        <description></description>
         <servlet-class>com.goming.user.controller.JoinController</servlet-class>
     </servlet>
 
+    <!-- LoginController Servlet 정의 -->
     <servlet>
         <servlet-name>LoginController</servlet-name>
+        <display-name>LoginController</display-name>
+        <description></description>
         <servlet-class>com.goming.user.controller.LoginController</servlet-class>
     </servlet>
 
+    <!-- WeatherDataUpsertService Servlet 정의 -->
     <servlet>
         <servlet-name>WeatherDataUpsertService</servlet-name>
+        <display-name>WeatherDataUpsertService</display-name>
+        <description></description>
         <servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
     </servlet>
 
+    <!-- CheckUserIdService Servlet 정의 -->
     <servlet>
         <servlet-name>CheckUserIdService</servlet-name>
+        <display-name>CheckUserIdService</display-name>
+        <description></description>
         <servlet-class>com.goming.user.controller.CheckUserIdService</servlet-class>
     </servlet>
 
+    <!-- CheckUserNickService Servlet 정의 -->
     <servlet>
-        <servlet-name>UploadService</servlet-name>
-        <servlet-class>com.goming.post.controller.UploadService</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>MyPageController2</servlet-name>
-        <servlet-class>com.goming.mypage.controller.MyPageController2</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>ImgController</servlet-name>
-        <servlet-class>com.goming.mypage.controller.ImgController</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>DeleteUser</servlet-name>
-        <servlet-class>com.goming.mypage.controller.DeleteUser</servlet-class>
+        <servlet-name>CheckUserNickService</servlet-name>
+        <display-name>CheckUserNickService</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.CheckUserNickService</servlet-class>
     </servlet>
 
     <!-- Servlet 매핑 -->
@@ -68,23 +67,8 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>UploadService</servlet-name>
-        <url-pattern>/UploadService</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>MyPageController2</servlet-name>
-        <url-pattern>/MyPageController2</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>ImgController</servlet-name>
-        <url-pattern>/ImgController</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>DeleteUser</servlet-name>
-        <url-pattern>/DeleteUser</url-pattern>
+        <servlet-name>CheckUserNickService</servlet-name>
+        <url-pattern>/CheckUserNickService</url-pattern>
     </servlet-mapping>
 
 </web-app>

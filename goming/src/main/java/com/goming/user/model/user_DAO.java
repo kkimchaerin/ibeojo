@@ -23,7 +23,7 @@ public class user_DAO
 
 			System.out.println("user_DAO : " + "try문 진입");
 			// 첫 번째로 날짜와 시간, 좌표값이 모두 일치하는 데이터가 있는지 검사
-			int count = session.selectOne("com.goming.user.database.user_mapper.selectuser_email", dto);
+			int count = 0;/*session.selectOne("com.goming.user.database.user_mapper.selectuser_email", dto);*/
 
 	        Integer emailCount = session.selectOne("com.goming.user.database.user_mapper.selectuser_email", dto);
 	        if (emailCount != 0) {
@@ -47,10 +47,7 @@ public class user_DAO
 				// 검색 결과가 있으면 기존 데이터 업데이트
 				cnt = session.insert("com.goming.user.database.user_mapper.join", dto);
 			}
-			else
-			{
-				
-			}
+	
 
 			if (cnt > 0)
 			{
@@ -70,11 +67,51 @@ public class user_DAO
 
 		return cnt;
 	}
-//	public int join(user_DTO dto)
-//	{
-//		SqlSession session = factory.openSession(true);
-//		int row = session.insert("com.goming.user.database.user_mapper.join", dto); // ensure "join" is used
-//		session.close();
-//		return row;
-//	}
+
+
+	public int selectemail(String dto)
+	{
+		session = factory.openSession();
+
+		int user = 0;
+		
+		try
+		{
+			user = session.selectOne("com.goming.user.database.user_mapper.selectuser_email", dto);
+		}
+		catch (Exception e)
+		{
+			 System.out.println("이메일 조회 실패..");
+			 e.printStackTrace();
+			 
+		} finally
+		{
+			session.close();
+		}
+
+		return user;
+	}
+	public int selectnick(String dto)
+	{
+		session = factory.openSession();
+		
+		int user = 0;
+		
+		try
+		{
+			user = session.selectOne("com.goming.user.database.user_mapper.selectuser_email", dto);
+		}
+		catch (Exception e)
+		{
+			System.out.println("이메일 조회 실패..");
+			e.printStackTrace();
+			
+		} finally
+		{
+			session.close();
+		}
+		
+		return user;
+	}
+	
 }
