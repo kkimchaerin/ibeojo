@@ -16,12 +16,12 @@ public class CheckUserNickService extends HttpServlet
 			throws ServletException, IOException
 	{
 
-		String nick = request.getParameter("user_nick");
-		System.out.println("CheckUserIdService : " + nick);
+		String user_nick = request.getParameter("user_nick");
+		System.out.println("CheckUserIdService : " + user_nick);
 		
 		user_DAO dao = new user_DAO();
 		
-		int user = dao.selectnick(nick);
+		int user = dao.selectnick(user_nick);
 		
 		
 		

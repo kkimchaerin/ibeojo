@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="Join_Js.js"></script>
+<script src="./javascripts/Join_Pagejs.js"></script>
 <link rel="stylesheet" type="text/css" href="./styles/Join.css?ver=3" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 </head>
@@ -16,7 +16,7 @@
 	<form action="JoinController" method="post" class="join" id="joinForm">
 		<h1>회원가입</h1>
 		<h3>아이디 입력</h3>
-		<br> <input type="text" name="user_id" placeholder="아이디를 입력하세요">
+		<br> <input type="text" id = "user_id" name="user_id" placeholder="아이디를 입력하세요">
 		<button type="button" onclick="checkId()">아이디 중복확인</button>
 		<br>
 		<h3>비밀번호 입력</h3>
@@ -25,7 +25,7 @@
 			placeholder="비밀번호를 다시 한 번입력하세요"><br>
 
 		<h3>닉네임 입력</h3>
-		<br> <input type="text" name="user_nick" placeholder="닉네임을 입력하세요">
+		<br> <input type="text" id = "user_nick" name="user_nick" placeholder="닉네임을 입력하세요">
 		<button type="button" onclick="checkNick()">닉네임 중복확인</button>
 		<br>
 		<h3>성별선택</h3>

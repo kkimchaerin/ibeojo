@@ -17,12 +17,12 @@ public class CheckUserIdService extends HttpServlet
 			throws ServletException, IOException
 	{
 //		user_id
-		String id = request.getParameter("user_id");
-		System.out.println("CheckUserIdService : " + id);
+		String user_id = request.getParameter("user_id");
+		System.out.println("CheckUserIdService : " + user_id);
 		
 		user_DAO dao = new user_DAO();
 		
-		int user = dao.selectemail(id);
+		int user = dao.selectemail(user_id);
 		
 		
 		
