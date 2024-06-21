@@ -1,6 +1,11 @@
+<%@page import="java.util.List"%>
+<%@page import="com.goming.post.model.PostDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page errorPage="Error.jsp" %>
+
+<%
+	List<PostDTO> posts = (List<PostDTO>)request.getAttribute("posts");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +15,49 @@
 <link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=1" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 <script src="./javascripts/Post.js" defer></script>
+<script>
+$(document).ready(function() {
+    // 페이지 로딩 시 초기 이미지 로딩
+    loadInitialImages();
+
+    // 카테고리 변경 시 이미지 로딩
+    $(".category-btn").click(function() {
+        var gender = $(this).closest(".category-nav-wrapper").find(".gender .checked").attr("id");
+        var style = $(this).closest(".category-nav-wrapper").find(".style-category .checked img").attr("alt");
+        var season = $(this).closest(".category-nav-wrapper").find(".season-category .checked img").attr("alt");
+        
+        loadImagesByFilters(gender, style, season);
+    });
+
+    // 초기 이미지 로딩 함수
+    function loadInitialImages() {
+        loadImagesByFilters("men", "미니멀", "여름");
+    }
+
+    // Ajax를 이용한 이미지 로딩 함수
+    function loadImagesByFilters(gender, style, season) {
+        $.ajax({
+            type: "GET",
+            url: "PostLoaderService", // 이미지 로딩을 처리할 서블릿 URL
+            data: {
+                gender: gender,
+                style: style,
+                season: season
+            },
+            success: function(data) {
+                $(".gallery").empty(); // 기존 이미지 모두 제거
+                $.each(data, function(index, post) {
+                    var imgTag = $("<img>").attr("src", post.postImg).attr("alt", "게시물 이미지");
+                    $(".gallery").append(imgTag);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error("이미지 로딩 실패: " + status + ", " + error);
+            }
+        });
+    }
+});
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -46,6 +94,7 @@
 				<img src="./images/women_spring_minimal_13.png" alt="피드4"> 
 				<img src="./images/women_summer_minimal_12.png" alt="피드5"> 
 				<img src="./images/women_spring_minimal_14.png" alt="피드6"> 
+
 			</div>
 		</section>
 		<section class="upload">

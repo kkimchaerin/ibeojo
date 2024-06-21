@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.goming.like.model.LikeDAO;
 import com.goming.like.model.LikeDTO;
 import com.goming.ml.model.ml_DTO;
 

@@ -13,7 +13,7 @@ public class PostDTO {
 	private String PostImg;
 
 	// 성별
-	private String UserGender;
+	private String Gender;
 
 	// 선호 스타일
 	private String Style;
@@ -27,23 +27,23 @@ public class PostDTO {
 	public PostDTO() {
 	}
 
-	public PostDTO(int postIdx, String userEmail, String postImg, String userGender, String style, String season,
+	public PostDTO(int postIdx, String userEmail, String postImg, String gender, String style, String season,
 			Timestamp createdAt) {
 		super();
 		PostIdx = postIdx;
 		UserEmail = userEmail;
 		PostImg = postImg;
-		UserGender = userGender;
+		Gender = gender;
 		Style = style;
 		Season = season;
 		CreatedAt = createdAt;
 	}
 
-	public PostDTO(String userEmail, String postImg, String userGender, String style, String season) {
+	public PostDTO(String userEmail, String postImg, String gender, String style, String season) {
 		super();
 		UserEmail = userEmail;
 		PostImg = postImg;
-		UserGender = userGender;
+		Gender = gender;
 		Style = style;
 		Season = season;
 	}
@@ -72,12 +72,12 @@ public class PostDTO {
 		PostImg = postImg;
 	}
 
-	public String getUserGender() {
-		return UserGender;
+	public String getGender() {
+		return Gender;
 	}
 
-	public void setUserGender(String userGender) {
-		UserGender = userGender;
+	public void setUserGender(String gender) {
+		Gender = gender;
 	}
 
 	public String getStyle() {

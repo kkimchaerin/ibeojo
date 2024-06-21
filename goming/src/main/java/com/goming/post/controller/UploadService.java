@@ -37,17 +37,17 @@ request.setCharacterEncoding("UTF-8");
 		String userEmail = "crong@gmail.com";
 //		String userEmail = multi.getParameter("userEmail");
 		String postImg = multi.getFilesystemName("postImg");
-		String userGender = multi.getParameter("userGender");
+		String gender = multi.getParameter("gender");
 		String style = multi.getParameter("style");
 		String season = multi.getParameter("season");
 		
-        System.out.println("userGender: " + userGender);
+        System.out.println("userGender: " + gender);
         System.out.println("style: " + style);
         System.out.println("season: " + season);
 		
 		// String userEmail, String postImg, String userGender, String style, String season
 		
-		PostDTO post = new PostDTO(userEmail, postImg, userGender, style, season); 
+		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season); 
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);
 		
