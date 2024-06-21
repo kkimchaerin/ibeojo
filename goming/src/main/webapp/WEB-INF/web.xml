@@ -23,6 +23,7 @@
   	<servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
   </servlet>
   <servlet>
+
   	<servlet-name>CheckUserIdService</servlet-name>
   	<display-name>CheckUserIdService</display-name>
   	<description></description>
@@ -33,6 +34,24 @@
   	<display-name>UploadService</display-name>
   	<description></description>
   	<servlet-class>com.goming.post.controller.UploadService</servlet-class>
+
+  	<servlet-name>MyPageController2</servlet-name>
+  	<display-name>MyPageController2</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.mypage.controller.MyPageController2</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ImgController</servlet-name>
+  	<display-name>ImgController</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.mypage.controller.ImgController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<display-name>DeleteUser</display-name>
+  	<description></description>
+  	<servlet-class>com.goming.mypage.controller.DeleteUser</servlet-class>
+
   </servlet>
   <servlet-mapping>
   	<servlet-name>JoinController</servlet-name>
@@ -47,6 +66,7 @@
   	<url-pattern>/WeatherDataUpsertService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+
   	<servlet-name>CheckUserIdService</servlet-name>
   	<url-pattern>/CheckUserIdService</url-pattern>
   </servlet-mapping>
@@ -54,4 +74,18 @@
   	<servlet-name>UploadService</servlet-name>
   	<url-pattern>/UploadService</url-pattern>
   </servlet-mapping>
+
+  	<servlet-name>MyPageController2</servlet-name>
+  	<url-pattern>/MyPageController2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ImgController</servlet-name>
+  	<url-pattern>/ImgController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<url-pattern>/DeleteUser</url-pattern>
+  </servlet-mapping>
+  
+
 </web-app>
