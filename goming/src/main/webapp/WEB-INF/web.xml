@@ -1,67 +1,157 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>JoinController</servlet-name>
-  	<display-name>JoinController</display-name>
-  	<description></description>
-  	<servlet-class>com.goming.user.controller.JoinController</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>LoginController</servlet-name>
-  	<display-name>LoginController</display-name>
-  	<description></description>
-  	<servlet-class>com.goming.user.controller.LoginController</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>WeatherDataUpsertService</servlet-name>
-  	<display-name>WeatherDataUpsertService</display-name>
-  	<description></description>
-  	<servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>CheckUserIdService</servlet-name>
-  	<display-name>CheckUserIdService</display-name>
-  	<description></description>
-  	<servlet-class>com.goming.user.controller.CheckUserIdService</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>UploadService</servlet-name>
-  	<display-name>UploadService</display-name>
-  	<description></description>
-  	<servlet-class>com.goming.post.controller.UploadService</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>PostService</servlet-name>
-  	<display-name>PostService</display-name>
-  	<description></description>
-  	<servlet-class>com.goming.post.controller.PostService</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>JoinController</servlet-name>
-  	<url-pattern>/JoinController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>LoginController</servlet-name>
-  	<url-pattern>/LoginController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>WeatherDataUpsertService</servlet-name>
-  	<url-pattern>/WeatherDataUpsertService</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>CheckUserIdService</servlet-name>
-  	<url-pattern>/CheckUserIdService</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>UploadService</servlet-name>
-  	<url-pattern>/UploadService</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>PostService</servlet-name>
-  	<url-pattern>/PostService</url-pattern>
-  </servlet-mapping>
+    <display-name>Archetype Created Web Application</display-name>
+    
+    <!-- JoinController Servlet 정의 -->
+    <servlet>
+        <servlet-name>JoinController</servlet-name>
+        <display-name>JoinController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.JoinController</servlet-class>
+    </servlet>
+    
+    <!-- LoginController Servlet 정의 -->
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <display-name>LoginController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.LoginController</servlet-class>
+    </servlet>
+    
+    <!-- WeatherDataUpsertService Servlet 정의 -->
+    <servlet>
+        <servlet-name>WeatherDataUpsertService</servlet-name>
+        <display-name>WeatherDataUpsertService</display-name>
+        <description></description>
+        <servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
+    </servlet>
+    
+    <!-- CheckUserIdService Servlet 정의 -->
+    <servlet>
+        <servlet-name>CheckUserIdService</servlet-name>
+        <display-name>CheckUserIdService</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.CheckUserIdService</servlet-class>
+    </servlet>
+    
+    <!-- Additional servlet definitions from the second version -->
+    <servlet>
+        <servlet-name>CheckUserNickService</servlet-name>
+        <display-name>CheckUserNickService</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.CheckUserNickService</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>FindIdController</servlet-name>
+        <display-name>FindIdController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.FindIdController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>FindPwController</servlet-name>
+        <display-name>FindPwController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.FindPwController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>UploadService</servlet-name>
+        <display-name>UploadService</display-name>
+        <description></description>
+        <servlet-class>com.goming.post.controller.UploadService</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>MyPageController2</servlet-name>
+        <display-name>MyPageController2</display-name>
+        <description></description>
+        <servlet-class>com.goming.mypage.controller.MyPageController2</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ImgController</servlet-name>
+        <display-name>ImgController</display-name>
+        <description></description>
+        <servlet-class>com.goming.mypage.controller.ImgController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <display-name>DeleteUser</display-name>
+        <description></description>
+        <servlet-class>com.goming.mypage.controller.DeleteUser</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>LikeController</servlet-name>
+        <display-name>LikeController</display-name>
+        <description></description>
+        <servlet-class>com.goming.like.controller.LikeController</servlet-class>
+    </servlet>
+    
+    <!-- Servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>JoinController</servlet-name>
+        <url-pattern>/JoinController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>WeatherDataUpsertService</servlet-name>
+        <url-pattern>/WeatherDataUpsertService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CheckUserIdService</servlet-name>
+        <url-pattern>/CheckUserIdService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CheckUserNickService</servlet-name>
+        <url-pattern>/CheckUserNickService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>FindIdController</servlet-name>
+        <url-pattern>/FindIdController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>FindPwController</servlet-name>
+        <url-pattern>/FindPwController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>UploadService</servlet-name>
+        <url-pattern>/UploadService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>MyPageController2</servlet-name>
+        <url-pattern>/MyPageController2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ImgController</servlet-name>
+        <url-pattern>/ImgController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/DeleteUser</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LikeController</servlet-name>
+        <url-pattern>/LikeController</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
