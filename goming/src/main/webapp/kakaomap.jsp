@@ -1,79 +1,209 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page errorPage="Error.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@page errorPage="Error.jsp"%>
+<link rel="stylesheet" href="./styles/kakaomap.css">
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>좌표로 주소를 얻어내기</title>
-    <style>
-    .map_wrap {position:relative;width:100%;height:350px;}
-    .title {font-weight:bold;display:block;}
-    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
-    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
-    .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Table and Chart Example</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./javascripts/kakaomapjs.js"></script>
 </head>
 <body>
 
-<!-- 
-	먼저 카카오 웹페이지의 형태를 생각해보자
-	
-	제일 처음에 주소를 입력받거나 카카오 맵에서 좌표를 클릭하여 지정한다
-	해당 주소를 클릭하면 날씨가 있으면 날씨정보를 db에서 바로 불러오고
-	날씨정보가 db에 없으면 날씨정보를 api부터 받아온다
-	
-	
-	
-	1. 주소를 입력하는 창
-		1.1. 입력창 만들기 
-		1.2. 카카오api에서 주소로 위도경도 알아오기 
-		1.3. ajax로 비동기 교환하기
-	
-	2. 현재 날씨를 보여주는 창
-		2.1. 새로고침 버튼같은걸 추가해서 날짜 받아오기
-		2.2. 현재 시간대를 불러와서 가장 근접한 시간 보여주기
-	
-	3. 시간별 날씨 정보를 제공하는 창
-		3.1. db에서 오늘 날씨를 불러온다
-		
-	4. 주간예보 보류
+	<div class="container">
+		<div class="map-container">
+			<!-- 카카오 맵 API가 담긴 부분 -->
+			<div class="map_wrap">
+				<div id="map"
+					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+				<div class="hAddr">
+					<span class="title">지도중심기준 행정동 주소정보</span> <span id="centerAddr"></span>
+				</div>
+			</div>
+			<p><div>
+				<input type="text" id="addressInput" placeholder="Enter Address and press Enter">
+			</div>
 
-	
-		1) html에서 해야 할 것
-			1.1. 123씩 미리 틀 만들어두기 
-				1.1.1. 아이콘 준비하기
-				1.1.2. 그래프 준비하기
-				
-			1.2. 카카오 map api 화면 띄우기
-				1.2.1. 주소로 마커와 위경도 받아오기
-				1.2.2. 마커 클릭으로 주소와 위경도 받아오기
-				
-		2) js에서 해야 할 것
-			1.1. 날씨정보 받아오는 함수 만들기
-				1.1.2. db받아오는 서블릿 만들기
-				
-			1.2. 그래프 그리기
-				1.2.1. 그래프 양식찾기
-				
 
- -->
+			<p id="result"></p>
+			<script type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
+			
+			<form id="locationForm" action="WeatherDataUpsertService"
+				method="post" style="display: none;">
+				<input type="hidden" id="latitude" name="lat" value=""> <input
+					type="hidden" id="longitude" name="lng" value="">
+			</form>
+			<button id="getInfoButton" onclick="getInfo()">지도 정보 가져오기</button>
+		</div>
 
-<div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    <div class="hAddr">
-        <span class="title">지도중심기준 행정동 주소정보</span>
-        <span id="centerAddr"></span>
-    </div>
-</div>
-<p>개발자도구를 통해 직접 확인해 보세요.</p>
-<p id="result"></p>  
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
-<script src="./javascripts/kakaomapjs.js"></script>
-<form id="locationForm" action="WeatherDataUpsertService" method="post" style="display:none;">
-    <input type="hidden" id="latitude" name="lat" value="">
-    <input type="hidden" id="longitude" name="lng" value="">
-</form>
-<button id="getInfoButton" onclick="getInfo()">지도 정보 가져오기</button>
+		<div class="table-container">
+
+			<div class="my-class">
+				<table>
+					<tr>
+						<th rowspan="2">Title 1</th>
+						<th>Title 2</th>
+						<th>Title 3</th>
+						<th>Title 4</th>
+					</tr>
+					<tr>
+						<!-- <td>Data 1-1</td> -->
+						<td>Data 1-2</td>
+						<td>Data 1-3</td>
+						<td>Data 1-4</td>
+					</tr>
+				</table>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th class="my-class">열 1</th>
+						<%
+						for (int i = 2; i <= 20; i++) {
+						%>
+						<th>셀 1-<%=i%></th>
+						<%
+						}
+						%>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					for (int row = 1; row <= 5; row++) {
+					%>
+					<tr>
+						<th class="my-class">열 <%=row%></th>
+						<%
+						for (int col = 2; col <= 20; col++) {
+						%>
+						<td>셀 <%=row%>-<%=col%></td>
+						<%
+						}
+						%>
+					</tr>
+					<%
+					}
+					%>
+				</tbody>
+			</table>
+
+			<div id="weatherGraphContainer">
+				<canvas id="weatherGraph"></canvas>
+			</div>
+		</div>
+	</div>
+
+<script>
+/* document.addEventListener('DOMContentLoaded', function() {
+            console.log('Enter key pressed!');
+    let addressInput = document.getElementById('addressInput');
+
+    addressInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            console.log('Enter key pressed!');
+            // 여기에 원하는 동작을 추가하면 됩니다.
+        }
+    });
+}); */
+</script>
+
+	<script>
+    // 날씨 데이터 (예시)
+    const weatherData = [<%for (int i = 0; i < 7; i++) {%>
+        <%=(int) (Math.random() * 30)%>,
+    <%}%>];
+    const days = ['월', '화', '수', '목', '금', '토', '일'];
+
+    // Canvas 요소 가져오기
+    const canvas = document.getElementById('weatherGraph');
+
+    // Chart.js를 사용하여 그래프 설정
+    const ctx = canvas.getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: days,
+            datasets: [{
+                label: '주간 날씨',
+                data: weatherData,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // 배경색 (옵션)
+                borderColor: 'rgba(54, 162, 235, 1)', // 선 색 (옵션)
+                borderWidth: 2, // 선 굵기 (옵션)
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)', // 데이터 포인트 색상
+                pointBorderColor: 'rgba(54, 162, 235, 1)', // 데이터 포인트 테두리 색상
+                pointRadius: 5, // 데이터 포인트 반지름
+                pointHoverRadius: 7, // 마우스 호버 시 데이터 포인트 반지름
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // Canvas의 가로 세로 비율을 유지하지 않음
+            scales: {
+                y: {
+                    beginAtZero: false // Y 축 시작 값 설정
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `Temperature: ${context.raw.toFixed(1)}°C`; // 소수점 첫째 자리까지 수치 표시
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+	<!-- <script>
+    // Kakao Map 관련 스크립트
+    function getInfo() {
+        var center = map.getCenter(); 
+        document.getElementById('latitude').value = center.getLat();
+        document.getElementById('longitude').value = center.getLng();
+        document.getElementById('locationForm').submit();
+    }
+
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = { 
+            center: new kakao.maps.LatLng(37.5665, 126.9780), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        }; 
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 주소-좌표 변환 객체를 생성합니다
+    var geocoder = new kakao.maps.services.Geocoder();
+
+    // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
+    searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+
+    // 지도 이동 이벤트를 등록합니다
+    kakao.maps.event.addListener(map, 'idle', function() {
+        searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+    });
+
+    function searchAddrFromCoords(coords, callback) {
+        // 좌표로 행정동 주소 정보를 요청합니다
+        geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);         
+    }
+
+    function displayCenterInfo(result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            for(var i = 0; i < result.length; i++) {
+                // 행정동의 region_type 값이 'H'인 정보를 찾습니다
+                if (result[i].region_type === 'H') {
+                    document.getElementById('centerAddr').innerHTML = result[i].address_name;
+                    break;
+                }
+            }
+        }    
+    }
+</script> -->
+
 </body>
 </html>
