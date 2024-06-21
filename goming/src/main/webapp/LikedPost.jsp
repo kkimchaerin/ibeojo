@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Liked Post</title>
-    <link rel="stylesheet" type="text/css" href="./styles/LikedPost.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome CDN -->
+    <link rel="stylesheet" type="text/css" href="./styles/LikedPost.css?ver2">
 </head>
 <body>
+<%@ include file="Header.jsp"%>
     <h2>좋아요 한 게시물</h2>
-    
     <div class="icons">
         <button class="icon">
             <img src="./icons/minimal.png" alt="아이콘 1">
@@ -17,8 +16,8 @@
         </button>
         <button class="icon">
             <img src="./icons/business.png" alt="아이콘 2">
-     		비즈니스
-            </button>
+            비즈니스
+        </button>
         <button class="icon">
             <img src="./icons/sporty.png" alt="아이콘 3">
             스포티
@@ -48,16 +47,23 @@
     
     <div class="gallery">
         <!-- 이미지 추가 -->
-        <img src="./images/1.jpg" alt="">
-        <img src="./images/2.jpg" alt="">
-        <img src="./images/3.jpg" alt="">
-        <img src="./images/4.jpg" alt="">
-        <img src="./images/5.jpg" alt="">
-        <img src="./images/6.jpg" alt="">
-        <img src="./images/7.jpg" alt="">
-        <img src="./images/8.jpg" alt="">
+        <img src="./images/1.jpg" alt="" onclick="openPopup('./images/1.jpg')">
+        <img src="./images/2.jpg" alt="" onclick="openPopup('./images/2.jpg')">
+        <img src="./images/3.jpg" alt="" onclick="openPopup('./images/3.jpg')">
+        <img src="./images/4.jpg" alt="" onclick="openPopup('./images/4.jpg')">
+        <img src="./images/5.jpg" alt="" onclick="openPopup('./images/5.jpg')">
+        <img src="./images/6.jpg" alt="" onclick="openPopup('./images/6.jpg')">
+        <img src="./images/7.jpg" alt="" onclick="openPopup('./images/7.jpg')">
+        <img src="./images/8.jpg" alt="" onclick="openPopup('./images/8.jpg')">
     </div>
     
-    <script src="./scripts/LikePost.js"></script>
+    <jsp:include page="Likeimg.jsp" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="./LikedPost.js"></script> <!-- 새로 추가한 부분 -->
+    
+    	<!-- bottom nav -->
+	<%@ include file="BottomNav.jsp"%>
+	
 </body>
 </html>
