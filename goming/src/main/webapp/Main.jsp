@@ -9,6 +9,7 @@
 <title>오늘의옷</title>
 <link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=1" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
+<script src="./javascripts/Post.js" defer></script>
 </head>
 <body>
 	<!-- header -->
@@ -28,7 +29,8 @@
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
 			<div class="gender">
-				<a href="#" id="men" class="">MEN</a> <a href="#" id="women">WOMEN</a>
+				<a href="#" id="men" class="">MEN</a> 
+				<a href="#" id="women">WOMEN</a>
 			</div>
 			
 			<!-- category nav -->

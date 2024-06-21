@@ -8,6 +8,7 @@
 <title>오늘의집-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=1" />
+<script src="./javascripts/Post.js" defer></script>
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
@@ -35,44 +36,44 @@
         </div>
 			</div>
       <!-- 성별 -->
-			<div class="content-wrapper">
-				<label for="gender-list" class="form-label">성별</label>
-				<ul id="gender-list">
-					<li>
-						<button type="button" class="form-btn checked" onClick="setValue('userGender', 'F', this)">여성</button>
-					</li>
-					<li>
-						<button type="button" class="form-btn" onClick="setValue('userGender', 'M', this)">남성</button>
-					</li>
-				</ul>
-			</div>
+		<div class="content-wrapper">
+			<label for="gender-list" class="form-label">성별</label>
+			<ul id="gender-list">
+				<li>
+					<button type="button" class="form-btn checked" onClick="setValue('userGender', 'F', this)">여성</button>
+				</li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('userGender', 'M', this)">남성</button>
+				</li>
+			</ul>
+		</div>
       <!-- 스타일 -->
-			<div class="content-wrapper">
-				<label for="style-list" class="form-label">스타일</label>
-				<ul id="style-list">
-					<li>
-						<button type="button" class="form-btn checked" onClick="setValue('style', '미니멀', this)">미니멀</button>
-					</li>
-					<li>
-						<button type="button" class="form-btn" onClick="setValue('style', '비즈니스', this)">비즈니스</button>
-					</li>
-					<li>
-						<button type="button" class="form-btn" onClick="setValue('style', '스포티', this)">스포티</button></li>
-					<li>
-						<button type="button" class="form-btn" onClick="setValue('style', '캐주얼', this)">캐주얼</button>
-					</li>
-				</ul>
-			</div>
+		<div class="content-wrapper">
+			<label for="style-list" class="form-label">스타일</label>
+			<ul id="style-list">
+				<li>
+					<button type="button" class="form-btn checked" onClick="setValue('style', '미니멀', this)">미니멀</button>
+				</li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('style', '비즈니스', this)">비즈니스</button>
+				</li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('style', '스포티', this)">스포티</button></li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('style', '캐주얼', this)">캐주얼</button>
+				</li>
+			</ul>
+		</div>
       <!-- 계절 -->
-			<div class="content-wrapper">
-				<label for="season-list" class="form-label">계절</label>
-				<ul id="season-list">
-					<li><button type="button" class="form-btn" onClick="setValue('season', '봄', this)">봄</button></li>
-					<li><button type="button" class="form-btn checked" onClick="setValue('season', '여름', this)">여름</button></li>
-					<li><button type="button" class="form-btn" onClick="setValue('season', '가을', this)">가을</button></li>
-					<li><button type="button" class="form-btn" onClick="setValue('season', '겨울', this)">겨울</button></li>
-				</ul>
-			</div>
+		<div class="content-wrapper">
+			<label for="season-list" class="form-label">계절</label>
+			<ul id="season-list">
+				<li><button type="button" class="form-btn" onClick="setValue('season', '봄', this)">봄</button></li>
+				<li><button type="button" class="form-btn checked" onClick="setValue('season', '여름', this)">여름</button></li>
+				<li><button type="button" class="form-btn" onClick="setValue('season', '가을', this)">가을</button></li>
+				<li><button type="button" class="form-btn" onClick="setValue('season', '겨울', this)">겨울</button></li>
+			</ul>
+		</div>
 			
       <!-- hidden -->
 			<input type="hidden" id="userGender" name="userGender" value="F">
@@ -82,28 +83,5 @@
 			<button type="submit" id="submit-btn">등록하기</button>
 		</form>
 	</main>
-
-	<script>
- 	// 이미지 업로드
-    document.getElementById('photo').addEventListener('change', function() {
-      let fileName = this.files[0] ? this.files[0].name : 'Click to add image';.366666
-      document.getElementById('file-name').textContent = fileName;
-    });
- 	
-    function setValue(hiddenInputId, value, button) {
-        document.getElementById(hiddenInputId).value = value;
-        
-        // 같은 그룹의 모든 버튼에서 checked 클래스 제거
-        const group = button.parentElement.parentElement;
-        group.querySelectorAll('.form-btn').forEach(btn => btn.classList.remove('checked'));
-        
-        // 클릭된 버튼에 checked 클래스 추가
-        button.classList.add('checked');
-        
-        console.log(hiddenInputId + ": " + value);
-    }
-    
-  </script>
-
 </body>
 </html>

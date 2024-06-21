@@ -6,4 +6,5 @@
 		INSERT INTO post_info (user_email, post_img, gender, style_tag, season, created_at)
 		VALUES (#{userEmail}, #{postImg}, #{userGender}, #{style}, #{season}, now());
 	</insert>
+	
 </mapper>
