@@ -15,16 +15,38 @@
 
 	<select id="selectuser_email"
 		parameterType="com.goming.user.model.user_DTO" resultType="int">
-		SELECT COUNT(*)
+		SELECT
+		COUNT(*)
 		FROM user_info
 		WHERE user_email = #{user_email}
 	</select>
 	<select id="selectuser_nick"
 		parameterType="com.goming.user.model.user_DTO" resultType="int">
-		SELECT COUNT(*)
+		SELECT
+		COUNT(*)
 		FROM user_info
 		WHERE user_nick = #{user_nick}
 	</select>
+
+	<select id="login"
+		parameterType="com.goming.user.model.user_DTO"
+		resultType="com.goming.user.model.user_DTO">
+		select * from user_info where user_email = #{user_email}
+		and user_pw = #{user_pw}
+	</select>
+
+	<select id="findIdByNick" parameterType="String"
+		resultType="String">
+		SELECT user_email FROM user_info WHERE user_nick =
+		#{user_nick}
+	</select>
+
+	<update id="updatePasswordByEmail"
+		parameterType="com.goming.user.model.user_DTO">
+		UPDATE user_info
+		SET user_pw = #{user_pw}
+		WHERE user_email = #{user_email}
+	</update>
 
 
 </mapper>

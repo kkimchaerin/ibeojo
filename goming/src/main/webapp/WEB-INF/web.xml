@@ -1,6 +1,6 @@
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
@@ -45,6 +45,22 @@
         <servlet-class>com.goming.user.controller.CheckUserNickService</servlet-class>
     </servlet>
 
+    <!-- FindIdController Servlet 정의 -->
+    <servlet>
+        <servlet-name>FindIdController</servlet-name>
+        <display-name>FindIdController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.FindIdController</servlet-class>
+    </servlet>
+
+    <!-- FindPwController Servlet 정의 -->
+    <servlet>
+        <servlet-name>FindPwController</servlet-name>
+        <display-name>FindPwController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.FindPwController</servlet-class>
+    </servlet>
+
     <!-- Servlet 매핑 -->
     <servlet-mapping>
         <servlet-name>JoinController</servlet-name>
@@ -71,4 +87,13 @@
         <url-pattern>/CheckUserNickService</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>FindIdController</servlet-name>
+        <url-pattern>/FindIdController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FindPwController</servlet-name>
+        <url-pattern>/FindPwController</url-pattern>
+    </servlet-mapping>
 </web-app>
