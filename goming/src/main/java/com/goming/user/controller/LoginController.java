@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet {
 			System.out.println("success");
 
 			// 이동
-			response.sendRedirect("Main.jsp");
+			response.sendRedirect("CommentController");
 		} else {
 			// 로그인 실패
 			System.out.println("LoginController : fail");
