@@ -103,18 +103,6 @@
     	<description></description>
     	<servlet-class>com.goming.comment.controller.CommentController</servlet-class>
     </servlet>
-    <servlet>
-    	<servlet-name>RainpercentController</servlet-name>
-    	<display-name>RainpercentController</display-name>
-    	<description></description>
-    	<servlet-class>com.goming.comment.controller.RainpercentController</servlet-class>
-    </servlet>
-    <servlet>
-    	<servlet-name>MosaicProcess</servlet-name>
-    	<display-name>MosaicProcess</display-name>
-    	<description></description>
-    	<servlet-class>com.goming.post.controller.MosaicProcess</servlet-class>
-    </servlet>
     
     <!-- 서블릿 매핑 정의 -->
     <servlet-mapping>
@@ -152,13 +140,5 @@
     <servlet-mapping>
     	<servlet-name>CommentController</servlet-name>
     	<url-pattern>/CommentController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-    	<servlet-name>RainpercentController</servlet-name>
-    	<url-pattern>/RainpercentController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-    	<servlet-name>MosaicProcess</servlet-name>
-    	<url-pattern>/MosaicProcess</url-pattern>
     </servlet-mapping>
 </web-app>

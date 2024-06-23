@@ -2,6 +2,7 @@ package com.goming.post.controller;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.security.Timestamp;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -43,9 +44,7 @@ request.setCharacterEncoding("UTF-8");
         System.out.println("userGender: " + userGender);
         System.out.println("style: " + style);
         System.out.println("season: " + season);
-
-        
-        
+		
 		// String userEmail, String postImg, String userGender, String style, String season
 		
 		PostDTO post = new PostDTO(userEmail, postImg, userGender, style, season); 
