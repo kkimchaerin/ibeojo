@@ -53,6 +53,7 @@ $(document).ready(function() {
                     $(".gallery-wrapper").append('<div class="empty-message"></div>');
                     $(".empty-message").load('EmptyImages.html');
                 }else{
+					$(".gallery-wrapper").find(".empty-message").remove();
                     $.each(data, function(index, post) {
                         let imgTag = $("<img>").attr("src", "post/" + post).attr("alt", data);
                         $(".gallery").append(imgTag);
