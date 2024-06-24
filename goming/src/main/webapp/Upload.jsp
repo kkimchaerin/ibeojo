@@ -81,7 +81,7 @@
 			<input type="hidden" id="season" name="season" value="여름">
 			
 			<button type="submit" id="submit-btn">등록하기</button>
-			<div  id="cancel-btn"><a src="Main.jsp">취소하기</a></div>
+			<div  id="cancel-btn"><a href="Main.jsp">취소하기</a></div>
 		</form>
 	</main>
 </body>
