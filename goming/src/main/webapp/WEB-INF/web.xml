@@ -98,7 +98,8 @@
     	<display-name>LogoutController</display-name>
     	<description></description>
     	<servlet-class>com.goming.user.controller.LogoutController</servlet-class>
-
+    </servlet>
+    <servlet>
     	<servlet-name>WeatherDataSelectAllService</servlet-name>
     	<display-name>WeatherDataSelectAllService</display-name>
     	<description></description>
@@ -170,7 +171,8 @@
 
     	<servlet-name>LogoutController</servlet-name>
     	<url-pattern>/LogoutController</url-pattern>
-
+    </servlet-mapping>
+    <servlet-mapping>
     	<servlet-name>WeatherDataSelectAllService</servlet-name>
     	<url-pattern>/WeatherDataSelectAllService</url-pattern>
 
