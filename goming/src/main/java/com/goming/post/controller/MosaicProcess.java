@@ -1,33 +1,29 @@
-package com.goming.comment.controller;
+package com.goming.post.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-public class RainpercentController extends HttpServlet {
+import com.goming.post.model.PostDAO;
+import com.goming.post.model.PostDTO;
+
+
+public class MosaicProcess extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		
-		HttpSession session = request.getSession();
+		PostDAO dao = new PostDAO();
 		
-		int rain = 30;
+		int idx = Integer.parseInt(dao.getidx());
+		String img = dao.getimg();
 		
-		if(rain >= 20) {
-			String rainper = "비가 올 것 같아요 우산을 챙겨주세요!";
-			session.setAttribute("rainper", rainper);
-		}
-		
-		
-		
-		
-		response.sendRedirect("Main.jsp");
+		response.sendRedirect("http://192.168.219.62:5050/mosaic?idx="+idx+"&img="+img);
 		
 	}
 

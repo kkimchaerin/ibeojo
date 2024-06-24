@@ -6,4 +6,26 @@
 		INSERT INTO post_info (user_email, post_img, gender, style_tag, season, created_at)
 		VALUES (#{userEmail}, #{postImg}, #{userGender}, #{style}, #{season}, now());
 	</insert>
+
+	<select id="getidx" resultType="String">
+		SELECT post_idx
+		  FROM post_info
+		 ORDER BY post_idx desc
+		 LIMIT 1
+	</select>
+
+	<select id="getimg" resultType="String">
+		SELECT post_img
+		  FROM post_info
+		 ORDER BY post_idx desc
+		 LIMIT 1
+	</select>
+
+
+	<update id="updateImg" parameterType="com.goming.post.model.PostDTO">
+		UPDATE post_info 
+		SET post_img = #{postImg} 
+		WHERE post_idx = #{postIdx}
+	</update>
+
 </mapper>
