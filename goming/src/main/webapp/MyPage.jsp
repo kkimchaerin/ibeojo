@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>My Page</title>
-    <link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver1">
+    <link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver3">
 </head>
 <body>
 <%@ include file="Header.jsp"%>
@@ -35,23 +35,26 @@
 
         <div class="gallery">
         <!-- 이미지 추가 -->
-        <img src="./images/1.jpg" alt="" onclick="openPopup('./images/1.jpg')">
-        <img src="./images/2.jpg" alt="" onclick="openPopup('./images/2.jpg')">
-        <img src="./images/3.jpg" alt="" onclick="openPopup('./images/3.jpg')">
-        <img src="./images/4.jpg" alt="" onclick="openPopup('./images/4.jpg')">
-        <img src="./images/5.jpg" alt="" onclick="openPopup('./images/5.jpg')">
-        <img src="./images/6.jpg" alt="" onclick="openPopup('./images/6.jpg')">
-        <img src="./images/7.jpg" alt="" onclick="openPopup('./images/7.jpg')">
-        <img src="./images/8.jpg" alt="" onclick="openPopup('./images/8.jpg')">
+        <img src="./images/1.jpg" alt="" onclick="openPopup('./images/1.jpg', this)">
+        <img src="./images/2.jpg" alt="" onclick="openPopup('./images/2.jpg', this)">
+        <img src="./images/3.jpg" alt="" onclick="openPopup('./images/3.jpg', this)">
+        <img src="./images/4.jpg" alt="" onclick="openPopup('./images/4.jpg', this)">
+        <img src="./images/5.jpg" alt="" onclick="openPopup('./images/5.jpg', this)">
+        <img src="./images/6.jpg" alt="" onclick="openPopup('./images/6.jpg', this)">
+        <img src="./images/7.jpg" alt="" onclick="openPopup('./images/7.jpg', this)">
+        <img src="./images/8.jpg" alt="" onclick="openPopup('./images/8.jpg', this)">
     </div>
-    
-    <jsp:include page="Likeimg.jsp" />
     
         <button>좋아요 한 게시물 보기</button><br>
         <button class="red">회원탈퇴</button>
     </div>
+    <jsp:include page="Likeimg.jsp" />
+    <jsp:include page="DeleteButton.jsp" />
+    
+    <script src="Likeimg.js"></script>
+    
     <!-- bottom nav -->
-	<%@ include file="BottomNav.jsp"%>
+    <%@ include file="BottomNav.jsp"%>
 
 </body>
 </html>
