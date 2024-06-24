@@ -21,16 +21,16 @@ public class PostService extends HttpServlet {
 	        String season = request.getParameter("season");
 
 	        PostDAO dao = new PostDAO();
-	        List<PostDTO> images = dao.getImagesByFilters(gender, style, season);
+//	        List<PostDTO> images = dao.getImagesByFilters(gender, style, season);
 
 	        response.setContentType("application/json");
 	        response.setCharacterEncoding("UTF-8");
 
 	        Gson gson = new Gson();
-	        String json = gson.toJson(images);
+//	        String json = gson.toJson(images);
 
 	        PrintWriter out = response.getWriter();
-	        out.print(json);
+//	        out.print(json);
 	        out.flush();
 	    }
 

@@ -18,7 +18,7 @@ public class LikeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		LikeDTO dto = new LikeDTO();
-		LikeDAO dao = new LikeDAO();
+//		LikeDAO dao = new LikeDAO();
 		
 	}
 

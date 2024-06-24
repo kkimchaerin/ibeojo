@@ -1,79 +1,216 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page errorPage="Error.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@page errorPage="Error.jsp"%>
+<link rel="stylesheet" href="./styles/kakaomap.css">
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>좌표로 주소를 얻어내기</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Table and Chart Example</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-    .map_wrap {position:relative;width:100%;height:350px;}
-    .title {font-weight:bold;display:block;}
-    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
-    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
-    .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-</style>
+        #map {
+            width: 100%;
+            height: 350px;
+            margin-top: 20px;
+        }
+        #addressInput {
+            width: 300px; /* 너비를 조정합니다 */
+            height: 40px; /* 높이를 조정합니다 */
+            padding: 10px; /* 내부 여백을 추가합니다 */
+            font-size: 16px; /* 글씨 크기를 조정합니다 */
+            border-radius: 5px; /* 모서리를 둥글게 만듭니다 */
+            border: 1px solid #ccc; /* 테두리 색상과 두께를 설정합니다 */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* 약간의 그림자를 추가합니다 */
+            margin-bottom: 20px; /* 아래 여백을 추가합니다 */
+        }
+        .customInfoWindow {
+            width: 200px;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+<script src="./javascripts/kakaomapjs.js"></script>
 </head>
 <body>
 
-<!-- 
-	먼저 카카오 웹페이지의 형태를 생각해보자
-	
-	제일 처음에 주소를 입력받거나 카카오 맵에서 좌표를 클릭하여 지정한다
-	해당 주소를 클릭하면 날씨가 있으면 날씨정보를 db에서 바로 불러오고
-	날씨정보가 db에 없으면 날씨정보를 api부터 받아온다
-	
-	
-	
-	1. 주소를 입력하는 창
-		1.1. 입력창 만들기 
-		1.2. 카카오api에서 주소로 위도경도 알아오기 
-		1.3. ajax로 비동기 교환하기
-	
-	2. 현재 날씨를 보여주는 창
-		2.1. 새로고침 버튼같은걸 추가해서 날짜 받아오기
-		2.2. 현재 시간대를 불러와서 가장 근접한 시간 보여주기
-	
-	3. 시간별 날씨 정보를 제공하는 창
-		3.1. db에서 오늘 날씨를 불러온다
-		
-	4. 주간예보 보류
+	<div class="container">
+		<div class="map-container">
+			<!-- 카카오 맵 API가 담긴 부분 -->
+			<div class="map_wrap">
+				<div id="map"
+					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+				<div class="hAddr">
+					<span class="title">지도중심기준 행정동 주소정보</span> <span id="centerAddr"></span>
+				</div>
+			</div>
+			<p><div>
+				<input type="text" id="addressInput" placeholder="Enter Address and press Enter">
+			</div>
 
-	
-		1) html에서 해야 할 것
-			1.1. 123씩 미리 틀 만들어두기 
-				1.1.1. 아이콘 준비하기
-				1.1.2. 그래프 준비하기
-				
-			1.2. 카카오 map api 화면 띄우기
-				1.2.1. 주소로 마커와 위경도 받아오기
-				1.2.2. 마커 클릭으로 주소와 위경도 받아오기
-				
-		2) js에서 해야 할 것
-			1.1. 날씨정보 받아오는 함수 만들기
-				1.1.2. db받아오는 서블릿 만들기
-				
-			1.2. 그래프 그리기
-				1.2.1. 그래프 양식찾기
-				
 
- -->
+			<p id="result"></p>
+			<script type="text/javascript"
+				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
+			
+<!-- 			<form id="locationForm" action="WeatherDataUpsertService"
+				method="post" style="display: none;">
+				<input type="hidden" id="latitude" name="lat" value=""> <input
+					type="hidden" id="longitude" name="lng" value="">
+			</form> -->
+			<button id="getInfoButton" onclick="fetchWeatherAndSaveToDBs()">지도 정보 가져오기</button>
+		</div>
 
-<div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    <div class="hAddr">
-        <span class="title">지도중심기준 행정동 주소정보</span>
-        <span id="centerAddr"></span>
-    </div>
-</div>
-<p>개발자도구를 통해 직접 확인해 보세요.</p>
-<p id="result"></p>  
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
-<script src="./javascripts/kakaomapjs.js"></script>
-<form id="locationForm" action="WeatherDataUpsertService" method="post" style="display:none;">
-    <input type="hidden" id="latitude" name="lat" value="">
-    <input type="hidden" id="longitude" name="lng" value="">
-</form>
-<button id="getInfoButton" onclick="getInfo()">지도 정보 가져오기</button>
+		<div class="table-container">
+
+			<div class="my-class">
+				<table>
+					<tr>
+						<th rowspan="2">Title 1</th>
+						<th>Title 2</th>
+						<th>Title 3</th>
+						<th>Title 4</th>
+					</tr>
+					<tr>
+						<!-- <td>Data 1-1</td> -->
+						<td>Data 1-2</td>
+						<td>Data 1-3</td>
+						<td>Data 1-4</td>
+					</tr>
+				</table>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th class="my-class">열 1</th>
+						<%
+						for (int i = 2; i <= 20; i++) {
+						%>
+						<th>셀 1-<%=i%></th>
+						<%
+						}
+						%>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					for (int row = 1; row <= 5; row++) {
+					%>
+					<tr>
+						<th class="my-class">열 <%=row%></th>
+						<%
+						for (int col = 2; col <= 20; col++) {
+						%>
+						<td>셀 <%=row%>-<%=col%></td>
+						<%
+						}
+						%>
+					</tr>
+					<%
+					}
+					%>
+				</tbody>
+			</table>
+
+			<div id="weatherGraphContainer">
+				<canvas id="weatherGraph"></canvas>
+			</div>
+		</div>
+	</div>
+
+<script>
+/* document.addEventListener('DOMContentLoaded', function() {
+            console.log('Enter key pressed!');
+    let addressInput = document.getElementById('addressInput');
+
+    addressInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            console.log('Enter key pressed!');
+            // 여기에 원하는 동작을 추가하면 됩니다.
+        }
+    });
+}); */
+</script>
+
+	<script>
+    // 날씨 데이터 (예시)
+    const weatherData = [<%for (int i = 0; i < 7; i++) {%>
+        <%=(int) (Math.random() * 30)%>,
+    <%}%>];
+    const days = ['월', '화', '수', '목', '금', '토', '일'];
+
+    // Canvas 요소 가져오기
+    const canvas = document.getElementById('weatherGraph');
+
+    // Chart.js를 사용하여 그래프 설정
+    const ctx = canvas.getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: days,
+            datasets: [{
+                label: '주간 날씨',
+                data: weatherData,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // 배경색 (옵션)
+                borderColor: 'rgba(54, 162, 235, 1)', // 선 색 (옵션)
+                borderWidth: 2, // 선 굵기 (옵션)
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)', // 데이터 포인트 색상
+                pointBorderColor: 'rgba(54, 162, 235, 1)', // 데이터 포인트 테두리 색상
+                pointRadius: 5, // 데이터 포인트 반지름
+                pointHoverRadius: 7, // 마우스 호버 시 데이터 포인트 반지름
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // Canvas의 가로 세로 비율을 유지하지 않음
+            scales: {
+                y: {
+                    beginAtZero: false // Y 축 시작 값 설정
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `Temperature: ${context.raw.toFixed(1)}°C`; // 소수점 첫째 자리까지 수치 표시
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+
 </body>
 </html>
+
+<!-- 
+	값 대입하기
+	- db의 컬럼들
+		1. 날짜		- Data 1-2
+		2. 시간		- Data 1-3
+		3. 온도		- Title1
+		4. 습도		- Title4
+		5. 날씨상태	- Title1
+		6. 풍속   	- 
+		7. 강수확률	- Title2
+		8. 강우량		- Title3
+		9. 위도와 경도 - Data 1-4
+	
+		열1 - 온도
+		열2 - 강수확률
+		열3 - 강수량
+		열4 - 풍속
+		열5 - 습도
+	
+
+
+
+
+
+ -->
