@@ -23,9 +23,17 @@ public class PostDTO {
 
 	// 작성일자
 	private Timestamp CreatedAt;
-
+	
 	public PostDTO() {
 	}
+
+	public PostDTO(int postIdx, String postImg) {
+		super();
+		PostIdx = postIdx;
+		PostImg = postImg;
+	}
+
+
 
 	public PostDTO(int postIdx, String userEmail, String postImg, String userGender, String style, String season,
 			Timestamp createdAt) {

@@ -92,12 +92,6 @@
         <servlet-class>com.goming.like.controller.LikeController</servlet-class>
     </servlet>
     <servlet>
-    	<servlet-name>ComnetController</servlet-name>
-    	<display-name>ComnetController</display-name>
-    	<description></description>
-    	<servlet-class>com.goming.comment.controlller.ComnetController</servlet-class>
-    </servlet>
-    <servlet>
     	<servlet-name>CommentController</servlet-name>
     	<display-name>CommentController</display-name>
     	<description></description>
@@ -114,6 +108,12 @@
     	<display-name>MosaicProcess</display-name>
     	<description></description>
     	<servlet-class>com.goming.post.controller.MosaicProcess</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>UpdateService</servlet-name>
+    	<display-name>UpdateService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.UpdateService</servlet-class>
     </servlet>
     
     <!-- 서블릿 매핑 정의 -->
@@ -145,10 +145,14 @@
         <servlet-name>FindPwController</servlet-name>
         <url-pattern>/FindPwController</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
-    	<servlet-name>ComnetController</servlet-name>
-    	<url-pattern>/ComnetController</url-pattern>
+        <servlet-name>UploadService</servlet-name>
+        <url-pattern>/UploadService</url-pattern>
     </servlet-mapping>
+    
+    
+    
     <servlet-mapping>
     	<servlet-name>CommentController</servlet-name>
     	<url-pattern>/CommentController</url-pattern>
@@ -160,5 +164,9 @@
     <servlet-mapping>
     	<servlet-name>MosaicProcess</servlet-name>
     	<url-pattern>/MosaicProcess</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UpdateService</servlet-name>
+    	<url-pattern>/UpdateService</url-pattern>
     </servlet-mapping>
 </web-app>

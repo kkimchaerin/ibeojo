@@ -7,23 +7,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.goming.post.model.PostDAO;
-import com.goming.post.model.PostDTO;
 
-
-public class MosaicProcess extends HttpServlet {
+public class UpdateService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("UTF-8");
+		
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		String img = request.getParameter("img");
 		
 		PostDAO dao = new PostDAO();
 		
-		int idx = Integer.parseInt(dao.getidx());
-		String img = dao.getimg();
+		dao.updateimg(img, idx);
 		
-		response.sendRedirect("http://192.168.219.62:5050/mosaic?idx="+idx+"&img="+img);
+		response.sendRedirect("Main.jsp");
 		
 	}
 

@@ -29,7 +29,13 @@ String comment = (String)session.getAttribute("comment");
 				<img src="./icons/sun.png" alt="맑음"> <span id="temperature">28°C</span>
 				<span id="">맑음</span>
 			</div>
-			<div id="weather-comment"><%=comment + "\n" + rainper %></div>
+			<div id="weather-comment"><%=comment%>
+			<% 
+				if(rainper!=null){
+					out.print(rainper);					
+				}
+			%>
+			</div>
 		</section>
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>

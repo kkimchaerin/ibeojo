@@ -17,11 +17,15 @@ public class RainpercentController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		session.get
+		int rain = 30;
 		
-		String rainper = "비가 올 것 같아요 우산을 챙겨주세요!";
+		if(rain >= 20) {
+			String rainper = "비가 올 것 같아요 우산을 챙겨주세요!";
+			session.setAttribute("rainper", rainper);
+		}
 		
-		session.setAttribute("rainper", rainper);
+		
+		
 		
 		response.sendRedirect("Main.jsp");
 		

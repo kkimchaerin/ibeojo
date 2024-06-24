@@ -35,7 +35,7 @@
             </label>
           </div>
         </div>
-			</div>
+			</div>	
       <!-- 성별 -->
 			<div class="content-wrapper">
 				<label for="gender-list" class="form-label">성별</label>
@@ -80,6 +80,7 @@
 			<input type="hidden" id="userGender" name="userGender" value="F">
 			<input type="hidden" id="style" name="style" value="미니멀">
 			<input type="hidden" id="season" name="season" value="여름">
+			<input type="hidden" id="faceCheck" name="faceCheck" value = "OFF">
 			
 			<button type="submit" id="submit-btn">등록하기</button>
 		</form>
@@ -88,7 +89,7 @@
 	<script>
  	// 이미지 업로드
     document.getElementById('photo').addEventListener('change', function() {
-      let fileName = this.files[0] ? this.files[0].name : 'Click to add image';.366666
+      let fileName = this.files[0] ? this.files[0].name : 'Click to add image';
       document.getElementById('file-name').textContent = fileName;
     });
  	
@@ -103,7 +104,19 @@
         button.classList.add('checked');
         
         console.log(hiddenInputId + ": " + value);
-    }
+    }	
+    
+    // 얼굴인식 토글 값 추출
+    let faceCheck = "OFF";
+    	
+    document.getElementById('face-mosaic-toggle').addEventListener('click', function() {
+        if (this.checked) {
+            faceCheck = "ON";
+        } else {
+        	faceCheck = "OFF";
+        }
+    });
+    
     
   </script>
 
