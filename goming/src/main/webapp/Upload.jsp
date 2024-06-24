@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의집-업로드</title>
+<title>오늘의옷-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
-<link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=1" />
+<link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=2" />
 <script src="./javascripts/Post.js" defer></script>
 </head>
 <body>
@@ -81,6 +81,7 @@
 			<input type="hidden" id="season" name="season" value="여름">
 			
 			<button type="submit" id="submit-btn">등록하기</button>
+			<a type="button" id="cancel-btn">취소하기</a>
 		</form>
 	</main>
 </body>

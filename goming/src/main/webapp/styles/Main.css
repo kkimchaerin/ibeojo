@@ -141,30 +141,47 @@ main{
   transform: scale(1.05); /* 호버 시 이미지를 약간 확대 */
 }
 
-.gender{
+.gender-category {
   display: flex;
   gap: 25px;
   font-weight: bold;
 }
 
-.gender .checked{
-text-decoration: underline;
-text-decoration-thickness: 2px;
-}
-
-#men{
-  margin-right: 20px;
+.gender-category .checked{
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
 }
 
 .sort{
   margin-left: 650px;
+  display: flex;
+  gap: 20px;
+}
+
+.sort .checked{
+	font-weight: bold;
+	text-decoration: underline;
+	text-underline-offset: 5px;
+	text-decoration-thickness: 1px;
+}
+
+#new {
+    position: relative; /* 부모 요소로 설정 */
 }
 
 #new::after{
   content: "|";
   color: black;
   padding: 10px;
+  position: absolute;
+  top: -11px;
+  right: -25px;
+  font-weight: normal;
 }
+
+.empty-images{
+}
+
 
 /* upload */
 .upload{
