@@ -1,3 +1,5 @@
+let fetchWeatherAndSaveToDBs;
+
 document.addEventListener('DOMContentLoaded', function() {
 	// 기본 카카오 api의 화면 생성 시작 -------------------------------------------
 	let mapContainer = document.getElementById('map'); // 지도를 표시할 div 
@@ -36,10 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	let latitude;
 	let longitude;
 
- 	let addressInput = document.getElementById('addressInput');
-	addressInput.addEventListener('keypress', function(e) 
-	{
-		
+	let addressInput = document.getElementById('addressInput');
+	addressInput.addEventListener('keypress', function(e) {
+
 		if (e.key === 'Enter') {
 			e.preventDefault(); // 기본 동작 방지
 
@@ -56,23 +57,27 @@ document.addEventListener('DOMContentLoaded', function() {
 						position: coords
 					});
 
+					marker.setMap(map);
 
 					let contents = addressInput.value;
 
-					latitude = marker.latLng.getLat();
-					longitude = marker.latLng.getLng();
+					/*console.log(marker.getLat());*/
+
+					latitude = marker.getPosition().getLat();
+					longitude = marker.getPosition().getLng();
 
 					contents += '<div>위도 : ' + latitude.toFixed(4) + '</div>';
 					contents += '<div>경도 : ' + longitude.toFixed(4) + '</div>';
 
 					// 인포윈도우 표시
-					let infowindow = new kakao.maps.InfoWindow({
-						content: `<div style="width:150px;text-align:center;padding:6px 0;">${contents}</div>`
-					});
+					/*					let infowindow = new kakao.maps.InfoWindow({
+											content: `<div style="width:150px;text-align:center;padding:6px 0;">${contents}</div>`
+										});*/
 
-
+					infowindow.setContent(contents);
 					infowindow.open(map, marker);
-
+					// 버튼 활성화
+					getInfoButton.disabled = false;
 					// 지도 중심 이동
 					map.setCenter(coords);
 				} else {
@@ -194,18 +199,73 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById("locationForm").submit();
 	}
 	// 중심좌표의 값 구하기 끝남 -------------------------------------------
+
+	// 비동기통신 시작 -------------------------------------------
+
+	// db로 정보올리기 시작 -------------------------------------------
+	fetchWeatherAndSaveToDBs = function fetchWeatherAndSaveToDB() {
+
+		$.ajax({
+			type: 'POST', // HTTP 요청 방식 (POST 추천)
+			url: 'WeatherDataUpsertService', // 실제 서버에서 아이디 중복 확인을 처리하는 경로
+			data: {
+				lat: latitude,
+				lon: longitude
+			}, // 서버로 보낼 데이터 (아이디)
+			success: function(response) {
+				// 서버에서의 처리가 성공하면 이 함수가 호출됨
+				// 아직 내용은 작성중임
+				console.log("db 올리기 완료");
+				if (response.result === 1) {
+					// 성공적으로 데이터베이스에 저장된 경우
+					getWeatherFromDBs(); // 추가적인 클라이언트의 처리 로직
+				} else {
+					// 실패한 경우 처리
+					alert("DB 업소트가 실패했습니다.");
+					// 실패 처리 로직 작성
+				}
+			},
+			error: function(xhr, status, error) {
+				// 서버에서의 처리가 실패하면 이 함수가 호출됨
+				alert("AJAX 호출이 실패했습니다.");
+				console.error(xhr, status, error);
+			}
+		});
+	}
+	// db로 정보올리기 끝남 -------------------------------------------
+
+	// db로 정보받아오기 시작 -------------------------------------------
+
+	let getWeatherFromDBs = function getWeatherFromDB() {
+
+		$.ajax({
+			type: 'POST', // HTTP 요청 방식 (POST 추천)
+			url: 'WeatherDataSelectAllService', // 실제 서버에서 아이디 중복 확인을 처리하는 경로
+			success: function(response) {
+				// 서버에서의 처리가 성공하면 이 함수가 호출됨
+				// 아직 내용은 작성중임
+				getWeatherFromDBfunctions(response)
+			},
+			error: function(xhr, status, error) {
+				// 서버에서의 처리가 실패하면 이 함수가 호출됨
+				alert("AJAX 호출이 실패했습니다.");
+				console.error(xhr, status, error);
+			}
+		});
+	}
+	// db로 정보받아오기 끝남 -------------------------------------------
+
+	// db로 받아온 날씨정보로 화면 수정 시작 -------------------------------------------
+
+	let getWeatherFromDBfunctions = function getWeatherFromDBfunction(response) {
+		console.log(response);
+
+	}
+
+
+	// db로 받아온 날씨정보로 화면 수정 끝남 -------------------------------------------
+
+	// 비동기통신 끝남 -------------------------------------------
 });
 
-
-document.addEventListener('DOMContentLoaded', function() {
-            console.log('Enter key pressed!');
-    let addressInput = document.getElementById('addressInput');
-
-    addressInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            console.log('Enter key pressed!');
-            // 여기에 원하는 동작을 추가하면 됩니다.
-        }
-    });
-});
 

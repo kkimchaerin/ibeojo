@@ -2,11 +2,13 @@ package com.goming.weather.model;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.goming.weather.database.SqlSessionManager;
+
 
 public class WeatherDAO
 {
@@ -81,6 +83,35 @@ public class WeatherDAO
 		return cnt;
 	}
 
-	
+	// 게시글 전체 조회 기능
+	public List<WeatherDTO> weatherSelectAll()
+	{
+		System.out.println("WeatherDAO : ");
+		session = factory.openSession();
+		System.out.println("WeatherDAO : " + "session = factory.openSession();");
+		List<WeatherDTO> list = null;
+		System.out.println("WeatherDAO : " + "List<WeatherDTO> list = null;");
+
+		try
+		{
+			System.out.println("WeatherDAO : " + "db찾기");
+			list = session.selectList("com.goming.weather.database.weather_mapper.selectAllWeatherInfo");
+			System.out.println("WeatherDAO : " + "list = session.selectList(\"com.goming.weather.database.weather_mapper.selectAllWeatherInfo\");");
+		
+		}
+		catch (Exception e)
+		{
+			 System.out.println("전체 조회 실패..");
+			 e.printStackTrace();
+			 
+		} finally
+		{
+			session.close();
+		}
+
+		return list;
+		
+	}// boardSelectAll end
+
 	
 }

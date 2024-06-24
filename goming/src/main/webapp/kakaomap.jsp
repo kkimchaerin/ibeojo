@@ -5,10 +5,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dynamic Table and Chart Example</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 350px;
+            margin-top: 20px;
+        }
+        #addressInput {
+            width: 300px; /* 너비를 조정합니다 */
+            height: 40px; /* 높이를 조정합니다 */
+            padding: 10px; /* 내부 여백을 추가합니다 */
+            font-size: 16px; /* 글씨 크기를 조정합니다 */
+            border-radius: 5px; /* 모서리를 둥글게 만듭니다 */
+            border: 1px solid #ccc; /* 테두리 색상과 두께를 설정합니다 */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* 약간의 그림자를 추가합니다 */
+            margin-bottom: 20px; /* 아래 여백을 추가합니다 */
+        }
+        .customInfoWindow {
+            width: 200px;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
 <script src="./javascripts/kakaomapjs.js"></script>
 </head>
 <body>
@@ -32,12 +56,12 @@
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
 			
-			<form id="locationForm" action="WeatherDataUpsertService"
+<!-- 			<form id="locationForm" action="WeatherDataUpsertService"
 				method="post" style="display: none;">
 				<input type="hidden" id="latitude" name="lat" value=""> <input
 					type="hidden" id="longitude" name="lng" value="">
-			</form>
-			<button id="getInfoButton" onclick="getInfo()">지도 정보 가져오기</button>
+			</form> -->
+			<button id="getInfoButton" onclick="fetchWeatherAndSaveToDBs()">지도 정보 가져오기</button>
 		</div>
 
 		<div class="table-container">
@@ -160,50 +184,7 @@
     });
 </script>
 
-	<!-- <script>
-    // Kakao Map 관련 스크립트
-    function getInfo() {
-        var center = map.getCenter(); 
-        document.getElementById('latitude').value = center.getLat();
-        document.getElementById('longitude').value = center.getLng();
-        document.getElementById('locationForm').submit();
-    }
 
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-        mapOption = { 
-            center: new kakao.maps.LatLng(37.5665, 126.9780), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
-        }; 
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-    // 주소-좌표 변환 객체를 생성합니다
-    var geocoder = new kakao.maps.services.Geocoder();
-
-    // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-    searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-
-    // 지도 이동 이벤트를 등록합니다
-    kakao.maps.event.addListener(map, 'idle', function() {
-        searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-    });
-
-    function searchAddrFromCoords(coords, callback) {
-        // 좌표로 행정동 주소 정보를 요청합니다
-        geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);         
-    }
-
-    function displayCenterInfo(result, status) {
-        if (status === kakao.maps.services.Status.OK) {
-            for(var i = 0; i < result.length; i++) {
-                // 행정동의 region_type 값이 'H'인 정보를 찾습니다
-                if (result[i].region_type === 'H') {
-                    document.getElementById('centerAddr').innerHTML = result[i].address_name;
-                    break;
-                }
-            }
-        }    
-    }
-</script> -->
 
 </body>
 </html>

@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -292,7 +293,15 @@ public class InputData
 					skyinput = "예외상황";
 					break;
 				}
-				WeatherDTO weather = new WeatherDTO(fcstDate.get(i), fcstTime.get(i), Float.parseFloat(TMP.get(i)),
+				
+				System.out.println("InputData : 변환중");
+				System.out.println("InputData : 변환중" + fcstDate.get(i));
+				System.out.println("InputData : 변환중" + fcstTime.get(i));
+				String dates = formatDateString(fcstDate.get(i));
+				String times = formatTimeString(fcstTime.get(i));
+				System.out.println("InputData : 변환중" + dates);
+				System.out.println("InputData : 변환중" + times);
+				WeatherDTO weather = new WeatherDTO(dates, times, Float.parseFloat(TMP.get(i)),
 						Float.parseFloat(REH.get(i)), skyinput, Float.parseFloat(WSD.get(i)), POP.get(i),
 						PCP.get(i), lat, lon);
 
@@ -401,7 +410,42 @@ public class InputData
 					
 		}
 	    
-	    
+		
+	    private DateTimeFormatter dateFormatterInput = DateTimeFormatter.ofPattern("yyyyMMdd");
+	    private DateTimeFormatter dateFormatterOutput = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+	    private DateTimeFormatter timeFormatterInput = DateTimeFormatter.ofPattern("HHmm");
+	    private DateTimeFormatter timeFormatterOutput = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+	    public String formatDateString(String inputDateStr) {
+	        if (inputDateStr == null || inputDateStr.isEmpty()) {
+	            return null;
+	        }
+
+	        try {
+	            LocalDate date = LocalDate.parse(inputDateStr, dateFormatterInput);
+	            return date.format(dateFormatterOutput);
+	        } catch (Exception e) {
+	            // 처리할 수 있는 기본값 또는 예외 처리 추가
+	            e.printStackTrace();
+	            return null;
+	        }
+	    }
+
+	    public String formatTimeString(String inputTimeStr) {
+	        if (inputTimeStr == null || inputTimeStr.isEmpty()) {
+	            return null;
+	        }
+
+	        try {
+	            LocalTime time = LocalTime.parse(inputTimeStr, timeFormatterInput);
+	            return time.format(timeFormatterOutput);
+	        } catch (Exception e) {
+	            // 처리할 수 있는 기본값 또는 예외 처리 추가
+	            e.printStackTrace();
+	            return null;
+	        }
+	    }
 	    
 }
 // 현재 코드가 응집도도 낮고 결합도가 높아서 굉장히 스파게티 코드이다

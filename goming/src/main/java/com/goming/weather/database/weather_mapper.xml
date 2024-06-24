@@ -13,21 +13,34 @@
 	<!-- 날짜와 시간이 모두 일치하는 데이터 검색 -->
 	<select id="selectByFcstDateTime"
 		parameterType="com.goming.weather.model.WeatherDTO" resultType="int">
-		SELECT COUNT(*)
+		SELECT
+		COUNT(*)
 		FROM weather_info
-		WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime}
+		WHERE fcst_date = #{fcstDate} AND fcst_time =
+		#{fcstTime}
 		AND lat = #{lat} AND lon = #{lon}
 
+	</select>
+
+	<select id="selectAllWeatherInfo" resultMap="weatherResultMap">
+		select fcst_date as fcstDate, fcst_time as fcstTime, temperature, humidity,
+		weather_info as weatherInfo, wind, rainy_prob as rainy_prob,
+		precipitation, lat, lon
+		from weather_info
 	</select>
 
 
 	<!-- 새로운 날씨 정보 삽입 -->
 	<insert id="insertWeatherInfo"
 		parameterType="com.goming.weather.model.WeatherDTO">
-		INSERT INTO weather_info (fcst_date, fcst_time, temperature, humidity,
-		weather_info, wind, rainy_prob, precipitation, lat, lon)
-		VALUES (#{fcstDate}, #{fcstTime}, #{temperature}, #{humidity},
-		#{weatherInfo}, #{wind}, #{rainy_prob}, #{precipitation}, #{lat},
+		INSERT INTO weather_info (fcst_date, fcst_time,
+		temperature, humidity,
+		weather_info, wind, rainy_prob, precipitation,
+		lat, lon)
+		VALUES (#{fcstDate}, #{fcstTime}, #{temperature},
+		#{humidity},
+		#{weatherInfo}, #{wind}, #{rainy_prob}, #{precipitation},
+		#{lat},
 		#{lon})
 	</insert>
 
@@ -35,11 +48,15 @@
 	<update id="updateWeatherInfo"
 		parameterType="com.goming.weather.model.WeatherDTO">
 		UPDATE weather_info
-		SET temperature = #{temperature}, humidity = #{humidity}, weather_info =
+		SET temperature = #{temperature},
+		humidity = #{humidity}, weather_info =
 		#{weatherInfo},
-		wind = #{wind}, rainy_prob = #{rainy_prob}, precipitation =
-		#{precipitation}, lat = #{lat}, lon = #{lon}
-		WHERE fcst_date = #{fcstDate} AND fcst_time = #{fcstTime} AND lat = #{lat}
+		wind = #{wind},
+		rainy_prob = #{rainy_prob}, precipitation =
+		#{precipitation}, lat =
+		#{lat}, lon = #{lon}
+		WHERE fcst_date = #{fcstDate} AND fcst_time =
+		#{fcstTime} AND lat = #{lat}
 		AND lon = #{lon}
 	</update>
 
