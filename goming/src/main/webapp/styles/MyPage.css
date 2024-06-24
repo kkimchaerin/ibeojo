@@ -7,8 +7,12 @@ body {
     padding: 20px;
 }
 
+html {
+    margin-bottom: 100px; /
+}
+
 .content {
-    margin-top: 80px; /* Header의 높이만큼 body를 내립니다 */
+    margin-top: 100px; /* body가 헤더에 가려져서 내림 */
 }
 
 .info-container {
@@ -98,8 +102,4 @@ button {
 
 button.red {
     background-color: red;
-}
-
-h2 {
-    margin-bottom: 5px;
 }

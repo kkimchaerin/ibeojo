@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의집-업로드</title>
+<title>오늘의옷-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
-<link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=1" />
+<link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=3" />
 <script src="./javascripts/Post.js" defer></script>
 </head>
 <body>
@@ -40,10 +40,10 @@
 			<label for="gender-list" class="form-label">성별</label>
 			<ul id="gender-list">
 				<li>
-					<button type="button" class="form-btn checked" onClick="setValue('userGender', 'F', this)">여성</button>
+					<button type="button" class="form-btn checked" onClick="setValue('gender', 'F', this)">여성</button>
 				</li>
 				<li>
-					<button type="button" class="form-btn" onClick="setValue('userGender', 'M', this)">남성</button>
+					<button type="button" class="form-btn" onClick="setValue('gender', 'M', this)">남성</button>
 				</li>
 			</ul>
 		</div>
@@ -76,11 +76,12 @@
 		</div>
 			
       <!-- hidden -->
-			<input type="hidden" id="userGender" name="userGender" value="F">
+			<input type="hidden" id="gender" name="gender" value="F">
 			<input type="hidden" id="style" name="style" value="미니멀">
 			<input type="hidden" id="season" name="season" value="여름">
 			
 			<button type="submit" id="submit-btn">등록하기</button>
+			<div  id="cancel-btn"><a src="Main.jsp">취소하기</a></div>
 		</form>
 	</main>
 </body>
