@@ -12,52 +12,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의옷</title>
-<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=1" />
+<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=2" />
+<link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
-<script src="./javascripts/Post.js" defer></script>
-<script>
-$(document).ready(function() {
-    // 페이지 로딩 시 초기 이미지 로딩
-    loadInitialImages();
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./javascripts/Post.js?ver=2" defer></script>
+<script src="./javascripts/Main.js" defer></script>
+    <script>
+    $(document).ready(function() {
+        function loadInitialImages() {
+            loadImagesByFilters("M", "미니멀", "봄");
+        }
 
-    // 카테고리 변경 시 이미지 로딩
-    $(".category-btn").click(function() {
-        var gender = $(this).closest(".category-nav-wrapper").find(".gender .checked").attr("id");
-        var style = $(this).closest(".category-nav-wrapper").find(".style-category .checked img").attr("alt");
-        var season = $(this).closest(".category-nav-wrapper").find(".season-category .checked img").attr("alt");
-        
-        loadImagesByFilters(gender, style, season);
+        function loadImagesByFilters(gender, style, season) {
+            $.ajax({
+                type: "GET",
+                url: "PostLoaderService",
+                data: {
+                    gender: gender,
+                    style: style,
+                    season: season
+                },
+                success: function(data) {
+                    $("#style-name").text(style); // #style-name의 내용을 선택된 스타일로 변경
+                    
+                    console.log("Data received: ", data);
+                    
+                    $(".gallery").empty();
+                    
+                    if(data.length === 0){
+                    	console.log("empty!");
+                    	$(".gallery").html("<p>게시물이 없습니다.</p>");
+                    }else{
+                        $.each(data, function(index, post) {
+                            let imgTag = $("<img>").attr("src", "post/" + post).attr("alt", data);
+                            $(".gallery").append(imgTag);
+                        });
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    console.error("이미지 로딩 실패: " + status + ", " + error); 
+                },
+                complete: function() {
+                    $(".loading-spinner").remove(); // 로딩 스피너 제거
+                }
+            });
+        }
+
+        loadInitialImages();
+
+        $(document).on("click", ".category-btn", function() {
+            let gender = $(this).closest(".gallery-wrapper").find(".gender .checked").attr("id");
+            let style = $(this).closest(".category-nav-wrapper").find(".style-category .checked img").attr("alt");
+            let season = $(this).closest(".category-nav-wrapper").find(".season-category .checked img").attr("alt");
+            console.log("gender카테고리버튼: ", gender);
+            console.log("style카테고리버튼: ", style);
+            console.log("season카테고리버튼: ", season);
+            loadImagesByFilters(gender, style, season);
+        });
     });
 
-    // 초기 이미지 로딩 함수
-    function loadInitialImages() {
-        loadImagesByFilters("men", "미니멀", "여름");
-    }
-
-    // Ajax를 이용한 이미지 로딩 함수
-    function loadImagesByFilters(gender, style, season) {
-        $.ajax({
-            type: "GET",
-            url: "PostLoaderService", // 이미지 로딩을 처리할 서블릿 URL
-            data: {
-                gender: gender,
-                style: style,
-                season: season
-            },
-            success: function(data) {
-                $(".gallery").empty(); // 기존 이미지 모두 제거
-                $.each(data, function(index, post) {
-                    var imgTag = $("<img>").attr("src", post.postImg).attr("alt", "게시물 이미지");
-                    $(".gallery").append(imgTag);
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error("이미지 로딩 실패: " + status + ", " + error);
-            }
-        });
-    }
-});
-</script>
+    </script>
 </head>
 <body>
 	<!-- header -->
@@ -77,8 +93,8 @@ $(document).ready(function() {
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
 			<div class="gender">
-				<a href="#" id="men" class="">MEN</a> 
-				<a href="#" id="women">WOMEN</a>
+				<a href="#" id="M" class="checked">MEN</a> 
+				<a href="#" id="F">WOMEN</a>
 			</div>
 			
 			<!-- category nav -->
@@ -99,7 +115,7 @@ $(document).ready(function() {
 		</section>
 		<section class="upload">
 			<h3 class="sr-only">게시물 업로드</h3>
-			<a href="#"><img src="./icons/upload.png" alt="게시물 업로드"></a>
+			<a href="Upload.jsp"><img src="./icons/upload.png" alt="게시물 업로드"></a>
 		</section>
 	</main>
 

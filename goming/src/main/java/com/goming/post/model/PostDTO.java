@@ -76,7 +76,7 @@ public class PostDTO {
 		return Gender;
 	}
 
-	public void setUserGender(String gender) {
+	public void setGender(String gender) {
 		Gender = gender;
 	}
 

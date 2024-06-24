@@ -142,7 +142,14 @@ main{
 }
 
 .gender{
+  display: flex;
+  gap: 25px;
   font-weight: bold;
+}
+
+.gender .checked{
+text-decoration: underline;
+text-decoration-thickness: 2px;
 }
 
 #men{

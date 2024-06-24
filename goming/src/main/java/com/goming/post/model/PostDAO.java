@@ -39,22 +39,22 @@ public class PostDAO {
 	}
 	
     // 필터에 따라 포스트 이미지 리스트 가져오기
-    public List<String> getPostsByFilters(PostDTO filter) {
-        SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
-        SqlSession session = factory.openSession();
-        List<String> postImages = null;
+	public List<PostDTO> getPostsByFilters(PostDTO filter) {
+	    SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
+	    SqlSession session = factory.openSession();
+	    List<PostDTO> postImages = null;
 
-        try {
-            // MyBatis 매퍼 호출
-            postImages = session.selectList("com.goming.post.database.post_mapper.getPostsByFilters", filter);
+	    try {
+	        // MyBatis 매퍼 호출
+	        postImages = session.selectList("com.goming.post.database.post_mapper.getPostsByFilters", filter);
+	        System.out.println("Filtered Posts from DB: " + postImages);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        session.close();
+	    }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-
-        return postImages;
-    }
+	    return postImages;
+	}
 
 }

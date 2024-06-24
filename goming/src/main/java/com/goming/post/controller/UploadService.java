@@ -28,7 +28,7 @@ request.setCharacterEncoding("UTF-8");
 		ServletContext context = request.getServletContext();
 		String realFolder = context.getRealPath(saveDir);
 		System.out.println("실제 저장경로: " + realFolder);
-		
+		// 실제 저장경로: C:\Users\smhrd\git\shin\ibeojo\goming\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\goming\post
 		
 		// 파일 업로드 객체 생성
 		MultipartRequest multi = null;
