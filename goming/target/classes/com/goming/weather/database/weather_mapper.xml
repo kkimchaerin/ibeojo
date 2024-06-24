@@ -22,9 +22,25 @@
 
 	</select>
 
-	<select id="selectAllWeatherInfo" resultMap="weatherResultMap">
+	<select id="selectAllWeatherInfo" resultMap="weatherResultMap"
+		parameterType="map">
 		select fcst_date as fcstDate, fcst_time as fcstTime, temperature, humidity,
-		weather_info as weatherInfo, wind, rainy_prob as rainy_prob,
+		weather_info as weatherInfo, wind, rainy_prob as rainyProb,
+		precipitation, lat, lon
+		from weather_info
+		where fcst_date >= CURDATE()
+		and lat = #{lat}
+		and lon = #{lon}
+		order by fcst_date, fcst_time
+	</select>
+
+
+
+	<select id="selectAllWeatherInfo2" resultMap="weatherResultMap">
+		select fcst_date as
+		fcstDate, fcst_time as fcstTime, temperature, humidity,
+		weather_info as
+		weatherInfo, wind, rainy_prob as rainy_prob,
 		precipitation, lat, lon
 		from weather_info
 	</select>

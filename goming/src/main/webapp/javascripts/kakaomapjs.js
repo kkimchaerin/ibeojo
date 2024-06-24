@@ -1,5 +1,7 @@
 let fetchWeatherAndSaveToDBs;
 
+let dbing = false;
+
 document.addEventListener('DOMContentLoaded', function() {
 	// 기본 카카오 api의 화면 생성 시작 -------------------------------------------
 	let mapContainer = document.getElementById('map'); // 지도를 표시할 div 
@@ -76,8 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					infowindow.setContent(contents);
 					infowindow.open(map, marker);
-					// 버튼 활성화
-					getInfoButton.disabled = false;
+
+					if (dbing == false) {
+						// 버튼 활성화
+						getInfoButton.disabled = false;
+
+					}
+
+
 					// 지도 중심 이동
 					map.setCenter(coords);
 				} else {
@@ -118,8 +126,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				infowindow.setContent(content);
 				infowindow.open(map, marker);
 
-				// 버튼 활성화
-				getInfoButton.disabled = false;
+				if (dbing == false) {
+					// 버튼 활성화
+					getInfoButton.disabled = false;
+
+				}
 			}
 		});
 	});
@@ -204,7 +215,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// db로 정보올리기 시작 -------------------------------------------
 	fetchWeatherAndSaveToDBs = function fetchWeatherAndSaveToDB() {
-
+		// 버튼 활성화
+		dbing = true;
+		getInfoButton.disabled = true;
 		$.ajax({
 			type: 'POST', // HTTP 요청 방식 (POST 추천)
 			url: 'WeatherDataUpsertService', // 실제 서버에서 아이디 중복 확인을 처리하는 경로
@@ -241,6 +254,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		$.ajax({
 			type: 'POST', // HTTP 요청 방식 (POST 추천)
 			url: 'WeatherDataSelectAllService', // 실제 서버에서 아이디 중복 확인을 처리하는 경로
+			data: {
+				lat: latitude,
+				lon: longitude
+			},
 			success: function(response) {
 				// 서버에서의 처리가 성공하면 이 함수가 호출됨
 				// 아직 내용은 작성중임
@@ -259,7 +276,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	let getWeatherFromDBfunctions = function getWeatherFromDBfunction(response) {
 		console.log(response);
+		let weatherData = response
 
+		console.log(weatherData[0]);
+
+		dbing = false;
+		// 버튼 활성화
+		getInfoButton.disabled = false;
 	}
 
 
