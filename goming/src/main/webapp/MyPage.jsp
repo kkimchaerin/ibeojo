@@ -70,9 +70,7 @@ body {
 
 		<button>좋아요 한 게시물 보기</button>
 		<br>
-		<button>내 정보 수정하기</button>
-		<br>
-		<button class="red">회원탈퇴</button>
+		<button class="red" onclick="location.href='UserDelete.jsp'">회원탈퇴</button>
 	</div>
 </body>
 </html>
