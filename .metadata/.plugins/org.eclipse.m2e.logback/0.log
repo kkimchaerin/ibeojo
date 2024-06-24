@@ -100,3 +100,6 @@
 2024-06-22 21:06:57,728 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\User\Desktop\webpage_project\goming\ibeojo\goming\src\main\resources
 2024-06-22 21:06:57,731 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2024-06-22 21:06:57,731 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\User\Desktop\webpage_project\goming\ibeojo\goming\src\test\resources
+2024-06-24 08:46:00,498 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-06-24 08:46:48,181 [main] WARN  org.eclipse.jgit.util.FS_Win32 - Exception caught during execution of command '[bash, --login, -c, which git]' in 'C:\Users\User', return code '127', error message 'bash: which: command not found
+'
