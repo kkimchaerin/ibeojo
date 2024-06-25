@@ -8,7 +8,7 @@
 <title>오늘의옷-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=3" />
-<script src="./javascripts/Post.js" defer></script>
+<script src="./javascripts/Post.js?ver=1" defer></script>
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
