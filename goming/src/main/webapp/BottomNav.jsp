@@ -14,7 +14,7 @@
 						class="small-text">WEATHER</span>
 				</div>
 		</a></li>
-		<li class="bottom-nav-items"><a href="MyPage.jsp">
+		<li class="bottom-nav-items"><a href="MyPageController2">
 				<div class="bottom-nav-icons">
 					<img src="./icons/mypage.png" alt="마이페이지"> <span>MYPAGE</span>
 				</div>

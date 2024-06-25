@@ -6,6 +6,6 @@
 <header>
   <h1 class="header-logo"><a href="Main.jsp">오늘의옷</a></h1>
   <div class="header-menu">
-    <a href="First.jsp" id="logout">로그아웃</a>
+    <a href="LogoutController" id="logout">로그아웃</a>
   </div>
 </header>

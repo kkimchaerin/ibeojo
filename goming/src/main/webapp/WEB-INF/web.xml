@@ -80,10 +80,10 @@
     </servlet>
     
     <servlet>
-        <servlet-name>DeleteUser</servlet-name>
-        <display-name>DeleteUser</display-name>
+        <servlet-name>DeleteUserController</servlet-name>
+        <display-name>DeleteUserController</display-name>
         <description></description>
-        <servlet-class>com.goming.mypage.controller.DeleteUser</servlet-class>
+        <servlet-class>com.goming.mypage.controller.DeleteUserController</servlet-class>
     </servlet>
     
     <servlet>
@@ -93,10 +93,18 @@
         <servlet-class>com.goming.like.controller.LikeController</servlet-class>
     </servlet>
     <servlet>
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<display-name>LogoutController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.user.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
     	<servlet-name>WeatherDataSelectAllService</servlet-name>
     	<display-name>WeatherDataSelectAllService</display-name>
     	<description></description>
     	<servlet-class>com.goming.weather.controller.WeatherDataSelectAllService</servlet-class>
+
     </servlet>
     
     <!-- Servlet mappings -->
@@ -151,8 +159,8 @@
     </servlet-mapping>
     
     <servlet-mapping>
-        <servlet-name>DeleteUser</servlet-name>
-        <url-pattern>/DeleteUser</url-pattern>
+        <servlet-name>DeleteUserController</servlet-name>
+        <url-pattern>/DeleteUserController</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>
@@ -160,8 +168,14 @@
         <url-pattern>/LikeController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
     	<servlet-name>WeatherDataSelectAllService</servlet-name>
     	<url-pattern>/WeatherDataSelectAllService</url-pattern>
+
     </servlet-mapping>
     
 </web-app>
