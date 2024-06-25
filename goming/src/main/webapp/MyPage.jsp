@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
     <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 	<link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
+	<script src="./javascripts/Likeimg.js" defer></script>
 </head>
 <body>
 <%@ include file="Header.jsp"%>
@@ -52,17 +53,15 @@
         <button class="red">회원탈퇴</button>
     </div>
     <jsp:include page="Likeimg.jsp" />
-    <jsp:include page="DeleteButton.jsp" />
+    <jsp:include page="DeleteButton.jsp" />    
     
-    <script src="./javascripts/Likeimg.js"></script>
+   	<!-- upload button -->
+	<%@ include file="UploadButton.jsp"%>
     
     <!-- bottom nav -->
     <%@ include file="BottomNav.jsp"%>
-
-			}
-			%>
-		</div>
-
+	
+	</div>
 		<button>좋아요 한 게시물 보기</button>
 		<br>
 		<button class="red" onclick="location.href='UserDelete.jsp'">회원탈퇴</button>

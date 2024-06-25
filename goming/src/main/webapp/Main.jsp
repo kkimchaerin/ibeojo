@@ -62,10 +62,9 @@ String comment = (String)session.getAttribute("comment");
 				<!-- 카테고리별 필터링된 이미지 출력 -->
 			</div>
 		</section>
-		<section class="upload">
-			<h3 class="sr-only">게시물 업로드</h3>
-			<a href="Upload.jsp"><img src="./icons/upload.png" alt="게시물 업로드"></a>
-		</section>
+		
+		<!-- upload button -->
+		<%@ include file="UploadButton.jsp"%>
 	</main>
 
 	<!-- bottom nav -->

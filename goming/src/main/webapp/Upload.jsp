@@ -23,17 +23,7 @@
 				</label>
         <input type="file" accept="*.jpg,*.png,*.jpeg,*.webp,*.avif"
           id="photo" name="postImg" style="display: none;" /> 
-        <!-- 얼굴 인식 모자이크 여부  -->
-        <div class="face-mosaic-wrapper">
-          <label for="face-mosaic-toggle" class="form-label" id="face-masic-label">얼굴 모자이크</label>
-          <div class="toggle-switch">
-            <input type="checkbox" id="face-mosaic-toggle" name="faceMasaic" />
-            <label for="face-mosaic-toggle" class="toggle-label">
-              <span class="toggle-inner"></span>
-              <span class="toggle-switch"></span>
-            </label>
-          </div>
-        </div>
+
 			</div>
       <!-- 성별 -->
 		<div class="content-wrapper">
@@ -74,6 +64,17 @@
 				<li><button type="button" class="form-btn" onClick="setValue('season', '겨울', this)">겨울</button></li>
 			</ul>
 		</div>
+	<!-- 얼굴 인식 모자이크 여부  -->
+        <div class="face-mosaic-wrapper">
+          <label for="face-mosaic-toggle" class="form-label">얼굴 모자이크</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="face-mosaic-toggle" name="faceMasaic" />
+            <label for="face-mosaic-toggle" class="toggle-label">
+              <span class="toggle-inner"></span>
+              <span class="toggle-switch"></span>
+            </label>
+          </div>
+        </div>
 			
       <!-- hidden -->
 			<input type="hidden" id="gender" name="gender" value="F">
