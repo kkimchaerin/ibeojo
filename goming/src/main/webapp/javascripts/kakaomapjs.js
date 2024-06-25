@@ -1,4 +1,4 @@
-/*let fetchWeatherAndSaveToDBs;
+let fetchWeatherAndSaveToDBs;
 let weatherData;
 let dbing = false;
 
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					let contents = addressInput.value;
 
-					console.log(marker.getLat());
+					/*console.log(marker.getLat());*/
 
 					latitude = marker.getPosition().getLat();
 					longitude = marker.getPosition().getLng();
@@ -72,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					contents += '<div>경도 : ' + longitude.toFixed(4) + '</div>';
 
 					// 인포윈도우 표시
-										let infowindow = new kakao.maps.InfoWindow({
+					/*					let infowindow = new kakao.maps.InfoWindow({
 											content: `<div style="width:150px;text-align:center;padding:6px 0;">${contents}</div>`
-										});
+										});*/
 
 					infowindow.setContent(contents);
 					infowindow.open(map, marker);
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		console.log(weatherData.length);
 
-		const table = document.getElementById('dynamicTable');
+		/*const table = document.getElementById('dynamicTable');*/
 
 
 		// 현재 날짜와 시간을 문자열로 가져오기
@@ -401,4 +401,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-*/
