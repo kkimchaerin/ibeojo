@@ -23,7 +23,7 @@ public class PostDTO {
 
 	// 작성일자
 	private Timestamp CreatedAt;
-
+	
 	public PostDTO() {
 	}
 

@@ -94,6 +94,7 @@
     </servlet>
     <servlet>
 
+
     	<servlet-name>LogoutController</servlet-name>
     	<display-name>LogoutController</display-name>
     	<description></description>
@@ -104,6 +105,30 @@
     	<display-name>WeatherDataSelectAllService</display-name>
     	<description></description>
     	<servlet-class>com.goming.weather.controller.WeatherDataSelectAllService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>CommentController</servlet-name>
+    	<display-name>CommentController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.comment.controller.CommentController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>RainpercentController</servlet-name>
+    	<display-name>RainpercentController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.comment.controller.RainpercentController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>MosaicProcess</servlet-name>
+    	<display-name>MosaicProcess</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.MosaicProcess</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>UpdateService</servlet-name>
+    	<display-name>UpdateService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.UpdateService</servlet-class>
 
     </servlet>
     
@@ -178,4 +203,22 @@
 
     </servlet-mapping>
     
+    
+    
+    <servlet-mapping>
+    	<servlet-name>CommentController</servlet-name>
+    	<url-pattern>/CommentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>RainpercentController</servlet-name>
+    	<url-pattern>/RainpercentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>MosaicProcess</servlet-name>
+    	<url-pattern>/MosaicProcess</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UpdateService</servlet-name>
+    	<url-pattern>/UpdateService</url-pattern>
+    </servlet-mapping>
 </web-app>

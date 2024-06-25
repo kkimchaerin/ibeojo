@@ -1,16 +1,13 @@
-package com.goming.like.controller;
+package com.goming.comment.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.goming.like.model.LikeDAO;
-import com.goming.like.model.LikeDTO;
-
-public class LikeController extends HttpServlet {
+public class RainpercentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -18,16 +15,19 @@ public class LikeController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		LikeDTO dto = new LikeDTO();
-//		LikeDAO dao = new LikeDAO();
+		HttpSession session = request.getSession();
 		
-		int cnt = dao.sel_like(dto);
+		int rain = 30;
 		
-		if(cnt > 0) {
-			System.out.println("좋아요 반영 성공");
-		}else {
-			System.out.println("반영 실패");
+		if(rain >= 20) {
+			String rainper = "비가 올 것 같아요 우산을 챙겨주세요!";
+			session.setAttribute("rainper", rainper);
 		}
+		
+		
+		
+		
+		response.sendRedirect("Main.jsp");
 		
 	}
 

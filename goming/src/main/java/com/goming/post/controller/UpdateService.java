@@ -1,16 +1,14 @@
-package com.goming.like.controller;
+package com.goming.post.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.goming.like.model.LikeDAO;
-import com.goming.like.model.LikeDTO;
+import com.goming.post.model.PostDAO;
 
-public class LikeController extends HttpServlet {
+public class UpdateService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -18,16 +16,14 @@ public class LikeController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		LikeDTO dto = new LikeDTO();
-//		LikeDAO dao = new LikeDAO();
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		String img = request.getParameter("img");
 		
-		int cnt = dao.sel_like(dto);
+		PostDAO dao = new PostDAO();
 		
-		if(cnt > 0) {
-			System.out.println("좋아요 반영 성공");
-		}else {
-			System.out.println("반영 실패");
-		}
+		dao.updateimg(img, idx);
+		
+		response.sendRedirect("Main.jsp");
 		
 	}
 

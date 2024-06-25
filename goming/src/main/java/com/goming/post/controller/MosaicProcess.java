@@ -1,33 +1,29 @@
-package com.goming.like.controller;
+package com.goming.post.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.goming.like.model.LikeDAO;
-import com.goming.like.model.LikeDTO;
+import com.goming.post.model.PostDAO;
+import com.goming.post.model.PostDTO;
 
-public class LikeController extends HttpServlet {
+
+public class MosaicProcess extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		
-		LikeDTO dto = new LikeDTO();
-//		LikeDAO dao = new LikeDAO();
+		PostDAO dao = new PostDAO();
 		
-		int cnt = dao.sel_like(dto);
+		int idx = Integer.parseInt(dao.getidx());
+		String img = dao.getimg();
 		
-		if(cnt > 0) {
-			System.out.println("좋아요 반영 성공");
-		}else {
-			System.out.println("반영 실패");
-		}
+		response.sendRedirect("http://192.168.219.62:5050/mosaic?idx="+idx+"&img="+img);
 		
 	}
 
