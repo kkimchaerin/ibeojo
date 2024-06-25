@@ -1,15 +1,26 @@
+<%@page import="java.util.List"%>
+<%@page import="com.goming.post.model.PostDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page errorPage="Error.jsp" %>
+<%
+String rainper = (String)session.getAttribute("rainper");
+String comment = (String)session.getAttribute("comment");
+
+%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의옷</title>
-<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=1" />
+<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=6" />
+<link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
-<script src="./javascripts/Post.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./javascripts/Post.js?ver=2" defer></script>
+<script src="./javascripts/Main.js?ver=5" defer></script>
 </head>
 <body>
 	<!-- header -->
@@ -24,33 +35,35 @@
 				<img src="./icons/sun.png" alt="맑음"> <span id="temperature">28°C</span>
 				<span id="">맑음</span>
 			</div>
-			<div id="weather-comment">다소 쌀쌀한 날씨가 예상됩니다. 자켓이나 코트같은 두꺼운 외투를 챙기는게 좋겠어요</div>
+			<div id="weather-comment"><%=comment%>
+			<% 
+				if(rainper!=null){
+					out.print(rainper);					
+				}
+			%>
+			</div>
 		</section>
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
-			<div class="gender">
-				<a href="#" id="men" class="">MEN</a> 
-				<a href="#" id="women">WOMEN</a>
+			<div class="gender-category">
+				<a href="#" id="M" class="get-category checked">MEN</a> 
+				<a href="#" id="F" class="get-category">WOMEN</a>
 			</div>
 			
 			<!-- category nav -->
 			<%@ include file="CategoryNav.jsp"%>
 
 			<div class="sort">
-				<a href="#" id="new">최신순</a> <a href="#" id="popular">인기순</a>
+				<a href="#" id="new" class="checked">최신순</a> 
+				<a href="#" id="popular">인기순</a>
 			</div>
 			<div class="gallery">
-				<img src="./images/men_winter_minimal_11.png" alt="피드1"> 
-				<img src="./images/women_summer_minimal_11.png" alt="피드2"> 
-				<img src="./images/men_winter_minimal_12.png" alt="피드3"> 
-				<img src="./images/women_spring_minimal_13.png" alt="피드4"> 
-				<img src="./images/women_summer_minimal_12.png" alt="피드5"> 
-				<img src="./images/women_spring_minimal_14.png" alt="피드6"> 
+				<!-- 카테고리별 필터링된 이미지 출력 -->
 			</div>
 		</section>
 		<section class="upload">
 			<h3 class="sr-only">게시물 업로드</h3>
-			<a href="#"><img src="./icons/upload.png" alt="게시물 업로드"></a>
+			<a href="Upload.jsp"><img src="./icons/upload.png" alt="게시물 업로드"></a>
 		</section>
 	</main>
 

@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의집-업로드</title>
+<title>오늘의옷-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
-<link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=1" />
-<script src="./javascripts/Post.js" defer></script>
+<link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=3" />
+<script src="./javascripts/Post.js?ver=2" defer></script>
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
@@ -40,10 +40,10 @@
 			<label for="gender-list" class="form-label">성별</label>
 			<ul id="gender-list">
 				<li>
-					<button type="button" class="form-btn checked" onClick="setValue('userGender', 'F', this)">여성</button>
+					<button type="button" class="form-btn checked" onClick="setValue('gender', 'F', this)">여성</button>
 				</li>
 				<li>
-					<button type="button" class="form-btn" onClick="setValue('userGender', 'M', this)">남성</button>
+					<button type="button" class="form-btn" onClick="setValue('gender', 'M', this)">남성</button>
 				</li>
 			</ul>
 		</div>
@@ -68,20 +68,37 @@
 		<div class="content-wrapper">
 			<label for="season-list" class="form-label">계절</label>
 			<ul id="season-list">
-				<li><button type="button" class="form-btn" onClick="setValue('season', '봄', this)">봄</button></li>
-				<li><button type="button" class="form-btn checked" onClick="setValue('season', '여름', this)">여름</button></li>
+				<li><button type="button" class="form-btn checked" onClick="setValue('season', '봄', this)">봄</button></li>
+				<li><button type="button" class="form-btn" onClick="setValue('season', '여름', this)">여름</button></li>
 				<li><button type="button" class="form-btn" onClick="setValue('season', '가을', this)">가을</button></li>
 				<li><button type="button" class="form-btn" onClick="setValue('season', '겨울', this)">겨울</button></li>
 			</ul>
 		</div>
 			
       <!-- hidden -->
-			<input type="hidden" id="userGender" name="userGender" value="F">
+			<input type="hidden" id="gender" name="gender" value="F">
 			<input type="hidden" id="style" name="style" value="미니멀">
-			<input type="hidden" id="season" name="season" value="여름">
+			<input type="hidden" id="season" name="season" value="봄">
 			
 			<button type="submit" id="submit-btn">등록하기</button>
+			<div  id="cancel-btn"><a href="Main.jsp">취소하기</a></div>
 		</form>
 	</main>
+	<script>
+	// 얼굴인식 토글 값 추출
+    let faceCheck = "OFF";
+
+    document.getElementById('face-mosaic-toggle').addEventListener('click', function() {
+        if (this.checked) {
+            faceCheck = "ON";
+        } else {
+            faceCheck = "OFF";
+        }
+    });
+
+    document.getElementById('submit-btn').addEventListener('click', function(event) {
+        document.getElementById('faceCheck').value = faceCheck;
+    });
+    </script>
 </body>
 </html>

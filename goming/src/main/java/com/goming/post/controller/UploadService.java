@@ -28,7 +28,7 @@ request.setCharacterEncoding("UTF-8");
 		ServletContext context = request.getServletContext();
 		String realFolder = context.getRealPath(saveDir);
 		System.out.println("실제 저장경로: " + realFolder);
-		
+		// 실제 저장경로: C:\Users\smhrd\git\shin\ibeojo\goming\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\goming\post
 		
 		// 파일 업로드 객체 생성
 		MultipartRequest multi = null;
@@ -37,17 +37,18 @@ request.setCharacterEncoding("UTF-8");
 		String userEmail = "crong@gmail.com";
 //		String userEmail = multi.getParameter("userEmail");
 		String postImg = multi.getFilesystemName("postImg");
-		String userGender = multi.getParameter("userGender");
+		String gender = multi.getParameter("gender");
 		String style = multi.getParameter("style");
 		String season = multi.getParameter("season");
+		String faceCheck = multi.getParameter("faceCheck");
 		
-        System.out.println("userGender: " + userGender);
+        System.out.println("userGender: " + gender);
         System.out.println("style: " + style);
         System.out.println("season: " + season);
 		
 		// String userEmail, String postImg, String userGender, String style, String season
 		
-		PostDTO post = new PostDTO(userEmail, postImg, userGender, style, season); 
+		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season); 
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);
 		
@@ -56,9 +57,13 @@ request.setCharacterEncoding("UTF-8");
 		if(cnt > 0) {
 			out.write("<script>alert('업로드되었습니다 :)');</script>");
 			System.out.println("업로드 완료");
-			// response.sendRedirect("BoardSelectAllService"); // 데이터 전달 없이 이동만 하기 때문에 redirect 사용
-			// 전달할 데이터가 있다면 forward 사용
-			response.sendRedirect("Main.jsp");
+			
+	         if(faceCheck.equals("ON")) {
+	             response.sendRedirect("MosaicProcess");
+	          }else {
+	             response.sendRedirect("Main.jsp");
+	          }
+
 		}else {
 			System.out.println("업로드 실패");
 			response.sendRedirect("Main.jsp");

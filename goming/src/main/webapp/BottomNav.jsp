@@ -3,7 +3,7 @@
 
 <nav class="bottom-nav-wrapper">
 	<ul class="bottom-nav">
-		<li class="bottom-nav-items"><a href="#">
+		<li class="bottom-nav-items"><a href="Main.jsp">
 				<div class="bottom-nav-icons">
 					<img src="./icons/home.png" alt="홈"> <span>HOME</span>
 				</div>
