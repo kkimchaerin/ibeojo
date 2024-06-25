@@ -67,7 +67,7 @@
 		<div class="table-container">
 
 			<div class="my-class">
-				<table>
+				<table id = "daily">
 					<tr>
 						<th rowspan="2">Title 1</th>
 						<th>Title 2</th>
@@ -82,17 +82,17 @@
 					</tr>
 				</table>
 			</div>
-			<table>
+			<table id = "dynamicTable">
 				<thead>
 					<tr>
 						<th class="my-class">열 1</th>
-						<%
+<%-- 						<%
 						for (int i = 2; i <= 20; i++) {
 						%>
 						<th>셀 1-<%=i%></th>
 						<%
 						}
-						%>
+						%> --%>
 					</tr>
 				</thead>
 				<tbody>
@@ -101,13 +101,13 @@
 					%>
 					<tr>
 						<th class="my-class">열 <%=row%></th>
-						<%
+	<%-- 					<%
 						for (int col = 2; col <= 20; col++) {
 						%>
 						<td>셀 <%=row%>-<%=col%></td>
 						<%
 						}
-						%>
+						%> --%>
 					</tr>
 					<%
 					}
@@ -137,7 +137,7 @@
 
 	<script>
     // 날씨 데이터 (예시)
-    const weatherData = [<%for (int i = 0; i < 7; i++) {%>
+    const weatherDatas = [<%for (int i = 0; i < 7; i++) {%>
         <%=(int) (Math.random() * 30)%>,
     <%}%>];
     const days = ['월', '화', '수', '목', '금', '토', '일'];
@@ -153,7 +153,7 @@
             labels: days,
             datasets: [{
                 label: '주간 날씨',
-                data: weatherData,
+                data: weatherDatas,
                 backgroundColor: 'rgba(54, 162, 235, 0.2)', // 배경색 (옵션)
                 borderColor: 'rgba(54, 162, 235, 1)', // 선 색 (옵션)
                 borderWidth: 2, // 선 굵기 (옵션)
