@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.goming.post.model.PostDAO;
 import com.goming.post.model.PostDTO;
@@ -34,8 +35,9 @@ request.setCharacterEncoding("UTF-8");
 		MultipartRequest multi = null;
 		multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 		
-		String userEmail = "crong@gmail.com";
-//		String userEmail = multi.getParameter("userEmail");
+		HttpSession session = request.getSession();
+		
+		String userEmail = (String)session.getAttribute("user_email");
 		String postImg = multi.getFilesystemName("postImg");
 		String gender = multi.getParameter("gender");
 		String style = multi.getParameter("style");
@@ -43,7 +45,6 @@ request.setCharacterEncoding("UTF-8");
 		String faceCheck = multi.getParameter("faceCheck");
 		
 		System.out.println(faceCheck);
-		
         System.out.println("userGender: " + gender);
         System.out.println("style: " + style);
         System.out.println("season: " + season);

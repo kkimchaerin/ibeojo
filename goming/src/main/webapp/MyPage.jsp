@@ -12,11 +12,13 @@ String style = dto.getUser_preference();
 
 if (gender.equals("M")) {
    gender = "남자";
-} else{
+} else {
    gender = "여자";
 }
 
+// img_list를 올바른 타입으로 캐스팅
 List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
+System.out.println(img_list.get(0));
 %>
 
 <!DOCTYPE html>
@@ -27,7 +29,7 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
     <link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver3">
     <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
     <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
-	<link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
 </head>
 <body>
 <%@ include file="Header.jsp"%>
@@ -54,23 +56,23 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 
         <div class="post-title">
             <span class="post-icon">📷</span>게시물
+            <br>
         </div>
 
         <div class="gallery">
         <!-- 이미지 추가 -->
-        
-           <%
-         for (int i = 0; i < img_list.size(); i++) {
-            out.print("img src='./"+  img_list.get(i) + "alt='' onclick=openPopup('./images/1.jpg', this)>");
-
-         }
-         %>
-        
-
+        <% System.out.println(img_list.get(0)); %>
+        <% if (img_list != null && !img_list.isEmpty()) { %>
+            <% for (int i = 0; i <= 1; i++) { %>
+                <img src='./post/<%= img_list.get(i) %>' alt='이미지' onclick="openPopup('./post/<%= img_list.get(i) %>', this)">
+            <% } %>
+        <% } else { %>
+            <p>게시물이 없습니다.</p>
+        <% } %>
     </div>
     
-        <button>좋아요 한 게시물 보기</button><br>
-        <button class="red">회원탈퇴</button>
+        <button onclick="location.href='LikedPost.jsp'">좋아요 한 게시물 보기</button><br>
+        <button onclick ="location.href='UserDelete.jsp'" class="red">회원탈퇴</button>
     </div>
     <jsp:include page="Likeimg.jsp" />
     <jsp:include page="DeleteButton.jsp" />

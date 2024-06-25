@@ -48,8 +48,10 @@ public class MyPageDAO {
 
 			if (img_list != null) {
 				session.commit();
+				System.out.println("img_list 로딩 성공");
 			} else {
 				session.rollback();
+				System.out.println("img_list 로딩 실패");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
