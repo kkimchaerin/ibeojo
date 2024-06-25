@@ -8,7 +8,7 @@
 <title>오늘의옷-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=3" />
-<script src="./javascripts/Post.js?ver=2" defer></script>
+<script src="./javascripts/Post.js?ver=4" defer></script>
 </head>
 <body>
    <%@ include file="Header.jsp"%>
@@ -40,7 +40,7 @@
             <label for="gender-list" class="form-label">성별</label>
             <ul id="gender-list">
                <li>
-                  <button type="button" class="form-btn" data-value="F" onClick="setValue('userGender', 'F', this)">여성</button>
+                  <button type="button" class="form-btn checked" data-value="F" onClick="setValue('userGender', 'F', this)">여성</button>
                </li>
                <li>
                   <button type="button" class="form-btn" data-value="M" onClick="setValue('userGender', 'M', this)">남성</button>
@@ -52,7 +52,7 @@
             <label for="style-list" class="form-label">스타일</label>
             <ul id="style-list">
                <li>
-                  <button type="button" class="form-btn" data-value="미니멀" onClick="setValue('style', '미니멀', this)">미니멀</button>
+                  <button type="button" class="form-btn checked" data-value="미니멀" onClick="setValue('style', '미니멀', this)">미니멀</button>
                </li>
                <li>
                   <button type="button" class="form-btn" data-value="비즈니스" onClick="setValue('style', '비즈니스', this)">비즈니스</button>
@@ -84,5 +84,21 @@
 			<div  id="cancel-btn"><a href="Main.jsp">취소하기</a></div>
 		</form>
 	</main>
+	<script>
+		// 얼굴인식 토글 값 추출
+	    let faceCheck = "OFF";
+	
+	    document.getElementById('face-mosaic-toggle').addEventListener('click', function() {
+	        if (this.checked) {
+	            faceCheck = "ON";
+	        } else {
+	            faceCheck = "OFF";
+	        }
+	    });
+	
+	    document.getElementById('submit-btn').addEventListener('click', function(event) {
+	        document.getElementById('faceCheck').value = faceCheck;
+	    });
+    </script>
 </body>
 </html>
