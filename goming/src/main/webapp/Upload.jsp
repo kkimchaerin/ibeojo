@@ -79,6 +79,7 @@
 			<input type="hidden" id="gender" name="gender" value="F">
 			<input type="hidden" id="style" name="style" value="미니멀">
 			<input type="hidden" id="season" name="season" value="봄">
+			<input type="hidden" id="faceCheck" name="faceCheck" value = faceCheck>
 			
 			<button type="submit" id="submit-btn">등록하기</button>
 			<div  id="cancel-btn"><a href="Main.jsp">취소하기</a></div>
