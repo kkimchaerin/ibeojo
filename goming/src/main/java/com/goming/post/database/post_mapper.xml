@@ -3,8 +3,8 @@
 
 <mapper namespace="com.goming.post.database.post_mapper">
 	<insert id="postInsert" parameterType="com.goming.post.model.PostDTO">
-		INSERT INTO post_info (user_email, post_img, gender, style_tag, season, created_at)
-		VALUES (#{userEmail}, #{postImg}, #{gender}, #{style}, #{season}, now());
+		INSERT INTO post_info (user_email, post_img, gender, style_tag, season, post_contents, created_at)
+		VALUES (#{userEmail}, #{postImg}, #{gender}, #{style}, #{season}, #{comment}, now());
 	</insert>
 	
 	<!-- 필터에 따라 포스트를 검색하는 쿼리 정의 -->

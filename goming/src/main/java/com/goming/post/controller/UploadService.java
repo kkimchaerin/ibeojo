@@ -40,15 +40,16 @@ request.setCharacterEncoding("UTF-8");
 		String gender = multi.getParameter("gender");
 		String style = multi.getParameter("style");
 		String season = multi.getParameter("season");
+		String comment = multi.getParameter("comment");
 		String faceCheck = multi.getParameter("faceCheck");
 		
         System.out.println("userGender: " + gender);
         System.out.println("style: " + style);
         System.out.println("season: " + season);
-		
-		// String userEmail, String postImg, String userGender, String style, String season
-		
-		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season); 
+        System.out.println("comment: " + comment);
+				
+		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season, comment); 
+		System.out.println("post확인: " + post.getComment());
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);
 		

@@ -20,6 +20,8 @@ public class PostDTO {
 
 	// 계절
 	private String Season;
+	
+	private String Comment;
 
 	// 작성일자
 	private Timestamp CreatedAt;
@@ -27,7 +29,7 @@ public class PostDTO {
 	public PostDTO() {
 	}
 
-	public PostDTO(int postIdx, String userEmail, String postImg, String gender, String style, String season,
+	public PostDTO(int postIdx, String userEmail, String postImg, String gender, String style, String season, String comment,
 			Timestamp createdAt) {
 		super();
 		PostIdx = postIdx;
@@ -36,16 +38,18 @@ public class PostDTO {
 		Gender = gender;
 		Style = style;
 		Season = season;
+		Comment = comment;
 		CreatedAt = createdAt;
 	}
 
-	public PostDTO(String userEmail, String postImg, String gender, String style, String season) {
+	public PostDTO(String userEmail, String postImg, String gender, String style, String season, String comment) {
 		super();
 		UserEmail = userEmail;
 		PostImg = postImg;
 		Gender = gender;
 		Style = style;
 		Season = season;
+		Comment = comment;
 	}
 
 	public int getPostIdx() {
@@ -94,6 +98,14 @@ public class PostDTO {
 
 	public void setSeason(String season) {
 		Season = season;
+	}
+	
+	public String getComment() {
+		return Comment;
+	}
+
+	public void setComment(String comment) {
+		Comment = comment;
 	}
 
 	public Timestamp getCreatedAt() {

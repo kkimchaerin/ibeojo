@@ -64,6 +64,11 @@
 				<li><button type="button" class="form-btn" onClick="setValue('season', '겨울', this)">겨울</button></li>
 			</ul>
 		</div>
+	<!-- 코멘트 -->
+		<div class="content-wrapper">
+			<label for="comment" class="form-label">코멘트</label>
+			<textarea id="comment" name="comment" rows="5" maxlength="300"></textarea>
+		</div>
 	<!-- 얼굴 인식 모자이크 여부  -->
         <div class="face-mosaic-wrapper">
           <label for="face-mosaic-toggle" class="form-label">얼굴 모자이크</label>
