@@ -36,7 +36,7 @@
         <servlet-class>com.goming.user.controller.CheckUserIdService</servlet-class>
     </servlet>
     
-    <!-- CheckUserNickService Servlet 정의 -->
+    <!-- Additional servlet definitions from the second version -->
     <servlet>
         <servlet-name>CheckUserNickService</servlet-name>
         <display-name>CheckUserNickService</display-name>
@@ -44,7 +44,6 @@
         <servlet-class>com.goming.user.controller.CheckUserNickService</servlet-class>
     </servlet>
     
-    <!-- FindIdController Servlet 정의 -->
     <servlet>
         <servlet-name>FindIdController</servlet-name>
         <display-name>FindIdController</display-name>
@@ -52,7 +51,6 @@
         <servlet-class>com.goming.user.controller.FindIdController</servlet-class>
     </servlet>
     
-    <!-- FindPwController Servlet 정의 -->
     <servlet>
         <servlet-name>FindPwController</servlet-name>
         <display-name>FindPwController</display-name>
@@ -60,36 +58,53 @@
         <servlet-class>com.goming.user.controller.FindPwController</servlet-class>
     </servlet>
     
-    <!-- 추가적인 서블릿 정의 -->
     <servlet>
         <servlet-name>UploadService</servlet-name>
         <display-name>UploadService</display-name>
         <description></description>
         <servlet-class>com.goming.post.controller.UploadService</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>MyPageController2</servlet-name>
         <display-name>MyPageController2</display-name>
         <description></description>
         <servlet-class>com.goming.mypage.controller.MyPageController2</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>ImgController</servlet-name>
         <display-name>ImgController</display-name>
         <description></description>
         <servlet-class>com.goming.mypage.controller.ImgController</servlet-class>
     </servlet>
+    
     <servlet>
-        <servlet-name>DeleteUser</servlet-name>
-        <display-name>DeleteUser</display-name>
+        <servlet-name>DeleteUserController</servlet-name>
+        <display-name>DeleteUserController</display-name>
         <description></description>
-        <servlet-class>com.goming.mypage.controller.DeleteUser</servlet-class>
+        <servlet-class>com.goming.mypage.controller.DeleteUserController</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>LikeController</servlet-name>
         <display-name>LikeController</display-name>
         <description></description>
         <servlet-class>com.goming.like.controller.LikeController</servlet-class>
+    </servlet>
+    <servlet>
+
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<display-name>LogoutController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.user.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>WeatherDataSelectAllService</servlet-name>
+    	<display-name>WeatherDataSelectAllService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.weather.controller.WeatherDataSelectAllService</servlet-class>
     </servlet>
     <servlet>
     	<servlet-name>CommentController</servlet-name>
@@ -114,33 +129,40 @@
     	<display-name>UpdateService</display-name>
     	<description></description>
     	<servlet-class>com.goming.post.controller.UpdateService</servlet-class>
+
     </servlet>
     
-    <!-- 서블릿 매핑 정의 -->
+    <!-- Servlet mappings -->
     <servlet-mapping>
         <servlet-name>JoinController</servlet-name>
         <url-pattern>/JoinController</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>WeatherDataUpsertService</servlet-name>
         <url-pattern>/WeatherDataUpsertService</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>CheckUserIdService</servlet-name>
         <url-pattern>/CheckUserIdService</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>CheckUserNickService</servlet-name>
         <url-pattern>/CheckUserNickService</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>FindIdController</servlet-name>
         <url-pattern>/FindIdController</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>FindPwController</servlet-name>
         <url-pattern>/FindPwController</url-pattern>
@@ -149,6 +171,36 @@
     <servlet-mapping>
         <servlet-name>UploadService</servlet-name>
         <url-pattern>/UploadService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>MyPageController2</servlet-name>
+        <url-pattern>/MyPageController2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ImgController</servlet-name>
+        <url-pattern>/ImgController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteUserController</servlet-name>
+        <url-pattern>/DeleteUserController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LikeController</servlet-name>
+        <url-pattern>/LikeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>WeatherDataSelectAllService</servlet-name>
+    	<url-pattern>/WeatherDataSelectAllService</url-pattern>
+
     </servlet-mapping>
     
     

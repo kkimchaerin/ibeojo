@@ -2,11 +2,15 @@ package com.goming.weather.model;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.goming.weather.database.SqlSessionManager;
+
 
 public class WeatherDAO
 {
@@ -74,6 +78,7 @@ public class WeatherDAO
 		} finally
 		{
 			session.close();
+			System.out.println("WeatherDAO : 닫힘성공");
 		}
 
 		
@@ -81,6 +86,42 @@ public class WeatherDAO
 		return cnt;
 	}
 
-	
+	// 게시글 전체 조회 기능
+	public List<WeatherDTO> weatherSelectAll(float lat, float lon)
+	{
+		System.out.println("WeatherDAO : ");
+		session = factory.openSession();
+		System.out.println("WeatherDAO : " + "session = factory.openSession();");
+		List<WeatherDTO> list = null;
+		System.out.println("WeatherDAO : " + "List<WeatherDTO> list = null;");
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("lat", lat);
+		params.put("lon", lon);
+		System.out.println("WeatherDAO : lat" + lat);
+		System.out.println("WeatherDAO : lon" + lon);
+		
+		try
+		{
+			System.out.println("WeatherDAO : " + "db찾기");
+			list = session.selectList("com.goming.weather.database.weather_mapper.selectAllWeatherInfo", params);
+			System.out.println("WeatherDAO : " + "list = session.selectList(\"com.goming.weather.database.weather_mapper.selectAllWeatherInfo\");");
+		
+		}
+		catch (Exception e)
+		{
+			 System.out.println("전체 조회 실패..");
+			 e.printStackTrace();
+			 
+		} finally
+		{
+			session.close();
+			System.out.println("WeatherDAO : 닫힘성공");
+		}
+
+		return list;
+		
+	}// boardSelectAll end
+
 	
 }
