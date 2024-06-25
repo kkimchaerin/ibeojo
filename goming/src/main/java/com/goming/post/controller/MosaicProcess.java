@@ -23,7 +23,7 @@ public class MosaicProcess extends HttpServlet {
 		int idx = Integer.parseInt(dao.getidx());
 		String img = dao.getimg();
 		
-		response.sendRedirect("http://192.168.219.62:5050/mosaic?idx="+idx+"&img="+img);
+		response.sendRedirect("http://192.168.219.47:5050/mosaic?idx="+idx+"&img="+img);
 		
 	}
 
