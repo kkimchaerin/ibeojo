@@ -55,12 +55,6 @@ display: flex;
 flex-direction: row;
 }
 
-#face-mosaic-wrapper{
-}
-
-#face-masic-label{
-  font-size: 13px;
-}
 
 /* Toggle switch styles */
 .toggle-switch {
