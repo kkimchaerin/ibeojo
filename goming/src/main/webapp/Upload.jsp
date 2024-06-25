@@ -160,13 +160,6 @@
         }
     });
 
-    document.getElementById('gender-list').addEventListener('click', function() {
-        console.log(userGender);
-        console.log(style);
-        console.log(season);
-        console.log(faceCheck)
-    });
-
     document.getElementById('submit-btn').addEventListener('click', function(event) {
         document.getElementById('faceCheck').value = faceCheck;
     });

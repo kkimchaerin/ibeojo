@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@page errorPage="Error.jsp" %>
 <%
-String rainper = (String)session.getAttribute("rainper");
-String comment = (String)session.getAttribute("comment");
+String rainper = (String)request.getAttribute("rainper");
+String comment = (String)request.getAttribute("comment");
 
 %>
 
