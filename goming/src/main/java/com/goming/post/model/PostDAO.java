@@ -1,8 +1,6 @@
 package com.goming.post.model;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -91,27 +89,5 @@ public class PostDAO {
 		return s;
 	}
 	
-	public int updateimg(String post_img, int post_idx) {
-		session = factory.openSession();
-		int cnt = 0;
-		
-		PostDTO dto = new PostDTO(post_idx, post_img);
-		
-		
-		try {
-			cnt = session.update("com.goming.post.database.post_mapper.updateImg", dto);
-			if(cnt > 0) {
-				session.commit();
-			}else {
-				session.rollback();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("사진 수정 실패");
-		}finally {
-			session.close();
-		}
-		return cnt;
-	}
 	
 }
