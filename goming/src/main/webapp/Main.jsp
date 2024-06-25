@@ -22,6 +22,7 @@ String comment = (String)session.getAttribute("comment");
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
 <script src="./javascripts/Main.js?ver=5" defer></script>
+<script src="./javascripts/ShowDetailModal.js" defer></script> 
 </head>
 <body>
 	<!-- header -->
@@ -69,6 +70,59 @@ String comment = (String)session.getAttribute("comment");
 
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>
+	
+	<!-- show detail modal -->
+	<div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+<style>
+
+
+/* Main.css */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 60px; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40%);
+    width: 60%; 
+    max-width: 700px;
+    min-width: 550px;
+    height: 70%; 
+    overflow: auto;
+    background-color: rgba(255,	255, 255, 0.9); 
+    box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
 
 </body>
 </html>

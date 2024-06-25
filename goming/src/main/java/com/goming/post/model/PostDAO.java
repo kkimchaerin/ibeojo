@@ -42,19 +42,19 @@ public class PostDAO {
 	public List<PostDTO> getPostsByFilters(PostDTO filter) {
 	    SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
 	    SqlSession session = factory.openSession();
-	    List<PostDTO> postImages = null;
+	    List<PostDTO> postList = null;
 
 	    try {
 	        // MyBatis 매퍼 호출
-	        postImages = session.selectList("com.goming.post.database.post_mapper.getPostsByFilters", filter);
-	        System.out.println("Filtered Posts from DB: " + postImages);
+	    	postList = session.selectList("com.goming.post.database.post_mapper.getPostsByFilters", filter);
+	        System.out.println("Filtered Posts from DB: " + postList);
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
 	        session.close();
 	    }
 
-	    return postImages;
+	    return postList;
 	}
 
 	public String getidx() {

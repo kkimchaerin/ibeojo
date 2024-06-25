@@ -36,11 +36,10 @@ public class PostLoaderService extends HttpServlet {
         PostDAO postDAO = new PostDAO();
         List<PostDTO> filteredPosts = postDAO.getPostsByFilters(filter);
         
-        // 로깅 추가
-        System.out.println("gender!!" + gender);
-        System.out.println("style!!" + style);
-        System.out.println("season!!" + season);
-        System.out.println("PostLoaderService!!: " + filteredPosts);
+//        System.out.println("gender!!" + gender);
+//        System.out.println("style!!" + style);
+//        System.out.println("season!!" + season);
+//        System.out.println("PostLoaderService!!: " + filteredPosts);
 
         // JSON 형식으로 응답
         response.setContentType("application/json");

@@ -2,14 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.goming.post.database.post_mapper">
+	<!-- 포스트 게시 -->
 	<insert id="postInsert" parameterType="com.goming.post.model.PostDTO">
 		INSERT INTO post_info (user_email, post_img, gender, style_tag, season, post_contents, created_at)
 		VALUES (#{userEmail}, #{postImg}, #{gender}, #{style}, #{season}, #{comment}, now());
 	</insert>
 	
-	<!-- 필터에 따라 포스트를 검색하는 쿼리 정의 -->
-    <select id="getPostsByFilters" parameterType="com.goming.post.model.PostDTO" resultType="java.lang.String">
-        SELECT post_img
+	<!-- 포스트 필터링 -->
+    <select id="getPostsByFilters" parameterType="com.goming.post.model.PostDTO" resultType="String">
+        SELECT post_img, post_contents
         FROM post_info
         WHERE gender = #{gender}
           AND style_tag = #{style}
