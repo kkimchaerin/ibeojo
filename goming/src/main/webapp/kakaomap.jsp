@@ -56,7 +56,6 @@
 				<div class ="loading-spinner"></div>
 			</div>
 
-
 			<p id="result"></p>
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
