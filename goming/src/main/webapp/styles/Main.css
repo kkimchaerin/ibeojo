@@ -128,19 +128,6 @@ main{
 .empty-images{
 }
 
-
-/* upload */
-.upload{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-}
-
-.upload img{
-  width: 100%;
-}
-
 .small-text { /* 긴 텍스트 글자크기 줄이기 */
   font-size: 11px; 
 }
