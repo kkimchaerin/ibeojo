@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,6 +31,15 @@ public class WeatherDataSelectAllService extends HttpServlet {
 		float lat = Float.parseFloat(request.getParameter("lat"));
 		float lon = Float.parseFloat(request.getParameter("lon"));
         
+		HttpSession session = request.getSession();
+		WeatherDTO dto = new WeatherDTO();
+		
+		dto.setLat(lat);
+		dto.setLon(lon);
+		
+		
+		session.setAttribute("locate", dto);
+		
 		System.out.println("WeatherDataSelectAllService : " +"첫진입");
 		System.out.println("WeatherDataSelectAllService : " +lat);
 		System.out.println("WeatherDataSelectAllService : " +lon);

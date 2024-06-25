@@ -64,6 +64,11 @@ public class WeatherDTO
 		System.out.println("Longitude: " + lon);
 	}
 
+	public WeatherDTO() {
+		
+	}
+	
+	
 	// Getters and setters
 	public LocalDate getFcstDate()
 	{
