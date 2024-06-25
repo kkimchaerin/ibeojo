@@ -1,6 +1,6 @@
 // 이미지 업로드 input 스타일 변경
 document.getElementById('photo').addEventListener('change', function() {
-	let fileName = this.files[0] ? this.files[0].name : 'Click to add image'; .366666
+	let fileName = this.files[0] ? this.files[0].name : 'Click to add image';
 	document.getElementById('file-name').textContent = fileName;
 });
 

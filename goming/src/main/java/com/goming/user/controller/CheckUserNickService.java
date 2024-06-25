@@ -17,7 +17,7 @@ public class CheckUserNickService extends HttpServlet
 	{
 
 		String user_nick = request.getParameter("user_nick");
-		System.out.println("CheckUserIdService : " + user_nick);
+		System.out.println("CheckUserNickService : " + user_nick);
 		
 		user_DAO dao = new user_DAO();
 		

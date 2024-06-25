@@ -1,13 +1,14 @@
 package com.goming.like.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.goming.like.model.LikeDAO;
 import com.goming.like.model.LikeDTO;
-import com.goming.ml.model.ml_DTO;
 
 public class LikeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +20,14 @@ public class LikeController extends HttpServlet {
 		
 		LikeDTO dto = new LikeDTO();
 		LikeDAO dao = new LikeDAO();
+		
+		int cnt = dao.sel_like(dto);
+		
+		if(cnt > 0) {
+			System.out.println("좋아요 반영 성공");
+		}else {
+			System.out.println("반영 실패");
+		}
 		
 	}
 

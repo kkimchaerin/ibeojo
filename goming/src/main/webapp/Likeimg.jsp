@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/Likeimg.css?ver2">
+    <script src="./javascripts/Likeimg.js" defer></script>
 </head>
 <body>
 
@@ -21,13 +22,10 @@
         <div class="popup-text">
             <!-- 하트 버튼 추가 -->
             <button class="heartBtn" onclick="addLike()">
-                <img id="heartIcon" src="./images/heart-regular.svg" alt="like"> <!-- 로컬 SVG 아이콘 사용 -->
+                <img id="heartIcon" src="./icons/heart-regular.svg" alt="like"> <!-- 로컬 SVG 아이콘 사용 -->
             </button>
         </div>
     </div>
 </div>
-
-<script src="Likeimg.js"></script>
-
 </body>
 </html>

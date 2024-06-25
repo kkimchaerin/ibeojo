@@ -80,10 +80,10 @@
     </servlet>
     
     <servlet>
-        <servlet-name>DeleteUser</servlet-name>
-        <display-name>DeleteUser</display-name>
+        <servlet-name>DeleteUserController</servlet-name>
+        <display-name>DeleteUserController</display-name>
         <description></description>
-        <servlet-class>com.goming.mypage.controller.DeleteUser</servlet-class>
+        <servlet-class>com.goming.mypage.controller.DeleteUserController</servlet-class>
     </servlet>
     
     <servlet>
@@ -91,6 +91,45 @@
         <display-name>LikeController</display-name>
         <description></description>
         <servlet-class>com.goming.like.controller.LikeController</servlet-class>
+    </servlet>
+    <servlet>
+
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<display-name>LogoutController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.user.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>WeatherDataSelectAllService</servlet-name>
+    	<display-name>WeatherDataSelectAllService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.weather.controller.WeatherDataSelectAllService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>CommentController</servlet-name>
+    	<display-name>CommentController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.comment.controller.CommentController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>RainpercentController</servlet-name>
+    	<display-name>RainpercentController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.comment.controller.RainpercentController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>MosaicProcess</servlet-name>
+    	<display-name>MosaicProcess</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.MosaicProcess</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>UpdateService</servlet-name>
+    	<display-name>UpdateService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.UpdateService</servlet-class>
+
     </servlet>
     
     <!-- Servlet mappings -->
@@ -145,13 +184,41 @@
     </servlet-mapping>
     
     <servlet-mapping>
-        <servlet-name>DeleteUser</servlet-name>
-        <url-pattern>/DeleteUser</url-pattern>
+        <servlet-name>DeleteUserController</servlet-name>
+        <url-pattern>/DeleteUserController</url-pattern>
     </servlet-mapping>
     
     <servlet-mapping>
         <servlet-name>LikeController</servlet-name>
         <url-pattern>/LikeController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>WeatherDataSelectAllService</servlet-name>
+    	<url-pattern>/WeatherDataSelectAllService</url-pattern>
+
+    </servlet-mapping>
     
+    
+    
+    <servlet-mapping>
+    	<servlet-name>CommentController</servlet-name>
+    	<url-pattern>/CommentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>RainpercentController</servlet-name>
+    	<url-pattern>/RainpercentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>MosaicProcess</servlet-name>
+    	<url-pattern>/MosaicProcess</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UpdateService</servlet-name>
+    	<url-pattern>/UpdateService</url-pattern>
+    </servlet-mapping>
 </web-app>

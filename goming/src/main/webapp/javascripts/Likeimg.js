@@ -14,7 +14,7 @@ function openPopup(imageSrc, imageElement) {
 
     // 좋아요 버튼 보이기
     var likeButton = document.querySelector(".heartBtn img");
-    likeButton.src = "./images/heart-regular.svg"; // 기본 상태 아이콘 설정
+    likeButton.src = "./icons/heart-regular.svg"; // 기본 상태 아이콘 설정
 
     // 좋아요 횟수 초기화
     likeCounter = 0;
@@ -36,10 +36,10 @@ function addLike() {
     var currentSrc = heartImg.getAttribute("src");
 
     if (currentSrc.includes("heart-regular.svg")) {
-        heartImg.src = "./images/heart-solid.svg"; // 좋아요 추가
+        heartImg.src = "./icons/heart-solid.svg"; // 좋아요 추가
         likeCounter++; // 좋아요 횟수 증가
     } else {
-        heartImg.src = "./images/heart-regular.svg"; // 좋아요 취소
+        heartImg.src = "./icons/heart-regular.svg"; // 좋아요 취소
         likeCounter--; // 좋아요 횟수 감소
     }
 

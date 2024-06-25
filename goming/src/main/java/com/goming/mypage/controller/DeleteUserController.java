@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.goming.mypage.model.MyPageDAO;
 import com.goming.mypage.model.MyPageDTO;
 
-public class DeleteUser extends HttpServlet {
+public class DeleteUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String email = (String)request.getAttribute("email");
-		String nickname = (String)request.getAttribute("nickname");
-		String password = (String)request.getAttribute("password");
+		String email = request.getParameter("user_email");
+		String nickname = request.getParameter("user_nick");
+		String password = request.getParameter("user_pw");
 		
 		MyPageDTO dto = new MyPageDTO();
 		MyPageDAO dao = new MyPageDAO();
@@ -32,7 +32,7 @@ public class DeleteUser extends HttpServlet {
 		
 		if(cnt > 0) {
 			System.out.println("회원 탈퇴 성공");
-			response.sendRedirect("Fisrt_Page.jsp");
+			response.sendRedirect("First.jsp");
 		}else {
 			System.out.println("회원 탈퇴 실패");
 			response.sendRedirect("UserDelete.jsp");
