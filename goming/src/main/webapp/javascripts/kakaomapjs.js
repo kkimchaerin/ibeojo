@@ -276,9 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	let getWeatherFromDBfunctions = function getWeatherFromDBfunction(response) {
 		console.log(response);
-		let weatherData = response
-
-		console.log(weatherData[0]);
+		let weatherData = response;
 
 		dbing = false;
 		// 버튼 활성화
