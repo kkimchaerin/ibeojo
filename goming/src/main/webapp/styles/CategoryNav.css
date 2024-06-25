@@ -1,0 +1,55 @@
+@charset "UTF-8";
+@import "Reset.css";
+
+/* category nav */
+.category-nav-wrapper{
+  display: flex;
+}
+
+.style-category{
+  padding-right: 20px;
+  border-right: 2px solid black;
+}
+
+.season-category{
+  padding-left: 20px;
+}
+
+/* category-list */
+.category-list{
+  width: 100px;
+  display: flex;
+  gap: 10px;
+  color: black;
+  font-size: 14px;
+  width: 100%;
+} 
+
+.category-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border: 0.5px solid #b1b1b1;
+  border-radius: 15px;
+  padding: 0 10px;
+  background-color: white;
+  box-shadow: inset 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.category-btn:hover{
+  cursor: pointer;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+.category-btn.checked{
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+.category-list img{
+  width: 40px;
+}

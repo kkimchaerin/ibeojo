@@ -8,7 +8,7 @@
 <title>오늘의옷-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=3" />
-<script src="./javascripts/Post.js" defer></script>
+<script src="./javascripts/Post.js?ver=1" defer></script>
 </head>
 <body>
    <%@ include file="Header.jsp"%>
@@ -173,5 +173,13 @@
     });
   </script>
 
+			<input type="hidden" id="gender" name="gender" value="F">
+			<input type="hidden" id="style" name="style" value="미니멀">
+			<input type="hidden" id="season" name="season" value="여름">
+			
+			<button type="submit" id="submit-btn">등록하기</button>
+			<div  id="cancel-btn"><a href="Main.jsp">취소하기</a></div>
+		</form>
+	</main>
 </body>
 </html>
