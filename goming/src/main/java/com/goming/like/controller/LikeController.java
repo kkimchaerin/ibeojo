@@ -19,7 +19,15 @@ public class LikeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		LikeDTO dto = new LikeDTO();
-//		LikeDAO dao = new LikeDAO();
+		LikeDAO dao = new LikeDAO();
+		
+		int cnt = dao.sel_like(dto);
+		
+		if(cnt > 0) {
+			System.out.println("좋아요 반영 성공");
+		}else {
+			System.out.println("반영 실패");
+		}
 		
 	}
 

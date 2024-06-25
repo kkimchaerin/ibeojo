@@ -2,6 +2,13 @@
 <%@page import="com.goming.post.model.PostDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page errorPage="Error.jsp" %>
+<%
+String rainper = (String)session.getAttribute("rainper");
+String comment = (String)session.getAttribute("comment");
+
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,10 +16,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의옷</title>
 <link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=6" />
+<link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./javascripts/Post.js?ver=2" defer></script>
+<script src="./javascripts/Post.js?ver=3" defer></script>
 <script src="./javascripts/Main.js?ver=5" defer></script>
 </head>
 <body>
@@ -28,7 +36,13 @@
 				<img src="./icons/sun.png" alt="맑음"> <span id="temperature">28°C</span>
 				<span id="">맑음</span>
 			</div>
-			<div id="weather-comment">다소 쌀쌀한 날씨가 예상됩니다. 자켓이나 코트같은 두꺼운 외투를 챙기는게 좋겠어요</div>
+			<div id="weather-comment"><%=comment%>
+			<% 
+				if(rainper!=null){
+					out.print(rainper);					
+				}
+			%>
+			</div>
 		</section>
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
