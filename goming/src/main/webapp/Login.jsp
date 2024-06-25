@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의옷-로그인</title>
+<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./styles/Login.css?ver=3" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 </head>

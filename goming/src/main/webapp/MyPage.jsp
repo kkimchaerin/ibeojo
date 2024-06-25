@@ -3,12 +3,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>오늘의옷-마이페이지</title>
+    <title>My Page</title>
     <link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver3">
-    <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
-    <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
-	<link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
-	<script src="./javascripts/Likeimg.js?ver=2" defer></script>
 </head>
 <body>
 <%@ include file="Header.jsp"%>
@@ -32,8 +28,6 @@
                 <span class="info-box">선호스타일</span>
             </div>
         </div>
-        
-        
 
         <div class="post-title">
             <span class="post-icon">📷</span>게시물
@@ -57,10 +51,18 @@
     <jsp:include page="Likeimg.jsp" />
     <jsp:include page="DeleteButton.jsp" />
     
-
+    <script src="Likeimg.js"></script>
     
     <!-- bottom nav -->
     <%@ include file="BottomNav.jsp"%>
 
+			}
+			%>
+		</div>
+
+		<button>좋아요 한 게시물 보기</button>
+		<br>
+		<button class="red" onclick="location.href='UserDelete.jsp'">회원탈퇴</button>
+	</div>
 </body>
 </html>
