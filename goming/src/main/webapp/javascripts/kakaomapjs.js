@@ -1,5 +1,5 @@
 let fetchWeatherAndSaveToDBs;
-
+let weatherData;
 let dbing = false;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -276,17 +276,126 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	let getWeatherFromDBfunctions = function getWeatherFromDBfunction(response) {
 		console.log(response);
-		let weatherData = response;
+		weatherData = response;
 
 		console.log(weatherData.length);
+
+		/*const table = document.getElementById('dynamicTable');*/
+
+
+		// 현재 날짜와 시간을 문자열로 가져오기
+		const currentDateTimeString = getCurrentDateTime();
+		const nearestData = findNearestData(weatherData, currentDateTimeString);
+
+		console.log(nearestData);
+
+		for (let i = 1; i < weatherData.length; i++) {
+			addtable(weatherData[i]);
+		}
 
 		dbing = false;
 		// 버튼 활성화
 		getInfoButton.disabled = false;
 	}
 
+	let addtable = function addColumn(weatherData) {
+		// 테이블 요소 가져오기
+		const table = document.getElementById('dynamicTable');
+
+		// thead 행에 셀 추가
+		const thead = table.querySelector('thead');
+		const headerRow = thead.rows[0];
+		const newHeaderCell = document.createElement('th');
+		newHeaderCell.textContent = `셀 1-${headerRow.cells.length + 1}`;
+		headerRow.appendChild(newHeaderCell);
+
+		// tbody 행에 셀 추가
+		const tbody = table.querySelector('tbody');
+		for (let row of tbody.rows) {
+			const newCell = document.createElement('td');
+			newCell.textContent = `셀 ${row.rowIndex}-${row.cells.length + 1}`;
+			row.appendChild(newCell);
+		}
+	}
 
 	// db로 받아온 날씨정보로 화면 수정 끝남 -------------------------------------------
+
+	// 최근의 날씨 찾기 코드 시작  -------------------------------------------
+
+	// 현재 시간을 계산하는 함수
+	function getCurrentDateTime() {
+		const now = new Date();
+		const year = now.getFullYear();
+		const month = String(now.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요, 2자리 숫자로 변환
+		const date = String(now.getDate()).padStart(2, '0'); // 날짜는 2자리 숫자로 변환
+		const hours = String(now.getHours()).padStart(2, '0'); // 시간은 2자리 숫자로 변환
+		const minutes = String(now.getMinutes()).padStart(2, '0'); // 분은 2자리 숫자로 변환
+		const seconds = String(now.getSeconds()).padStart(2, '0'); // 초는 2자리 숫자로 변환
+		return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+	}
+
+
+
+	function convertTo24Hour(time) {
+		const [timePart, period] = time.split(' ');
+		let [hour, minute, second] = timePart.split(':').map(Number);
+
+		if (period === '오전' && hour === 12) {
+			hour = 0;
+		} else if (period === '오후' && hour !== 12) {
+			hour += 12;
+		}
+
+		return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
+	}
+
+	function findNearestData(dataArray, currentDateTime) {
+		let nearestData = null;
+		let minDifference = Infinity;
+		console.log("dataArray : " + dataArray);
+
+		for (let data of dataArray) {
+			console.log("읽기");
+			// 데이터의 날짜와 시간을 하나의 문자열로 합치기
+
+			const month = data.fcstDate.month < 10 ? '0' + data.fcstDate.month : data.fcstDate.month;
+			const day = data.fcstDate.day < 10 ? '0' + data.fcstDate.day : data.fcstDate.day;
+
+			// fcstTime을 24시간 형식으로 변환
+			const fcstTime24Hour = convertTo24Hour(data.fcstTime);
+			const dataDateTime = `${data.fcstDate.year}-${month}-${day}T${fcstTime24Hour}`;
+
+			console.log("data : " + data);
+			console.log("fcstDate : " + data.fcstDate);
+			console.log("fcstTime : " + data.fcstTime);
+			console.log("fcstTime24Hour : " + fcstTime24Hour);
+			console.log("dataDateTime : " + dataDateTime);
+			console.log("Date(dataDateTime).getTime() : " + new Date(dataDateTime).getTime());
+
+			const currentDateTimeISO = currentDateTime.replace(' ', 'T');
+			// 데이터의 날짜와 현재 시간의 차이 계산
+			const dateTimeDifference = Math.abs(new Date(dataDateTime).getTime() - new Date(currentDateTimeISO).getTime());
+
+			console.log("currentDateTime : " + currentDateTime);
+			console.log("currentDateTimeISO : " + currentDateTimeISO);
+			console.log("Date(currentDateTimeISO).getTime() : " + new Date(currentDateTimeISO).getTime());
+			console.log("값입니다" + dateTimeDifference);
+
+			// 가장 작은 차이를 가진 데이터 찾기
+			if (dateTimeDifference < minDifference) {
+				minDifference = dateTimeDifference;
+				nearestData = data;
+				console.log("데이터를 최신화함");
+			}
+		}
+
+		return nearestData;
+	}
+
+	// 가장 가까운 데이터 찾기
+
+
+	// 최근의 날씨 찾기 코드 끝남  -------------------------------------------
 
 	// 비동기통신 끝남 -------------------------------------------
 });

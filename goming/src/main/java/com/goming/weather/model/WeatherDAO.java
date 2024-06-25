@@ -78,6 +78,7 @@ public class WeatherDAO
 		} finally
 		{
 			session.close();
+			System.out.println("WeatherDAO : 닫힘성공");
 		}
 
 		
@@ -115,6 +116,7 @@ public class WeatherDAO
 		} finally
 		{
 			session.close();
+			System.out.println("WeatherDAO : 닫힘성공");
 		}
 
 		return list;
