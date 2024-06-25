@@ -1,4 +1,24 @@
+<%@page import="java.util.List"%>
+<%@page import="com.goming.mypage.model.MyPageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%
+MyPageDTO dto = (MyPageDTO) session.getAttribute("userinfo");
+
+String email = dto.getUser_email();
+String nick = dto.getUser_nick();
+String gender = dto.getUser_gender();
+String style = dto.getUser_preference();
+
+if (gender.equals("M")) {
+   gender = "남자";
+} else{
+   gender = "여자";
+}
+
+List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,19 +36,19 @@
         <div class="info-container">
             <div class="info-item">
                 <strong>아이디</strong>
-                <span class="info-box">이메일 주소</span>
+                <span class="info-box"><%=email %></span>
             </div>
             <div class="info-item">
                 <strong>닉네임</strong>
-                <span class="info-box">닉네임</span>
+                <span class="info-box"><%=nick%></span>
             </div>
             <div class="info-item">
                 <strong>성별</strong>
-                <span class="info-box">성별</span>
+                <span class="info-box"><%=gender%></span>
             </div>
             <div class="info-item">
                 <strong>선호스타일 </strong>
-                <span class="info-box">선호스타일</span>
+                <span class="info-box"><%=style%></span>
             </div>
         </div>
 
@@ -38,14 +58,15 @@
 
         <div class="gallery">
         <!-- 이미지 추가 -->
-        <img src="./images/1.jpg" alt="" onclick="openPopup('./images/1.jpg', this)">
-        <img src="./images/2.jpg" alt="" onclick="openPopup('./images/2.jpg', this)">
-        <img src="./images/3.jpg" alt="" onclick="openPopup('./images/3.jpg', this)">
-        <img src="./images/4.jpg" alt="" onclick="openPopup('./images/4.jpg', this)">
-        <img src="./images/5.jpg" alt="" onclick="openPopup('./images/5.jpg', this)">
-        <img src="./images/6.jpg" alt="" onclick="openPopup('./images/6.jpg', this)">
-        <img src="./images/7.jpg" alt="" onclick="openPopup('./images/7.jpg', this)">
-        <img src="./images/8.jpg" alt="" onclick="openPopup('./images/8.jpg', this)">
+        
+           <%
+         for (int i = 0; i < img_list.size(); i++) {
+            out.print("img src='./"+  img_list.get(i) + "alt='' onclick=openPopup('./images/1.jpg', this)>");
+
+         }
+         %>
+        
+
     </div>
     
         <button>좋아요 한 게시물 보기</button><br>
@@ -59,13 +80,5 @@
     <!-- bottom nav -->
     <%@ include file="BottomNav.jsp"%>
 
-			}
-			%>
-		</div>
-
-		<button>좋아요 한 게시물 보기</button>
-		<br>
-		<button class="red" onclick="location.href='UserDelete.jsp'">회원탈퇴</button>
-	</div>
 </body>
 </html>

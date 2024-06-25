@@ -42,6 +42,8 @@ request.setCharacterEncoding("UTF-8");
 		String season = multi.getParameter("season");
 		String faceCheck = multi.getParameter("faceCheck");
 		
+		System.out.println(faceCheck);
+		
         System.out.println("userGender: " + gender);
         System.out.println("style: " + style);
         System.out.println("season: " + season);
@@ -60,6 +62,7 @@ request.setCharacterEncoding("UTF-8");
 			
 	         if(faceCheck.equals("ON")) {
 	             response.sendRedirect("MosaicProcess");
+	             System.out.println("모자이크");
 	          }else {
 	             response.sendRedirect("Main.jsp");
 	          }
