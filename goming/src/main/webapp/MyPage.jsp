@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
     <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 	<link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
+	<script src="./javascripts/Likeimg.js?ver=2" defer></script>
 </head>
 <body>
 <%@ include file="Header.jsp"%>
@@ -56,7 +57,7 @@
     <jsp:include page="Likeimg.jsp" />
     <jsp:include page="DeleteButton.jsp" />
     
-    <script src="./javascripts/Likeimg.js"></script>
+
     
     <!-- bottom nav -->
     <%@ include file="BottomNav.jsp"%>
