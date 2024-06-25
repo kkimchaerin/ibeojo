@@ -39,6 +39,7 @@ public class UploadService extends HttpServlet {
 		String userGender = multi.getParameter("userGender");
 		String style = multi.getParameter("style");
 		String season = multi.getParameter("season");
+		String faceCheck = multi.getParameter("faceCheck");
 
 		System.out.println("userGender: " + userGender);
 		System.out.println("style: " + style);
@@ -54,7 +55,6 @@ public class UploadService extends HttpServlet {
 
 		Writer out = response.getWriter();
 		
-		String faceCheck = (String)request.getAttribute("faceCheck");
 		
 		System.out.println(faceCheck);
 
@@ -64,7 +64,11 @@ public class UploadService extends HttpServlet {
 			// response.sendRedirect("BoardSelectAllService"); // 데이터 전달 없이 이동만 하기 때문에
 			// redirect 사용
 			// 전달할 데이터가 있다면 forward 사용
-			response.sendRedirect("MosaicProcess");
+			if(faceCheck.equals("ON")) {
+				response.sendRedirect("MosaicProcess");
+			}else {
+				response.sendRedirect("Main.jsp");
+			}
 		} else {
 			System.out.println("업로드 실패");
 			response.sendRedirect("Main.jsp");
