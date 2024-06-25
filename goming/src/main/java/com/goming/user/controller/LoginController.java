@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.goming.user.model.user_DAO;
 import com.goming.user.model.user_DTO;
@@ -36,6 +37,11 @@ public class LoginController extends HttpServlet {
 		if (m != null) {
 			// 로그인 성공
 			System.out.println("success");
+
+			// 세션에 이메일과 비밀번호 저장
+			HttpSession session = request.getSession();
+			session.setAttribute("user_email", m.getUser_email());
+			session.setAttribute("user_pw", m.getUser_pw());
 
 			// 이동
 			response.sendRedirect("Main.jsp");

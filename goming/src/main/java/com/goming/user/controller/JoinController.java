@@ -31,38 +31,31 @@ public class JoinController extends HttpServlet {
 		System.out.println("JoinController : " + nick);
 		System.out.println("JoinController : " + gender);
 		System.out.println("JoinController : " + pre);
-		
-		System.out.println("String pre = request.getParameter(\"uesr_preference\");");
+
 		user_DTO dto = new user_DTO(id, pw, nick, gender, pre);
-		System.out.println("user_DTO dto = new user_DTO(id, pw, nick, gender, pre);");
+
 //		3. 데이터베이스 기능 호출
 //		dao : memebermapper 연결
 		user_DAO dao = new user_DAO();
 		int row = dao.join(dto);
-		System.out.println("int row = dao.join(dto);");
 
 //		로그인, 회원가입 성공하면 dao의 row 값 받기
 //		row라고 변수명 동일하게 설정
 		if (row > 0) {
-			// 회원가입 성공
 			System.out.println("JoinController : " + "success");
-			response.sendRedirect("First_Page.jsp"); 
+			request.setAttribute("success", "true");
 		} else {
-			if(row ==  -1)
-			{	
+			if (row == -1) {
 				System.out.println("JoinController : " + "아이디 중복");
-			}
-			else
-			{
+			} else {
 				System.out.println("JoinController : " + "닉네임 중복");
 			}
-			// 회원가입 실패
 			System.out.println("JoinController : " + "fail");
-//			response.sendRedirect("First_Page.jsp"); 
+			request.setAttribute("success", "false");
 		}
 
-		
-		
+		request.getRequestDispatcher("Join.jsp").forward(request, response);
+
 	}
 
 }

@@ -8,7 +8,8 @@
 		(user_email, user_pw, user_nick, user_gender,
 		user_preference,
 		joined_at, user_type)
-		VALUES (#{user_email}, #{user_pw}, #{user_nick},
+		VALUES (#{user_email}, MD5(#{user_pw}),
+		#{user_nick},
 		#{user_gender},
 		#{user_preference}, now(), 'N');
 	</insert>
@@ -32,7 +33,7 @@
 		parameterType="com.goming.user.model.user_DTO"
 		resultType="com.goming.user.model.user_DTO">
 		select * from user_info where user_email = #{user_email}
-		and user_pw = #{user_pw}
+		and user_pw = MD5(#{user_pw})
 	</select>
 
 	<select id="findIdByNick" parameterType="String"
@@ -44,8 +45,9 @@
 	<update id="updatePasswordByEmail"
 		parameterType="com.goming.user.model.user_DTO">
 		UPDATE user_info
-		SET user_pw = #{user_pw}
-		WHERE user_email = #{user_email}
+		SET user_pw = MD5(#{user_pw})
+		WHERE user_email
+		= #{user_email}
 	</update>
 
 
