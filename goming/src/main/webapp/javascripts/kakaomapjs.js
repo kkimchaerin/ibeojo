@@ -1,4 +1,4 @@
-let fetchWeatherAndSaveToDBs;
+/*let fetchWeatherAndSaveToDBs;
 let weatherData;
 let dbing = false;
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					let contents = addressInput.value;
 
-					/*console.log(marker.getLat());*/
+					console.log(marker.getLat());
 
 					latitude = marker.getPosition().getLat();
 					longitude = marker.getPosition().getLng();
@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
 					contents += '<div>경도 : ' + longitude.toFixed(4) + '</div>';
 
 					// 인포윈도우 표시
-					/*					let infowindow = new kakao.maps.InfoWindow({
+										let infowindow = new kakao.maps.InfoWindow({
 											content: `<div style="width:150px;text-align:center;padding:6px 0;">${contents}</div>`
-										});*/
+										});
 
 					infowindow.setContent(contents);
 					infowindow.open(map, marker);
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// db로 받아온 날씨정보로 화면 수정 시작 -------------------------------------------
 
-	/*		1. 날짜		- Data 1-2
+			1. 날짜		- Data 1-2
 			2. 시간		- Data 1-3
 			3. 온도		- Title1
 			4. 습도		- Title4
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			6. 풍속   	- 
 			7. 강수확률	- Title2
 			8. 강우량		- Title3
-			9. 위도와 경도 - Data 1-4*/
+			9. 위도와 경도 - Data 1-4
 
 	let getWeatherFromDBfunctions = function getWeatherFromDBfunction(response) {
 		console.log(response);
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const headerRow = thead.rows[0];
 		const newHeaderCell = document.createElement('th');
 		newHeaderCell.textContent = `${weatherData.fcstDate.day}일 ${weatherData.fcstTime}`;
-		/*days += `${weatherData.fcstDate.day}일 ${weatherData.fcstTime}`;*/
+		days += `${weatherData.fcstDate.day}일 ${weatherData.fcstTime}`;
 		headerRow.appendChild(newHeaderCell);
 
 		// tbody 행에 셀 추가
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			if (index === 0) {
 				contentdata = `${weatherData.temperature}`;
-				/*weatherDatas += `${weatherData.temperature}`;*/
+				weatherDatas += `${weatherData.temperature}`;
 			} else if (index === 1) {
 				contentdata = `${weatherData.rainy_prob}`;
 			} else if (index === 2) {
@@ -545,3 +545,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+*/
