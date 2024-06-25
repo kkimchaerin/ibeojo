@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>My Page</title>
     <link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver3">
+    <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
+	<link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
 </head>
 <body>
 <%@ include file="Header.jsp"%>
@@ -51,7 +54,7 @@
     <jsp:include page="Likeimg.jsp" />
     <jsp:include page="DeleteButton.jsp" />
     
-    <script src="Likeimg.js"></script>
+    <script src="./javascripts/Likeimg.js"></script>
     
     <!-- bottom nav -->
     <%@ include file="BottomNav.jsp"%>
