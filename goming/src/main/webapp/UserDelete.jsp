@@ -8,19 +8,19 @@
 </head>
 <body>
     <h2>회원탈퇴</h2>
-    <form id="deleteForm" action="/DeleteUser" method="post" onsubmit="return validateForm()">
+    <form id="deleteForm" action="DeleteUserController" method="post" onsubmit="return validateForm()">
         <div class="info-container">
             <div class="info-item">
                 <strong>아이디(이메일)</strong>
-                <input type="text" name="email" id="email" class="info-box" placeholder="이메일을 입력하세요" required>
+                <input type="text" name="user_email" id="user_email" class="info-box" placeholder="이메일을 입력하세요" required>
             </div>
             <div class="info-item">
                 <strong>닉네임</strong>
-                <input type="text" name="nickname" id="nickname" class="info-box" placeholder="닉네임을 입력하세요" required>
+                <input type="text" name="user_nick" id="user_nick" class="info-box" placeholder="닉네임을 입력하세요" required>
             </div>
             <div class="info-item">
                 <strong>비밀번호</strong>
-                <input type="password" name="password" id="password" class="info-box" placeholder="비밀번호를 입력하세요" required>
+                <input type="password" name="user_pw" id="user_pw" class="info-box" placeholder="비밀번호를 입력하세요" required>
             </div>
         </div>
         <br>
