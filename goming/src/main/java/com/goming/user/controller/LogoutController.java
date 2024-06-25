@@ -16,7 +16,6 @@ public class LogoutController extends HttpServlet {
 		HttpSession session = request.getSession(false); // 현재 세션이 있으면 가져오고, 없으면 null 반환
 		if (session != null) {
 			session.invalidate(); // 세션 무효화 (로그아웃)
-			System.out.println("로그아웃!!");
 		}
 		response.sendRedirect("First.jsp"); // 로그아웃 후 첫 페이지로 이동
 		System.out.println("로그아웃");
