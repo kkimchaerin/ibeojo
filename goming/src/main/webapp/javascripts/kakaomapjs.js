@@ -278,6 +278,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log(response);
 		let weatherData = response;
 
+		console.log(weatherData.length);
+
 		dbing = false;
 		// 버튼 활성화
 		getInfoButton.disabled = false;
