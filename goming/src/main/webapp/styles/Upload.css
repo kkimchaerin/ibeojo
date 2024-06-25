@@ -55,12 +55,6 @@ display: flex;
 flex-direction: row;
 }
 
-#face-mosaic-wrapper{
-}
-
-#face-masic-label{
-  font-size: 13px;
-}
 
 /* Toggle switch styles */
 .toggle-switch {
@@ -190,13 +184,10 @@ flex-direction: row;
   margin-top: 20px;
 }
 
-#cancel-btn {
-  display: flex;
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
+#cancel-btn{
   cursor: pointer;
   text-align: center;
-  margin: 0 auto;
+  line-height: 40px;
   width: 100%;
   height: 40px;
   background-color: white;

@@ -8,7 +8,6 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/DeleteButton.css?ver3">
-    <script src="./javascripts/Likeimg.js" defer></script>
 </head>
 <body>
 
@@ -29,5 +28,8 @@
         </div>
     </div>
 </div>
+
+<script src="Likeimg.js"></script>
+
 </body>
 </html>

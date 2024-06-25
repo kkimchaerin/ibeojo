@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>오늘의옷-회원가입</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>회원가입</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./javascripts/Join_Pagejs.js"></script>
 <link rel="stylesheet" type="text/css" href="./styles/Join.css?ver=3" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
