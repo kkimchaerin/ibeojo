@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,19 +8,19 @@
 <title>오늘의옷-업로드</title>
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Upload.css?ver=3" />
-<script src="./javascripts/Post.js?ver=4" defer></script>
+<script src="./javascripts/Post.js?ver=2" defer></script>
 </head>
 <body>
-   <%@ include file="Header.jsp"%>
-   <main>
-      <h2 id="logo">오늘의옷</h2>
-      <form action="UploadService" method="post"
-         enctype="multipart/form-data">
+	<%@ include file="Header.jsp"%>
+	<main>
+		<h2 id="logo">오늘의옷</h2>
+		<form action="UploadService" method="post"
+			enctype="multipart/form-data">
       <!-- 이미지 -->
-         <div class="content-wrapper test">
-            <label for="photo" class="form-label"> <span>이미지 업로드</span>
-               <span id="file-name">Click to add image</span>
-            </label>
+			<div class="content-wrapper test">
+				<label for="photo" class="form-label"> <span>이미지 업로드</span></br>
+					<span id="file-name">Click to add image</span>
+				</label>
         <input type="file" accept="*.jpg,*.png,*.jpeg,*.webp,*.avif"
           id="photo" name="postImg" style="display: none;" /> 
         <!-- 얼굴 인식 모자이크 여부  -->
@@ -34,36 +34,36 @@
             </label>
           </div>
         </div>
-         </div>   
+			</div>
       <!-- 성별 -->
-         <div class="content-wrapper">
-            <label for="gender-list" class="form-label">성별</label>
-            <ul id="gender-list">
-               <li>
-                  <button type="button" class="form-btn checked" data-value="F" onClick="setValue('userGender', 'F', this)">여성</button>
-               </li>
-               <li>
-                  <button type="button" class="form-btn" data-value="M" onClick="setValue('userGender', 'M', this)">남성</button>
-               </li>
-            </ul>
-         </div>
+		<div class="content-wrapper">
+			<label for="gender-list" class="form-label">성별</label>
+			<ul id="gender-list">
+				<li>
+					<button type="button" class="form-btn checked" onClick="setValue('gender', 'F', this)">여성</button>
+				</li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('gender', 'M', this)">남성</button>
+				</li>
+			</ul>
+		</div>
       <!-- 스타일 -->
-         <div class="content-wrapper">
-            <label for="style-list" class="form-label">스타일</label>
-            <ul id="style-list">
-               <li>
-                  <button type="button" class="form-btn checked" data-value="미니멀" onClick="setValue('style', '미니멀', this)">미니멀</button>
-               </li>
-               <li>
-                  <button type="button" class="form-btn" data-value="비즈니스" onClick="setValue('style', '비즈니스', this)">비즈니스</button>
-               </li>
-               <li>
-                  <button type="button" class="form-btn" data-value="스포티" onClick="setValue('style', '스포티', this)">스포티</button></li>
-               <li>
-                  <button type="button" class="form-btn" data-value="캐주얼" onClick="setValue('style', '캐주얼', this)">캐주얼</button>
-               </li>
-            </ul>
-         </div>
+		<div class="content-wrapper">
+			<label for="style-list" class="form-label">스타일</label>
+			<ul id="style-list">
+				<li>
+					<button type="button" class="form-btn checked" onClick="setValue('style', '미니멀', this)">미니멀</button>
+				</li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('style', '비즈니스', this)">비즈니스</button>
+				</li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('style', '스포티', this)">스포티</button></li>
+				<li>
+					<button type="button" class="form-btn" onClick="setValue('style', '캐주얼', this)">캐주얼</button>
+				</li>
+			</ul>
+		</div>
       <!-- 계절 -->
 		<div class="content-wrapper">
 			<label for="season-list" class="form-label">계절</label>
@@ -85,20 +85,20 @@
 		</form>
 	</main>
 	<script>
-		// 얼굴인식 토글 값 추출
-	    let faceCheck = "OFF";
-	
-	    document.getElementById('face-mosaic-toggle').addEventListener('click', function() {
-	        if (this.checked) {
-	            faceCheck = "ON";
-	        } else {
-	            faceCheck = "OFF";
-	        }
-	    });
-	
-	    document.getElementById('submit-btn').addEventListener('click', function(event) {
-	        document.getElementById('faceCheck').value = faceCheck;
-	    });
+	// 얼굴인식 토글 값 추출
+    let faceCheck = "OFF";
+
+    document.getElementById('face-mosaic-toggle').addEventListener('click', function() {
+        if (this.checked) {
+            faceCheck = "ON";
+        } else {
+            faceCheck = "OFF";
+        }
+    });
+
+    document.getElementById('submit-btn').addEventListener('click', function(event) {
+        document.getElementById('faceCheck').value = faceCheck;
+    });
     </script>
 </body>
 </html>
