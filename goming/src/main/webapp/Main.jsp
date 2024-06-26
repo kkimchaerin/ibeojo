@@ -4,8 +4,8 @@
 	pageEncoding="UTF-8"%>
 <%@page errorPage="Error.jsp"%>
 <%
-String rainper = (String) request.getAttribute("rainper");
-String comment = (String) request.getAttribute("comment");
+String rainper = (String) session.getAttribute("rainper");
+String comment = (String) session.getAttribute("comment");
 %>
 
 <!DOCTYPE html>
@@ -14,18 +14,21 @@ String comment = (String) request.getAttribute("comment");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의옷</title>
-<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=7" />
+<link rel="stylesheet" type="text/css" href="./styles/Main.css" />
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
-<link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
-<link rel="stylesheet" type="text/css" href="./styles/LocationWeather.css?ver=1" />
+<link rel="stylesheet" type="text/css"
+	href="./styles/LocationWeather.css?ver=1" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
-<script src="./javascripts/Main.js?ver=5" defer></script>
+<!-- <script src="./javascripts/Main.js?ver=5" defer></script> -->
 <script src="./javascripts/LocationWeather.js" defer></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
+<script src="./javascripts/Main.js?ver=7" defer></script>
+<script src="./javascripts/ShowDetailModal.js?ver=1" defer></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
 </head>
 <body>
 	<!-- header -->
@@ -34,21 +37,25 @@ String comment = (String) request.getAttribute("comment");
 
 	<!-- main -->
 	<main>
-<section class="weather-wrapper">
-    <h2 class="sr-only">날씨 정보</h2>
-    <div class="weather-info">
-        <div id="additional-text"><!-- 원하는 텍스트 -->내가 원하는 텍스트를 여기에 적습니다.</div>
-        <span class="weather-icon" id="weatherIconContainer">
-            <!-- 기본적으로 로딩 스피너를 표시하도록 준비 -->
-            <div class="loading-spinner"></div> <!-- 이미지는 JavaScript에서 동적으로 추가될 예정 -->
-        </span>
-        <span id="temperature">28°C</span>
-        <span id="weatherInfo">맑음</span>
-    </div>
-    <div id="weather-comment">
-        <% if (rainper != null) { out.print(rainper); } %>
-    </div>
-</section>
+		<section class="weather-wrapper">
+			<h2 class="sr-only">날씨 정보</h2>
+			<div class="weather-info">
+				<div id="additional-text">
+					<!-- 원하는 텍스트 -->
+					내가 원하는 텍스트를 여기에 적습니다.
+				</div>
+				<span class="weather-icon" id="weatherIconContainer"> <!-- 기본적으로 로딩 스피너를 표시하도록 준비 -->
+					<div class="loading-spinner"></div> <!-- 이미지는 JavaScript에서 동적으로 추가될 예정 -->
+				</span> <span id="temperature">28°C</span> <span id="weatherInfo">맑음</span>
+			</div>
+			<div id="weather-comment">
+				<%
+				if (rainper != null) {
+					out.print(rainper);
+				}
+				%>
+			</div>
+		</section>
 
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
@@ -63,10 +70,18 @@ String comment = (String) request.getAttribute("comment");
 			<div class="sort">
 				<a href="#" id="new" class="checked">최신순</a> <a href="#"
 					id="popular">인기순</a>
+
 			</div>
 			<div class="gallery">
 				<!-- 카테고리별 필터링된 이미지 출력 -->
+				<img src="./images/men_winter_minimal_11.png" alt="피드1"> <img
+					src="./images/men_winter_minimal_12.png" alt="피드2"> <img
+					src="./images/men_spring_minimal_3.png" alt="피드3"> <img
+					src="./images/men_spring_minimal_4.png" alt="피드4"> <img
+					src="./images/women_summer_minimal_11.png" alt="피드5"> <img
+					src="./images/women_summer_minimal_12.png" alt="피드6">
 			</div>
+
 		</section>
 
 		<!-- upload button -->
@@ -76,5 +91,30 @@ String comment = (String) request.getAttribute("comment");
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>
 
+	<!-- show detail modal -->
+	<div id="modal" class="modal">
+		<span class="close">&times;</span>
+		<div class="modal-content">
+			<img id="modal-img">
+			<div class="modal-info">
+				<button id="modal-like-btn" class="liked">
+					<img src="./icons/heart-regular.svg" alt="좋아요">
+				</button>
+				<p id="modal-comment"></p>
+			</div>
+		</div>
+	</div>
+	<!-- <span id="modal-like-count">0</span> -->
+	</div>
 </body>
+<style>
+body {
+	background-image: url("./images/background03.png");
+	background-size: cover;
+}
+
+.weather-wrapper {
+	background-color: white;
+}
+</style>
 </html>

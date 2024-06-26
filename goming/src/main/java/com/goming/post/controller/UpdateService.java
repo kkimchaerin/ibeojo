@@ -20,9 +20,8 @@ public class UpdateService extends HttpServlet {
 		String img = request.getParameter("img");
 		
 		PostDAO dao = new PostDAO();
-		 
-		dao.getidx();
-		dao.getimg();
+		
+		dao.update(idx, img);
 		
 		response.sendRedirect("Main.jsp");
 		

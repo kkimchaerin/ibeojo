@@ -8,7 +8,7 @@
 					<img src="./icons/home.png" alt="홈"> <span>HOME</span>
 				</div>
 		</a></li>
-		<li class="bottom-nav-items"><a href="#">
+		<li class="bottom-nav-items"><a href="kakaomap.jsp">
 				<div class="bottom-nav-icons">
 					<img src="./icons/weather.png" alt="날씨"> <span
 						class="small-text">WEATHER</span>

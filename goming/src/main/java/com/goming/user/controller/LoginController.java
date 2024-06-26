@@ -44,7 +44,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("user_pw", m.getUser_pw());
 
 			// 이동
-			response.sendRedirect("Main.jsp");
+			response.sendRedirect("CommentController");
 		} else {
 			// 로그인 실패
 			System.out.println("LoginController : fail");

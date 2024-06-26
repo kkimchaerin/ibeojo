@@ -22,7 +22,7 @@
     width: 80%;
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	border-radius: 10px
+    border-radius: 10px;
 }
 
 /* 팝업 닫기 버튼 */
@@ -36,6 +36,21 @@
 .close:hover,
 .close:focus {
     color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 삭제 버튼 */
+.delete {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    margin-right: 20px; /* 팝업 닫기 버튼과의 간격을 조정 */
+}
+
+.delete:hover,
+.delete:focus {
+    color: red; /* 삭제 버튼에 호버할 때 색상 변경 */
     text-decoration: none;
     cursor: pointer;
 }
@@ -66,18 +81,6 @@
     width: 36px;
     height: 36px;
     vertical-align: middle;
-}
-
-.heartBtn i {
-    font-size: 24px;
-}
-
-.heartBtn i.far.fa-heart {
-    color: black;
-}
-
-.heartBtn i.fas.fa-heart {
-    color: red;
 }
 
 .text-left {

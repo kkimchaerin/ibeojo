@@ -2,13 +2,11 @@ package com.goming.mypage.controller;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.goming.mypage.model.MyPageDAO;
 import com.goming.mypage.model.MyPageDTO;
 
@@ -30,21 +28,19 @@ public class ImgController extends HttpServlet {
 		String email = dto.getUser_email();
 
 		MyPageDTO dto_img = new MyPageDTO();
-
 		dto_img.setUser_email(email);
 
 		List<MyPageDTO> img_list = dao.SelectMyPageImg(dto_img);
 
 		if (img_list != null) {
 			// 불러오기 성공하면 세션에 저장 후 마이페이지로 이동
+			System.out.println("성공한거");
 			session.setAttribute("img_list", img_list);
 			System.out.println(img_list.size());
 			response.sendRedirect("MyPage.jsp");
-		}else {
+		} else {
 			// 불러오기 실패하면 이전 페이지로 이동
-			response.sendRedirect("test.jsp");
+			response.sendRedirect("Error.jsp");
 		}
-
 	}
-
 }

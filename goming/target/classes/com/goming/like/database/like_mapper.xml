@@ -16,10 +16,11 @@
         WHERE l.user_email = #{user_email}
     </select>
 
-<update id="like_update">
-update
-
-</update>
+<select id="check_like" parameterType="com.goming.like.model.LikeDTO" resultType="com.goming.like.model.LikeDTO">
+	SELECT *
+  	FROM like_info
+ 	WHERE user_email = #{user_email} and post_idx = (select post_idx from post_info where post_img = #{post_img});
+</select>
 
 
 

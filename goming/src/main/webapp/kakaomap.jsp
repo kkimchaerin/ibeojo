@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page errorPage="Error.jsp"%>
-<link rel="stylesheet" href="./styles/kakaomap.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="styles/kakaomap.css">
+<link rel="stylesheet" type="text/css" href="styles/BottomNav.css" />
+<link rel="stylesheet" type="text/css" href="styles/Header.css" />
 <title>Dynamic Table and Chart Example</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -42,7 +44,7 @@
 	<div class="container">
 		<div class="map-container">
 			<!-- 카카오 맵 API가 담긴 부분 -->
-			<div class="map_wrap">
+			<div class="map_wrap" style="margin-top:70px;">
 				<div id="map"
 					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 				<div class="hAddr">
@@ -53,7 +55,7 @@
 			<div>
 				<input type="text" id="addressInput"
 					placeholder="Enter Address and press Enter">
-				<div class ="loading-spinner"></div>
+				<div class="loading-spinner"></div>
 			</div>
 
 			<p id="result"></p>
@@ -69,10 +71,10 @@
 				정보 가져오기</button>
 		</div>
 
-		<div class="table-container">
+		<div class="table-container" id="Table">
 
 			<div class="my-class">
-				<table id="daily">
+				<table id = "daily">
 					<tr>
 						<th rowspan="2">온도</th>
 						<th>강수확률</th>
@@ -123,27 +125,28 @@
 				</tbody>
 			</table>
 
-			<div id="weatherGraphContainer" style="position: sticky;"> 
+			<div id="weatherGraphContainer" style="position: sticky;">
 				<canvas id="weatherGraph"></canvas>
 			</div>
 		</div>
 	</div>
 
 	<script>
-/* document.addEventListener('DOMContentLoaded', function() {
-            console.log('Enter key pressed!');
-    let addressInput = document.getElementById('addressInput');
+		/* document.addEventListener('DOMContentLoaded', function() {
+		 console.log('Enter key pressed!');
+		 let addressInput = document.getElementById('addressInput');
 
-    addressInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            console.log('Enter key pressed!');
-            // 여기에 원하는 동작을 추가하면 됩니다.
-        }
-    });
-}); */
-</script>
+		 addressInput.addEventListener('keypress', function(e) {
+		 if (e.key === 'Enter') {
+		 console.log('Enter key pressed!');
+		 // 여기에 원하는 동작을 추가하면 됩니다.
+		 }
+		 });
+		 }); */
+	</script>
 
-
+	<%@ include file="BottomNav.jsp"%>
+	<%@ include file="Header.jsp"%>
 
 
 

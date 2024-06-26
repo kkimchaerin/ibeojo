@@ -77,7 +77,7 @@ html, body {
 	/* 입력 요소의 너비를 폼 너비에 맞게 설정 */
 }
 
-.join button {
+.check {
 	width: 150px;
 	margin-bottom: 10px;
 	justify-content: flex-start;
@@ -85,18 +85,18 @@ html, body {
 	/* 왼쪽 정렬 */
 }
 
-.join input[type="submit"] {
+.black {
 	background-color: black;
-	/* 전송 버튼 배경색 */
 	color: white;
-	/* 전송 버튼 글자색 */
 	padding: 10px 20px;
-	/* 전송 버튼 내부 여백 */
 	cursor: pointer;
-	/* 포인터 커서 설정 */
 	width: 100%;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	text-align: center;
 }
 
-.join input[type="submit"]:active {
+.black:active {
 	background-color: darkgray;
 }

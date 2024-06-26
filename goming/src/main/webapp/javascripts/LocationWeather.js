@@ -30,8 +30,8 @@ function getAddressFromCoords(latitude, longitude) {
 			console.log('변환된 주소:', result[0].address.address_name);
 			const additionalTextElement = document.querySelector('#additional-text');
 			if (additionalTextElement) {
-				
-				additionalTextElement.innerHTML  = result[0].address.address_name;
+
+				additionalTextElement.innerHTML = result[0].address.address_name;
 			} else {
 				console.error('additional-text 클래스를 가진 요소를 찾을 수 없습니다.');
 			}

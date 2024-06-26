@@ -1,105 +1,111 @@
 @charset "UTF-8";
 
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    padding: 20px;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	background-color: #fff;
+	padding: 20px;
+	margin-bottom: 60px;
 }
 
 html {
-    margin-bottom: 100px; /
+	margin-bottom: 100px;
 }
 
 .content {
-    margin-top: 100px; /* body가 헤더에 가려져서 내림 */
+	margin-top: 100px; /* body가 헤더에 가려져서 내림 */
 }
 
 .info-container {
-    display: inline-block;
-    background-color: #f0f0f0;
-    border: 1px solid #bbb;
-    padding: 20px;
-    margin-bottom: 30px;
-    text-align: left;
-    border-radius: 10px;
-    width: 600px;
-    vertical-align: top;
-    box-sizing: border-box;
-    margin-bottom: 100px;
+	display: inline-block;
+	background-color: #f0f0f0;
+	border: 1px solid #bbb;
+	padding: 20px;
+	margin-bottom: 30px;
+	text-align: left;
+	border-radius: 10px;
+	width: 600px;
+	vertical-align: top;
+	box-sizing: border-box;
+	margin-bottom: 100px;
 }
 
 .info-item {
-    margin-bottom: 10px;
-    margin-right: 20px;
+	margin-bottom: 10px;
+	margin-right: 20px;
 }
 
 .info-item strong {
-    display: inline-block;
-    width: 80px;
+	display: inline-block;
+	width: 80px;
 }
 
 .info-box {
-    display: inline-block;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-    border-radius: 10px;
-    width: calc(100% - 100px);
-    vertical-align: middle;
-    box-sizing: border-box;
+	display: inline-block;
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: left;
+	border-radius: 10px;
+	width: calc(100% - 100px);
+	vertical-align: middle;
+	box-sizing: border-box;
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    max-width: 960px;
-    margin: 0 auto;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 70px;
-    max-height: 810px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	max-width: 960px;
+	margin: 0 auto;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	margin-bottom: 70px;
+	max-height: 810px;
 }
 
 .gallery img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	object-fit: cover;
+	cursor: pointer;
+	transition: transform 0.2s;
 }
 
 .gallery img:hover {
-    transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .post-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
 }
 
 .post-icon {
-    font-size: 24px;
-    margin-right: 5px;
+	font-size: 24px;
+	margin-right: 5px;
 }
 
 button {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    width: 500px;
-    box-sizing: border-box;
+	background-color: black;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	margin: 10px;
+	font-size: 16px;
+	border-radius: 10px;
+	width: 250px;
+	box-sizing: border-box;
+}
+
+.button-container {
+	text-align: center; /* 버튼 가운데 정렬 */
+	margin-top: 20px; /* 버튼 아래 공간 조정 */
 }
 
 button.red {
-    background-color: red;
+	background-color: red;
 }

@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.goming.post.model.PostDAO;
 import com.goming.post.model.PostDTO;
@@ -34,21 +35,26 @@ request.setCharacterEncoding("UTF-8");
 		MultipartRequest multi = null;
 		multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 		
-		String userEmail = "crong@gmail.com";
-//		String userEmail = multi.getParameter("userEmail");
+		HttpSession session = request.getSession();
+		
+		String userEmail = (String)session.getAttribute("user_email");
+
 		String postImg = multi.getFilesystemName("postImg");
-		String gender = multi.getParameter("gender");
+		char gender = multi.getParameter("gender").charAt(0);
 		String style = multi.getParameter("style");
 		String season = multi.getParameter("season");
+		String comment = multi.getParameter("comment");
 		String faceCheck = multi.getParameter("faceCheck");
 		
+		System.out.println(faceCheck);
         System.out.println("userGender: " + gender);
         System.out.println("style: " + style);
         System.out.println("season: " + season);
-		
-		// String userEmail, String postImg, String userGender, String style, String season
-		
-		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season); 
+        System.out.println("comment: " + comment);
+        
+        //String user_email, String post_img, char gender, String style_tag, String season, String comment
+		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season, comment); 
+		System.out.println("post확인: " + post.getComment());
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);
 		
@@ -60,6 +66,7 @@ request.setCharacterEncoding("UTF-8");
 			
 	         if(faceCheck.equals("ON")) {
 	             response.sendRedirect("MosaicProcess");
+	             System.out.println("모자이크");
 	          }else {
 	             response.sendRedirect("Main.jsp");
 	          }
