@@ -158,7 +158,7 @@ async function deleteConfirmed() {
     } catch (error) {
         console.error("Fetch operation has a problem: ", error);
         alert("게시물 삭제에 실패했습니다."); // 실패 알림
-        window.location.href = '../MyPageController2';
+        window.location.href = 'http://localhost:8085/goming/MyPageController2';
     }
 }
 
