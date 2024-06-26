@@ -297,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		console.log(weatherData.length);
 
-		const table = document.getElementById('daily');
 
 
 		// 현재 날짜와 시간을 문자열로 가져오기
