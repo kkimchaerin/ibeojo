@@ -47,8 +47,10 @@ public class PostDAO {
 	    try {
 	        // MyBatis 매퍼 호출
 	    	postList = session.selectList("com.goming.post.database.post_mapper.getPostsByFilters", filter);
-	        System.out.println("Filtered Posts from DB: " + postList);
+	    	// System.out.println("필터링DB: " + postList.get(0).toString());
+	        // System.out.println("필터링DB: " + postList.get(0).getComment());
 	    } catch (Exception e) {
+	    	System.out.println("호출 실패");
 	        e.printStackTrace();
 	    } finally {
 	        session.close();

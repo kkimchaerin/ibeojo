@@ -1,15 +1,19 @@
-// Modal.js
+// ShowDetailModal.js
 
 $(document).ready(function() {
-    // 모달 관련 요소들
-    var modal = $("#modal");
-    var modalImg = $("#modal-img");
-    var span = $(".close");
+    let modal = $("#modal");
+    let modalImg = $("#modal-img");
+    let modalComment = $("#modal-comment");
+    let span = $(".close");
 
     // 이미지 클릭 시 모달 열기
     $(".gallery").on("click", "img", function() {
-        var src = $(this).attr("src");
+        let src = $(this).attr("src");
+        let imgComment = $(this).data("comment");
+        
         modalImg.attr("src", src);
+        modalComment.text(imgComment);
+        
         modal.css("display", "block");
     });
 
@@ -18,10 +22,5 @@ $(document).ready(function() {
         modal.css("display", "none");
     });
 
-    // 모달 바깥 클릭 시 닫기
-    $(window).click(function(event) {
-        if (event.target.id == "modal") {
-            modal.css("display", "none");
-        }
-    });
+
 });

@@ -35,9 +35,9 @@ request.setCharacterEncoding("UTF-8");
 		multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 		
 		String userEmail = "crong@gmail.com";
-//		String userEmail = multi.getParameter("userEmail");
+//		String userEmail = multi.getParameter("user_email");
 		String postImg = multi.getFilesystemName("postImg");
-		String gender = multi.getParameter("gender");
+		char gender = multi.getParameter("gender").charAt(0);
 		String style = multi.getParameter("style");
 		String season = multi.getParameter("season");
 		String comment = multi.getParameter("comment");
@@ -47,7 +47,8 @@ request.setCharacterEncoding("UTF-8");
         System.out.println("style: " + style);
         System.out.println("season: " + season);
         System.out.println("comment: " + comment);
-				
+        
+        //String user_email, String post_img, char gender, String style_tag, String season, String comment
 		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season, comment); 
 		System.out.println("post확인: " + post.getComment());
 		PostDAO dao = new PostDAO();

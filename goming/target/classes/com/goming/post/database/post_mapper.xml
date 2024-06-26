@@ -4,19 +4,19 @@
 <mapper namespace="com.goming.post.database.post_mapper">
 	<!-- 포스트 게시 -->
 	<insert id="postInsert" parameterType="com.goming.post.model.PostDTO">
-		INSERT INTO post_info (user_email, post_img, gender, style_tag, season, post_contents, created_at)
-		VALUES (#{userEmail}, #{postImg}, #{gender}, #{style}, #{season}, #{comment}, now());
+		INSERT INTO post_info (user_email, post_img, gender, style_tag, season, comment, created_at)
+		VALUES (#{user_email}, #{post_img}, #{gender}, #{style_tag}, #{season}, #{comment}, now());
 	</insert>
 	
 	<!-- 포스트 필터링 -->
-    <select id="getPostsByFilters" parameterType="com.goming.post.model.PostDTO" resultType="String">
-        SELECT post_img, post_contents
+    <select id="getPostsByFilters" parameterType="com.goming.post.model.PostDTO" resultType="com.goming.post.model.PostDTO">
+        SELECT post_img, comment
         FROM post_info
         WHERE gender = #{gender}
-          AND style_tag = #{style}
+          AND style_tag = #{style_tag}
           AND season = #{season}
-    </select>
-	
+    </select>   
+
 
 	<select id="getidx" resultType="String">
 		SELECT post_idx
