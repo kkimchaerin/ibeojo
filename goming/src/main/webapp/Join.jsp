@@ -9,7 +9,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./javascripts/Join_Pagejs.js"></script>
-<link rel="stylesheet" type="text/css" href="./styles/Join.css?ver=3" />
+<link rel="stylesheet" type="text/css" href="./styles/Join.css?ver=4" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 </head>
 <body>
@@ -18,7 +18,7 @@
 		<h3>아이디 입력</h3>
 		<br> <input type="text" id="user_id" name="user_id"
 			placeholder="아이디를 입력하세요">
-		<button type="button" onclick="checkId()">아이디 중복확인</button>
+		<button type="button" class="check" onclick="checkId()">아이디 중복확인</button>
 		<br>
 		<h3>비밀번호 입력</h3>
 		<br> <input type="password" name="user_pw"
@@ -27,7 +27,7 @@
 		<h3>닉네임 입력</h3>
 		<br> <input type="text" id="user_nick" name="user_nick"
 			placeholder="닉네임을 입력하세요">
-		<button type="button" onclick="checkNick()">닉네임 중복확인</button>
+		<button type="button" class="check" onclick="checkNick()">닉네임 중복확인</button>
 		<br>
 		<h3>성별선택</h3>
 		<br>
@@ -44,8 +44,10 @@
 				type="radio" name="user_preference" value="캐주얼">캐주얼 <input
 				type="radio" name="user_preference" value="비즈니스">비즈니스<br>
 		</div>
-		<br> <br> <br> <input type="submit" value="회원가입"
+		<br> <br> <br> <input type="submit" class="black" value="회원가입"
 			onclick="submitForm()">
+		<button type="button" class= "black" onclick="window.location.href='First.jsp'">돌아가기</button>
+	</form>
 	</form>
 	<div class="bg_video">
 		<video autoplay muted loop class="bg_video_content">
@@ -55,15 +57,16 @@
 
 	<script>
     $(document).ready(function() {
-        var success = '<%= request.getAttribute("success") != null ? request.getAttribute("success") : "" %>';
-        console.log("Success attribute value: " + success); // 디버깅을 위한 로그
-        if (success === 'true') {
-            alert("회원가입이 성공적으로 완료되었습니다!");
-            window.location.href = 'First.jsp';
-        } else if (success === 'false') {
-            alert("회원가입에 실패했습니다. 다시 시도해주세요.");
-        }
-    });
+        var success = '<%=request.getAttribute("success") != null ? request.getAttribute("success") : ""%>
+		';
+							console.log("Success attribute value: " + success); // 디버깅을 위한 로그
+							if (success === 'true') {
+								alert("회원가입이 성공적으로 완료되었습니다!");
+								window.location.href = 'First.jsp';
+							} else if (success === 'false') {
+								alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+							}
+						});
 	</script>
 </body>
 </html>

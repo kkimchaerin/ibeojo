@@ -106,9 +106,10 @@ public class PostDAO {
 				System.out.println("업데이트 성공");
 				session.commit();
 			}else {
+				System.out.println("업데이트 실패");
 				session.rollback();
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("업데이트 로딩 실패");
 		}finally {
@@ -116,6 +117,7 @@ public class PostDAO {
 		}
 		
 		return cnt;
-		
 	}
+	
+	
 }
