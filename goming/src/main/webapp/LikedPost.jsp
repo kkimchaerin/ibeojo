@@ -13,7 +13,7 @@ String jsonImgList = new Gson().toJson(imgList);
 <meta charset="UTF-8">
 <title>Liked Post</title>
 <link rel="stylesheet" type="text/css"
-	href="./styles/LikedPost.css?ver3">
+	href="./styles/LikedPost.css?ver4">
 <link rel="stylesheet" type="text/css"
 	href="./styles/CategoryNav.css?ver3" />
 <link rel="stylesheet" type="text/css"
@@ -41,13 +41,14 @@ String jsonImgList = new Gson().toJson(imgList);
 	function filterByStyle(style) {
 		allstyle = style;
 		while (galleryContainer.firstChild) {
-		    galleryContainer.removeChild(galleryContainer.firstChild);
+			galleryContainer.removeChild(galleryContainer.firstChild);
 		}
 		// userEmail이 배열인지 확인 후 처리
 		if (Array.isArray(userEmail)) {
 			// 이미지를 동적으로 추가
 			for (let i = 0; i < userEmail.length; i++) {
-				if (userEmail[i].season === allseason && userEmail[i].style_tag === allstyle) {
+				if (userEmail[i].season === allseason
+						&& userEmail[i].style_tag === allstyle) {
 					const path = userEmail[i];
 					const EmailElement = document.createElement("img");
 					EmailElement.src = path.post_img;
@@ -71,13 +72,14 @@ String jsonImgList = new Gson().toJson(imgList);
 	function filterBySeason(season) {
 		allseason = season;
 		while (galleryContainer.firstChild) {
-		    galleryContainer.removeChild(galleryContainer.firstChild);
+			galleryContainer.removeChild(galleryContainer.firstChild);
 		}
 		// userEmail이 배열인지 확인 후 처리
 		if (Array.isArray(userEmail)) {
 			// 이미지를 동적으로 추가
 			for (let i = 0; i < userEmail.length; i++) {
-				if (userEmail[i].season === allseason && userEmail[i].style_tag === allstyle) {
+				if (userEmail[i].season === allseason
+						&& userEmail[i].style_tag === allstyle) {
 					const path = userEmail[i];
 					const EmailElement = document.createElement("img");
 					EmailElement.src = path.post_img;
@@ -108,7 +110,8 @@ String jsonImgList = new Gson().toJson(imgList);
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
-	<h2>좋아요 한 게시물</h2>
+	<h2 style="font-weight: bold; font-size: 80px; padding-bottom: 50px;">좋아요
+		한 게시물</h2>
 
 	<!-- category nav -->
 	<%@ include file="CategoryNav.jsp"%>
