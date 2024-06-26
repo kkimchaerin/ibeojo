@@ -43,8 +43,6 @@ public class PostLoaderService extends HttpServlet {
 		System.out.println("season!!" + season);
 		System.out.println("PostLoaderService!!: " + filteredPosts);
 
-		System.out.println("MyTest nn");
-		System.out.println(filteredPosts.toString());
 
 		// JSON 형식으로 응답
 		response.setContentType("application/json");

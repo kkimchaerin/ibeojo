@@ -15,7 +15,7 @@ String comment = (String)session.getAttribute("comment");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의옷</title>
-<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=10" />
+<link rel="stylesheet" type="text/css" href="./styles/Main.css" />
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
@@ -74,73 +74,29 @@ String comment = (String)session.getAttribute("comment");
 	
 	<!-- show detail modal -->
 	<div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-        <button id="modal-like-btn" class="liked">
-        	<img src="./icons/heart.svg"/>
-        </button>
-        <p id="modal-comment"></p>
+	    <span class="close">&times;</span>
+	    <div class="modal-content">
+	        <img id="modal-img">
+	        <div class="modal-info">
+	            <button id="modal-like-btn" class="liked">
+	            	<img src="./icons/heart-regular.svg" alt="좋아요">
+	            </button>
+	            <p id="modal-comment"></p>
+	        </div>
+	    </div>
+	</div>
         <!-- <span id="modal-like-count">0</span> -->
     </div>
-    <style>
-	    .modal {
-	    display: none; 
-	    position: fixed; 
-	    z-index: 1; 
-	    padding-top: 60px; 
-	    left: 50%;
-	    top: 50%;
-	    transform: translate(-50%, -40%);
-	    width: 60%; 
-	    max-width: 700px;
-	    min-width: 550px;
-	    height: 70%; 
-	    overflow: auto;
-	    background-color: rgba(255,	255, 255, 0.9); 
-	    box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
-	    border-radius: 25px;
-	}
-	
-	.modal-content {
-	    margin: auto;
-	    display: block;
-	    width: 50%;
-	    max-width: 700px;
-	}
-	
-	.close {
-	    position: absolute;
-	    top: 15px;
-	    right: 35px;
-	    color: black;
-	    font-size: 40px;
-	    font-weight: bold;
-	    transition: 0.3s;
-	}
-	
-	.close:hover,
-	.close:focus {
-	    color: #bbb;
-	    text-decoration: none;
-	    cursor: pointer;
-	}
-    
-	    #modal-like-btn {
-		    width: 50px;
-		    background-color:transparent;
-		    border: none;
-		    padding: 5px 10px;
-		    cursor: pointer;
-		}
-		
-		#modal-like-btn img{
-			width: 100%;
-			color: red;
-		}
-	
-		#modal-like-btn.liked{
-		    color: red;
-		}
-    </style>
 </body>
+<style>
+body{
+background-image: url("./images/background03.png");
+
+background-size: cover;
+}
+
+.weather-wrapper{
+	background-color: white;
+}
+</style>
 </html>

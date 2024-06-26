@@ -135,4 +135,77 @@ main{
 
 
 /* modal */
+ .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 60px; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40%);
+    width: 60%; 
+    max-width: 700px;
+    min-width: 550px;
+    height: 70%; 
+    overflow: auto;
+    background-color: rgba(255,	255, 255, 0.95); 
+    box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+}
 
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;		
+}
+
+ #modal-img {
+    display: block;
+    width: 50%;
+    max-width: 700px;
+}
+
+.modal-info{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;	
+	width: 50%;
+    max-width: 700px;
+}
+
+#modal-comment{
+	font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+   
+#modal-like-btn {
+	 width: 50px;
+	 background-color:transparent;
+	 border: none;
+	 padding: 5px 10px;
+	 cursor: pointer;
+}
+
+#modal-like-btn img{
+	width: 100%;
+}
+
+#modal-like-btn.liked{
+    fill: red;
+}
