@@ -1,4 +1,27 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@page import="com.goming.mypage.model.MyPageDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%
+MyPageDTO dto = (MyPageDTO) session.getAttribute("userinfo");
+
+String email = dto.getUser_email();
+String nick = dto.getUser_nick();
+String gender = dto.getUser_gender();
+String style = dto.getUser_preference();
+
+if (gender.equals("M")) {
+   gender = "남자";
+} else{
+   gender = "여자";
+}
+
+List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +62,10 @@
 
         <div class="gallery">
         <!-- 이미지 추가 -->
+        <% for(int i = 0; i < img_list.size(); i++){ %>
         <img src="./images/1.jpg" alt="" onclick="openPopup('./images/1.jpg', this)">
+        <% } %>
+        
         <img src="./images/2.jpg" alt="" onclick="openPopup('./images/2.jpg', this)">
         <img src="./images/3.jpg" alt="" onclick="openPopup('./images/3.jpg', this)">
         <img src="./images/4.jpg" alt="" onclick="openPopup('./images/4.jpg', this)">
