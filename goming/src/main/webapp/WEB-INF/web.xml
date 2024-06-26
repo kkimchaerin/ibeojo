@@ -131,6 +131,12 @@
     	<servlet-class>com.goming.post.controller.UpdateService</servlet-class>
 
     </servlet>
+    <servlet>
+    	<servlet-name>LikeService</servlet-name>
+    	<display-name>LikeService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeService</servlet-class>
+    </servlet>
     
     <!-- Servlet mappings -->
     <servlet-mapping>
@@ -220,5 +226,9 @@
     <servlet-mapping>
     	<servlet-name>UpdateService</servlet-name>
     	<url-pattern>/UpdateService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LikeService</servlet-name>
+    	<url-pattern>/LikeService</url-pattern>
     </servlet-mapping>
 </web-app>

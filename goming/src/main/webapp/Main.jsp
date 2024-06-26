@@ -22,7 +22,7 @@ String comment = (String)session.getAttribute("comment");
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
 <script src="./javascripts/Main.js?ver=7" defer></script>
-<script src="./javascripts/ShowDetailModal.js?ver=1" defer></script> 
+<script src="./javascripts/ShowDetailModal.js?ver=4" defer></script> 
 </head>
 <body>
 	<!-- header -->
@@ -80,7 +80,7 @@ String comment = (String)session.getAttribute("comment");
 	        <div class="modal-info">
 	            <button id="modal-like-btn" class="liked">
 	            	<img src="./icons/heart-regular.svg" alt="좋아요">
-	            </button>
+	            </button>	
 	            <p id="modal-comment"></p>
 	        </div>
 	    </div>
@@ -90,9 +90,8 @@ String comment = (String)session.getAttribute("comment");
 </body>
 <style>
 body{
-background-image: url("./images/background03.png");
-
-background-size: cover;
+	background-image: url("./images/background04.png");
+	background-size: cover;
 }
 
 .weather-wrapper{

@@ -28,11 +28,11 @@
 
 	</form>
 
-	<div class="bg_video">
+<!-- 	<div class="bg_video">
 		<video autoplay muted loop class="bg_video_content">
 			<source src="./video/4753-179739298_medium.mp4" type="video/mp4">
 		</video>
-	</div>
+	</div> -->
 
 	<script>
     // 서버에서 전달된 에러 메시지 확인 및 경고창 표시
@@ -43,6 +43,5 @@
 			}
 		};
 	</script>
-
 </body>
 </html>

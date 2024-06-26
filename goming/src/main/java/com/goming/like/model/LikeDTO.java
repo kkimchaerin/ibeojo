@@ -25,8 +25,14 @@ public class LikeDTO {
       this.user_email = user_email;
       this.created_at = created_at;
    }
+   
+   public LikeDTO(int post_idx, String user_email) {
+	super();
+	this.post_idx = post_idx;
+	this.user_email = user_email;
+}
 
-   public int getLike_idx() {
+public int getLike_idx() {
       return like_idx;
    }
 

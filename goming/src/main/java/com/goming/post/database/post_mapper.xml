@@ -10,7 +10,7 @@
 	
 	<!-- 포스트 필터링 -->
     <select id="getPostsByFilters" parameterType="com.goming.post.model.PostDTO" resultType="com.goming.post.model.PostDTO">
-        SELECT post_img, comment
+        SELECT post_idx, post_img, comment
         FROM post_info
         WHERE gender = #{gender}
           AND style_tag = #{style_tag}
