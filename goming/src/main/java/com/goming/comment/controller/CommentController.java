@@ -32,7 +32,7 @@ public class CommentController extends HttpServlet {
 		// 8 = 민소매, 반팔, 반바지, 원피스 ~ 28
 
 		HttpSession session = request.getSession();
-		WeatherDTO dto = new WeatherDTO();
+		WeatherDTO dto = new WeatherDTO(null, null, 0, 0, null, 0, null, null, 0, 0);
 		dto = (WeatherDTO) session.getAttribute("locate");
 		CommentDTO d = new CommentDTO(dto.getLat(), dto.getLon());
 		CommentDAO dao = new CommentDAO();
