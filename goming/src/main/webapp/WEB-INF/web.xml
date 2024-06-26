@@ -132,6 +132,7 @@
 
     </servlet>
     <servlet>
+
     	<servlet-name>CheckLike</servlet-name>
     	<display-name>CheckLike</display-name>
     	<description></description>
@@ -154,6 +155,13 @@
     	<display-name>DeleteImg</display-name>
     	<description></description>
     	<servlet-class>com.goming.post.controller.DeleteImg</servlet-class>
+   </servlet>
+    <servlet>
+    	<servlet-name>LikeSelectController</servlet-name>
+    	<display-name>LikeSelectController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeSelectController</servlet-class>
+
     </servlet>
     
     <!-- Servlet mappings -->
@@ -246,6 +254,7 @@
     	<url-pattern>/UpdateService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+
     	<servlet-name>CheckLike</servlet-name>
     	<url-pattern>/CheckLike</url-pattern>
     </servlet-mapping>
@@ -260,5 +269,10 @@
     <servlet-mapping>
     	<servlet-name>DeleteImg</servlet-name>
     	<url-pattern>/DeleteImg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LikeSelectController</servlet-name>
+    	<url-pattern>/LikeSelectController</url-pattern>
+
     </servlet-mapping>
 </web-app>

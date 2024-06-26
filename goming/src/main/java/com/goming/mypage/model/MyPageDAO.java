@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.goming.mypage.database.SqlSessionManager;
+import com.goming.post.model.PostDTO;
 
 public class MyPageDAO {
 
@@ -46,6 +47,29 @@ public class MyPageDAO {
 		try {
 			img_list = session.selectList("img_select", dto);
 
+			if (img_list != null) {
+				session.commit();
+				System.out.println("img_list 로딩 성공");
+			} else {
+				session.rollback();
+				System.out.println("img_list 로딩 실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("이미지 로딩 실패");
+		} finally {
+			session.close();
+		}
+		return img_list;
+	}
+	public List<PostDTO> SelectMyPageImg2(MyPageDTO dto) {
+		session = factory.openSession();
+		
+		List<PostDTO> img_list = null;
+		
+		try {
+			img_list = session.selectList("img_select2", dto);
+			
 			if (img_list != null) {
 				session.commit();
 				System.out.println("img_list 로딩 성공");
