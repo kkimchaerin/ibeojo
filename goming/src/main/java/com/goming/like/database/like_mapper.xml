@@ -4,18 +4,22 @@
 <!-- mapper : 순수 sql문만 작성 xml이 하나가 아닐 수 있다 = 여러 개 만들어도 무관 원호쌤 추천 : 테이블마다 
 	한 개의 mapper 만들기 mapper 사이에 sql문 작성해야 함 -->
 
-<mapper namespace="com.goming.like.database.Mapper">
+<mapper namespace="com.goming.like.database.like_mapper">
 	<!-- sql 작성방법 : 태그 사용 id 값 : 연결해줄 고유 아이디 parameterType : 입력받을 타입 작성 (우리가 
 		만든 타입인 경우 경로부터 작성) sql문 내 매개변수 채워 줄 때 : ? #{변수명} 변수명은 db, member, mapper 
 		다 일치시키기 -->
 
+<insert id="like_insert">
+insert into like_info
+values(null, #{post_idx}, #{user_email}, now())
+</insert>
 
-<update id="like_update">
-update
 
-</update>
-
-
+<select id="check_like" parameterType="com.goming.like.model.LikeDTO" resultType="com.goming.like.model.LikeDTO">
+select *
+  from like_info
+ where user_email = #{user_email} and post_idx = (select post_idx from post_info where post_img = #{post_img});
+</select>
 
 
 

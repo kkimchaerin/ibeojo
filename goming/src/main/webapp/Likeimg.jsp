@@ -31,7 +31,6 @@
             <button class="heartBtn" onclick="addLike()">
                 <img id="heartIcon" src="./images/heart-regular.svg" alt="like"> <!-- 로컬 SVG 아이콘 사용 -->
             </button>
-            <span id="likeCount">0</span>
         </div>
     </div>
 </div>

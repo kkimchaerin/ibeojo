@@ -38,4 +38,8 @@
 		WHERE post_idx = #{postIdx}
 	</update>
 
+	<delete id="deleteImg" parameterType="String">
+		DELETE FROM post_info WHERE post_img = #{post_img}
+	</delete>
+
 </mapper>

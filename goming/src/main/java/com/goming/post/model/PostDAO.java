@@ -119,5 +119,30 @@ public class PostDAO {
 		return cnt;
 	}
 	
+	public int deletePost(String img) {
+		session = factory.openSession();
+		
+		int cnt = 0;
+		
+		try {
+			cnt = session.update("com.goming.post.database.post_mapper.deleteImg", img);
+			if(cnt > 0) {
+				session.commit();
+				System.out.println("게시글 삭제 성공");
+			}else {
+				session.rollback();
+				System.out.println("게시글 삭제 실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("게시글 삭제 로딩 실패");
+		}finally {
+			session.close();
+		}
+		
+		
+		return cnt;
+	}
+	
 	
 }

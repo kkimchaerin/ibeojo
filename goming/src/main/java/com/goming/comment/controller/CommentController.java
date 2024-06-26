@@ -31,15 +31,17 @@ public class CommentController extends HttpServlet {
 		// 7 = 반팔, 얇은 셔츠, 반바지, 면바지 23 ~
 		// 8 = 민소매, 반팔, 반바지, 원피스 ~ 28
 
-		HttpSession session = request.getSession();
-		WeatherDTO dto = new WeatherDTO();
-		dto = (WeatherDTO) session.getAttribute("locate");
-		CommentDTO d = new CommentDTO(dto.getLat(), dto.getLon());
-		CommentDAO dao = new CommentDAO();
-		List<WeatherDTO> weather_info = dao.getWeather(d);
+		// HttpSession session = request.getSession();
+		// WeatherDTO dto = new WeatherDTO();
+		// dto = (WeatherDTO) session.getAttribute("locate");
+		// CommentDTO d = new CommentDTO(dto.getLat(), dto.getLon());
+		// CommentDAO dao = new CommentDAO();
+		// List<WeatherDTO> weather_info = dao.getWeather(d);
 
-		double temp = weather_info.get(0).getTemperature();
+		// double temp = weather_info.get(0).getTemperature();
 
+		int temp = 20;
+		
 		int sel = 1;
 
 		if (temp >= 4) {
@@ -82,7 +84,10 @@ public class CommentController extends HttpServlet {
 			comment = "너무 더운 날이에요. 자외선 대비와 수분 섭취에 신경을 써주세요";
 		}
 
-		double rain = Double.parseDouble(weather_info.get(0).getPrecipitation());
+		// double rain = Double.parseDouble(weather_info.get(0).getPrecipitation());
+		
+		int rain = 10;
+		
 		String rainper = null;
 
 		if (rain >= 20) {

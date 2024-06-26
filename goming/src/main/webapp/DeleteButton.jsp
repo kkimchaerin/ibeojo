@@ -1,4 +1,4 @@
-%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +22,13 @@
         <p> 게시물을 삭제하시겠습니까?</p>
         
         <!-- 예/아니오 버튼 -->
-        <div class="buttons"
-            <button onclick="deeteCnfimed()">예</button>
-            <button onclick="clseeltepup()">아니오</button>
-        </div
-    </div
+        <div class="buttons">
+            <button onclick="deleteConfirmed()">예</button>
+            <button onclick="closeDeletePopup()">아니오</button>
+        </div>
+    </div>
 </div>
-<script src="Likeimg.js"></script>
+<script src="./javascripts/Likeimg.js"></script>
 
 </body>
 </html>
