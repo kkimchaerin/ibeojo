@@ -23,7 +23,7 @@ String comment = (String) session.getAttribute("comment");
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
-<script src="./javascripts/Main.js?ver=5" defer></script>
+<!-- <script src="./javascripts/Main.js?ver=5" defer></script> -->
 <script src="./javascripts/LocationWeather.js" defer></script>
 </head>
 <body>
@@ -69,8 +69,8 @@ String comment = (String) session.getAttribute("comment");
 				<!-- 카테고리별 필터링된 이미지 출력 -->
 				<img src="./images/men_winter_minimal_11.png" alt="피드1"> <img
 					src="./images/men_winter_minimal_12.png" alt="피드2"> <img
-					src="./images/women_spring_minimal_13.png" alt="피드3"> <img
-					src="./images/women_spring_minimal_14.png" alt="피드4"> <img
+					src="./images/men_spring_minimal_3.png" alt="피드3"> <img
+					src="./images/men_spring_minimal_4.png" alt="피드4"> <img
 					src="./images/women_summer_minimal_11.png" alt="피드5"> <img
 					src="./images/women_summer_minimal_12.png" alt="피드6">
 			</div>
