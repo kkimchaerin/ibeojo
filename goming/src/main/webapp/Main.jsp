@@ -25,6 +25,7 @@ String comment = (String) request.getAttribute("comment");
 <script src="./javascripts/Post.js?ver=2" defer></script>
 <script src="./javascripts/Main.js?ver=5" defer></script>
 <script src="./javascripts/LocationWeather.js" defer></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
 </head>
 <body>
 	<!-- header -->
@@ -33,23 +34,22 @@ String comment = (String) request.getAttribute("comment");
 
 	<!-- main -->
 	<main>
-		<section class="weather-wrapper">
-			<h2 class="sr-only">날씨 정보</h2>
-			<div class="weather-info">
-				<span class="weather-icon" id="weatherIconContainer"> <!-- 기본적으로 로딩 스피너를 표시하도록 준비 -->
-					<div class="loading-spinner"></div> <!-- 이미지는 JavaScript에서 동적으로 추가될 예정 -->
-				</span>
-				 <span id="temperature">28°C</span> <span id="weatherInfo">맑음</span>
-			</div>
-			<div id="weather-comment">
-				<%
-				if (rainper != null)
-				{
-					out.print(rainper);
-				}
-				%>
-			</div>
-		</section>
+<section class="weather-wrapper">
+    <h2 class="sr-only">날씨 정보</h2>
+    <div class="weather-info">
+        <div id="additional-text"><!-- 원하는 텍스트 -->내가 원하는 텍스트를 여기에 적습니다.</div>
+        <span class="weather-icon" id="weatherIconContainer">
+            <!-- 기본적으로 로딩 스피너를 표시하도록 준비 -->
+            <div class="loading-spinner"></div> <!-- 이미지는 JavaScript에서 동적으로 추가될 예정 -->
+        </span>
+        <span id="temperature">28°C</span>
+        <span id="weatherInfo">맑음</span>
+    </div>
+    <div id="weather-comment">
+        <% if (rainper != null) { out.print(rainper); } %>
+    </div>
+</section>
+
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
 			<div class="gender-category">
