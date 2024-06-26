@@ -91,7 +91,7 @@ public class PostDTO {
 		
 		@Override
 		public String toString() {
-			return "TestDTO [post_idx=" + post_idx + ", user_email=" + user_email + ", post_img=" + post_img + ", gender="
+			return "PostDTO [post_idx=" + post_idx + ", user_email=" + user_email + ", post_img=" + post_img + ", gender="
 					+ gender + ", style_tag=" + style_tag + ", season=" + season + ", comment=" + comment + ", created_at="
 					+ created_at + "]";
 		}

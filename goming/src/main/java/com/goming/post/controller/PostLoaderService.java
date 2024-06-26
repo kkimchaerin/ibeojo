@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.goming.post.model.PostDAO;
 import com.goming.post.model.PostDTO;
-import com.goming.post.model.TestDTO;
 import com.google.gson.Gson;
 
 @WebServlet("/PostLoaderService")

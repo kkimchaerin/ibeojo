@@ -1,3 +1,10 @@
+if (!window.likeImgScriptLoaded) {
+    const script = document.createElement('script');
+    script.src = './javascripts/Likeimg.js';
+    document.head.appendChild(script);
+    window.likeImgScriptLoaded = true;
+}
+
 let likeCounter = 0; // 좋아요 횟수를 저장할 변수
 let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소를 저장하는 변수
 

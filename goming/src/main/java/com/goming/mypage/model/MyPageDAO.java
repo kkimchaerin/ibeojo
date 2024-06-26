@@ -62,13 +62,14 @@ public class MyPageDAO {
 		}
 		return img_list;
 	}
-	public List<PostDTO> SelectMyPageImg2(MyPageDTO dto) {
+	
+	public List<PostDTO> SelectMyPageLike(MyPageDTO dto) {
 		session = factory.openSession();
 		
 		List<PostDTO> img_list = null;
 		
 		try {
-			img_list = session.selectList("img_select2", dto);
+			img_list = session.selectList("like_select", dto);
 			
 			if (img_list != null) {
 				session.commit();
