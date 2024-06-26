@@ -32,10 +32,5 @@ window.onload = function() {
 		<input type="submit" value="아이디 찾기">
 	</form>
 
-	<div class="bg_video">
-		<video autoplay muted loop class="bg_video_content">
-			<source src="./video/4753-179739298_medium.mp4" type="video/mp4">
-		</video>
-	</div>
 </body>
 </html>

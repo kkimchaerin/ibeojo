@@ -49,11 +49,6 @@
 		<button type="button" class= "black" onclick="window.location.href='First.jsp'">돌아가기</button>
 	</form>
 	</form>
-	<div class="bg_video">
-		<video autoplay muted loop class="bg_video_content">
-			<source src="video/4753-179739298_medium.mp4" type="video/mp4">
-		</video>
-	</div>
 
 	<script>
     $(document).ready(function() {
