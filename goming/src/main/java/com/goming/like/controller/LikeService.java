@@ -24,6 +24,11 @@ public class LikeService extends HttpServlet {
 		System.out.println("post_idx!!"+ post_idx);
 		String user_email = (String)session.getAttribute("user_email");
 		
+		// 세션에 이메일과 비밀번호가 없을 경우 로그인 페이지로 리디렉션
+		if(user_email == null) {
+			response.sendRedirect("Login.jsp");
+		}
+		
 		LikeDTO like = new LikeDTO(post_idx, user_email);
 		LikeDAO dao = new LikeDAO();
 		
@@ -31,11 +36,11 @@ public class LikeService extends HttpServlet {
 		
 		if(cnt > 0) {
 			//out.write("<script>alert('업로드되었습니다 :)');</script>");
-			System.out.println("업로드 완료");
+			System.out.println("좋아요 완료");
 			response.sendRedirect("Main.jsp");
 
 		}else {
-			System.out.println("업로드 실패");
+			System.out.println("좋아요 실패");
 			response.sendRedirect("Main.jsp");
 		}
 	}

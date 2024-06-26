@@ -9,11 +9,8 @@ public class LikeDAO {
 	SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
 	SqlSession session;
 	
-	// 좋아요 업로드
+	// 좋아요 추가
 	public int likeInsert(LikeDTO like) {
-		SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
-		SqlSession session;
-
 		session = factory.openSession();
 		int cnt = 0;
 
@@ -35,6 +32,20 @@ public class LikeDAO {
 
 		return cnt;
 	}
+	
+	// 좋아요 취소
+    public int likeDelete(LikeDTO like) {
+    	session = factory.openSession();
+        int cnt = 0;
+        try {
+            cnt = session.delete("com.goming.like.database.like_mapper.likeDelete", like);
+            session.commit();
+        } catch (Exception e) {
+        	System.out.println("좋아요 취소 실패");
+            e.printStackTrace();
+        }
+        return cnt;
+    }
 	
 	
 

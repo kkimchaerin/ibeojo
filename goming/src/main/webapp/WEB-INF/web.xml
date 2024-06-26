@@ -137,6 +137,12 @@
     	<description></description>
     	<servlet-class>com.goming.like.controller.LikeService</servlet-class>
     </servlet>
+    <servlet>
+    	<servlet-name>UnlikeService</servlet-name>
+    	<display-name>UnlikeService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.UnlikeService</servlet-class>
+    </servlet>
     
     <!-- Servlet mappings -->
     <servlet-mapping>
@@ -230,5 +236,9 @@
     <servlet-mapping>
     	<servlet-name>LikeService</servlet-name>
     	<url-pattern>/LikeService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UnlikeService</servlet-name>
+    	<url-pattern>/UnlikeService</url-pattern>
     </servlet-mapping>
 </web-app>

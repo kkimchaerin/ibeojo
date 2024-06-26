@@ -11,6 +11,10 @@
 	VALUES (#{post_idx}, #{user_email}, NOW());
 </insert>
 
+<delete id="likeDelete" parameterType="com.goming.like.model.LikeDTO">
+	DELETE FROM like_info WHERE post_idx = #{post_idx} AND user_email = #{user_email}
+</delete>
+
 
 <select id="check_like" parameterType="com.goming.like.model.LikeDTO" resultType="com.goming.like.model.LikeDTO">
 	SELECT *

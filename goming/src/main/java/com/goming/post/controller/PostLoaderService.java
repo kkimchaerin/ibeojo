@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.goming.post.model.PostDAO;
 import com.goming.post.model.PostDTO;
@@ -20,7 +21,7 @@ import com.google.gson.Gson;
 @WebServlet("/PostLoaderService")
 public class PostLoaderService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 요청에서 필터링 정보를 가져옴
