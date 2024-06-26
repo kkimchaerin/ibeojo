@@ -34,6 +34,8 @@ public class LoginController extends HttpServlet {
 		user_DAO dao = new user_DAO();
 		user_DTO m = dao.login(dto);
 
+		
+		
 		if (m != null) {
 			// 로그인 성공
 			System.out.println("success");
@@ -45,7 +47,8 @@ public class LoginController extends HttpServlet {
 
 			// 이동
 			response.sendRedirect("CommentController");
-		} else {
+			
+		}else {
 			// 로그인 실패
 			System.out.println("LoginController : fail");
 			request.setAttribute("errorMessage", "아이디와 비밀번호를 확인하세요.");
