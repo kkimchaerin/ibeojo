@@ -1,6 +1,7 @@
 let fetchWeatherAndSaveToDBs;
-
+let weatherData;
 let dbing = false;
+
 
 document.addEventListener('DOMContentLoaded', function() {
 	// 기본 카카오 api의 화면 생성 시작 -------------------------------------------
@@ -33,9 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// 버튼 엘리먼트 가져오기
 	let getInfoButton = document.getElementById('getInfoButton');
+	let spinner = document.querySelector('.loading-spinner');
 
 	// 초기에 버튼은 비활성화 상태로 설정
 	getInfoButton.disabled = true;
+	spinner.style.display = 'none'; 
 
 	let latitude;
 	let longitude;
@@ -215,6 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// db로 정보올리기 시작 -------------------------------------------
 	fetchWeatherAndSaveToDBs = function fetchWeatherAndSaveToDB() {
+		spinner.style.display = 'block'; 
 		// 버튼 활성화
 		dbing = true;
 		getInfoButton.disabled = true;
@@ -233,12 +237,15 @@ document.addEventListener('DOMContentLoaded', function() {
 					// 성공적으로 데이터베이스에 저장된 경우
 					getWeatherFromDBs(); // 추가적인 클라이언트의 처리 로직
 				} else {
+					
 					// 실패한 경우 처리
 					alert("DB 업소트가 실패했습니다.");
 					// 실패 처리 로직 작성
 				}
+				spinner.style.display = 'none'; 
 			},
 			error: function(xhr, status, error) {
+				spinner.style.display = 'none'; 
 				// 서버에서의 처리가 실패하면 이 함수가 호출됨
 				alert("AJAX 호출이 실패했습니다.");
 				console.error(xhr, status, error);
@@ -274,17 +281,264 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// db로 받아온 날씨정보로 화면 수정 시작 -------------------------------------------
 
+	/*		1. 날짜		- Data 1-2
+			2. 시간		- Data 1-3
+			3. 온도		- Title1
+			4. 습도		- Title4
+			5. 날씨상태	- Title1
+			6. 풍속   	- 
+			7. 강수확률	- Title2
+			8. 강우량		- Title3
+			9. 위도와 경도 - Data 1-4*/
+
 	let getWeatherFromDBfunctions = function getWeatherFromDBfunction(response) {
 		console.log(response);
-		let weatherData = response;
+		weatherData = response;
+
+		console.log(weatherData.length);
+
+
+
+		// 현재 날짜와 시간을 문자열로 가져오기
+		const currentDateTimeString = getCurrentDateTime();
+		const nearestData = findNearestData(weatherData, currentDateTimeString);
+
+		console.log(nearestData);
+
+		if (nearestData) {
+			updateTable(nearestData);
+		}
+
+		for (let i = 1; i < weatherData.length; i++) {
+			addtable(weatherData[i]);
+		}
 
 		dbing = false;
 		// 버튼 활성화
 		getInfoButton.disabled = false;
+
+		console.log(weatherDatas);
+		console.log(days);
+
+		prepareChartDatas(response); // 데이터 가공
+		setupCharts();
+
+	}
+
+	let updateTable = function updateTable(weatherData) {
+		// 테이블 요소 가져오기
+		const table = document.getElementById('daily');
+
+		// 온도
+		table.rows[0].cells[0].textContent = `온도: ${weatherData.temperature}°C`;
+		// 강수확률
+		table.rows[0].cells[1].textContent = `강수확률: ${weatherData.rainy_prob}%`;
+		// 강우량
+		table.rows[0].cells[2].textContent = `강우량: ${weatherData.precipitation}`;
+		// 날씨상태
+		table.rows[0].cells[3].textContent = `날씨상태: ${weatherData.weatherInfo}`;
+
+		// 날짜
+		const month = weatherData.fcstDate.month < 10 ? '0' + weatherData.fcstDate.month : weatherData.fcstDate.month;
+		const day = weatherData.fcstDate.day < 10 ? '0' + weatherData.fcstDate.day : weatherData.fcstDate.day;
+		const dateString = `${weatherData.fcstDate.year}-${month}-${day}`;
+		document.getElementById('date-cell').textContent = dateString;
+
+		// 시간
+		document.getElementById('time-cell').textContent = weatherData.fcstTime;
+
+		// 위도와 경도
+		document.getElementById('lat-lon-cell').textContent = `위도: ${weatherData.lat}, 경도: ${weatherData.lon}`;
+	}
+
+	let addtable = function addColumn(weatherData) {
+		// 테이블 요소 가져오기
+		const table = document.getElementById('dynamicTable');
+
+		// thead 행에 셀 추가
+		const thead = table.querySelector('thead');
+		const headerRow = thead.rows[0];
+		const newHeaderCell = document.createElement('th');
+		newHeaderCell.textContent = `${weatherData.fcstDate.day}일 ${weatherData.fcstTime}`;
+		/*days += `${weatherData.fcstDate.day}일 ${weatherData.fcstTime}`;*/
+		headerRow.appendChild(newHeaderCell);
+
+		// tbody 행에 셀 추가
+		let index = 0; // 인덱스 변수 초기화
+		const tbody = table.querySelector('tbody');
+		for (let row of tbody.rows) {
+			const newCell = document.createElement('td');
+
+			let contentdata;
+
+			if (index === 0) {
+				contentdata = `${weatherData.temperature}`;
+				/*weatherDatas += `${weatherData.temperature}`;*/
+			} else if (index === 1) {
+				contentdata = `${weatherData.rainy_prob}`;
+			} else if (index === 2) {
+				contentdata = `${weatherData.precipitation}`;
+			} else if (index === 3) {
+				contentdata = `${weatherData.wind}`;
+			} else if (index === 4) {
+				contentdata = `${weatherData.humidity}%`;
+			}
+
+
+			newCell.textContent = contentdata;
+			row.appendChild(newCell);
+			index++;
+		}
+	}
+
+	// db로 받아온 날씨정보로 화면 수정 끝남 -------------------------------------------
+
+	// 최근의 날씨 찾기 코드 시작  -------------------------------------------
+
+	// 현재 시간을 계산하는 함수
+	function getCurrentDateTime() {
+		const now = new Date();
+		const year = now.getFullYear();
+		const month = String(now.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요, 2자리 숫자로 변환
+		const date = String(now.getDate()).padStart(2, '0'); // 날짜는 2자리 숫자로 변환
+		const hours = String(now.getHours()).padStart(2, '0'); // 시간은 2자리 숫자로 변환
+		const minutes = String(now.getMinutes()).padStart(2, '0'); // 분은 2자리 숫자로 변환
+		const seconds = String(now.getSeconds()).padStart(2, '0'); // 초는 2자리 숫자로 변환
+		return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
 	}
 
 
-	// db로 받아온 날씨정보로 화면 수정 끝남 -------------------------------------------
+
+	function convertTo24Hour(time) {
+		const [timePart, period] = time.split(' ');
+		let [hour, minute, second] = timePart.split(':').map(Number);
+
+		if (period === '오전' && hour === 12) {
+			hour = 0;
+		} else if (period === '오후' && hour !== 12) {
+			hour += 12;
+		}
+
+		return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
+	}
+
+	function findNearestData(dataArray, currentDateTime) {
+		let nearestData = null;
+		let minDifference = Infinity;
+		console.log("dataArray : " + dataArray);
+
+		for (let data of dataArray) {
+			console.log("읽기");
+			// 데이터의 날짜와 시간을 하나의 문자열로 합치기
+
+			const month = data.fcstDate.month < 10 ? '0' + data.fcstDate.month : data.fcstDate.month;
+			const day = data.fcstDate.day < 10 ? '0' + data.fcstDate.day : data.fcstDate.day;
+
+			// fcstTime을 24시간 형식으로 변환
+			const fcstTime24Hour = convertTo24Hour(data.fcstTime);
+			const dataDateTime = `${data.fcstDate.year}-${month}-${day}T${fcstTime24Hour}`;
+
+			console.log("data : " + data);
+			console.log("fcstDate : " + data.fcstDate);
+			console.log("fcstTime : " + data.fcstTime);
+			console.log("fcstTime24Hour : " + fcstTime24Hour);
+			console.log("dataDateTime : " + dataDateTime);
+			console.log("Date(dataDateTime).getTime() : " + new Date(dataDateTime).getTime());
+
+			const currentDateTimeISO = currentDateTime.replace(' ', 'T');
+			// 데이터의 날짜와 현재 시간의 차이 계산
+			const dateTimeDifference = Math.abs(new Date(dataDateTime).getTime() - new Date(currentDateTimeISO).getTime());
+
+			console.log("currentDateTime : " + currentDateTime);
+			console.log("currentDateTimeISO : " + currentDateTimeISO);
+			console.log("Date(currentDateTimeISO).getTime() : " + new Date(currentDateTimeISO).getTime());
+			console.log("값입니다" + dateTimeDifference);
+
+			// 가장 작은 차이를 가진 데이터 찾기
+			if (dateTimeDifference < minDifference) {
+				minDifference = dateTimeDifference;
+				nearestData = data;
+				console.log("데이터를 최신화함");
+			}
+		}
+
+		return nearestData;
+	}
+
+	// 가장 가까운 데이터 찾기
+
+
+	// 최근의 날씨 찾기 코드 끝남  -------------------------------------------
+
+	// 온도로 그래프 그리가 시작  -------------------------------------------
+
+	// 기본 날씨 데이터 예시
+	let weatherDatas = []; // 온도 데이터 배열
+	let days = []; // 날짜 데이터 배열
+
+	let prepareChartDatas = function prepareChartData(weatherData) {
+		// 날짜와 온도 데이터 초기화
+		weatherDatas = [];
+		days = [];
+
+		// 날씨 데이터를 Chart.js가 인식할 수 있는 형태로 변환
+		for (let data of weatherData) {
+			// 예시: data에서 날짜와 온도 정보 추출
+			const date = `${data.fcstDate.year}-${data.fcstDate.month}-${data.fcstDate.day}`;
+			const temperature = data.temperature;
+
+			// 날짜와 온도를 데이터 배열에 추가
+			days.push(date);
+			weatherDatas.push(temperature);
+		}
+	}
+
+	// Chart.js 그래프 설정
+	let setupCharts = function setupChart() {
+		const canvas = document.getElementById('weatherGraph');
+		const ctx = canvas.getContext('2d');
+
+		const myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: days, // X 축 레이블
+				datasets: [{
+					label: '온도', // 데이터셋 레이블
+					data: weatherDatas, // Y 축 데이터
+					backgroundColor: 'rgba(54, 162, 235, 0.2)', // 배경색
+					borderColor: 'rgba(54, 162, 235, 1)', // 선 색
+					borderWidth: 2, // 선 굵기
+					pointBackgroundColor: 'rgba(54, 162, 235, 1)', // 데이터 포인트 색상
+					pointBorderColor: 'rgba(54, 162, 235, 1)', // 데이터 포인트 테두리 색상
+					pointRadius: 5, // 데이터 포인트 반지름
+					pointHoverRadius: 7 // 마우스 호버 시 데이터 포인트 반지름
+				}]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false, // Canvas의 가로 세로 비율을 유지하지 않음
+				scales: {
+					y: {
+						beginAtZero: false // Y 축 시작 값 설정
+					}
+				},
+				plugins: {
+					tooltip: {
+						callbacks: {
+							label: function(context) {
+								return `Temperature: ${context.raw.toFixed(1)}°C`; // 소수점 첫째 자리까지 수치 표시
+							}
+						}
+					}
+				}
+			}
+		});
+	}
+
+
+	// 온도로 그래프 그리가 끝남  -------------------------------------------
+
+
 
 	// 비동기통신 끝남 -------------------------------------------
 });
