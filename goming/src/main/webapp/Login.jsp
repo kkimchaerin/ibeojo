@@ -17,7 +17,7 @@
 		<input type="password" name="user_pw" placeholder="비밀번호를 입력하세요"><br>
 		<input type="submit" value="로그인">
 
-		<div class="button-group">
+		<div class="button-group"> 
 			<button type="button" onclick="location.href='FindId.jsp'">아이디
 				찾기</button>
 			<br>
