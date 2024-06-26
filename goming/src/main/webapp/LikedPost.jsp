@@ -131,7 +131,7 @@ String jsonImgList = new Gson().toJson(imgList);
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-	<script src="./LikedPost.js"></script>
+	<script src="LikedPost.js"></script>
 
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>

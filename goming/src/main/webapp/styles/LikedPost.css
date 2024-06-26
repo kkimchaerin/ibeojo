@@ -15,6 +15,10 @@ body {
 	background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
 }
 
+.small-text {
+    font-size: 11px;
+}
+
 /* 페이지 제목 스타일 */
 h2 { 
 	margin-top:100px !important;
