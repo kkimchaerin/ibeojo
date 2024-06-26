@@ -27,7 +27,7 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 <head>
 <meta charset="UTF-8">
 <title>My Page</title>
-<link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver4">
+<link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver6">
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css" />
@@ -65,18 +65,13 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 			%>
 			
 			<img src='./post/<%=img_list.get(i)%>' alt='이미지'
-				onclick="openPopup('./post/<%=img_list.get(i)%>', this)">
+				onclick="openPopup('./post/<%=img_list.get(i)%>', this)" id = 'myimg<%= i %>'>
 				
-			<%
-			}
-			%>
-			<%
+			<%} 
 			} else {
 			%>
 			<p>게시물이 없습니다.</p>
-			<%
-			}
-			%>
+			<% } %>
 		</div>
 
 		<div class = "button_container" style="height:200px">

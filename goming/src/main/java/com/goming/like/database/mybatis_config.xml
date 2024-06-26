@@ -20,6 +20,6 @@
 	</environments>
 	<mappers>
 	<!-- 내가 사용할 mapper 작성 -->
-		<mapper resource="com/goming/like/database/myPageMapper.xml" />
+		<mapper resource="com/goming/like/database/like_mapper.xml" />
 	</mappers>
 </configuration>

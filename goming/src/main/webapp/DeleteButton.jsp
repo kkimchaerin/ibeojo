@@ -27,9 +27,8 @@
             <button onclick="closeDeletePopup()">아니오</button>
         </div>
     </div>
-</div>
-
-<script src="Likeimg.js"></script>
+</div>
+<script src="./javascripts/Likeimg.js"></script>
 
 </body>
 </html>
