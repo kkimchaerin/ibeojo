@@ -62,6 +62,8 @@ public class MyPageDAO {
 		}
 		return img_list;
 	}
+	
+	// 좋아요 한 페이지 카테고리하려고 만듦
 	public List<PostDTO> SelectMyPageImg2(MyPageDTO dto) {
 		session = factory.openSession();
 		
