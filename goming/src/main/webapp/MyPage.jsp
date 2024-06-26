@@ -61,10 +61,6 @@
     <!-- bottom nav -->
     <%@ include file="BottomNav.jsp"%>
 	
-	</div>
-		<button>좋아요 한 게시물 보기</button>
-		<br>
-		<button class="red" onclick="location.href='UserDelete.jsp'">회원탈퇴</button>
-	</div>
+
 </body>
 </html>
