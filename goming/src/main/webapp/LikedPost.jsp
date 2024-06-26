@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Liked Post</title>
-    <link rel="stylesheet" type="text/css" href="./styles/LikedPost.css?ver3">
+    <link rel="stylesheet" type="text/css" href="./styles/LikedPost.css?ver4">
 	<link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css?ver3" />
 	<link rel="stylesheet" type="text/css" href="./styles/BottomNav.css?ver3" />
 </head>
