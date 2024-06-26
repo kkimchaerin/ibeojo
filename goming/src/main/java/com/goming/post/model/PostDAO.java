@@ -89,5 +89,35 @@ public class PostDAO {
 		return s;
 	}
 	
+	public int update(int idx, String img) {
+		session = factory.openSession();
+		
+		PostDTO dto = new PostDTO();
+		
+		dto.setPostIdx(idx);
+		dto.setPostImg(img);
+		
+		int cnt = 0;
+		
+		try {
+			cnt = session.update("com.goming.post.database.post_mapper.updateImg", dto);
+			
+			if(cnt > 0) {
+				System.out.println("업데이트 성공");
+				session.commit();
+			}else {
+				System.out.println("업데이트 실패");
+				session.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("업데이트 로딩 실패");
+		}finally {
+			session.close();
+		}
+		
+		return cnt;
+	}
+	
 	
 }

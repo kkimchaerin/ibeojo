@@ -68,6 +68,7 @@ function closeDeletePopup() {
 
 function deleteConfirmed() {
     // 현재 이미지 요소 삭제
+    document.gete
     if (currentImageElement) {
         currentImageElement.remove();
         currentImageElement = null;
