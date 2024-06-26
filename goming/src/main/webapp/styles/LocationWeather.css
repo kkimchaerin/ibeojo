@@ -18,3 +18,9 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+    #additional-text {
+    white-space: nowrap; /* 줄바꿈 방지 */
+}
+#additional-text {
+    white-space: nowrap; /* 줄바꿈 방지 */
+}

@@ -35,8 +35,8 @@
 
 	<update id="updateImg" parameterType="com.goming.post.model.PostDTO">
 		UPDATE post_info 
-		SET post_img = #{postImg} 
-		WHERE post_idx = #{postIdx}
+		SET post_img = #{post_img} 
+		WHERE post_idx = #{post_idx}
 	</update>
 
 </mapper>

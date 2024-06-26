@@ -37,39 +37,39 @@ public class PostDAO {
 
 		return cnt;
 	}
-	
-    // 필터에 따라 포스트 이미지 리스트 가져오기
+
+	// 필터에 따라 포스트 이미지 리스트 가져오기
 	public List<PostDTO> getPostsByFilters(PostDTO filter) {
-	    SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
-	    SqlSession session = factory.openSession();
-	    List<PostDTO> postList = null;
+		SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
+		SqlSession session = factory.openSession();
+		List<PostDTO> postList = null;
 
-	    try {
-	        // MyBatis 매퍼 호출
-	    	postList = session.selectList("com.goming.post.database.post_mapper.getPostsByFilters", filter);
-	    	// System.out.println("필터링DB: " + postList.get(0).toString());
-	        // System.out.println("필터링DB: " + postList.get(0).getComment());
-	    } catch (Exception e) {
-	    	System.out.println("호출 실패");
-	        e.printStackTrace();
-	    } finally {
-	        session.close();
-	    }
+		try {
+			// MyBatis 매퍼 호출
+			postList = session.selectList("com.goming.post.database.post_mapper.getPostsByFilters", filter);
+			// System.out.println("필터링DB: " + postList.get(0).toString());
+			// System.out.println("필터링DB: " + postList.get(0).getComment());
+		} catch (Exception e) {
+			System.out.println("호출 실패");
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 
-	    return postList;
+		return postList;
 	}
 
 	public String getidx() {
 		session = factory.openSession(true);
-		
+
 		String s = null;
-		
+
 		try {
 			s = session.selectOne("com.goming.post.database.post_mapper.getidx");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("인덱스 로딩 실패 ");
-		}finally {
+		} finally {
 			session.close();
 		}
 		return s;
@@ -77,49 +77,48 @@ public class PostDAO {
 
 	public String getimg() {
 		session = factory.openSession();
-		
+
 		String s = null;
-		
+
 		try {
 			s = session.selectOne("com.goming.post.database.post_mapper.getimg");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("이미지 로딩 실패");
-		}finally {
+		} finally {
 			session.close();
 		}
 		return s;
 	}
-	
+
 	public int update(int idx, String img) {
 		session = factory.openSession();
-		
+
 		PostDTO dto = new PostDTO();
-		
-		dto.setPostIdx(idx);
-		dto.setPostImg(img);
-		
+
+		dto.setPost_idx(idx);
+		dto.setPost_img(img);
+
 		int cnt = 0;
-		
+
 		try {
 			cnt = session.update("com.goming.post.database.post_mapper.updateImg", dto);
-			
-			if(cnt > 0) {
+
+			if (cnt > 0) {
 				System.out.println("업데이트 성공");
 				session.commit();
-			}else {
+			} else {
 				System.out.println("업데이트 실패");
 				session.rollback();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("업데이트 로딩 실패");
-		}finally {
+		} finally {
 			session.close();
 		}
-		
+
 		return cnt;
 	}
-	
-	
+
 }
