@@ -18,7 +18,8 @@ String comment = (String) session.getAttribute("comment");
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
-<link rel="stylesheet" type="text/css" href="./styles/LocationWeather.css?ver=1" />
+<link rel="stylesheet" type="text/css"
+	href="./styles/LocationWeather.css?ver=1" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
@@ -26,6 +27,8 @@ String comment = (String) session.getAttribute("comment");
 <script src="./javascripts/LocationWeather.js" defer></script>
 <script src="./javascripts/Main.js?ver=7" defer></script>
 <script src="./javascripts/ShowDetailModal.js?ver=1" defer></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
 </head>
 <body>
 	<!-- header -->

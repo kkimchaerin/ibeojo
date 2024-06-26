@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="styles/kakaomap.css">
 <link rel="stylesheet" type="text/css" href="styles/BottomNav.css" />
+<link rel="stylesheet" type="text/css" href="styles/Header.css" />
 <title>Dynamic Table and Chart Example</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -43,7 +44,7 @@
 	<div class="container">
 		<div class="map-container">
 			<!-- 카카오 맵 API가 담긴 부분 -->
-			<div class="map_wrap">
+			<div class="map_wrap" style="margin-top:70px;">
 				<div id="map"
 					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
 				<div class="hAddr">
@@ -145,6 +146,7 @@
 	</script>
 
 	<%@ include file="BottomNav.jsp"%>
+	<%@ include file="Header.jsp"%>
 
 
 
