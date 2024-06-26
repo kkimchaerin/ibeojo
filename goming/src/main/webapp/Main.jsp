@@ -14,7 +14,7 @@ String comment = (String) session.getAttribute("comment");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의옷</title>
-<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=7" />
+<link rel="stylesheet" type="text/css" href="./styles/Main.css" />
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
@@ -25,6 +25,8 @@ String comment = (String) session.getAttribute("comment");
 <script src="./javascripts/Post.js?ver=2" defer></script>
 <!-- <script src="./javascripts/Main.js?ver=5" defer></script> -->
 <script src="./javascripts/LocationWeather.js" defer></script>
+<script src="./javascripts/Main.js?ver=7" defer></script>
+<script src="./javascripts/ShowDetailModal.js?ver=1" defer></script> 
 </head>
 <body>
 	<!-- header -->
@@ -83,6 +85,32 @@ String comment = (String) session.getAttribute("comment");
 
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>
-
+	
+	<!-- show detail modal -->
+	<div id="modal" class="modal">
+	    <span class="close">&times;</span>
+	    <div class="modal-content">
+	        <img id="modal-img">
+	        <div class="modal-info">
+	            <button id="modal-like-btn" class="liked">
+	            	<img src="./icons/heart-regular.svg" alt="좋아요">
+	            </button>
+	            <p id="modal-comment"></p>
+	        </div>
+	    </div>
+	</div>
+        <!-- <span id="modal-like-count">0</span> -->
+    </div>
 </body>
+<style>
+body{
+background-image: url("./images/background03.png");
+
+background-size: cover;
+}
+
+.weather-wrapper{
+	background-color: white;
+}
+</style>
 </html>
