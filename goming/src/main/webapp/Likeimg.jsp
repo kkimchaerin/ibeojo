@@ -30,12 +30,12 @@
         <div class="popup-text">
             <button class="heartBtn" onclick="addLike()">
                 <img id="heartIcon" src="./images/heart-regular.svg" alt="like"> <!-- 로컬 SVG 아이콘 사용 -->
+                <span id="likeCount">101</span>
             </button>
         </div>
     </div>
 </div>
 
-<script src="./javascripts/Likeimg.js"></script>
-
+<!-- <script src="./javascripts/Likeimg.js"></script> -->
 </body>
 </html>

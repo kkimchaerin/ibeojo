@@ -1,11 +1,15 @@
-function openPopup(imageSrc) {
+// 현재 사용이 되고있지 않습니다
+// 비슷하게 함수가 구현된 Likeimg.js가 있어서 일단 얘를 그놈으로 대체한상태입니다
+
+function openPopup(imageSrc, post_idx) {
     var popupImg = document.getElementById("popupImage");
     var animationContainer = document.getElementById("animationContainer");
-    
+    getLikeCount(post_idx);
     popupImg.src = imageSrc; // 팝업 이미지 설정
     animationContainer.innerHTML = ""; // 애니메이션 컨테이너 초기화
     openPopupBackground(); // 팝업 창 열기
 }
+
 
 function openPopupBackground() {
     var popupBackground = document.getElementById("imagePopupBackground");

@@ -9,25 +9,39 @@
 		만든 타입인 경우 경로부터 작성) sql문 내 매개변수 채워 줄 때 : ? #{변수명} 변수명은 db, member, mapper 
 		다 일치시키기 -->
 
-<insert id="like_insert">
-insert into like_info
-values(null, #{post_idx}, #{user_email}, now())
-</insert>
+	<!-- post_idx에 대한 좋아요 갯수를 가져오는 쿼리 -->
+	<select id="countLikesByPostIdx" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM like_info l
+		JOIN post_info p ON l.post_idx = p.post_idx
+		WHERE p.post_img = #{post_img}
+	</select>
 
-    <select id="selectLikedPostsByUserEmail" parameterType="String" resultType="com.goming.post.model.PostDTO">
-        SELECT p.*
-        FROM post_info p
-        JOIN like_info l ON p.post_idx = l.post_idx
-        WHERE l.user_email = #{user_email}
-    </select>
+	<select id="selectLikedPostsByUserEmail" parameterType="String"
+		resultType="com.goming.post.model.PostDTO">
+		SELECT p.*
+		FROM post_info p
+		JOIN like_info l ON p.post_idx =
+		l.post_idx
+		WHERE l.user_email = #{user_email}
+	</select>
+	<insert id="like_insert">
+		insert into like_info
+		values(null, #{post_idx},
+		#{user_email}, now())
+	</insert>
 
 
-
-<select id="check_like" parameterType="com.goming.like.model.LikeDTO" resultType="com.goming.like.model.LikeDTO">
-select *
-  from like_info
- where user_email = #{user_email} and post_idx = (select post_idx from post_info where post_img = #{post_img});
-</select>
+	<select id="check_like"
+		parameterType="com.goming.like.model.LikeDTO"
+		resultType="com.goming.like.model.LikeDTO">
+		select *
+		from like_info
+		where user_email = #{user_email} and
+		post_idx = (select post_idx from
+		post_info where post_img =
+		#{post_img});
+	</select>
 
 
 

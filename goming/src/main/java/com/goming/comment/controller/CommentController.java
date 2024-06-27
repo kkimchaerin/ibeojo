@@ -14,11 +14,13 @@ import com.goming.comment.model.CommentDAO;
 import com.goming.comment.model.CommentDTO;
 import com.goming.weather.model.WeatherDTO;
 
-public class CommentController extends HttpServlet {
+public class CommentController extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException
+	{
 
 		request.setCharacterEncoding("UTF-8");
 
@@ -31,13 +33,13 @@ public class CommentController extends HttpServlet {
 		// 7 = 반팔, 얇은 셔츠, 반바지, 면바지 23 ~
 		// 8 = 민소매, 반팔, 반바지, 원피스 ~ 28
 
-		HttpSession session = request.getSession();
+		/* HttpSession session = request.getSession(); */
 		/*
 		 * WeatherDTO dto = new WeatherDTO(null, null, 0, 0, null, 0, null, null, 0, 0);
 		 */
 		/* dto = (WeatherDTO) session.getAttribute("locate"); */
 		/* CommentDTO d = new CommentDTO(dto.getLat(), dto.getLon()); */
-		CommentDAO dao = new CommentDAO();
+		/* CommentDAO dao = new CommentDAO(); */
 		/* List<WeatherDTO> weather_info = dao.getWeather(d); */
 
 		/*
@@ -73,9 +75,10 @@ public class CommentController extends HttpServlet {
 		 * rainper);
 		 */
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Main.jsp");
-		dispatcher.forward(request, response);
-
+		/*
+		 * RequestDispatcher dispatcher = request.getRequestDispatcher("Main.jsp");
+		 * dispatcher.forward(request, response);
+		 */
 		response.sendRedirect("Main.jsp");
 
 	}

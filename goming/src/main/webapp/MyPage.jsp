@@ -25,6 +25,7 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <title>My Page</title>
 <link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver6">

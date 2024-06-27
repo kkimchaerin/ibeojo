@@ -40,24 +40,6 @@ public class LikeDAO
 		return cnt;
 	}
 
-	public LikeDTO check_like(String img, String user_email) {
-		session = factory.openSession();
-		
-		LikeDTO dto = new LikeDTO();
-		dto.setUser_email(user_email);
-		dto.setPost_img(img);
-		
-		try {
-			dto = session.selectOne("com.goming.like.database.like_mapper.check_like", dto);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("좋아요 체크 실패");
-		}finally {
-			session.close();
-		}
-		
-		return dto;
-	}
 	
 	public List<LikeDTO> weatherSelectAll(String email)
 	{
@@ -84,4 +66,28 @@ public class LikeDAO
 		return list;
 	}
 
+	public int weatherSelectAllCount(String img)
+	{
+		session = factory.openSession();
+
+		int cnt = 0;
+		try
+		{
+			System.out.println("LikeDAO : " + "db찾기");
+			cnt = session.selectOne("com.goming.like.database.like_mapper.countLikesByPostIdx", img);
+			System.out.println("LikeDAO : cnt = " + cnt);
+
+		} catch (Exception e)
+		{
+			System.out.println("전체 조회 실패..");
+			e.printStackTrace();
+
+		} finally
+		{
+			session.close();
+			System.out.println("LikeDAO : 닫힘성공");
+		}
+
+		return cnt;
+	}
 }

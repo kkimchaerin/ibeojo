@@ -33,7 +33,7 @@ String jsonImgList = new Gson().toJson(LikeList);
 <%=jsonImgList%>
 	;
 		console.log(userEmail);
-
+		filterByStyle("미니멀");
 		// 이미지 파일 경로 배열 예시 (실제 경로에 맞게 수정 필요)
 
 	});
@@ -56,7 +56,7 @@ String jsonImgList = new Gson().toJson(LikeList);
 
 					// 클릭 이벤트 추가
 					EmailElement.onclick = function() {
-						openPopup(path);
+						openPopup(path.post_img, path.post_idx);
 					};
 
 					// 이미지를 갤러리에 추가
@@ -87,7 +87,7 @@ String jsonImgList = new Gson().toJson(LikeList);
 
 					// 클릭 이벤트 추가
 					EmailElement.onclick = function() {
-						openPopup(path);
+						openPopup(path.post_img);
 					};
 
 					// 이미지를 갤러리에 추가
@@ -131,7 +131,7 @@ String jsonImgList = new Gson().toJson(LikeList);
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-	<script src="LikedPost.js"></script>
+	<script src="./javascripts/Likeimg.js"></script>
 
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>

@@ -48,9 +48,11 @@ public class ImgController extends HttpServlet {
 			session.setAttribute("Like_list", Like_list);
 			System.out.println(img_list.size());
 			System.out.println(Like_list.size());
-			System.out.println(Like_list.get(0));
-			System.out.println(Like_list.get(0).getSeason());
-			System.out.println(Like_list.get(0).getStyle_tag());
+			/*
+			 * System.out.println(Like_list.get(0));
+			 * System.out.println(Like_list.get(0).getSeason());
+			 * System.out.println(Like_list.get(0).getStyle_tag());
+			 */
 
 
 
