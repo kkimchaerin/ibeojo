@@ -7,6 +7,31 @@ $(document).ready(function() {
     let span = $(".close");
     let likeBtn = $("#modal-like-btn");
     let likeBtnImg = $("#modal-like-btn img");
+    
+    
+    // 페이지 로드 시 좋아요 상태 로드
+    $(".gallery img").each(function() {
+        let postIdx = $(this).data("idx");
+        let imgElement = $(this);
+
+        $.ajax({
+            url: "LikeStatusService",
+            type: "GET",
+            data: {
+                post_idx: postIdx
+            },
+            success: function(response) {
+                let isLiked = JSON.parse(response).isLiked;
+                if (isLiked) {
+                    imgElement.siblings(".like-btn").addClass("liked");
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("좋아요 상태 로드 실패: ", xhr, status, error);
+            }
+        });
+    });
+    
 
     // 이미지 클릭 시 모달 열기
     $(".gallery").on("click", "img", function() {

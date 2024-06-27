@@ -49,25 +49,18 @@ public class LikeDAO {
 	
 	
 
-	public int sel_like(LikeDTO dto) {
-		session = factory.openSession();
-
-		int cnt = 0;
-
-		try {
-			cnt = session.update("like_update", dto);
-			if (cnt != 0) {
-				session.commit();
-			} else {
-				session.rollback();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("좋아요 등록 실패");
-		} finally {
-			session.close();
-		}
-		return cnt;
-	}
+    public boolean isLiked(LikeDTO like) {
+    	int count = 0;
+    	
+    	session = factory.openSession();
+        try{
+            count = session.selectOne("com.goming.like.database.like_mapper.check_like", like);
+           
+        }catch (Exception e) {
+        	System.out.println("좋아요 불러오기 실패");
+            e.printStackTrace();
+        }
+        return count > 0;
+    }
 
 }

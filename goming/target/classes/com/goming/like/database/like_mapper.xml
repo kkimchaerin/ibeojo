@@ -16,11 +16,11 @@
 </delete>
 
 
-<select id="check_like" parameterType="com.goming.like.model.LikeDTO" resultType="com.goming.like.model.LikeDTO">
+<select id="likeCheck" parameterType="com.goming.like.model.LikeDTO" resultType="int">
 	SELECT *
   	FROM like_info
  	WHERE user_email = #{user_email} 
- 	AND post_idx = (SELECT post_idx FROM post_info WHERE post_img = #{post_img});
+ 	AND post_idx = #{post_idx};
 </select>
 
 
