@@ -21,7 +21,11 @@ if (gender.equals("M")) {
 // img_list를 올바른 타입으로 캐스팅
 List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 %>
+<script type="text/javascript">
+pagename = "MyPage";
+console.log(pagename);
 
+</script>
 <!DOCTYPE html>
 <html>
 <head>

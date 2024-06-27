@@ -2,6 +2,13 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <style>
+        .disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liked Images</title>

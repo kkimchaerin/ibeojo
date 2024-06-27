@@ -18,7 +18,22 @@ String jsonImgList = new Gson().toJson(LikeList);
 	href="./styles/CategoryNav.css?ver3" />
 <link rel="stylesheet" type="text/css"
 	href="./styles/BottomNav.css?ver3" />
-
+<script type="text/javascript">
+pagename = "LikedPost";
+console.log(pagename);
+document.addEventListener('DOMContentLoaded', function() {
+    var deleteButton = document.querySelector('.delete');
+    var likeButton = document.querySelector('#likeCount');
+    if (deleteButton) {
+        deleteButton.classList.add('disabled');
+        deleteButton.onclick = null; // onclick 이벤트를 제거하여 버튼을 비활성화
+    }
+    if (likeButton) {
+    	likeButton.hidden = true; // 요소를 숨깁니다.
+    }
+    
+});
+</script>
 <script>
 	let userEmail;
 	let galleryContainer;
@@ -56,7 +71,7 @@ String jsonImgList = new Gson().toJson(LikeList);
 
 					// 클릭 이벤트 추가
 					EmailElement.onclick = function() {
-						openPopup(path.post_img, path.post_idx);
+						openPopup2(path.post_img);
 					};
 
 					// 이미지를 갤러리에 추가

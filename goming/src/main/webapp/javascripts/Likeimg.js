@@ -39,8 +39,10 @@ class Singleton {
 
 function getLikeCount(currentImageElement) {
 	console.log("좋아요 숫자" + currentImageElement);
-	let filePath = currentImageElement
+	let filePath = currentImageElement;
+	console.log('let filePath = currentImageElement;');
 	let fileName = filePath.split('/').pop(); // 파일 경로를 '/' 기준으로 나눈 후 마지막 요소를 추출
+	console.log('let fileName = filePath.split('/').pop(); // 파일 경로를 '/' 기준으로 나눈 후 마지막 요소를 추출');
 	console.log("좋아요 숫자" + fileName);
 
 	$.ajax({
@@ -52,35 +54,18 @@ function getLikeCount(currentImageElement) {
 		success: function(response) {
 			console.log("Number of likes: " + response.likeCount);
 			instance.likeCounter = response.likeCount;
+			console.log('instance.likeCounter = response.likeCount;');
+			updateLikeCount(); // 좋아요 횟수 업데이트
 		},
 		error: function(error) {
 			console.error("Error fetching like count: ", error);
 		}
+		
+		
 	});
+	console.log('$.ajax');
 }
-
-function getTargetLike(currentImageElement) {
-	console.log("getTargetLike" + currentImageElement);
-	let filePath = currentImageElement
-	let fileName = filePath.split('/').pop(); // 파일 경로를 '/' 기준으로 나눈 후 마지막 요소를 추출
-	console.log("getTargetLike" + fileName);
-
-	$.ajax({
-		type: "POST",
-		url: "LikeCountController",
-		data: JSON.stringify({ post_img: fileName }),
-		contentType: "application/json; charset=utf-8",
-		dataType: "json",
-		success: function(response) {
-			console.log("Number of likes: " + response.likeCount);
-			instance.likeCounter = response.likeCount;
-		},
-		error: function(error) {
-			console.error("Error fetching like count: ", error);
-		}
-	});
-}
-
+let pagename = "";
 const instance = new Singleton(0, "", "");
 /*let likeCounter = 0; // 좋아요 횟수를 저장할 변수
 let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소를 저장하는 변수
@@ -88,7 +73,22 @@ let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소�
 let globalImageSrc = "";*/
 
 
-
+function openPopup2(imageSrc) {
+	instance.globalImageSrc = imageSrc;
+	console.log("instance.globalImageSrc = imageSrc;");
+	var popupImg = document.getElementById("popupImage");
+	console.log("var popupImg = document.getElementById('popupImage');");
+	var animationContainer = document.getElementById("animationContainer");
+	console.log('var animationContainer = document.getElementById("animationContainer");');
+	popupImg.src = imageSrc; // 팝업 이미지 설정
+	console.log('popupImg.src = imageSrc; // 팝업 이미지 설정');
+	animationContainer.innerHTML = ""; // 애니메이션 컨테이너 초기화
+	console.log('animationContainer.innerHTML = ""; // 애니메이션 컨테이너 초기화');
+	getLikeCount(instance.globalImageSrc);
+	console.log('updateLikeCount();');
+	openPopupBackground(); // 팝업 창 열기
+	console.log('openPopupBackground(); // 팝업 창 열기');
+}
 
 // 좋아요 기능 관련 함수
 function openPopup(imageSrc, imageElement) {
@@ -108,7 +108,7 @@ function openPopup(imageSrc, imageElement) {
 	var likeButton = document.querySelector(".heartBtn img");
 	likeButton.src = "./images/heart-regular.svg"; // 기본 상태 아이콘 설정
 
-	updateLikeCount();
+getLikeCount(instance.globalImageSrc);
 }
 
 function openPopupBackground() {
@@ -138,12 +138,14 @@ function addLike() {
 
 function updateLikeCount() {
 	var likeCountElement = document.getElementById("likeCount");
-
-	getLikeCount(instance.globalImageSrc);
+	console.log('var likeCountElement = document.getElementById("likeCount");');
+	console.log('getLikeCount(instance.globalImageSrc);');
+	console.log("likeCountElement : " + likeCountElement);
 	likeCountElement.textContent = instance.likeCounter;
 	console.log("updateLikeCount : " + likeCountElement);
 	console.log("updateLikeCount : " + instance.likeCounter);
 	console.log("updateLikeCount : " + likeCountElement.textContent);
+
 }
 
 // 삭제 기능 관련 함수

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.goming.database.SqlSessionManager;
+import com.goming.mypage.model.MyPageDTO;
 
 public class PostDAO {
 	SqlSessionFactory factory = SqlSessionManager.getsqlSessionFactory();
@@ -146,6 +147,52 @@ public class PostDAO {
 		
 		return cnt;
 	}
-	
-	
+	// Session에 유지되는 회원 정보(이메일)과 일치하는 회원의 게시글 불러오기
+	public List<PostDTO> SelectMyPageImg(PostDTO dto) {
+		session = factory.openSession();
+
+		List<PostDTO> img_list = null;
+
+		try {
+			img_list = session.selectList("img_select", dto);
+
+			if (img_list != null) {
+				session.commit();
+				System.out.println("img_list 로딩 성공");
+			} else {
+				session.rollback();
+				System.out.println("img_list 로딩 실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("이미지 로딩 실패");
+		} finally {
+			session.close();
+		}
+		return img_list;
+	}
+	public List<PostDTO> SelectMyPageLike(PostDTO dto) {
+		session = factory.openSession();
+		
+		List<PostDTO> img_list = null;
+		
+		try {
+			img_list = session.selectList("like_select", dto);
+			
+			if (img_list != null) {
+				session.commit();
+				System.out.println("img_list 로딩 성공");
+			} else {
+				session.rollback();
+				System.out.println("img_list 로딩 실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("이미지 로딩 실패");
+		} finally {
+			session.close();
+		}
+		return img_list;
+	}
+
 }

@@ -9,7 +9,7 @@
 	 where user_email = #{user_email} and user_pw = #{user_pw}
 </select>
 
-<select id="img_select" parameterType="com.goming.mypage.model.MyPageDTO" resultType="String">
+<select id="img_select" parameterType="com.goming.mypage.model.MyPageDTO" resultType="com.goming.mypage.model.MyPageDTO">
 	select post_img
 	  from post_info
 	 where user_email = #{user_email}

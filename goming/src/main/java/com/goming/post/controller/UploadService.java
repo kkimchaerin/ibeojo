@@ -51,8 +51,9 @@ public class UploadService extends HttpServlet {
 //        System.out.println("season: " + season);
 //        System.out.println("comment: " + comment);
         
-        //String user_email, String post_img, char gender, String style_tag, String season, String comment
-		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season, comment); 
+        //String user_email, String user_nick String post_img, char gender, String style_tag, String season, String comment
+		// 유저 닉네임 null로 추가
+		PostDTO post = new PostDTO(userEmail, null, postImg, gender, style, season, comment); 
 		System.out.println("post확인: " + post.getComment());
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);

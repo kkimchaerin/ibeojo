@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.goming.mypage.model.MyPageDAO;
 import com.goming.mypage.model.MyPageDTO;
 import com.goming.post.model.PostDTO;
+import com.goming.user.model.UserDTO;
 
 
 public class ImgController extends HttpServlet {
@@ -23,6 +24,7 @@ public class ImgController extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		// userinfo session의 데이터(회원정보) 가져오기
+		//UserDTO udto = (UserDTO) session.getAttribute("userinfo");
 		MyPageDTO dto = (MyPageDTO) session.getAttribute("userinfo");
 		MyPageDAO dao = new MyPageDAO();
 
@@ -47,12 +49,11 @@ public class ImgController extends HttpServlet {
 			session.setAttribute("img_list", img_list);
 			session.setAttribute("Like_list", Like_list);
 			System.out.println(img_list.size());
+			System.out.println(img_list.size());
 			System.out.println(Like_list.size());
-			/*
-			 * System.out.println(Like_list.get(0));
-			 * System.out.println(Like_list.get(0).getSeason());
-			 * System.out.println(Like_list.get(0).getStyle_tag());
-			 */
+			System.out.println(Like_list.get(0));
+			System.out.println(Like_list.get(0).getSeason());
+			System.out.println(Like_list.get(0).getStyle_tag());
 
 
 
