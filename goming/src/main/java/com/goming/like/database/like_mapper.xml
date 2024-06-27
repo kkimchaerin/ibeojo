@@ -9,17 +9,17 @@
 		만든 타입인 경우 경로부터 작성) sql문 내 매개변수 채워 줄 때 : ? #{변수명} 변수명은 db, member, mapper 
 		다 일치시키기 -->
 
-<insert id="like_insert">
-insert into like_info
-values(null, #{post_idx}, #{user_email}, now())
-</insert>
-
     <select id="selectLikedPostsByUserEmail" parameterType="String" resultType="com.goming.post.model.PostDTO">
         SELECT p.*
         FROM post_info p
         JOIN like_info l ON p.post_idx = l.post_idx
         WHERE l.user_email = #{user_email}
     </select>
+<insert id="like_insert">
+insert into like_info
+values(null, #{post_idx}, #{user_email}, now())
+</insert>
+
 
 <select id="check_like" parameterType="com.goming.like.model.LikeDTO" resultType="com.goming.like.model.LikeDTO">
 select *

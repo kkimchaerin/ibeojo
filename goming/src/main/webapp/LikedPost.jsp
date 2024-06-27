@@ -4,8 +4,8 @@
 <%@ page import="com.google.gson.Gson"%>
 <%
 // Java 객체 또는 세션에서 img_list 데이터를 가져와 JSON 형식으로 변환
-List<String> imgList = (List<String>) session.getAttribute("img_list");
-String jsonImgList = new Gson().toJson(imgList);
+List<String> LikeList = (List<String>) session.getAttribute("Like_list");
+String jsonImgList = new Gson().toJson(LikeList);
 %>
 <!DOCTYPE html>
 <html>
