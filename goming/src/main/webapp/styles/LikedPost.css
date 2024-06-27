@@ -55,6 +55,7 @@ body {
 	-webkit-overflow-scrolling: touch;
 	margin-bottom: 70px;
 	max-height: 810px;
+	margin-top: 80px;
 }
 
 /* 갤러리 이미지 스타일 */
