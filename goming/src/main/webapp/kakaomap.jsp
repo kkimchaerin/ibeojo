@@ -147,6 +147,7 @@
 
 	<%@ include file="BottomNav.jsp"%>
 	<%@ include file="Header.jsp"%>
+	<%@ include file="UploadButton.jsp"%>
 
 
 

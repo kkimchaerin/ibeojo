@@ -35,7 +35,8 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 <body>
 	<%@ include file="Header.jsp"%>
 	<div class="content">
-		<h2>My Page</h2><br>
+		<h2>My Page</h2>
+		<br>
 		<div class="info-container">
 			<div class="info-item">
 				<strong>아이디</strong> <span class="info-box"><%=email%></span>
@@ -63,18 +64,22 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 			<%
 			for (int i = 0; i < img_list.size(); i++) {
 			%>
-			
+
 			<img src='./post/<%=img_list.get(i)%>' alt='이미지'
-				onclick="openPopup('./post/<%=img_list.get(i)%>', this)" id = 'myimg<%= i %>'>
-				
-			<%} 
+				onclick="openPopup('./post/<%=img_list.get(i)%>', this)"
+				id='myimg<%=i%>'>
+
+			<%
+			}
 			} else {
 			%>
 			<p>게시물이 없습니다.</p>
-			<% } %>
+			<%
+			}
+			%>
 		</div>
 
-		<div class = "button_container" style="height:200px">
+		<div class="button_container" style="height: 200px">
 			<button onclick="location.href='LikedPost.jsp'">좋아요 한 게시물 보기</button>
 			<br>
 			<button onclick="location.href='UserDelete.jsp'" class="red">회원탈퇴</button>
@@ -87,6 +92,7 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>
+	<%@ include file="UploadButton.jsp"%>
 
 </body>
 </html>

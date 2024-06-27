@@ -2,15 +2,15 @@
 	pageEncoding="UTF-8"%>
 <style>
 /* upload */
-.upload{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
+.upload {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 50px;
 }
 
-.upload img{
-  width: 100%;
+.upload img {
+	width: 100%;
 }
 </style>
 <section class="upload">

@@ -110,8 +110,7 @@ String jsonImgList = new Gson().toJson(LikeList);
 </head>
 <body>
 	<%@ include file="Header.jsp"%>
-	<h2 style="font-weight: bold; font-size: 80px; padding-bottom: 50px;">좋아요
-		한 게시물</h2>
+	<h2 class="title">좋아요 한 게시물</h2>
 
 	<!-- category nav -->
 	<%@ include file="CategoryNav.jsp"%>
