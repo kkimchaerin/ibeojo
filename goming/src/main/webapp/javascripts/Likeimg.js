@@ -73,19 +73,31 @@ let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소�
 let globalImageSrc = "";*/
 
 
-function openPopup2(imageSrc) {
+function openPopup2(imageSrc, nick, comment) {
 	instance.globalImageSrc = imageSrc;
 	console.log("instance.globalImageSrc = imageSrc;");
+	
 	var popupImg = document.getElementById("popupImage");
 	console.log("var popupImg = document.getElementById('popupImage');");
+	
 	var animationContainer = document.getElementById("animationContainer");
 	console.log('var animationContainer = document.getElementById("animationContainer");');
+	
+	let popupnick = document.getElementById("user-nick-text");
+	let popupcomment = document.getElementById("comment-text");
+	
 	popupImg.src = './post/' + imageSrc; // 팝업 이미지 설정
 	console.log('popupImg.src = imageSrc; // 팝업 이미지 설정');
+	
 	animationContainer.innerHTML = ""; // 애니메이션 컨테이너 초기화
 	console.log('animationContainer.innerHTML = ""; // 애니메이션 컨테이너 초기화');
+	
+	popupnick.textContent = nick; 
+	popupcomment.textContent = comment; 
+	
 	getLikeCount(instance.globalImageSrc);
 	console.log('updateLikeCount();');
+	
 	openPopupBackground(); // 팝업 창 열기
 	console.log('openPopupBackground(); // 팝업 창 열기');
 }

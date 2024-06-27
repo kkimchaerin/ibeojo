@@ -34,10 +34,15 @@
 			<span class="delete" onclick="deleteImage()"> <img
 				src="./icons/DeleteButton.png" alt="Delete"
 				style="width: 24px; height: 24px;">
-			</span> <img id="popupImage" src=""
+			</span>
+			<span id="user-nick-text">김채린</span>
+			<img id="popupImage" src=""
 				style="max-width: 100%; max-height: 100%;">
 			<div id="animationContainer"></div>
 
+			<div id="comment-text">
+				<button class="heartBtn" onclick="addLike()"></button>
+			</div>
 			<!-- 하트 & 하트수 -->
 			<div class="popup-text">
 				<button class="heartBtn" onclick="addLike()">

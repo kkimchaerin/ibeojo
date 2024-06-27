@@ -1,3 +1,4 @@
+<%@page import="com.goming.post.model.PostDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.util.List"%>
 <%@page import="com.goming.mypage.model.MyPageDTO"%>
@@ -20,6 +21,8 @@ if (gender.equals("M")) {
 
 // img_list를 올바른 타입으로 캐스팅
 List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
+List<PostDTO> user_list = (List<PostDTO>) session.getAttribute("user_list");
+
 %>
 
 <!DOCTYPE html>
