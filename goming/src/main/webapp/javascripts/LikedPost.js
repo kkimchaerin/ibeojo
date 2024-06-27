@@ -23,3 +23,13 @@ function toggleLike(button) {
     icon.classList.toggle('fas'); // Font Awesome Solid (채워진 하트)
     icon.classList.toggle('liked'); // 색상 변경을 위한 liked 클래스 토글
 }
+// 기존의 js ----------------------------------------
+
+
+// 갤러리 증감 시작 ----------------------------------------
+
+
+
+// 갤러리 증감 끝남 ----------------------------------------
+
+

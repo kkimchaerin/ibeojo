@@ -7,9 +7,6 @@ import java.time.format.DateTimeParseException;
 
 public class WeatherDTO
 {
-
-
-
 	private LocalDate fcstDate;
 	private Time fcstTime; // 변경된 부분: LocalTime에서 Time으로 타입 변경
 
@@ -64,11 +61,6 @@ public class WeatherDTO
 		System.out.println("Longitude: " + lon);
 	}
 
-	public WeatherDTO() {
-		
-	}
-	
-	
 	// Getters and setters
 	public LocalDate getFcstDate()
 	{

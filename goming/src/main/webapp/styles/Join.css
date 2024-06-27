@@ -11,25 +11,11 @@ html, body {
 	align-items: center;
 }
 
-.bg_video {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	overflow: hidden;
-}
-
-.bg_video_content {
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+html {
+	background-image: url('../images/background.png'); /* 배경 이미지 설정 */
+	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
+	background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+	background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
 }
 
 .join {

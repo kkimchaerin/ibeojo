@@ -21,27 +21,27 @@ $(document).ready(function() {
  // 카테고리 필터링
 $(document).ready(function() {    
     let gender = "M";
-    let style = "미니멀";
+    let style_tag = "미니멀";
     let season = "봄";
     
     // 페이지 로드 시 초기 이미지 로드
-    loadImagesByFilters(gender, style, season);
+    loadImagesByFilters(gender, style_tag, season);
 
     // 이미지 로드 함수
-    function loadImagesByFilters(gender, style, season) {
+    function loadImagesByFilters(gender, style_tag, season) {
 		
-		console.log("왜!!", { gender, style, season });
+		console.log("왜!!", { gender, style_tag, season });
 		
         $.ajax({
             type: "GET",
             url: "PostLoaderService",
             data: {
                 gender: gender,
-                style: style,
+                style_tag: style_tag,
                 season: season
             },
             success: function(data) {
-                $("#style-name").text(style); // #style-name의 내용을 선택된 스타일로 변경
+                $("#style-name").text(style_tag); // #style-name의 내용을 선택된 스타일로 변경
                 
                 console.log("Data received: ", data);
                 
@@ -55,7 +55,9 @@ $(document).ready(function() {
                 }else{
 					$(".gallery-wrapper").find(".empty-message").remove();
                     $.each(data, function(index, post) {
-                        let imgTag = $("<img>").attr("src", "post/" + post).attr("alt", data);
+                        let imgTag = $("<img>").attr("src", "post/" + post.post_img)
+                        						.attr("alt", post.post_img)
+                        						.attr("data-comment", post.comment);
                         $(".gallery").append(imgTag);
                     });
                 }
@@ -73,13 +75,13 @@ $(document).ready(function() {
 
     $(document).on("click", ".get-category", function() {
         gender = $(".gender-category .checked").attr("id");       
-        style = $(".category-nav-wrapper").find(".style-category .checked img").attr("alt");
+        style_tag = $(".category-nav-wrapper").find(".style-category .checked img").attr("alt");
         season = $(".category-nav-wrapper").find(".season-category .checked img").attr("alt");
         
         // console.log("gender카테고리: ", gender);
         // console.log("style카테고리: ", style);
         // console.log("season카테고리: ", season);
 
-        loadImagesByFilters(gender, style, season);
+        loadImagesByFilters(gender, style_tag, season);
     });
 });

@@ -15,6 +15,21 @@
 	 where user_email = #{user_email}
 </select>
 
+<select id="img_select2" parameterType="com.goming.mypage.model.MyPageDTO" resultType="com.goming.post.model.PostDTO">
+	select *
+	  from post_info
+	 where user_email = #{user_email}
+</select>
+    <select id="like_select" parameterType="String" resultType="com.goming.post.model.PostDTO">
+        SELECT *
+        FROM post_info
+        WHERE post_idx IN (
+            SELECT post_idx
+            FROM like_info
+            WHERE user_email = #{user_email}
+        )
+    </select>
+
 <delete id="deleteUser" parameterType="com.goming.mypage.model.MyPageDTO">
 	delete from user_info where user_email = #{user_email} and user_nick = #{user_nick} and user_pw = #{user_pw} 
 </delete>
