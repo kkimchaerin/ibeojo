@@ -11,6 +11,19 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'NanumSquareNeoLight';
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+		format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+		format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+		format("truetype");
+}
+
 html {
 	background-image: url('../images/background2.png'); /* 배경 이미지 설정 */
 	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */

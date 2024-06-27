@@ -1,10 +1,7 @@
 package com.goming.post.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +16,7 @@ import com.google.gson.Gson;
 @WebServlet("/PostLoaderService")
 public class PostLoaderService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 요청에서 필터링 정보를 가져옴
@@ -37,10 +34,10 @@ public class PostLoaderService extends HttpServlet {
 		PostDAO postDAO = new PostDAO();
 		List<PostDTO> filteredPosts = postDAO.getPostsByFilters(filter);
 
-		System.out.println("gender!!" + gender);
-		System.out.println("style!!" + style);
-		System.out.println("season!!" + season);
-		System.out.println("PostLoaderService!!: " + filteredPosts);
+//		System.out.println("gender!!" + gender);
+//		System.out.println("style!!" + style);
+//		System.out.println("season!!" + season);
+//		System.out.println("PostLoaderService!!: " + filteredPosts);
 
 
 		// JSON 형식으로 응답

@@ -92,18 +92,16 @@ String comment = (String) session.getAttribute("comment");
 
 	<!-- show detail modal -->
 	<div id="modal" class="modal">
-		<span class="close">&times;</span>
-		<div class="modal-content">
-			<img id="modal-img">
-			<div class="modal-info">
-				<button id="modal-like-btn" class="liked">
-					<img src="./icons/heart-regular.svg" alt="좋아요">
-				</button>
-				<p id="modal-comment"></p>
-			</div>
-		</div>
-	</div>
-	<!-- <span id="modal-like-count">0</span> -->
+	    <span class="close">&times;</span>
+	    <div class="modal-content">
+	        <img id="modal-img">
+	        <div class="modal-info">
+	            <button id="modal-like-btn" class="liked">
+	            	<img src="./icons/heart-regular.svg" alt="좋아요">
+	            </button>	
+	            <p id="modal-comment"></p>
+	        </div>
+	    </div>
 	</div>
 </body>
 </html>

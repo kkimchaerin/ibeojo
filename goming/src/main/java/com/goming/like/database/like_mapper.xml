@@ -42,9 +42,23 @@
 		post_info where post_img =
 		#{post_img});
 	</select>
+		
+<insert id="likeInsert" parameterType="com.goming.like.model.LikeDTO">
+	INSERT INTO like_info (post_idx, user_email, created_at) 
+	VALUES (#{post_idx}, #{user_email}, NOW());
+</insert>
+
+<delete id="likeDelete" parameterType="com.goming.like.model.LikeDTO">
+	DELETE FROM like_info WHERE post_idx = #{post_idx} AND user_email = #{user_email}
+</delete>
 
 
-
+<select id="likeCheck" parameterType="com.goming.like.model.LikeDTO" resultType="int">
+	SELECT *
+  	FROM like_info
+ 	WHERE user_email = #{user_email} 
+ 	AND post_idx = #{post_idx};
+</select>
 
 
 

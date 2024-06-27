@@ -54,7 +54,7 @@ public class JoinController extends HttpServlet {
 			request.setAttribute("success", "false");
 		}
 
-		request.getRequestDispatcher("Join.jsp").forward(request, response);
+		request.getRequestDispatcher("First.jsp").forward(request, response);
 
 	}
 

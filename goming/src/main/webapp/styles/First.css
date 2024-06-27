@@ -3,10 +3,25 @@
 @import "./Reset.css";
 
 @font-face {
-    font-family: 'EF_cucumbersalad';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_cucumbersalad.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'EF_cucumbersalad';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_cucumbersalad.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NanumSquareNeoLight';
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+		format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+		format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+		format("truetype");
 }
 
 .join:active {
@@ -38,38 +53,41 @@ html {
 	z-index: 2;
 	background-color: black;
 	color: white;
-	padding: 10px 20px;
 	border: none;
 	cursor: pointer;
-	font-size: 20px;
+	font-size: 15px;
 	border-radius: 10px;
-	font-family: "EF_cucumbersalad", cursive;
-	font-weight: bold;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 500;
 	/* 버튼 모서리를 둥글게 설정 */
 }
 
 .join {
-	bottom: 120px;
+	bottom: 110px;
 	left: 50%;
 	transform: translate(-50%);
-	padding: 10px 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 130px;
 }
 
 .login {
 	bottom: 50px;
 	left: 50%;
 	transform: translate(-50%);
-	padding: 10px 37px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 130px;
 }
 
 .title {
-	font-size: 120px;
+	font-size: 140px;
 	font-weight: bold;
 	text-align: center;
 	font-family: "EF_cucumbersalad", cursive;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	color: black;
-	margin-bottom: 80px;
+	margin-bottom: 150px;
 }
 
 .container {
