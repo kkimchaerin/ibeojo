@@ -40,6 +40,25 @@ public class LikeDAO
 		return cnt;
 	}
 
+	public LikeDTO check_like(String img, String user_email) {
+		session = factory.openSession();
+		
+		LikeDTO dto = new LikeDTO();
+		dto.setUser_email(user_email);
+		dto.setPost_img(img);
+		
+		try {
+			dto = session.selectOne("com.goming.like.database.like_mapper.check_like", dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("좋아요 체크 실패");
+		}finally {
+			session.close();
+		}
+		
+		return dto;
+	}
+	
 	public List<LikeDTO> weatherSelectAll(String email)
 	{
 		session = factory.openSession();
@@ -65,23 +84,4 @@ public class LikeDAO
 		return list;
 	}
 
-	public LikeDTO check_like(String img, String user_email) {
-		session = factory.openSession();
-		
-		LikeDTO dto = new LikeDTO();
-		dto.setUser_email(user_email);
-		dto.setPost_img(img);
-		
-		try {
-			dto = session.selectOne("com.goming.like.database.like_mapper.check_like", dto);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("좋아요 체크 실패");
-		}finally {
-			session.close();
-		}
-		
-		return dto;
-	}
-	
 }

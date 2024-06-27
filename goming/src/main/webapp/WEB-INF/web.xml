@@ -161,6 +161,12 @@
     	<display-name>DeleteImg</display-name>
     	<description></description>
     	<servlet-class>com.goming.post.controller.DeleteImg</servlet-class>
+   </servlet>
+    <servlet>
+    	<servlet-name>LikeSelectController</servlet-name>
+    	<display-name>LikeSelectController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeSelectController</servlet-class>
 
     </servlet>
     
@@ -255,10 +261,6 @@
     </servlet-mapping>
     <servlet-mapping>
 
-    	<servlet-name>LikeSelectController</servlet-name>
-    	<url-pattern>/LikeSelectController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
     	<servlet-name>CheckLike</servlet-name>
     	<url-pattern>/CheckLike</url-pattern>
     </servlet-mapping>

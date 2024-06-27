@@ -4,6 +4,7 @@
 /* category nav */
 .category-nav-wrapper{
   display: flex;
+  justify-content: center;
 }
 
 .style-category{

@@ -38,22 +38,21 @@ String comment = (String) session.getAttribute("comment");
 	<!-- main -->
 	<main>
 		<section class="weather-wrapper">
-			<h2 class="sr-only">날씨 정보</h2>
-			<div class="weather-info">
-				<div id="additional-text">
-					<!-- 원하는 텍스트 -->
-					내가 원하는 텍스트를 여기에 적습니다.
+			<div class="head_info">
+				<h2 class="sr-only">날씨 정보</h2>
+				<div class="weather-info">
+					<div id="additional-text"></div>
+						<span class="weather-icon" id="weatherIconContainer"> <!-- 기본적으로 로딩 스피너를 표시하도록 준비 -->
+							<div class="loading-spinner"></div> <!-- 이미지는 JavaScript에서 동적으로 추가될 예정 -->
+						</span> <span id="temperature">28°C</span> <span id="weatherInfo">맑음</span>
 				</div>
-				<span class="weather-icon" id="weatherIconContainer"> <!-- 기본적으로 로딩 스피너를 표시하도록 준비 -->
-					<div class="loading-spinner"></div> <!-- 이미지는 JavaScript에서 동적으로 추가될 예정 -->
-				</span> <span id="temperature">28°C</span> <span id="weatherInfo">맑음</span>
-			</div>
-			<div id="weather-comment">
-				<%
-				if (rainper != null) {
-					out.print(rainper);
-				}
-				%>
+				<div id="weather-comment">
+					<%
+					if (rainper != null) {
+						out.print(rainper);
+					}
+					%>
+				</div>
 			</div>
 		</section>
 
@@ -107,14 +106,4 @@ String comment = (String) session.getAttribute("comment");
 	<!-- <span id="modal-like-count">0</span> -->
 	</div>
 </body>
-<style>
-body {
-	background-image: url("./images/background03.png");
-	background-size: cover;
-}
-
-.weather-wrapper {
-	background-color: white;
-}
-</style>
 </html>

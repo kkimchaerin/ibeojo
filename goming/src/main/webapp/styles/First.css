@@ -3,12 +3,10 @@
 @import "./Reset.css";
 
 @font-face {
-	font-family: 'S-CoreDream-3Light';
-	src:
-		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'EF_cucumbersalad';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_cucumbersalad.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .join:active {
@@ -45,6 +43,8 @@ html {
 	cursor: pointer;
 	font-size: 20px;
 	border-radius: 10px;
+	font-family: "EF_cucumbersalad", cursive;
+	font-weight: bold;
 	/* 버튼 모서리를 둥글게 설정 */
 }
 
@@ -63,10 +63,10 @@ html {
 }
 
 .title {
-	font-size: 100px;
+	font-size: 120px;
 	font-weight: bold;
 	text-align: center;
-	font-family: "S-CoreDream-3Light", cursive;
+	font-family: "EF_cucumbersalad", cursive;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	color: black;
 	margin-bottom: 80px;
