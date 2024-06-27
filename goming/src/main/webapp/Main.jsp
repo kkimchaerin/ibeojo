@@ -22,7 +22,7 @@ String comment = (String)session.getAttribute("comment");
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
 <script src="./javascripts/Main.js?ver=7" defer></script>
-<script src="./javascripts/ShowDetailModal.js?ver=4" defer></script> 
+<script src="./javascripts/ShowDetailModal.js?ver=5" defer></script> 
 </head>
 <body>
 	<!-- header -->

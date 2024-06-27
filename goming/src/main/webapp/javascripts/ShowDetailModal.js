@@ -8,7 +8,6 @@ $(document).ready(function() {
     let likeBtn = $("#modal-like-btn");
     let likeBtnImg = $("#modal-like-btn img");
     
-    
     // 페이지 로드 시 좋아요 상태 로드
     $(".gallery img").each(function() {
         let postIdx = $(this).data("idx");
@@ -31,7 +30,6 @@ $(document).ready(function() {
             }
         });
     });
-    
 
     // 이미지 클릭 시 모달 열기
     $(".gallery").on("click", "img", function() {
@@ -42,6 +40,15 @@ $(document).ready(function() {
         modalImg.attr("src", src).attr("data-idx", postIdx);
         modalComment.text(imgComment);
         modal.data("post-idx", postIdx);
+        
+        let isLiked = $(this).siblings(".like-btn").hasClass("liked");
+        if (isLiked) {
+            likeBtnImg.attr("src", "./icons/heart-solid.svg");
+            likeBtn.addClass("liked");
+        } else {
+            likeBtnImg.attr("src", "./icons/heart-regular.svg");
+            likeBtn.removeClass("liked");
+        }
         
         modal.css("display", "block");
     });
@@ -71,17 +78,27 @@ $(document).ready(function() {
             data: {
                 post_idx: postIdx
             },
+            dataType: "json",
             success: function(response) {
-                console.log("AJAX 응답: ", response); // 응답 로그 추가
-       
+				
+				console.log("여기야??",response);
+				
+                
+
+
+                if (response.result === "success") {
                     if (isLiked) {
                         likeBtnImg.attr("src", "./icons/heart-regular.svg");
                         likeBtn.removeClass("liked");
+                        $(`.gallery img[data-idx='${postIdx}']`).siblings(".like-btn").removeClass("liked");
                     } else {
                         likeBtnImg.attr("src", "./icons/heart-solid.svg");
                         likeBtn.addClass("liked");
+                        $(`.gallery img[data-idx='${postIdx}']`).siblings(".like-btn").addClass("liked");
                     }
-
+                } else {
+                    console.error("좋아요 처리 실패: ", response);
+                }
             },
             error: function(xhr, status, error) {
                 console.error("AJAX 오류: ", xhr, status, error); // 오류 로그 추가
