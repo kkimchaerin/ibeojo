@@ -1,6 +1,20 @@
 @charset "UTF-8";
 
 @import "./Reset.css";
+
+@font-face {
+	font-family: 'NanumSquareNeoLight';
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+		format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+		format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+		format("truetype");
+}
+
 html, body {
 	height: 100%;
 	margin: 0;
@@ -20,7 +34,9 @@ html {
 .Findpw h1 {
 	font-size: 30px;
 	font-weight: bold;
-	margin-bottom: 60px;
+	margin-bottom: 50px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 800;
 }
 
 .Findpw input[type="text"] {
@@ -28,6 +44,9 @@ html {
 	/* 입력 요소들 사이에 간격 추가 */
 	width: calc(100% - 40px);
 	height: 30px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
 	/* 입력 요소의 너비를 폼 너비에 맞게 설정 */
 }
 
@@ -51,4 +70,13 @@ button :active {
 
 .Findpw input[type="submit"]:active {
 	background-color: darkgray;
+}
+
+.Findpw input[type="submit"] {
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
+	width: 150px;
+	padding-bottom: 3px;
+	padding-top: 3px;
 }
