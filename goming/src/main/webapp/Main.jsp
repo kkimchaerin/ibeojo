@@ -84,7 +84,7 @@ String comment = (String) session.getAttribute("comment");
 	<div id="modal" class="modal">
 	    <span class="close">&times;</span>
 	    <div class="modal-content">
-	    	<p id="modal-user-nick">김채린</p>
+	    	<p id="modal-user-nick"></p>
 	        <img id="modal-img">
 	        <div class="modal-info">
 	            <button id="modal-like-btn" class="liked">

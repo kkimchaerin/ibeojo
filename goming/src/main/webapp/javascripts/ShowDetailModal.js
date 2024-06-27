@@ -39,12 +39,13 @@ $(document).ready(function() {
     // 이미지 클릭 시 모달 열기
     $(".gallery").on("click", "img", function() {
         let src = $(this).attr("src");
+        let userNick = $(this).data("user-nick");
         let imgComment = $(this).data("comment");
         let postIdx = $(this).data("idx");
         
         fetchLikeStatus(postIdx);
         
-        modalUserNick.text();
+        modalUserNick.text(userNick);
         modalImg.attr("src", src).attr("data-idx", postIdx);
         modalComment.text(imgComment);
         modal.data("post-idx", postIdx);
