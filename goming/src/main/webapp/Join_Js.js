@@ -2,6 +2,10 @@
  * 
  */
 
+let id_check = 0;
+let nick_check = 0;
+
+
 function checkId() {
 	var userId = $('#user_id').val(); // 입력된 아이디 가져오기
 
@@ -15,6 +19,8 @@ function checkId() {
 			// 서버에서의 처리가 성공하면 이 함수가 호출됨
 			if (response === "available") {
 				alert("사용 가능한 아이디입니다.");
+				id_check = 1;
+				
 			} else {
 				alert("이미 사용 중인 아이디입니다.");
 			}

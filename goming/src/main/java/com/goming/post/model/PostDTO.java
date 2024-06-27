@@ -1,10 +1,11 @@
-package com.goming.post.model;
+ package com.goming.post.model;
 
 import java.security.Timestamp;
 
 public class PostDTO {
 		private int post_idx;
 		private String user_email;
+		private String user_nick;
 		private String post_img;
 		private char gender;
 		private String style_tag;
@@ -24,6 +25,14 @@ public class PostDTO {
 		public void setUser_email(String user_email) {
 			this.user_email = user_email;
 		}
+		
+		public String getUser_nick() {
+			return user_nick;
+		}
+		public void setUser_nick(String user_nick) {
+			this.user_nick = user_nick;
+		}
+		
 		public String getPost_img() {
 			return post_img;
 		}
@@ -61,11 +70,12 @@ public class PostDTO {
 			this.created_at = created_at;
 		}
 		
-		public PostDTO(int post_idx, String user_email, String post_img, char gender, String style_tag, String season,
+		public PostDTO(int post_idx, String user_email, String user_nick, String post_img, char gender, String style_tag, String season,
 				String comment, String created_at) {
 			super();
 			this.post_idx = post_idx;
 			this.user_email = user_email;
+			this.user_nick = user_nick;
 			this.post_img = post_img;
 			this.gender = gender;
 			this.style_tag = style_tag;
@@ -74,9 +84,10 @@ public class PostDTO {
 			this.created_at = created_at;
 		}
 		
-		public PostDTO(String user_email, String post_img, char gender, String style_tag, String season, String comment) {
+		public PostDTO(String user_email, String user_nick, String post_img, char gender, String style_tag, String season, String comment) {
 			super();
 			this.user_email = user_email;
+			this.user_nick = user_nick;
 			this.post_img = post_img;
 			this.gender = gender;
 			this.style_tag = style_tag;

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.goming.mypage.database.SqlSessionManager;
 import com.goming.post.model.PostDTO;
+import com.goming.weather.model.DAO;
 
 public class MyPageDAO {
 
@@ -90,7 +91,7 @@ public class MyPageDAO {
 	// 회원 탈퇴
 	public int deleteUser(MyPageDTO dto) {
 		session = factory.openSession();
-
+		
 		int cnt = 0;
 
 		try {

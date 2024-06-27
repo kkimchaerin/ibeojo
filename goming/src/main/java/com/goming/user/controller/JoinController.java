@@ -15,7 +15,6 @@ public class JoinController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		System.out.println("JoinController : " + "join");
 //		1. 한글 인코딩
 		request.setCharacterEncoding("UTF-8");
 
@@ -25,6 +24,8 @@ public class JoinController extends HttpServlet {
 		String nick = request.getParameter("user_nick");
 		String gender = request.getParameter("user_gender");
 		String pre = request.getParameter("user_preference");
+		String check_id = request.getParameter("check_id");
+		String check_nick = request.getParameter("check_nick");
 
 		System.out.println("JoinController : " + id);
 		System.out.println("JoinController : " + pw);
@@ -39,11 +40,30 @@ public class JoinController extends HttpServlet {
 		user_DAO dao = new user_DAO();
 		int row = dao.join(dto);
 
+		System.out.println("check_id : "+check_id);
+		System.out.println("check_nick : "+check_nick);
+		
+		
+		System.out.println("check_nick.equals(\"0\") : "+check_id.equals("1"));
+		System.out.println("check_nick.equals(\"0\") :  "+check_nick.equals("0"));
+		
+		
 //		로그인, 회원가입 성공하면 dao의 row 값 받기
 //		row라고 변수명 동일하게 설정
 		if (row > 0) {
-			System.out.println("JoinController : " + "success");
-			request.setAttribute("success", "true");
+			if(check_id.equals("1") && check_nick.equals("1")) {
+				System.out.println("JoinController : " + "success");
+				request.setAttribute("success", "true");
+			}else if(!check_id.equals("1")){
+				System.out.println("아이디 중복 체크 안함");
+				request.setAttribute("check_id_re", 0);
+				request.setAttribute("success", "false");
+			}else if(!check_nick.equals("1")) {
+				System.out.println("닉네임 중복 체크 안함");
+				request.setAttribute("check_nick_re", 0);
+				request.setAttribute("success", "false");
+			}
+			
 		} else {
 			if (row == -1) {
 				System.out.println("JoinController : " + "아이디 중복");

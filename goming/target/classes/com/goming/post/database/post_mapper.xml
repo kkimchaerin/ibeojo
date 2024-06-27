@@ -38,5 +38,17 @@
 		SET post_img = #{postImg} 
 		WHERE post_idx = #{postIdx}
 	</update>
+	
+	
+	<delete id="deletecas" parameterType="String">
+		DELETE FROM like_info
+		WHERE post_idx = (select post_idx from post_info where post_img = #{post_img})
+	</delete>
+	
+	<delete id="deleteImg" parameterType="String">
+		DELETE FROM post_info
+		WHERE post_img = #{post_img}
+	</delete>
+
 
 </mapper>

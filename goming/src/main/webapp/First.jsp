@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="styles/Reset.css?ver=2" />
 </head>
 <body>
-	<div class="container">
+	<div class="container"> 
 
 		<header class="title">
 			<h1>오늘의 옷</h1>

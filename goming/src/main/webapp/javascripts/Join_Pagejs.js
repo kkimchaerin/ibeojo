@@ -11,8 +11,10 @@ function checkId() {
 			// 서버에서의 처리가 성공하면 이 함수가 호출됨
 			if (response === "0") {
 				alert("사용 가능한 아이디입니다.");
+				$('#check_id').val('1');
 			} else {
 				alert("이미 사용 중인 아이디입니다.");
+				$('#check_id').val('0');
 			}
 		},
 		error: function(xhr, status, error) {
@@ -35,8 +37,10 @@ function checkNick() {
 			// 서버에서의 처리가 성공하면 이 함수가 호출됨
 			if (response === "0") {
 				alert("사용 가능한 닉네임입니다.");
+				$('#check_nick').val('1');
 			} else {
 				alert("이미 사용 중인 닉네임입니다.");
+				$('#check_nick').val('0');
 			}
 		},
 		error: function(xhr, status, error) {

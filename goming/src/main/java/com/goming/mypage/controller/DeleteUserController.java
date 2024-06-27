@@ -1,6 +1,8 @@
 package com.goming.mypage.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,14 +33,18 @@ public class DeleteUserController extends HttpServlet {
 		int cnt = dao.deleteUser(dto);
 		
 		if(cnt > 0) {
-			System.out.println("회원 탈퇴 성공");
-			response.sendRedirect("First.jsp");
-		}else {
-			System.out.println("회원 탈퇴 실패");
-			response.sendRedirect("UserDelete.jsp");
-		}
+            System.out.println("회원 탈퇴 성공");
+            request.setAttribute("result", "success");
+        } else {
+            System.out.println("회원 탈퇴 실패");
+            request.setAttribute("result", "error");
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("UserDelete.jsp");
+        dispatcher.forward(request, response);
+    }
 		
 	}
 
-}
+
 

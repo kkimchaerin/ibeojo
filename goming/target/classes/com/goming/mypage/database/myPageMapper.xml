@@ -31,19 +31,19 @@
     </select>
 
 
-<delete id="deleteUserLike">
+<delete id="deleteUserLike" parameterType="com.goming.mypage.model.MyPageDTO">
 	delete from like_info where user_email = #{user_email}
 </delete>
 
 
-<delete id="deleteUserPost">
+<delete id="deleteUserPost" parameterType="com.goming.mypage.model.MyPageDTO">
 	delete from post_info where user_email = #{user_email}
 </delete>
 
 
 
 <delete id="deleteUser" parameterType="com.goming.mypage.model.MyPageDTO">
-	delete from user_info where user_email = #{user_email} and user_nick = #{user_nick} and user_pw = #{user_pw} 
+	delete from user_info where user_email = #{user_email} and user_nick = #{user_nick} and user_pw = MD5(#{user_pw}) 
 </delete>
 
 
