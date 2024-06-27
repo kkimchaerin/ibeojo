@@ -59,6 +59,28 @@ function getLikeCount(currentImageElement) {
 	});
 }
 
+function getTargetLike(currentImageElement) {
+	console.log("getTargetLike" + currentImageElement);
+	let filePath = currentImageElement
+	let fileName = filePath.split('/').pop(); // 파일 경로를 '/' 기준으로 나눈 후 마지막 요소를 추출
+	console.log("getTargetLike" + fileName);
+
+	$.ajax({
+		type: "POST",
+		url: "LikeCountController",
+		data: JSON.stringify({ post_img: fileName }),
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function(response) {
+			console.log("Number of likes: " + response.likeCount);
+			instance.likeCounter = response.likeCount;
+		},
+		error: function(error) {
+			console.error("Error fetching like count: ", error);
+		}
+	});
+}
+
 const instance = new Singleton(0, "", "");
 /*let likeCounter = 0; // 좋아요 횟수를 저장할 변수
 let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소를 저장하는 변수
@@ -119,6 +141,9 @@ function updateLikeCount() {
 
 	getLikeCount(instance.globalImageSrc);
 	likeCountElement.textContent = instance.likeCounter;
+	console.log("updateLikeCount : " + likeCountElement);
+	console.log("updateLikeCount : " + instance.likeCounter);
+	console.log("updateLikeCount : " + likeCountElement.textContent);
 }
 
 // 삭제 기능 관련 함수
