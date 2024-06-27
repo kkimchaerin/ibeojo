@@ -1,3 +1,6 @@
+let check_id = 0;
+let check_nick = 0;
+
 function checkId() {
 	var userId = $('#user_id').val(); // 입력된 아이디 가져오기
 	
@@ -49,4 +52,26 @@ function checkNick() {
 			console.error(xhr, status, error);
 		}
 	});
+	}
+	
+	function submitForm(){
+        var success = '<%=request.getAttribute("success") != null ? request.getAttribute("success") : ""%>
+		';
+		check_id = '<%=request.getAttribute("check_id_re") %>';
+		check_nick = '<%=request.getAttribute("check_nick_re") %>';
+								console.log("Success attribute value: "
+										+ success); // 디버깅을 위한 로그
+
+								if (success === 'true' && id_check === 1
+										&& nick_check === 1) {
+									alert("회원가입이 성공적으로 완료되었습니다!");
+									window.location.href = 'First.jsp';
+								} else if (id_check === 0) {
+									alert("아이디 중복 확인을 해주세요")
+								} else if (nick_check === 0) {
+									alert("닉네임 중복 확인을 해주세요")
+								} else if (success === 'false') {
+									alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+								}
+							}
 }
