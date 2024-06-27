@@ -55,9 +55,13 @@ $(document).ready(function() {
                 }else{
 					$(".gallery-wrapper").find(".empty-message").remove();
                     $.each(data, function(index, post) {
+						
+						console.log("Post!! ", post);
+						
                         let imgTag = $("<img>").attr("src", "post/" + post.post_img)
                         						.attr("alt", post.post_img)
                         						.attr("data-idx", post.post_idx)
+                        						.attr("data-user-nick", post.user_nick)
                         						.attr("data-comment", post.comment);
                         $(".gallery").append(imgTag);
                     });

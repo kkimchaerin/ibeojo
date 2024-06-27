@@ -3,24 +3,20 @@
 
 <mapper namespace="com.goming.post.database.post_mapper">
 	<!-- 포스트 게시 -->
-	<insert id="postInsert"
-		parameterType="com.goming.post.model.PostDTO">
-		INSERT INTO post_info (user_email, post_img, gender,
-		style_tag, season, comment, created_at)
-		VALUES (#{user_email},
-		#{post_img}, #{gender}, #{style_tag}, #{season}, #{comment}, now());
+	<insert id="postInsert" parameterType="com.goming.post.model.PostDTO">
+		INSERT INTO post_info (user_email, user_nick, post_img, gender, style_tag, season, comment, created_at)
+		VALUES (#{user_email}, #{user_nick}, #{post_img}, #{gender}, #{style_tag}, #{season}, #{comment}, now());
 	</insert>
 
 	<!-- 포스트 필터링 -->
-	<select id="getPostsByFilters"
-		parameterType="com.goming.post.model.PostDTO"
-		resultType="com.goming.post.model.PostDTO">
-		SELECT post_idx, post_img, comment
-		FROM post_info
-		WHERE gender = #{gender}
-		AND style_tag = #{style_tag}
-		AND season = #{season}
-	</select>
+    <select id="getPostsByFilters" parameterType="com.goming.post.model.PostDTO" resultType="com.goming.post.model.PostDTO">
+       	SELECT pi.*, ui.user_nick
+		FROM post_info pi
+		JOIN user_info ui ON pi.user_email = ui.user_email
+		WHERE pi.gender = #{gender}
+		  AND pi.style_tag = #{style_tag}
+		  AND pi.season = #{season};   
+    </select>  
 
 <!-- 게시글 삭제 -->
 	<delete id="deletecas" parameterType="String">
@@ -33,6 +29,7 @@
 		DELETE FROM post_info
 		WHERE post_img = #{post_img}
 	</delete>
+
 
 
 	<select id="getidx" resultType="String">

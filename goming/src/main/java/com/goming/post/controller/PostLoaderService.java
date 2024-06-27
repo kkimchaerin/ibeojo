@@ -31,8 +31,8 @@ public class PostLoaderService extends HttpServlet {
 		filter.setSeason(season);
 
 		// DAO를 통해 필터링된 게시물 리스트 가져오기
-		PostDAO postDAO = new PostDAO();
-		List<PostDTO> filteredPosts = postDAO.getPostsByFilters(filter);
+		PostDAO dao = new PostDAO();
+		List<PostDTO> filteredPosts = dao.getPostsByFilters(filter);
 
 //		System.out.println("gender!!" + gender);
 //		System.out.println("style!!" + style);

@@ -24,6 +24,7 @@ public class LoginController extends HttpServlet {
 		// 2. 데이터 가지고 오기
 		String id = request.getParameter("user_id");
 		String pw = request.getParameter("user_pw");
+		
 
 		// 3. dto 객체 생성
 		user_DTO dto = new user_DTO();
