@@ -37,7 +37,6 @@ public class UploadService extends HttpServlet {
 		MultipartRequest multi = null;
 		multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 		
-		HttpSession session = request.getSession();
 		
 		String userEmail = (String)session.getAttribute("user_email");
 		String postImg = multi.getFilesystemName("postImg");

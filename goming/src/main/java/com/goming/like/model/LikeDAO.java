@@ -50,15 +50,22 @@ public class LikeDAO {
 	
 
     public boolean isLiked(LikeDTO like) {
-    	int count = 0;
-    	
-    	session = factory.openSession();
-        try{
-            count = session.selectOne("com.goming.like.database.like_mapper.likeCheck", like);
-           
-        }catch (Exception e) {
-        	System.out.println("좋아요 불러오기 실패");
+        int count = 0;
+        
+        SqlSession session = null;
+        try {
+            session = factory.openSession();
+            Integer result = session.selectOne("com.goming.like.database.like_mapper.likeCheck", like);
+            if (result != null) {
+                count = result;
+            }
+        } catch (Exception e) {
+            System.out.println("좋아요 불러오기 실패");
             e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
         return count > 0;
     }
