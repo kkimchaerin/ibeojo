@@ -28,5 +28,6 @@ db연결 해주는 파일명 작성(경로까지 모두)
     <mapper resource="com/goming/user/database/user_mapper.xml"/>
     <mapper resource="com/goming/weather/database/weather_mapper.xml"/>
     <mapper resource="com/goming/post/database/post_mapper.xml"/>
+    <mapper resource="com/goming/like/database/like_mapper.xml"/>
   </mappers>
 </configuration>

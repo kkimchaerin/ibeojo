@@ -28,7 +28,7 @@ window.onload = function() {
 	<form action="FindIdController" class="Findid">
 
 		<h1>아이디 찾기</h1>
-		<input type="text" name="user_nick" placeholder="닉네임를 입력하세요"><br>
+		<input type="text" name="user_nick" placeholder="닉네임을 입력하세요"><br>
 		<input type="submit" value="아이디 찾기">
 	</form>
 

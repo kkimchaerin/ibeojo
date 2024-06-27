@@ -20,7 +20,9 @@ public class UploadService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		
+		HttpSession session = request.getSession();
 		
 		String saveDir = "post"; // 저장되는 폴더
 		String encType = "UTF-8"; 
@@ -35,10 +37,8 @@ request.setCharacterEncoding("UTF-8");
 		MultipartRequest multi = null;
 		multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 		
-		HttpSession session = request.getSession();
 		
 		String userEmail = (String)session.getAttribute("user_email");
-
 		String postImg = multi.getFilesystemName("postImg");
 		char gender = multi.getParameter("gender").charAt(0);
 		String style = multi.getParameter("style");
@@ -46,11 +46,10 @@ request.setCharacterEncoding("UTF-8");
 		String comment = multi.getParameter("comment");
 		String faceCheck = multi.getParameter("faceCheck");
 		
-		System.out.println(faceCheck);
-        System.out.println("userGender: " + gender);
-        System.out.println("style: " + style);
-        System.out.println("season: " + season);
-        System.out.println("comment: " + comment);
+//        System.out.println("userGender: " + gender);
+//        System.out.println("style: " + style);
+//        System.out.println("season: " + season);
+//        System.out.println("comment: " + comment);
         
         //String user_email, String post_img, char gender, String style_tag, String season, String comment
 		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season, comment); 
@@ -61,7 +60,7 @@ request.setCharacterEncoding("UTF-8");
 		Writer out = response.getWriter();
 		
 		if(cnt > 0) {
-			out.write("<script>alert('업로드되었습니다 :)');</script>");
+			//out.write("<script>alert('업로드되었습니다 :)');</script>");
 			System.out.println("업로드 완료");
 			
 	         if(faceCheck.equals("ON")) {
