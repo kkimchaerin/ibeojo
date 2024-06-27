@@ -162,6 +162,22 @@
     	<description></description>
     	<servlet-class>com.goming.post.controller.DeleteImg</servlet-class>
 
+    	<servlet-name>LikeService</servlet-name>
+    	<display-name>LikeService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>UnlikeService</servlet-name>
+    	<display-name>UnlikeService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.UnlikeService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>LikeStatusService</servlet-name>
+    	<display-name>LikeStatusService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeStatusService</servlet-class>
     </servlet>
     
     <!-- Servlet mappings -->
@@ -254,11 +270,6 @@
     	<url-pattern>/UpdateService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-
-    	<servlet-name>LikeSelectController</servlet-name>
-    	<url-pattern>/LikeSelectController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
     	<servlet-name>CheckLike</servlet-name>
     	<url-pattern>/CheckLike</url-pattern>
     </servlet-mapping>
@@ -274,5 +285,15 @@
     	<servlet-name>DeleteImg</servlet-name>
     	<url-pattern>/DeleteImg</url-pattern>
 
+    	<servlet-name>LikeService</servlet-name>
+    	<url-pattern>/LikeService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UnlikeService</servlet-name>
+    	<url-pattern>/UnlikeService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LikeStatusService</servlet-name>
+    	<url-pattern>/LikeStatusService</url-pattern>
     </servlet-mapping>
 </web-app>

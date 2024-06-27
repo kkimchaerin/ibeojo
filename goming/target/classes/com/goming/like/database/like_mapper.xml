@@ -5,30 +5,23 @@
 	한 개의 mapper 만들기 mapper 사이에 sql문 작성해야 함 -->
 
 <mapper namespace="com.goming.like.database.like_mapper">
-	<!-- sql 작성방법 : 태그 사용 id 값 : 연결해줄 고유 아이디 parameterType : 입력받을 타입 작성 (우리가 
-		만든 타입인 경우 경로부터 작성) sql문 내 매개변수 채워 줄 때 : ? #{변수명} 변수명은 db, member, mapper 
-		다 일치시키기 -->
-
-    <select id="selectLikedPostsByUserEmail" parameterType="String" resultType="com.goming.post.model.PostDTO">
-        SELECT p.*
-        FROM post_info p
-        JOIN like_info l ON p.post_idx = l.post_idx
-        WHERE l.user_email = #{user_email}
-    </select>
-<insert id="like_insert">
-insert into like_info
-values(null, #{post_idx}, #{user_email}, now())
+		
+<insert id="likeInsert" parameterType="com.goming.like.model.LikeDTO">
+	INSERT INTO like_info (post_idx, user_email, created_at) 
+	VALUES (#{post_idx}, #{user_email}, NOW());
 </insert>
 
+<delete id="likeDelete" parameterType="com.goming.like.model.LikeDTO">
+	DELETE FROM like_info WHERE post_idx = #{post_idx} AND user_email = #{user_email}
+</delete>
 
-<select id="check_like" parameterType="com.goming.like.model.LikeDTO" resultType="com.goming.like.model.LikeDTO">
-select *
-  from like_info
- where user_email = #{user_email} and post_idx = (select post_idx from post_info where post_img = #{post_img});
+
+<select id="likeCheck" parameterType="com.goming.like.model.LikeDTO" resultType="int">
+	SELECT *
+  	FROM like_info
+ 	WHERE user_email = #{user_email} 
+ 	AND post_idx = #{post_idx};
 </select>
-
-
-
 
 
 

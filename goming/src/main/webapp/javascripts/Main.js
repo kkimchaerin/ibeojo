@@ -48,7 +48,7 @@ $(document).ready(function() {
                 $(".gallery").empty();
                 $(".gallery-wrapper").find(".empty-message").remove();
                 
-                if(data.length === 0){
+                if(data.length === 0){ // 이미지 데이터가 없을 경우
                     console.log("empty!");                    
                     $(".gallery-wrapper").append('<div class="empty-message"></div>');
                     $(".empty-message").load('EmptyImages.html');
@@ -57,6 +57,7 @@ $(document).ready(function() {
                     $.each(data, function(index, post) {
                         let imgTag = $("<img>").attr("src", "post/" + post.post_img)
                         						.attr("alt", post.post_img)
+                        						.attr("data-idx", post.post_idx)
                         						.attr("data-comment", post.comment);
                         $(".gallery").append(imgTag);
                     });
@@ -84,4 +85,5 @@ $(document).ready(function() {
 
         loadImagesByFilters(gender, style_tag, season);
     });
+    
 });
