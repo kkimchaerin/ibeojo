@@ -1,45 +1,10 @@
-if (!window.likeImgScriptLoaded) {
-    const script = document.createElement('script');
-    script.src = './javascripts/Likeimg.js';
-    document.head.appendChild(script);
-    window.likeImgScriptLoaded = true;
-}
+
 
 let likeCounter = 0; // 좋아요 횟수를 저장할 변수
 let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소를 저장하는 변수
 
 let globalImageSrc = "";
 
-// 데이터를 서블릿으로 보내는 비동기 함수
-async function checkLike(imageSrc) {
-	img = imageSrc;
-	img = img.substring(7);
-	
-	console.log(img);
-	
-	// 서블릿으로 보낼 데이터
-	const data = {param : img};
-	
-	try{
-		const res = await fetch('./CheckLike', {
-			method: 'POST', // 데이터 전송 방식
-			headers: {
-				'Content-Type': 'application/json' // 헤더에 content-type이 json
-			},
-			body: JSON.stringify(data) // json 문자열 데이터로 전송
-		});
-		
-		if(!res.ok){
-			throw new Error('Network response was not ok ' + res.statusText);	
-		}
-		const result = await res.json();
-		
-		return result;
-	}catch (error){
-		console.error("fetch operation has ploblem : ", error)
-		throw error;
-	}
-}
 
 
 
@@ -47,14 +12,6 @@ async function checkLike(imageSrc) {
 function openPopup(imageSrc, imageElement) {
 	
 	globalImageSrc = imageSrc;
-	
-	checkLike(imageSrc)
-	.then(result => {
-		var cnt = result.reponseParam
-		console.log('좋아요 수 반환 결과 : ', cnt);
-	}).catch(error => {
-		console.error('에러 발생 : ', error);
-	})
 	
 	var popupImg = document.getElementById("popupImage");
 	var animationContainer = document.getElementById("animationContainer");

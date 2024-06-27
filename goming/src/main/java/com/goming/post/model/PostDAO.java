@@ -127,7 +127,8 @@ public class PostDAO {
 		int cnt = 0;
 		
 		try {
-			cnt = session.update("com.goming.post.database.post_mapper.deleteImg", img);
+			cnt = session.delete("com.goming.post.database.post_mapper.deletecas", img);
+			cnt = session.delete("com.goming.post.database.post_mapper.deleteImg", img);
 			if(cnt > 0) {
 				session.commit();
 				System.out.println("게시글 삭제 성공");

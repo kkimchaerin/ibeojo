@@ -64,7 +64,7 @@ function getWeatherFromDBs(latitude, longitude) {
 			updateWeatherText((nearestData.temperature + "°C"), nearestData.weatherInfo);
 			document.getElementById('weather-comment').textContent = getWeatherComment(nearestData.temperature);
 			console.log(nearestData);
-			getAddressFromCoords(latitude, longitude);
+
 		},
 		error: function(xhr, status, error) {
 			// 서버에서의 처리가 실패하면 이 함수가 호출됨
@@ -134,7 +134,7 @@ function getWeatherComment(temp) {
 function showPosition(position) {
 	const latitude = position.coords.latitude;
 	const longitude = position.coords.longitude;
-
+	getAddressFromCoords(latitude, longitude);
 	getWeatherFromDBs(latitude, longitude); // 위치 정보를 사용하여 날씨 데이터를 받아옴
 }
 
