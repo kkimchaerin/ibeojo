@@ -39,6 +39,7 @@ public class UploadService extends HttpServlet {
 		
 		
 		String userEmail = (String)session.getAttribute("user_email");
+		String userNick = (String)session.getAttribute("user_nick");
 		String postImg = multi.getFilesystemName("postImg");
 		char gender = multi.getParameter("gender").charAt(0);
 		String style = multi.getParameter("style");
@@ -46,13 +47,15 @@ public class UploadService extends HttpServlet {
 		String comment = multi.getParameter("comment");
 		String faceCheck = multi.getParameter("faceCheck");
 		
+		System.out.println("!!userEmail!!" + userEmail);
+		
 //        System.out.println("userGender: " + gender);
 //        System.out.println("style: " + style);
 //        System.out.println("season: " + season);
 //        System.out.println("comment: " + comment);
         
         //String user_email, String post_img, char gender, String style_tag, String season, String comment
-		PostDTO post = new PostDTO(userEmail, postImg, gender, style, season, comment); 
+		PostDTO post = new PostDTO(userEmail, userNick, postImg, gender, style, season, comment); 
 		System.out.println("post확인: " + post.getComment());
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);

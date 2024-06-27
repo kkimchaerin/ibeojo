@@ -18,17 +18,13 @@ String comment = (String) session.getAttribute("comment");
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
-<link rel="stylesheet" type="text/css"
-	href="./styles/LocationWeather.css?ver=1" />
-
+<link rel="stylesheet" type="text/css" href="./styles/LocationWeather.css?ver=1" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
-<!-- <script src="./javascripts/Main.js?ver=5" defer></script> -->
 <script src="./javascripts/LocationWeather.js" defer></script>
-<script src="./javascripts/Main.js?ver=7" defer></script>
+<script src="./javascripts/Main.js?ver=8" defer></script>
 <script src="./javascripts/ShowDetailModal.js?ver=1" defer></script>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
 </head>
 <body>
 	<!-- header -->
@@ -73,12 +69,6 @@ String comment = (String) session.getAttribute("comment");
 			</div>
 			<div class="gallery">
 				<!-- 카테고리별 필터링된 이미지 출력 -->
-				<img src="./images/men_winter_minimal_11.png" alt="피드1"> <img
-					src="./images/men_winter_minimal_12.png" alt="피드2"> <img
-					src="./images/men_spring_minimal_3.png" alt="피드3"> <img
-					src="./images/men_spring_minimal_4.png" alt="피드4"> <img
-					src="./images/women_summer_minimal_11.png" alt="피드5"> <img
-					src="./images/women_summer_minimal_12.png" alt="피드6">
 			</div>
 
 		</section>
@@ -94,6 +84,7 @@ String comment = (String) session.getAttribute("comment");
 	<div id="modal" class="modal">
 	    <span class="close">&times;</span>
 	    <div class="modal-content">
+	    	<p id="modal-user-nick">김채린</p>
 	        <img id="modal-img">
 	        <div class="modal-info">
 	            <button id="modal-like-btn" class="liked">

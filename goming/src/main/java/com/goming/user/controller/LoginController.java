@@ -24,6 +24,7 @@ public class LoginController extends HttpServlet {
 		// 2. 데이터 가지고 오기
 		String id = request.getParameter("user_id");
 		String pw = request.getParameter("user_pw");
+		
 
 		// 3. dto 객체 생성
 		user_DTO dto = new user_DTO();
@@ -42,6 +43,7 @@ public class LoginController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user_email", m.getUser_email());
 			session.setAttribute("user_pw", m.getUser_pw());
+			session.setAttribute("user_nick", m.getUser_nick());
 
 			// 이동
 			response.sendRedirect("CommentController");

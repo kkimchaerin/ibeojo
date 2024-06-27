@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
     let modal = $("#modal");
+    let modalUserNick = $("#modal-user-nick");
     let modalImg = $("#modal-img");
     let modalComment = $("#modal-comment");
     let span = $(".close");
@@ -43,6 +44,7 @@ $(document).ready(function() {
         
         fetchLikeStatus(postIdx);
         
+        modalUserNick.text();
         modalImg.attr("src", src).attr("data-idx", postIdx);
         modalComment.text(imgComment);
         modal.data("post-idx", postIdx);
@@ -89,8 +91,6 @@ $(document).ready(function() {
 				
 				console.log("여기야??",response);
 				
-                
-
 
                 if (response.result === "success") {
                     if (isLiked) {
@@ -107,7 +107,7 @@ $(document).ready(function() {
                 }
             },
             error: function(xhr, status, error) {
-                console.error("AJAX 오류: ", xhr, status, error); // 오류 로그 추가
+                console.error("AJAX 오류: ", xhr, status, error);
             },
             complete: function() {
                 isProcessing = false; // 처리 완료 후 플래그 초기화
