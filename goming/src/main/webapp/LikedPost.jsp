@@ -19,6 +19,23 @@ String jsonImgList = new Gson().toJson(LikeList);
 <link rel="stylesheet" type="text/css"
 	href="./styles/BottomNav.css?ver3" />
 
+<script type="text/javascript">
+	pagename = "LikedPost";
+	console.log(pagename);
+	document.addEventListener('DOMContentLoaded', function() {
+		var deleteButton = document.querySelector('.delete');
+		var likeButton = document.querySelector('#likeCount');
+		if (deleteButton) {
+			deleteButton.classList.add('disabled');
+			deleteButton.onclick = null; // onclick 이벤트를 제거하여 버튼을 비활성화
+		}
+		if (likeButton) {
+			likeButton.hidden = true; // 요소를 숨깁니다.
+		}
+
+	});
+</script>
+
 <script>
 	let userEmail;
 	let galleryContainer;
@@ -33,7 +50,7 @@ String jsonImgList = new Gson().toJson(LikeList);
 <%=jsonImgList%>
 	;
 		console.log(userEmail);
-
+		filterByStyle("미니멀");
 		// 이미지 파일 경로 배열 예시 (실제 경로에 맞게 수정 필요)
 
 	});
@@ -51,12 +68,13 @@ String jsonImgList = new Gson().toJson(LikeList);
 						&& userEmail[i].style_tag === allstyle) {
 					const path = userEmail[i];
 					const EmailElement = document.createElement("img");
-					EmailElement.src = path.post_img;
+					EmailElement.src = './post/' + path.post_img;
 					EmailElement.alt = path.post_img; // alt 텍스트 설정 (필요에 따라 수정)
 
 					// 클릭 이벤트 추가
 					EmailElement.onclick = function() {
-						openPopup(path);
+						openPopup2(path.post_img);
+
 					};
 
 					// 이미지를 갤러리에 추가
@@ -82,12 +100,12 @@ String jsonImgList = new Gson().toJson(LikeList);
 						&& userEmail[i].style_tag === allstyle) {
 					const path = userEmail[i];
 					const EmailElement = document.createElement("img");
-					EmailElement.src = path.post_img;
+					EmailElement.src = './post/' + path.post_img;
 					EmailElement.alt = path.post_img; // alt 텍스트 설정 (필요에 따라 수정)
 
 					// 클릭 이벤트 추가
 					EmailElement.onclick = function() {
-						openPopup(path);
+						openPopup2(path.post_img);
 					};
 
 					// 이미지를 갤러리에 추가
@@ -115,22 +133,13 @@ String jsonImgList = new Gson().toJson(LikeList);
 	<!-- category nav -->
 	<%@ include file="CategoryNav.jsp"%>
 
-	<div class="gallery" id="imageGallery">
-		<!--         <img src="./images/1.jpg" alt="" onclick="openPopup('./images/1.jpg')">
-        <img src="./images/2.jpg" alt="" onclick="openPopup('./images/2.jpg')">
-        <img src="./images/3.jpg" alt="" onclick="openPopup('./images/3.jpg')">
-        <img src="./images/4.jpg" alt="" onclick="openPopup('./images/4.jpg')">
-        <img src="./images/5.jpg" alt="" onclick="openPopup('./images/5.jpg')">
-        <img src="./images/6.jpg" alt="" onclick="openPopup('./images/6.jpg')">
-        <img src="./images/7.jpg" alt="" onclick="openPopup('./images/7.jpg')">
-        <img src="./images/8.jpg" alt="" onclick="openPopup('./images/8.jpg')"> -->
-	</div>
+	<div class="gallery" id="imageGallery"></div>
 
 	<jsp:include page="Likeimg.jsp" />
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-	<script src="LikedPost.js"></script>
+	<script src="./javascripts/Likeimg.js"></script>
 
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>
