@@ -94,6 +94,8 @@ public class MyPageDAO {
 		int cnt = 0;
 
 		try {
+			cnt = session.delete("deleteUserLike", dto);
+			cnt = session.delete("deleteUserPost", dto);
 			cnt = session.delete("deleteUser", dto);
 			if (cnt != 0) {
 				session.commit();

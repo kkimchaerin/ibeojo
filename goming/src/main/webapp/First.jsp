@@ -17,7 +17,7 @@
 		</header>
 
 
-		<div class="button_container">
+		<div class="button_container">	
 			<button class="join" type="button" onclick="location.href='Join.jsp'">회원가입</button>
 			<button class="login" type="button"
 				onclick="location.href='Login.jsp'">로그인</button>
