@@ -2,13 +2,15 @@
 
 @import "Reset.css";
 
-/* main */
-/* main {
-	position: relative;
-	top: 80px;
-	max-width: 1000px;
-	margin: auto;
-} */
+@font-face {
+	font-family: 'EarlyFontDiary';
+	src:
+		url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
 html {
 	background-image: url('../images/background2.png'); /* 배경 이미지 설정 */
 	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
@@ -17,18 +19,20 @@ html {
 }
 
 .weather-wrapper {
-    display: flex;
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    background-color: white;
-    width: 100%; /* 화면 너비를 기준으로 설정 */
-    max-width: 1000px; /* 최대 너비 1000px로 설정 */
-    margin: 0 auto; /* 가운데 정렬을 위한 왼쪽과 오른쪽 마진 자동 조정 */
-    margin-top:100px;
-    padding: 10px; /* 원하는 내부 여백 설정 */
-    border: 2px solid black; /* 테두리 추가 */
-    border-radius: 10px; /* 테두리의 둥근 모서리 설정 */
-    box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+	display: flex;
+	justify-content: center; /* 수평 가운데 정렬 */
+	align-items: center; /* 수직 가운데 정렬 */
+	background-color: white;
+	width: 100%; /* 화면 너비를 기준으로 설정 */
+	max-width: 1000px; /* 최대 너비 1000px로 설정 */
+	margin: 0 auto; /* 가운데 정렬을 위한 왼쪽과 오른쪽 마진 자동 조정 */
+	margin-top: 100px;
+	padding: 10px; /* 원하는 내부 여백 설정 */
+	border: 2px solid black; /* 테두리 추가 */
+	border-radius: 10px; /* 테두리의 둥근 모서리 설정 */
+	box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+	font-family: "EarlyFontDiary", cursive;
+	font-weight: bold;
 }
 
 .head_info {
