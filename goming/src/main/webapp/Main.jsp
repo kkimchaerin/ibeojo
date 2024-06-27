@@ -88,14 +88,4 @@ String comment = (String)session.getAttribute("comment");
         <!-- <span id="modal-like-count">0</span> -->
     </div>
 </body>
-<style>
-body{
-	background-image: url("./images/background04.png");
-	background-size: cover;
-}
-
-.weather-wrapper{
-	background-color: white;
-}
-</style>
 </html>

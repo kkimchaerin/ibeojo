@@ -21,6 +21,7 @@ main{
   margin-left: 50%;
   transform: translateX(-50%);
   box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: white;
 }
 
 .weather-wrapper div{

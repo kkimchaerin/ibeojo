@@ -8,11 +8,10 @@ $(document).ready(function() {
     let likeBtn = $("#modal-like-btn");
     let likeBtnImg = $("#modal-like-btn img");
     
-    // 페이지 로드 시 좋아요 상태 로드
-    $(".gallery img").each(function() {
-        let postIdx = $(this).data("idx");
-        let imgElement = $(this);
-
+    // 좋아요 상태 가져오는 함수
+    function fetchLikeStatus(postIdx) {
+		console.log("fetchLikeStatus 호출됨, postIdx:", postIdx);
+		
         $.ajax({
             url: "LikeStatusService",
             type: "GET",
@@ -20,22 +19,29 @@ $(document).ready(function() {
                 post_idx: postIdx
             },
             success: function(response) {
-                let isLiked = JSON.parse(response).isLiked;
+                let isLiked = response.isLiked;
                 if (isLiked) {
-                    imgElement.siblings(".like-btn").addClass("liked");
+                    likeBtnImg.attr("src", "./icons/heart-solid.svg");
+                    likeBtn.addClass("liked");
+                } else {
+                    likeBtnImg.attr("src", "./icons/heart-regular.svg");
+                    likeBtn.removeClass("liked");
                 }
             },
             error: function(xhr, status, error) {
                 console.error("좋아요 상태 로드 실패: ", xhr, status, error);
             }
         });
-    });
+    }
+    
 
     // 이미지 클릭 시 모달 열기
     $(".gallery").on("click", "img", function() {
         let src = $(this).attr("src");
         let imgComment = $(this).data("comment");
         let postIdx = $(this).data("idx");
+        
+        fetchLikeStatus(postIdx);
         
         modalImg.attr("src", src).attr("data-idx", postIdx);
         modalComment.text(imgComment);

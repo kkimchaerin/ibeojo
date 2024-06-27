@@ -38,7 +38,7 @@ public class LikeService extends HttpServlet {
 		int cnt = dao.likeInsert(like);
 		
 		
-	      response.setContentType("application/json");
+	      	response.setContentType("application/json");
 	        response.setCharacterEncoding("UTF-8");
 	        
 	        JSONObject jsonResponse = new JSONObject();

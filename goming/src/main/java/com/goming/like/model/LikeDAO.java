@@ -54,7 +54,7 @@ public class LikeDAO {
     	
     	session = factory.openSession();
         try{
-            count = session.selectOne("com.goming.like.database.like_mapper.check_like", like);
+            count = session.selectOne("com.goming.like.database.like_mapper.likeCheck", like);
            
         }catch (Exception e) {
         	System.out.println("좋아요 불러오기 실패");

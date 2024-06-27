@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
+
 import com.goming.like.model.LikeDAO;
 import com.goming.like.model.LikeDTO;
 
@@ -34,8 +36,13 @@ public class LikeStatusService extends HttpServlet {
         
         boolean isLiked = dao.isLiked(like);
         
+        // JSON 응답 생성
+        JSONObject jsonResponse = new JSONObject();
+        jsonResponse.put("isLiked", isLiked);
+        
+        // 응답 설정
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("{\"isLiked\": " + isLiked + "}");
+        response.getWriter().write(jsonResponse.toString());
     }
 }
