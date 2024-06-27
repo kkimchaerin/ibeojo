@@ -9,6 +9,7 @@
 	</insert>
 
 	<!-- 포스트 필터링 -->
+
     <select id="getPostsByFilters" parameterType="com.goming.post.model.PostDTO" resultType="com.goming.post.model.PostDTO">
        	SELECT pi.*, ui.user_nick
 		FROM post_info pi
@@ -16,7 +17,7 @@
 		WHERE pi.gender = #{gender}
 		  AND pi.style_tag = #{style_tag}
 		  AND pi.season = #{season};   
-    </select>  
+    </select>   
 
 <!-- 게시글 삭제 -->
 	<delete id="deletecas" parameterType="String">
@@ -29,7 +30,6 @@
 		DELETE FROM post_info
 		WHERE post_img = #{post_img}
 	</delete>
-
 
 
 	<select id="getidx" resultType="String">

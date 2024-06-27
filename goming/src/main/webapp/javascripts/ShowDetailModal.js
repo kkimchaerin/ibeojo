@@ -11,8 +11,8 @@ $(document).ready(function() {
     
     // 좋아요 상태 가져오는 함수
     function fetchLikeStatus(postIdx) {
-		console.log("fetchLikeStatus 호출됨, postIdx:", postIdx);
-		
+      console.log("fetchLikeStatus 호출됨, postIdx:", postIdx);
+      
         $.ajax({
             url: "LikeStatusService",
             type: "GET",
@@ -39,12 +39,13 @@ $(document).ready(function() {
     // 이미지 클릭 시 모달 열기
     $(".gallery").on("click", "img", function() {
         let src = $(this).attr("src");
+        let userNick = $(this).data("user-nick");
         let imgComment = $(this).data("comment");
         let postIdx = $(this).data("idx");
         
         fetchLikeStatus(postIdx);
         
-        modalUserNick.text();
+        modalUserNick.text(userNick);
         modalImg.attr("src", src).attr("data-idx", postIdx);
         modalComment.text(imgComment);
         modal.data("post-idx", postIdx);
@@ -88,9 +89,9 @@ $(document).ready(function() {
             },
             dataType: "json",
             success: function(response) {
-				
-				console.log("여기야??",response);
-				
+            
+            console.log("여기야??",response);
+            
 
                 if (response.result === "success") {
                     if (isLiked) {
