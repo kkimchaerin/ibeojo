@@ -18,7 +18,6 @@ function checkId() {
 			} else if (response === "2") {
 				alert("아이디를 입력해주세요")
 			}
-
 			else {
 				alert("이미 사용 중인 아이디입니다.");
 			}

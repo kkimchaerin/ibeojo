@@ -101,7 +101,7 @@ async function deleteConfirmed() {
                 'Content-Type': 'application/json' // 헤더에 content-type을 json으로 설정
             },
             body: JSON.stringify(data) // json 문자열 데이터로 전송
-        });
+        }); // fetch 방식 통신
         
         const responseText = await res.text(); // 응답 텍스트를 먼저 받음
         console.log('Response status:', res.status);
@@ -124,6 +124,6 @@ async function deleteConfirmed() {
         console.error("Fetch operation has a problem: ", error);
         alert("게시물 삭제에 실패했습니다."); // 실패 알림
         window.location.href = 'http://localhost:8085/goming/ImgController';
-    }
-}
+    } // try - catch문 종료
+} // deleteConfirmed 종료
 
