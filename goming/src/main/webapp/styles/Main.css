@@ -124,7 +124,7 @@ html {
 }
 
 .sort {
-	margin-left: 650px;
+	margin-left: 50%;
 	display: flex;
 	gap: 20px;
 }
