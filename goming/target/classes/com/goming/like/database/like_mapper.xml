@@ -6,6 +6,14 @@
 
 <mapper namespace="com.goming.like.database.like_mapper">
 
+	<select id="getUserEmailByNickname"
+		parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT user_email
+		FROM user_info
+		WHERE user_nick = #{userNick}
+	</select>
+
+
 	<!-- 좋아요 여부 확인 -->
 	<select id="checkLikepostuser" parameterType="java.util.Map"
 		resultType="int">
@@ -47,12 +55,25 @@
 		DELETE FROM like_info
 		WHERE post_idx IN (
 		SELECT p.post_idx
-		FROM post_info p
+		FROM
+		post_info p
 		JOIN user_info u ON p.user_email = u.user_email
-		WHERE p.post_img = #{post_img}
+		WHERE
+		p.post_img = #{post_img}
 		AND u.user_email = #{user_email}
 		)
-		AND user_email = #{user_email};
+		AND
+		user_email = #{user_email};
+
+	</delete>
+	<delete id="removeLike2" parameterType="java.util.Map">
+		<!-- DELETE FROM like_info WHERE post_idx = ( SELECT p.post_idx FROM post_info 
+			p JOIN user_info u ON p.user_email = u.user_email WHERE p.post_img = #{post_img} 
+			AND u.user_email = #{user_email} ) AND user_email = #{user_email} -->
+
+		DELETE FROM like_info
+		WHERE post_idx = #{post_idx}
+		AND user_email = #{user_email}
 
 	</delete>
 

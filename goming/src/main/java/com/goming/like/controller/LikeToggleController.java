@@ -20,7 +20,7 @@ public class LikeToggleController extends HttpServlet
 	{
 		request.setCharacterEncoding("UTF-8");
 
-		System.out.println("LikeToggleController : " );
+		System.out.println("LikeToggleController : ");
 		StringBuilder sb = new StringBuilder();
 		BufferedReader reader = request.getReader();
 		String line;
@@ -29,22 +29,37 @@ public class LikeToggleController extends HttpServlet
 			sb.append(line);
 		}
 		JSONObject jsonRequest = new JSONObject(sb.toString());
-
+		LikeDAO dao = new LikeDAO();
 		// JSON 객체에서 post_img 값 추출
 		String post_img = jsonRequest.getString("post_img");
 		String user_email = jsonRequest.getString("user_email");
+		boolean booled = jsonRequest.getBoolean("booled");
+		String allidx = jsonRequest.getString("allidx");
 
 		post_img = post_img.replace("./post/", "");
 		System.out.println("LikeToggleController : " + post_img);
 
 		// DAO를 사용하여 좋아요 갯수 가져오기
-		LikeDAO dao = new LikeDAO();
-		dao.likeToggle(post_img, user_email);
+
+		if (booled == false)
+		{
+			System.out.println("removeLike2");
+			dao.likeToggle(post_img, user_email, true, allidx);
+			
+		} else
+		{
+			System.out.println("removeLike");
+			dao.likeToggle(post_img, user_email, false, allidx);
+		}
+		
 		System.out.println("dao.likeToggle(post_img, user_email); : " + post_img + user_email);
 		int likebool = dao.likeToggleCount(post_img, user_email);
+
+
 		System.out.println("likebool : " + likebool);
-		
+
 		int likeCount = dao.LikeSelectAllCount(post_img);
+
 		System.out.println("LikeToggleController : ,likeCount" + likeCount);
 
 		// 결과를 JSON 객체로 변환하여 응답

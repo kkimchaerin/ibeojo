@@ -82,7 +82,7 @@ System.out.println("라이크포스트의이메일 체크:" +email);
 	                EmailElement.onclick = function() {
 	                	console.log(path);
 	                	let userEmailone = <%= email%>;
-	                    openPopup2(path.post_img, path.user_nick, path.comment, userEmailone); // openPopup2 함수 호출하여 이미지 팝업 열기
+	                    openPopup2(path.post_img, path.user_nick, path.comment, userEmailone, path.post_idx); // openPopup2 함수 호출하여 이미지 팝업 열기
 	                };
 
 	                // 갤러리 컨테이너에 이미지 요소 추가
