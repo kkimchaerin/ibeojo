@@ -46,9 +46,15 @@
 		parameterType="com.goming.user.model.user_DTO">
 		UPDATE user_info
 		SET user_pw = MD5(#{user_pw})
-		WHERE user_email
+		WHERE
+		user_email
 		= #{user_email}
 	</update>
+
+	<!-- 관리자 -->
+	<select id="getAllUsers" resultType="com.goming.user.model.user_DTO">
+		SELECT * FROM users;
+	</select>
 
 
 </mapper>
