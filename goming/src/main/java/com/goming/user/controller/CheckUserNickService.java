@@ -21,9 +21,14 @@ public class CheckUserNickService extends HttpServlet
 		
 		user_DAO dao = new user_DAO();
 		
-		int user = dao.selectnick(user_nick);
+		int user = 1;
 		
-		
+		if(user_nick != "") {
+			user = dao.selectnick(user_nick);
+		}else {
+			user = 2;
+		}
+				
 		
 	    response.setContentType("text/plain");
 	    response.setCharacterEncoding("UTF-8");

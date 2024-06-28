@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.goming.mypage.model.MyPageDAO;
 import com.goming.mypage.model.MyPageDTO;
@@ -35,6 +36,8 @@ public class DeleteUserController extends HttpServlet {
 		if(cnt > 0) {
             System.out.println("회원 탈퇴 성공");
             request.setAttribute("result", "success");
+            HttpSession session = request.getSession();
+            session.invalidate();
         } else {
             System.out.println("회원 탈퇴 실패");
             request.setAttribute("result", "error");

@@ -22,14 +22,17 @@ public class CheckUserIdService extends HttpServlet
 		
 		user_DAO dao = new user_DAO();
 		
-		int user = dao.selectemail(user_id);
+		int user = 1;
 		
+		if(user_id != "") {
+			user = dao.selectemail(user_id);
+		}else {
+			user = 2;
+		}
 		
-		
-	    response.setContentType("text/plain");
-	    response.setCharacterEncoding("UTF-8");
-	    response.getWriter().write(String.valueOf(user));
-		
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(String.valueOf(user));
 	}
 
 }
