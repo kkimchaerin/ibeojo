@@ -1,15 +1,28 @@
-$(document).ready(function() {
+  $(document).ready(function() {
     let gender = "M";
-    let style_tag = "미니멀";
+    
+    if(style_tag == null){
+		style_tag = "미니멀";
+	}
+ 
+//    let style_tag = sessionStorage.getItem("user_preference") || "미니멀"; // 세션 스토리지에서 가져오거나 기본값으로 설정
+     // 세션 스토리지에서 가져오거나 기본값으로 설정
     let season = "봄";
     let sortBy = "new"; // 초기 정렬 기준 설정
+    
+    // 초기 세션 스토리지에서 가져온 style_tag에 해당하는 라디오 버튼에 checked 클래스 추가
+    $(".category-list .category-btn").each(function() {
+        let buttonStyleTag = $(this).find("img").attr("alt");
+        if (buttonStyleTag === style_tag) {
+            $(this).addClass("checked");
+        }
+    });
 
     // 성별 카테고리 클릭 시 CSS 변경
     $(".gender-category a").click(function() {
         $(".gender-category a").removeClass("checked");
         $(this).addClass("checked");
         gender = $(this).attr("id"); // 성별 업데이트
-        console.log("성별 변경:", gender);
         loadImagesByFilters(gender, style_tag, season, sortBy);
     });
 
@@ -18,7 +31,6 @@ $(document).ready(function() {
         $(".sort a").removeClass("checked");
         $(this).addClass("checked");
         sortBy = $(this).attr("id"); // 정렬 기준 업데이트
-        console.log("정렬 기준 변경:", sortBy);
         loadImagesByFilters(gender, style_tag, season, sortBy);
     });
 
@@ -39,17 +51,14 @@ $(document).ready(function() {
             },
             success: function(data) {
                 $("#style-name").text(style_tag); // #style-name의 내용을 선택된 스타일로 변경
-                console.log("데이터 수신:", data);
                 $(".gallery").empty();
                 $(".gallery-wrapper").find(".empty-message").remove();
                 if (data.length === 0) {
-                    console.log("이미지 없음!");
                     $(".gallery-wrapper").append('<div class="empty-message"></div>');
                     $(".empty-message").load('EmptyImages.html');
                 } else {
                     $(".gallery-wrapper").find(".empty-message").remove();
                     $.each(data, function(index, post) {
-                        console.log("이미지 추가:", post);
                         let imgTag = $("<img>").attr("src", "post/" + post.post_img)
                             .attr("alt", post.post_img)
                             .attr("data-idx", post.post_idx)
@@ -65,7 +74,6 @@ $(document).ready(function() {
                 $(".empty-message").load('EmptyImages.html');
             },
             complete: function() {
-                console.log("이미지 로딩 완료!");
                 $(".loading-spinner").remove(); // 로딩 스피너 제거
             }
         });

@@ -47,18 +47,15 @@ public class UploadService extends HttpServlet {
 		String season = multi.getParameter("season");
 		String comment = multi.getParameter("comment");
 		String faceCheck = multi.getParameter("faceCheck");
-
-		System.out.println("!!userEmail!!" + userEmail);
-
+		
+		
 //        System.out.println("userGender: " + gender);
 //        System.out.println("style: " + style);
 //        System.out.println("season: " + season);
 //        System.out.println("comment: " + comment);
-
-		// String user_email, String post_img, char gender, String style_tag, String
-		// season, String comment
-		PostDTO post = new PostDTO(userEmail, userNick, postImg, gender, style, season, comment);
-		System.out.println("post확인: " + post.getComment());
+        
+        //String user_email, String post_img, char gender, String style_tag, String season, String comment
+		PostDTO post = new PostDTO(userEmail, userNick, postImg, gender, style, season, comment); 
 		PostDAO dao = new PostDAO();
 		int cnt = dao.postInsert(post);
 

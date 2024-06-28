@@ -124,9 +124,9 @@ html {
 }
 
 .sort {
-   margin-left: 650px;
-   display: flex;
-   gap: 20px;
+	margin-left: 50%;
+	display: flex;
+	gap: 20px;
 }
 
 .sort .checked {

@@ -20,14 +20,13 @@ String comment = (String) session.getAttribute("comment");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>오늘의옷</title>
-<link rel="stylesheet" type="text/css" href="./styles/Main.css" />
+<link rel="stylesheet" type="text/css" href="./styles/Main.css?ver=1" />
 <link rel="stylesheet" type="text/css" href="./styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/CategoryNav.css" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 <link rel="stylesheet" type="text/css"
 	href="./styles/LocationWeather.css?ver=1" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./javascripts/Post.js?ver=2" defer></script>
 <script src="./javascripts/LocationWeather.js" defer></script>
 <script src="./javascripts/Main.js?ver=9" defer></script>
 <script src="./javascripts/ShowDetailModal.js?ver=1" defer></script>
@@ -44,6 +43,12 @@ String comment = (String) session.getAttribute("comment");
 		}
 	});
 </script>
+<script type="text/javascript">
+    // JavaScript 코드에서 세션 값 사용
+    var style_tag = "<%= session.getAttribute('user_preference') %>";
+    console.log("Session Value: " + style_tag);
+</script>
+
 </head>
 <body>
 	<!-- header -->

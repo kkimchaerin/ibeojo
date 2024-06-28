@@ -8,7 +8,7 @@
         <h3 class="sr-only">스타일</h3>
         <ul class="category-list">
             <li>
-                <button type="button" class="category-btn get-category checked">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/minimal.png" alt="미니멀"> <span>미니멀</span>
                 </button>
             </li>
