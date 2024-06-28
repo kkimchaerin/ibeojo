@@ -11,8 +11,6 @@ $(document).ready(function() {
     
     // 좋아요 상태 가져오는 함수
     function fetchLikeStatus(postIdx) {
-      console.log("fetchLikeStatus 호출됨, postIdx:", postIdx);
-      
         $.ajax({
             url: "LikeStatusService",
             type: "GET",
@@ -46,7 +44,7 @@ $(document).ready(function() {
         fetchLikeStatus(postIdx);
         
         modalUserNick.text(userNick);
-        modalImg.attr("src", src).attr("data-idx", postIdx);
+        modalImg.attr("src", src).attr("data-idx", postIdx).attr("alt", src);
         modalComment.text(imgComment);
         modal.data("post-idx", postIdx);
         
@@ -111,7 +109,7 @@ $(document).ready(function() {
                 console.error("AJAX 오류: ", xhr, status, error);
             },
             complete: function() {
-                isProcessing = false; // 처리 완료 후 플래그 초기화
+                isProcessing = false; // 플래그 초기화
             }
         });
     });
