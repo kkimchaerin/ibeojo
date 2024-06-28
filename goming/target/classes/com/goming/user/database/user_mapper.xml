@@ -53,7 +53,7 @@
 
 	<!-- 관리자 -->
 	<select id="getAllUsers" resultType="com.goming.user.model.user_DTO">
-		SELECT * FROM users;
+		SELECT * FROM user_info;
 	</select>
 
 

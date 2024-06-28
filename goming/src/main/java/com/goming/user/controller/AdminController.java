@@ -24,12 +24,13 @@ public class AdminController extends HttpServlet {
 		
 		request.setAttribute("selectMembers", members);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Admin.jsp");
+		System.out.println("레츠고 admin");
 		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin.jsp");
 		
 		dispatcher.forward(request, response);
 
-		System.out.println("레츠고 admin");
+		
 	}
 
 }
