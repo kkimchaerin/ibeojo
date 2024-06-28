@@ -117,7 +117,7 @@ System.out.println("라이크포스트의이메일 체크:" +email);
 	<h2 class="title">좋아요 한 게시물</h2>
 
 	<!-- category nav -->
-	<%@ include file="CategoryNav.jsp"%>
+	<%@ include file="CategoryNav2.jsp"%>
 
 	<div class="gallery" id="imageGallery"></div>
 
