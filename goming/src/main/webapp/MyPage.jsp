@@ -67,10 +67,12 @@ List<PostDTO> user_list = (List<PostDTO>) session.getAttribute("user_list");
 			%>
 			<%
 			for (int i = 0; i < img_list.size(); i++) {
+
+				System.out.println("user_list.get(i).getComment() : "+user_list.get(i).getComment());
 			%>
 
 			<img src='./post/<%=img_list.get(i)%>' alt='이미지'
-				onclick="openPopup('./post/<%=img_list.get(i)%>', this)"
+				onclick="openPopup('./post/<%=img_list.get(i)%>', this, '<%= user_list.get(i).getComment()%>')"
 				id='myimg<%=i%>'>
 
 			<%
