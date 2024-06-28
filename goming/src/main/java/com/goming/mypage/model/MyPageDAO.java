@@ -63,14 +63,37 @@ public class MyPageDAO {
 		}
 		return img_list;
 	}
-	
+
 	public List<PostDTO> SelectMyPageLike(MyPageDTO dto) {
+		session = factory.openSession();
+
+		List<PostDTO> img_list = null;
+
+		try {
+			img_list = session.selectList("like_select", dto);
+
+			if (img_list != null) {
+				session.commit();
+				System.out.println("img_list 로딩 성공");
+			} else {
+				session.rollback();
+				System.out.println("img_list 로딩 실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("이미지 로딩 실패");
+		} finally {
+			session.close();
+		}
+		return img_list;
+	}
+	public List<PostDTO> SelectMyPagePost(MyPageDTO dto) {
 		session = factory.openSession();
 		
 		List<PostDTO> img_list = null;
 		
 		try {
-			img_list = session.selectList("like_select", dto);
+			img_list = session.selectList("user_select", dto);
 			
 			if (img_list != null) {
 				session.commit();

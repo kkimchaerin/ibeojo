@@ -10,9 +10,8 @@
     background-color: rgba(0, 0, 0, 0.4);
     overflow: auto;
     text-align: center;
-}
+} 
 
-/* 팝업 창 */
 .popup-content {
     position: relative;
     background-color: #fefefe;
@@ -85,4 +84,24 @@
 
 .text-left {
     text-align: left;
+}
+
+#user-nick-text{
+   display: block;
+   width: 50%;
+   padding-bottom: 5px;
+   margin-bottom: 10px;
+   font-size: 20px;
+   font-weight: bold;
+   border-bottom: 1px solid black;
+   text-align: left;
+}
+
+#comment-text {
+   display: block;
+   font-weight: bold;
+   max-width: 700px;
+   max-height: 100px; 
+   overflow-y: scroll;
+   text-align: left;
 }

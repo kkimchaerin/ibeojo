@@ -25,8 +25,6 @@ public class DeleteImg extends HttpServlet {
 		Map<String, String> requestData = mapper.readValue(request.getReader(), Map.class);
 		
 		String img = requestData.get("param");
-
-		System.out.println("deleteimg"+img);
 		
 		PostDAO dao = new PostDAO();
 		int deleteResult = dao.deletePost(img);

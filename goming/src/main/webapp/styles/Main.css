@@ -3,155 +3,155 @@
 @import "Reset.css";
 
 @font-face {
-	font-family: 'EarlyFontDiary';
-	src:
-		url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2')
-		format('woff2');
-	font-weight: normal;
-	font-style: normal;
+   font-family: 'EarlyFontDiary';
+   src:
+      url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2')
+      format('woff2');
+   font-weight: normal;
+   font-style: normal;
 }
 
 @font-face {
-	font-family: 'NanumSquareNeoLight';
-	src:
-		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
-	src:
-		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
-		format("embedded-opentype"),
-		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
-		format("woff"),
-		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
-		format("truetype");
+   font-family: 'NanumSquareNeoLight';
+   src:
+      url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+   src:
+      url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+      format("embedded-opentype"),
+      url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+      format("woff"),
+      url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+      format("truetype");
 }
 
 html {
-	background-image: url('../images/background2.png'); /* 배경 이미지 설정 */
-	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
-	background-repeat: no-repeat; /* 이미지 반복하지 않음 */
-	background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
+   background-image: url('../images/background2.png'); /* 배경 이미지 설정 */
+   background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
+   background-repeat: repeat; /* 이미지 반복하지 않음 */
+   background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
 }
 
 .weather-wrapper {
-	display: flex;
-	justify-content: center; /* 수평 가운데 정렬 */
-	align-items: center; /* 수직 가운데 정렬 */
-	background-color: white;
-	width: 100%; /* 화면 너비를 기준으로 설정 */
-	max-width: 1000px; /* 최대 너비 1000px로 설정 */
-	margin: 0 auto; /* 가운데 정렬을 위한 왼쪽과 오른쪽 마진 자동 조정 */
-	margin-top: 100px;
-	padding: 10px; /* 원하는 내부 여백 설정 */
-	border: 2px solid black; /* 테두리 추가 */
-	border-radius: 10px; /* 테두리의 둥근 모서리 설정 */
-	box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-	font-family: "EarlyFontDiary", cursive;
-	font-weight: bold;
+   display: flex;
+   justify-content: center; /* 수평 가운데 정렬 */
+   align-items: center; /* 수직 가운데 정렬 */
+   background-color: white;
+   width: 100%; /* 화면 너비를 기준으로 설정 */
+   max-width: 1000px; /* 최대 너비 1000px로 설정 */
+   margin: 0 auto; /* 가운데 정렬을 위한 왼쪽과 오른쪽 마진 자동 조정 */
+   margin-top: 100px;
+   padding: 10px; /* 원하는 내부 여백 설정 */
+   border: 2px solid black; /* 테두리 추가 */
+   border-radius: 10px; /* 테두리의 둥근 모서리 설정 */
+   box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+   font-family: "EarlyFontDiary", cursive;
+   font-weight: bold;
 }
 
 .head_info {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center; /* 내부 요소들을 가운데 정렬 */
-	width: 1000px; /* head_info를 전체 너비로 설정 */
-	margin: 0 auto; /* 가운데 정렬 및 양 옆 간격 설정 */
-	padding: 5px; /* 내부 여백 추가 */
-	gap: 30px;
-	z-index: 1; /* 다른 요소들보다 앞에 보이도록 설정 */
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center; /* 내부 요소들을 가운데 정렬 */
+   width: 1000px; /* head_info를 전체 너비로 설정 */
+   margin: 0 auto; /* 가운데 정렬 및 양 옆 간격 설정 */
+   padding: 5px; /* 내부 여백 추가 */
+   gap: 30px;
+   z-index: 1; /* 다른 요소들보다 앞에 보이도록 설정 */
 }
 
 #weather-comment {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .weather-info {
-	display: flex;
-	align-items: center;
-	gap: 10px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
 }
 
 #style-name {
-	display: inline-block;
-	font-size: 28px;
-	font-weight: bold;
+   display: inline-block;
+   font-size: 28px;
+   font-weight: bold;
 }
 
 /* gallery */
 .gallery-wrapper {
-	display: flex;
-	flex-direction: column;
-	margin-top: 30px;
-	gap: 20px;
-	align-items: center;
+   display: flex;
+   flex-direction: column;
+   margin-top: 30px;
+   gap: 20px;
+   align-items: center;
 }
 
 .gallery {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr); /* 3열로 설정 */
-	gap: 10px; /* 그리드 아이템 사이의 간격 설정 */
-	max-width: 1000px; /* 그리드 최대 너비 설정 */
-	margin: 0 auto; /* 가운데 정렬 */
-	/* overflow-y: auto; 세로 스크롤을 가능하게 함 */
-	-webkit-overflow-scrolling: touch; /* iOS에서의 스크롤 성능을 개선 */
-	margin-bottom: 10px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr); /* 3열로 설정 */
+   gap: 10px; /* 그리드 아이템 사이의 간격 설정 */
+   max-width: 1000px; /* 그리드 최대 너비 설정 */
+   margin: 0 auto; /* 가운데 정렬 */
+   /* overflow-y: auto; 세로 스크롤을 가능하게 함 */
+   -webkit-overflow-scrolling: touch; /* iOS에서의 스크롤 성능을 개선 */
+   margin-bottom: 10px;
 }
 
 .gallery img {
-	width: 100%;
-	height: 100%;
-	border-radius: 10px;
-	object-fit: cover; /* 이미지가 잘리지 않고 비율을 유지하도록 함 */
-	cursor: pointer;
-	transition: transform 0.2s; /* 호버 시 애니메이션 효과 */
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+   object-fit: cover; /* 이미지가 잘리지 않고 비율을 유지하도록 함 */
+   cursor: pointer;
+   transition: transform 0.2s; /* 호버 시 애니메이션 효과 */
 }
 
 .gallery img:hover {
-	transform: scale(1.05); /* 호버 시 이미지를 약간 확대 */
+   transform: scale(1.05); /* 호버 시 이미지를 약간 확대 */
 }
 
 .gender-category {
-	display: flex;
-	gap: 25px;
-	font-weight: bold;
+   display: flex;
+   gap: 25px;
+   font-weight: bold;
 }
 
 .gender-category .checked {
-	text-decoration: underline;
-	text-decoration-thickness: 2px;
+   text-decoration: underline;
+   text-decoration-thickness: 2px;
 }
 
 .sort {
-	margin-left: 650px;
+	margin-left: 50%;
 	display: flex;
 	gap: 20px;
 }
 
 .sort .checked {
-	font-weight: bold;
-	text-decoration: underline;
-	text-underline-offset: 5px;
-	text-decoration-thickness: 1px;
+   font-weight: bold;
+   text-decoration: underline;
+   text-underline-offset: 5px;
+   text-decoration-thickness: 1px;
 }
 
 #new {
-	position: relative; /* 부모 요소로 설정 */
+   position: relative; /* 부모 요소로 설정 */
 }
 
 #new::after {
-	content: "|";
-	color: black;
-	padding: 10px;
-	position: absolute;
-	top: -11px;
-	right: -25px;
-	font-weight: normal;
+   content: "|";
+   color: black;
+   padding: 10px;
+   position: absolute;
+   top: -11px;
+   right: -25px;
+   font-weight: normal;
 }
 
 .small-text { /* 긴 텍스트 글자크기 줄이기 */
-	font-size: 11px;
+   font-size: 11px;
 }
 
 /* modal */
@@ -171,60 +171,91 @@ html {
 	background-color: rgba(255, 255, 255, 0.95);
 	box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
 	border-radius: 25px;
+	scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Webkit 기반 브라우저 (크롬, 사파리 등) */
+.modal::-webkit-scrollbar {
+    display: none;
 }
 
 .modal-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 #modal-img {
-	display: block;
-	width: 50%;
-	max-width: 700px;
+   display: block;
+   width: 50%;
+   max-width: 700px;
 }
 
 .modal-info {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   width: 50%;
+   max-width: 700px;
+}
+
+#modal-user-nick{
+   display: block;
+   width: 50%;
+   padding-bottom: 5px;
+   margin-bottom: 10px;
+   font-size: 20px;
+   font-weight: bold;
+   border-bottom: 1px solid black;
+}
+
+#modal-user-nick{
+	display: block;
 	width: 50%;
-	max-width: 700px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid black;
 }
 
 #modal-comment {
+	display: block;
 	font-weight: bold;
+	max-width: 700px;
+	max-height: 100px; 
+	overflow-y: scroll;
 }
 
 .close {
-	position: absolute;
-	top: 15px;
-	right: 35px;
-	color: black;
-	font-size: 40px;
-	font-weight: bold;
-	transition: 0.3s;
+   position: absolute;
+   top: 15px;
+   right: 35px;
+   color: black;
+   font-size: 40px;
+   font-weight: bold;
+   transition: 0.3s;
 }
 
 .close:hover, .close:focus {
-	color: #bbb;
-	text-decoration: none;
-	cursor: pointer;
+   color: #bbb;
+   text-decoration: none;
+   cursor: pointer;
 }
 
 #modal-like-btn {
-	width: 50px;
-	background-color: transparent;
-	border: none;
-	padding: 5px 10px;
-	cursor: pointer;
+   width: 50px;
+   background-color: transparent;
+   border: none;
+   padding: 5px 10px;
+   cursor: pointer;
 }
 
 #modal-like-btn img {
-	width: 100%;
+   width: 100%;
 }
 
 #modal-like-btn.liked {
-	fill: red;
+   fill: red;
 }

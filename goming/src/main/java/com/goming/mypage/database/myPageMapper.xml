@@ -3,48 +3,64 @@
 
 <mapper namespace="myPageMapper">
 
-<select id="selectOne" parameterType="com.goming.mypage.model.MyPageDTO" resultType="com.goming.mypage.model.MyPageDTO">
-	select *
-	  from user_info
-	 where user_email = #{user_email} and user_pw = #{user_pw}
-</select>
+	<select id="selectOne"
+		parameterType="com.goming.mypage.model.MyPageDTO"
+		resultType="com.goming.mypage.model.MyPageDTO">
+		select *
+		from user_info
+		where user_email = #{user_email} and user_pw = #{user_pw}
+	</select>
 
-<select id="img_select" parameterType="com.goming.mypage.model.MyPageDTO" resultType="String">
-	select post_img
-	  from post_info
-	 where user_email = #{user_email}
-</select>
+	<select id="img_select"
+		parameterType="com.goming.mypage.model.MyPageDTO" resultType="String">
+		select post_img
+		from post_info
+		where user_email = #{user_email}
+	</select>
 
-<select id="img_select2" parameterType="com.goming.mypage.model.MyPageDTO" resultType="com.goming.post.model.PostDTO">
-	select *
-	  from post_info
-	 where user_email = #{user_email}
-</select>
-    <select id="like_select" parameterType="String" resultType="com.goming.post.model.PostDTO">
+	<select id="img_select2"
+		parameterType="com.goming.mypage.model.MyPageDTO"
+		resultType="com.goming.post.model.PostDTO">
+		select *
+		from post_info
+		where user_email = #{user_email}
+	</select>
+	
+	<select id="like_select" parameterType="String"
+		resultType="com.goming.post.model.PostDTO">
+		SELECT *
+		FROM post_info
+		WHERE post_idx IN (
+		SELECT post_idx
+		FROM like_info
+		WHERE user_email = #{user_email}
+		)
+	</select>
+	
+    <select id="user_select" parameterType="String" resultType="com.goming.post.model.PostDTO">
         SELECT *
         FROM post_info
-        WHERE post_idx IN (
-            SELECT post_idx
-            FROM like_info
-            WHERE user_email = #{user_email}
-        )
+        WHERE user_email = #{user_email}
     </select>
 
-
-<delete id="deleteUserLike" parameterType="com.goming.mypage.model.MyPageDTO">
-	delete from like_info where user_email = #{user_email}
-</delete>
-
-
-<delete id="deleteUserPost" parameterType="com.goming.mypage.model.MyPageDTO">
-	delete from post_info where user_email = #{user_email}
-</delete>
+	<delete id="deleteUserLike"
+		parameterType="com.goming.mypage.model.MyPageDTO">
+		delete from like_info where user_email = #{user_email}
+	</delete>
 
 
+	<delete id="deleteUserPost"
+		parameterType="com.goming.mypage.model.MyPageDTO">
+		delete from post_info where user_email = #{user_email}
+	</delete>
 
-<delete id="deleteUser" parameterType="com.goming.mypage.model.MyPageDTO">
-	delete from user_info where user_email = #{user_email} and user_nick = #{user_nick} and user_pw = MD5(#{user_pw}) 
-</delete>
+
+
+	<delete id="deleteUser"
+		parameterType="com.goming.mypage.model.MyPageDTO">
+		delete from user_info where user_email = #{user_email} and user_nick =
+		#{user_nick} and user_pw = MD5(#{user_pw})
+	</delete>
 
 
 </mapper>

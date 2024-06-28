@@ -40,20 +40,25 @@ public class LoginController extends HttpServlet {
 			// 로그인 성공
 			System.out.println("success");
 
-			// 세션에 이메일과 비밀번호 저장
+			// 세션에 사용자 정보 저장
 			HttpSession session = request.getSession();
 			session.setAttribute("user_email", m.getUser_email());
 			session.setAttribute("user_pw", m.getUser_pw());
+			session.setAttribute("user_nick", m.getUser_nick());
+			session.setAttribute("user_preference", m.getUser_preference());
 
-			// 이동
-			response.sendRedirect("CommentController");
-			
-		}else {
+			// 관리자인 경우 Admin.jsp로 이동
+			if ("admin".equals(id)) {
+				response.sendRedirect(request.getContextPath() + "/AdminController");
+			} else {
+				// 일반 사용자인 경우 다른 페이지로 이동
+				response.sendRedirect(request.getContextPath() + "/CommentController");
+			}
+		} else {
 			// 로그인 실패
 			System.out.println("LoginController : fail");
 			request.setAttribute("errorMessage", "아이디와 비밀번호를 확인하세요.");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
-			dispatcher.forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 	}
 

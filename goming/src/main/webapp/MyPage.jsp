@@ -1,3 +1,4 @@
+<%@page import="com.goming.post.model.PostDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.util.List"%>
 <%@page import="com.goming.mypage.model.MyPageDTO"%>
@@ -20,11 +21,14 @@ if (gender.equals("M")) {
 
 // img_list를 올바른 타입으로 캐스팅
 List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
+List<PostDTO> user_list = (List<PostDTO>) session.getAttribute("user_list");
+
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <title>My Page</title>
 <link rel="stylesheet" type="text/css" href="./styles/MyPage.css?ver6">
@@ -35,7 +39,8 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 <body>
 	<%@ include file="Header.jsp"%>
 	<div class="content">
-		<h2>My Page</h2><br>
+		<h2>My Page</h2>
+		<br>
 		<div class="info-container">
 			<div class="info-item">
 				<strong>아이디</strong> <span class="info-box"><%=email%></span>
@@ -62,19 +67,25 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 			%>
 			<%
 			for (int i = 0; i < img_list.size(); i++) {
+
+				System.out.println("user_list.get(i).getComment() : "+user_list.get(i).getComment());
 			%>
-			
+
 			<img src='./post/<%=img_list.get(i)%>' alt='이미지'
-				onclick="openPopup('./post/<%=img_list.get(i)%>', this)" id = 'myimg<%= i %>'>
-				
-			<%} 
+				onclick="openPopup('./post/<%=img_list.get(i)%>', this, '<%= user_list.get(i).getComment()%>', '<%= user_list.get(i).getUser_nick()%>')"
+				id='myimg<%=i%>'>
+
+			<%
+			}
 			} else {
 			%>
 			<p>게시물이 없습니다.</p>
-			<% } %>
+			<%
+			}
+			%>
 		</div>
 
-		<div class = "button_container" style="height:200px">
+		<div class="button_container" style="height: 200px">
 			<button onclick="location.href='LikedPost.jsp'">좋아요 한 게시물 보기</button>
 			<br>
 			<button onclick="location.href='UserDelete.jsp'" class="red">회원탈퇴</button>
@@ -87,6 +98,7 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 
 	<!-- bottom nav -->
 	<%@ include file="BottomNav.jsp"%>
+	<%@ include file="UploadButton.jsp"%>
 
 </body>
 </html>

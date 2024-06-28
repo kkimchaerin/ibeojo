@@ -60,6 +60,13 @@ html {
 	font-size: 17px;
 }
 
+#user_id {
+	height: 30px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
+}
+
 .join input[type="radio"] {
 	margin-right: 10px;
 	font-family: "NanumSquareNeoLight", cursive;
@@ -131,4 +138,3 @@ html {
 .success-message {
 	color: green;
 }
-

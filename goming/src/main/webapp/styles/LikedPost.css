@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: 'NanumSquareNeoLight';
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+		format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+		format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+		format("truetype");
+}
+
 /* 기본 스타일 */
 body {
 	text-align: center;
@@ -11,19 +24,24 @@ body {
 body {
 	background-image: url('../images/background2.png'); /* 배경 이미지 설정 */
 	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
-	background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+	background-repeat: repeat; /* 이미지 반복하지 않음 */
 	background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
 }
 
 .small-text {
-    font-size: 11px;
+	font-size: 11px;
 }
 
 /* 페이지 제목 스타일 */
-h2 { 
-	margin-top:100px !important;
-	margin-bottom: 20px;
-	text-align: center;
+.title {
+	margin-top: 100px !important;
+	margin-bottom: 20px !important;
+	text-align: center !important;
+	font-weight: bold !important;
+	font-size: 30px !important;
+	padding-bottom: 50px !important;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 700;
 }
 
 /* 이미지 갤러리 스타일 */
@@ -37,6 +55,7 @@ h2 {
 	-webkit-overflow-scrolling: touch;
 	margin-bottom: 70px;
 	max-height: 810px;
+	margin-top: 80px;
 }
 
 /* 갤러리 이미지 스타일 */

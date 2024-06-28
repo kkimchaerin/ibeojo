@@ -8,22 +8,22 @@
         <h3 class="sr-only">스타일</h3>
         <ul class="category-list">
             <li>
-                <button type="button" class="category-btn get-category checked" onclick="filterByStyle('미니멀')">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/minimal.png" alt="미니멀"> <span>미니멀</span>
                 </button>
             </li>
             <li>
-                <button type="button" class="category-btn get-category" onclick="filterByStyle('비즈니스')">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/business.png" alt="비즈니스"> <span class="small-text">비즈니스</span>
                 </button>
             </li>
             <li>
-                <button type="button" class="category-btn get-category" onclick="filterByStyle('스포티')">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/sporty.png" alt="스포티"> <span>스포티</span>
                 </button>
             </li>
             <li>
-                <button type="button" class="category-btn get-category" onclick="filterByStyle('캐주얼')">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/casual.png" alt="캐주얼"> <span>캐주얼</span>
                 </button>
             </li>
@@ -33,22 +33,22 @@
         <h3 class="sr-only">계절</h3>
         <ul class="category-list">
             <li>
-                <button type="button" class="category-btn get-category checked" onclick="filterBySeason('봄')">
+                <button type="button" class="category-btn get-category checked">
                     <img src="./icons/spring.png" alt="봄"> <span>봄</span>
                 </button>
             </li>
             <li>
-                <button type="button" class="category-btn get-category" onclick="filterBySeason('여름')">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/summer.png" alt="여름"> <span>여름</span>
                 </button>
             </li>
             <li>
-                <button type="button" class="category-btn get-category" onclick="filterBySeason('가을')">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/autumn.png" alt="가을"> <span>가을</span>
                 </button>
             </li>
             <li>
-                <button type="button" class="category-btn get-category" onclick="filterBySeason('겨울')">
+                <button type="button" class="category-btn get-category">
                     <img src="./icons/winter.png" alt="겨울"> <span>겨울</span>
                 </button>
             </li>

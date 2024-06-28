@@ -17,37 +17,32 @@ public class DeleteUserController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String email = request.getParameter("user_email");
 		String nickname = request.getParameter("user_nick");
 		String password = request.getParameter("user_pw");
-		
+
 		MyPageDTO dto = new MyPageDTO();
 		MyPageDAO dao = new MyPageDAO();
-		
+
 		dto.setUser_email(email);
 		dto.setUser_nick(nickname);
 		dto.setUser_pw(password);
-		
-		int cnt = dao.deleteUser(dto);
-		
-		if(cnt > 0) {
-            System.out.println("회원 탈퇴 성공");
-            request.setAttribute("result", "success");
-            HttpSession session = request.getSession();
-            session.invalidate();
-        } else {
-            System.out.println("회원 탈퇴 실패");
-            request.setAttribute("result", "error");
-        }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("UserDelete.jsp");
-        dispatcher.forward(request, response);
-    }
-		
+		int cnt = dao.deleteUser(dto);
+
+		if (cnt > 0) {
+			System.out.println("회원 탈퇴 성공");
+			response.sendRedirect("First.jsp");
+			HttpSession session = request.getSession();
+			session.invalidate();
+		} else {
+			System.out.println("회원 탈퇴 실패");
+			response.sendRedirect("UserDelete.jsp");
+		}
+
 	}
 
-
-
+}

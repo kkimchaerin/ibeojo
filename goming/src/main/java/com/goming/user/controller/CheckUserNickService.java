@@ -8,33 +8,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.goming.user.model.user_DAO;
 
-public class CheckUserNickService extends HttpServlet
-{
+public class CheckUserNickService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException
-	{
+			throws ServletException, IOException {
 
 		String user_nick = request.getParameter("user_nick");
 		System.out.println("CheckUserNickService : " + user_nick);
-		
+
 		user_DAO dao = new user_DAO();
-		
+
 		int user = 1;
-		
-		if(user_nick != "") {
+
+		if (user_nick != "") {
 			user = dao.selectnick(user_nick);
-		}else {
+		} else {
 			user = 2;
 		}
-				
-		
-	    response.setContentType("text/plain");
-	    response.setCharacterEncoding("UTF-8");
-	    response.getWriter().write(String.valueOf(user));
-		
-		
+
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(String.valueOf(user));
+
 	}
 
 }
