@@ -216,7 +216,7 @@ function addLike() {
 		$.ajax({
 			type: "POST",
 			url: "LikeToggleController",
-			data: JSON.stringify({ post_img: instance.globalImageSrc, user_email: user_email, booled: true , allidx:allidx}),
+			data: JSON.stringify({ post_img: instance.globalImageSrc, user_email: user_email, booled: true , allidx:"0"}),
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(response) {
