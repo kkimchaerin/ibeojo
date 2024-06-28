@@ -156,22 +156,22 @@ html {
 
 /* modal */
 .modal {
-   display: none;
-   position: fixed;
-   z-index: 1;
-   padding-top: 60px;
-   left: 50%;
-   top: 50%;
-   transform: translate(-50%, -40%);
-   width: 60%;
-   max-width: 700px;
-   min-width: 550px;
-   height: 70%;
-   overflow: auto;
-   background-color: rgba(255, 255, 255, 0.95);
-   box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
-   border-radius: 25px;
-   scrollbar-width: none; /* Firefox */
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 60px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -40%);
+	width: 60%;
+	max-width: 700px;
+	min-width: 550px;
+	height: 70%;
+	overflow: auto;
+	background-color: rgba(255, 255, 255, 0.95);
+	box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 25px;
+	scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE 10+ */
 }
 
@@ -210,12 +210,22 @@ html {
    border-bottom: 1px solid black;
 }
 
+#modal-user-nick{
+	display: block;
+	width: 50%;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 1px solid black;
+}
+
 #modal-comment {
-   display: block;
-   font-weight: bold;
-   max-width: 700px;
-   max-height: 100px; 
-   overflow-y: scroll;
+	display: block;
+	font-weight: bold;
+	max-width: 700px;
+	max-height: 100px; 
+	overflow-y: scroll;
 }
 
 .close {
