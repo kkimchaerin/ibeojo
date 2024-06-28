@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
+<%@page import="com.goming.mypage.model.MyPageDTO"%>
 <%@ page import="com.google.gson.Gson"%>
 <%
 // Java 객체 또는 세션에서 img_list 데이터를 가져와 JSON 형식으로 변환
 List<String> LikeList = (List<String>) session.getAttribute("Like_list");
 String jsonImgList = new Gson().toJson(LikeList);
+%>
+<%
+MyPageDTO dto = (MyPageDTO) session.getAttribute("userinfo");
+
+String email = new Gson().toJson(dto.getUser_email());
+System.out.println("라이크포스트의이메일 체크:" +email);
 %>
 <!DOCTYPE html>
 <html>
@@ -74,7 +81,8 @@ String jsonImgList = new Gson().toJson(LikeList);
 	                // 이미지를 클릭했을 때 실행할 함수 설정
 	                EmailElement.onclick = function() {
 	                	console.log(path);
-	                    openPopup2(path.post_img, path.user_nick, path.comment); // openPopup2 함수 호출하여 이미지 팝업 열기
+	                	let userEmailone = <%= email%>;
+	                    openPopup2(path.post_img, path.user_nick, path.comment, userEmailone, path.post_idx); // openPopup2 함수 호출하여 이미지 팝업 열기
 	                };
 
 	                // 갤러리 컨테이너에 이미지 요소 추가

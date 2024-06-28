@@ -17,6 +17,7 @@ public class LikeCountController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("LikeCountController : 두포스트 들어감");
+		
 		// Request body를 읽어서 JSON 객체로 변환
 		StringBuilder sb = new StringBuilder();
 		BufferedReader reader = request.getReader();
