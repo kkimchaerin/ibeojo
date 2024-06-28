@@ -1,0 +1,336 @@
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+    
+    <!-- JoinController Servlet 정의 -->
+    <servlet>
+        <servlet-name>JoinController</servlet-name>
+        <display-name>JoinController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.JoinController</servlet-class>
+    </servlet>
+    
+    <!-- LoginController Servlet 정의 -->
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <display-name>LoginController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.LoginController</servlet-class>
+    </servlet>
+    
+    <!-- WeatherDataUpsertService Servlet 정의 -->
+    <servlet>
+        <servlet-name>WeatherDataUpsertService</servlet-name>
+        <display-name>WeatherDataUpsertService</display-name>
+        <description></description>
+        <servlet-class>com.goming.weather.controller.WeatherDataUpsertService</servlet-class>
+    </servlet>
+    
+    <!-- CheckUserIdService Servlet 정의 -->
+    <servlet>
+        <servlet-name>CheckUserIdService</servlet-name>
+        <display-name>CheckUserIdService</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.CheckUserIdService</servlet-class>
+    </servlet>
+    
+    <!-- Additional servlet definitions from the second version -->
+    <servlet>
+        <servlet-name>CheckUserNickService</servlet-name>
+        <display-name>CheckUserNickService</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.CheckUserNickService</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>FindIdController</servlet-name>
+        <display-name>FindIdController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.FindIdController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>FindPwController</servlet-name>
+        <display-name>FindPwController</display-name>
+        <description></description>
+        <servlet-class>com.goming.user.controller.FindPwController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>UploadService</servlet-name>
+        <display-name>UploadService</display-name>
+        <description></description>
+        <servlet-class>com.goming.post.controller.UploadService</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>MyPageController2</servlet-name>
+        <display-name>MyPageController2</display-name>
+        <description></description>
+        <servlet-class>com.goming.mypage.controller.MyPageController2</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ImgController</servlet-name>
+        <display-name>ImgController</display-name>
+        <description></description>
+        <servlet-class>com.goming.mypage.controller.ImgController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>DeleteUserController</servlet-name>
+        <display-name>DeleteUserController</display-name>
+        <description></description>
+        <servlet-class>com.goming.mypage.controller.DeleteUserController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>LikeController</servlet-name>
+        <display-name>LikeController</display-name>
+        <description></description>
+        <servlet-class>com.goming.like.controller.LikeController</servlet-class>
+    </servlet>
+    <servlet>
+
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<display-name>LogoutController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.user.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>WeatherDataSelectAllService</servlet-name>
+    	<display-name>WeatherDataSelectAllService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.weather.controller.WeatherDataSelectAllService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>CommentController</servlet-name>
+    	<display-name>CommentController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.comment.controller.CommentController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>RainpercentController</servlet-name>
+    	<display-name>RainpercentController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.comment.controller.RainpercentController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>MosaicProcess</servlet-name>
+    	<display-name>MosaicProcess</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.MosaicProcess</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>UpdateService</servlet-name>
+    	<display-name>UpdateService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.UpdateService</servlet-class>
+
+    </servlet>
+    <servlet>
+
+    	<servlet-name>LikeSelectController</servlet-name>
+    	<display-name>LikeSelectController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeSelectController</servlet-class>
+   </servlet>
+    <servlet>
+    	<servlet-name>CheckLike</servlet-name>
+    	<display-name>CheckLike</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.CheckLike</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>UpdateLike</servlet-name>
+    	<display-name>UpdateLike</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.UpdateLike</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>DeleteLike</servlet-name>
+    	<display-name>DeleteLike</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.DeleteLike</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>DeleteImg</servlet-name>
+    	<display-name>DeleteImg</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.post.controller.DeleteImg</servlet-class>
+	</servlet>
+	<servlet>
+    	<servlet-name>LikeService</servlet-name>
+    	<display-name>LikeService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>UnlikeService</servlet-name>
+    	<display-name>UnlikeService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.UnlikeService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>LikeStatusService</servlet-name>
+    	<display-name>LikeStatusService</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeStatusService</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>LikeCountController</servlet-name>
+    	<display-name>LikeCountController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeCountController</servlet-class>
+    </servlet>
+    <servlet>
+
+    	<servlet-name>AdminController</servlet-name>
+    	<display-name>AdminController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.user.controller.AdminController</servlet-class>
+    </servlet>
+    <servlet>
+    	<servlet-name>LikeToggleController</servlet-name>
+    	<display-name>LikeToggleController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeToggleController</servlet-class>
+
+    </servlet>
+    
+    <!-- Servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>JoinController</servlet-name>
+        <url-pattern>/JoinController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>WeatherDataUpsertService</servlet-name>
+        <url-pattern>/WeatherDataUpsertService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CheckUserIdService</servlet-name>
+        <url-pattern>/CheckUserIdService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>CheckUserNickService</servlet-name>
+        <url-pattern>/CheckUserNickService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>FindIdController</servlet-name>
+        <url-pattern>/FindIdController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>FindPwController</servlet-name>
+        <url-pattern>/FindPwController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>UploadService</servlet-name>
+        <url-pattern>/UploadService</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>MyPageController2</servlet-name>
+        <url-pattern>/MyPageController2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>ImgController</servlet-name>
+        <url-pattern>/ImgController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteUserController</servlet-name>
+        <url-pattern>/DeleteUserController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>LikeController</servlet-name>
+        <url-pattern>/LikeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+
+    	<servlet-name>LogoutController</servlet-name>
+    	<url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>WeatherDataSelectAllService</servlet-name>
+    	<url-pattern>/WeatherDataSelectAllService</url-pattern>
+
+    </servlet-mapping>
+    
+    
+    
+    <servlet-mapping>
+    	<servlet-name>CommentController</servlet-name>
+    	<url-pattern>/CommentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>RainpercentController</servlet-name>
+    	<url-pattern>/RainpercentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>MosaicProcess</servlet-name>
+    	<url-pattern>/MosaicProcess</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UpdateService</servlet-name>
+    	<url-pattern>/UpdateService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>CheckLike</servlet-name>
+    	<url-pattern>/CheckLike</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UpdateLike</servlet-name>
+    	<url-pattern>/UpdateLike</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>DeleteLike</servlet-name>
+    	<url-pattern>/DeleteLike</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    	<servlet-name>DeleteImg</servlet-name>
+    	<url-pattern>/DeleteImg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+    	<servlet-name>LikeService</servlet-name>
+    	<url-pattern>/LikeService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>UnlikeService</servlet-name>
+    	<url-pattern>/UnlikeService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LikeStatusService</servlet-name>
+    	<url-pattern>/LikeStatusService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LikeCountController</servlet-name>
+    	<url-pattern>/LikeCountController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+
+    	<servlet-name>AdminController</servlet-name>
+    	<url-pattern>/AdminController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LikeToggleController</servlet-name>
+    	<url-pattern>/LikeToggleController</url-pattern>
+
+    </servlet-mapping>
+</web-app>

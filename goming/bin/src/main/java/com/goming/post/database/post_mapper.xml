@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goming.post.database.post_mapper">
+	<!-- 포스트 게시 -->
+	<insert id="postInsert" parameterType="com.goming.post.model.PostDTO">
+		INSERT INTO post_info (user_email, user_nick, post_img, gender, style_tag, season, comment, created_at)
+		VALUES (#{user_email}, #{user_nick}, #{post_img}, #{gender}, #{style_tag}, #{season}, #{comment}, now());
+	</insert>
+
+	<!-- 포스트 필터링 -->
+       <select id="loadImagesByFilters" parameterType="com.goming.post.model.PostDTO" resultType="com.goming.post.model.PostDTO">
+	    SELECT p.post_idx, p.user_email, p.user_nick, p.post_img, p.gender, p.style_tag, p.season, p.comment, p.created_at, COUNT(l.like_idx) AS like_count
+	    FROM post_info p
+	    LEFT JOIN like_info l ON p.post_idx = l.post_idx
+	    WHERE p.gender = #{gender}
+	      AND p.style_tag = #{style_tag}
+	      AND p.season = #{season}
+	    GROUP BY p.post_idx, p.user_email, p.user_nick, p.post_img, p.gender, p.style_tag, p.season, p.comment, p.created_at
+	    ORDER BY
+	    <choose>
+	        <when test="sortBy == 'popular'">
+	            like_count DESC, p.created_at DESC
+	        </when>
+	        <otherwise>
+	            p.created_at DESC
+	        </otherwise>
+	    </choose>
+    </select>
+
+<!-- 게시글 삭제 -->
+	<delete id="deletecas" parameterType="String">
+		DELETE FROM like_info
+		WHERE post_idx = (select post_idx from post_info where post_img =
+		#{post_img})
+	</delete>
+
+	<delete id="deleteImg" parameterType="String">
+		DELETE FROM post_info
+		WHERE post_img = #{post_img}
+	</delete>
+
+ 
+
+	<select id="getidx" resultType="String">
+		SELECT post_idx
+		FROM post_info
+		ORDER BY post_idx desc
+		LIMIT 1
+	</select>
+
+	<select id="getimg" resultType="String">
+		SELECT post_img
+		FROM post_info
+		ORDER BY post_idx desc
+		LIMIT 1
+	</select>
+
+
+	<update id="updateImg"
+		parameterType="com.goming.post.model.PostDTO">
+		UPDATE post_info
+		SET post_img = #{post_img}
+		WHERE post_idx = #{post_idx}
+
+	</update>
+
+</mapper>

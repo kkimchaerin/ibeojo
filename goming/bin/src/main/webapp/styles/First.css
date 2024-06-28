@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@import "./Reset.css";
+
+@font-face {
+	font-family: 'EF_cucumbersalad';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_cucumbersalad.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NanumSquareNeoLight';
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+		format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+		format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+		format("truetype");
+}
+
+.join:active {
+	background-color: darkgrey;
+}
+
+.login:active {
+	background-color: darkgrey;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+html {
+	background-image: url('../images/background.png'); /* 배경 이미지 설정 */
+	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
+	background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+	background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
+}
+
+.join, .login {
+	position: absolute;
+	z-index: 2;
+	background-color: black;
+	color: white;
+	border: none;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius: 10px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 500;
+	/* 버튼 모서리를 둥글게 설정 */
+}
+
+.join {
+	bottom: 110px;
+	left: 50%;
+	transform: translate(-50%);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 130px;
+}
+
+.login {
+	bottom: 50px;
+	left: 50%;
+	transform: translate(-50%);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 130px;
+}
+
+.title {
+	font-size: 140px;
+	font-weight: bold;
+	text-align: center;
+	font-family: "EF_cucumbersalad", cursive;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	color: black;
+	margin-bottom: 150px;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	padding: 40px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	z-index: 1;
+	width: 800px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
