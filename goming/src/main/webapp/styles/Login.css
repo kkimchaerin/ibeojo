@@ -75,6 +75,26 @@ html {
 	font-family: "NanumSquareNeoLight", cursive;
 	font-weight: 550;
 	font-size: 15px;
+	margin-bottom: 10px; /* 버튼들 사이의 간격 조절 */
+	border-radius: 10px;
+}
+
+.login input[type="button"] {
+	background-color: black;
+	/* 전송 버튼 배경색 */
+	color: white;
+	/* 전송 버튼 글자색 */
+	padding: 10px 20px;
+	/* 전송 버튼 내부 여백 */
+	cursor: pointer;
+	/* 포인터 커서 설정 */
+	width: 355px;
+	margin-bottom: 100px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 550;
+	font-size: 15px;
+	margin-bottom: 10px; /* 버튼들 사이의 간격 조절 */
+	border-radius: 10px;
 }
 
 .login {
