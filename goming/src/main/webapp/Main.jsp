@@ -55,8 +55,8 @@ String comment = (String) session.getAttribute("comment");
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
 			<div class="gender-category">
-				<a href="#" id="M" class="get-category checked">MEN</a> <a href="#"
-					id="F" class="get-category">WOMEN</a>
+				<a href="#" id="M" class="get-category checked">MEN</a> 
+				<a href="#" id="F" class="get-category">WOMEN</a>
 			</div>
 
 			<!-- category nav -->
@@ -82,6 +82,7 @@ String comment = (String) session.getAttribute("comment");
 
 	<!-- show detail modal -->
 	<div id="modal" class="modal">
+	
 	    <span class="close">&times;</span>
 	    <div class="modal-content">
 	    	<p id="modal-user-nick"></p>

@@ -44,6 +44,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("user_email", m.getUser_email());
 			session.setAttribute("user_pw", m.getUser_pw());
 			session.setAttribute("user_nick", m.getUser_nick());
+			session.setAttribute("user_preference", m.getUser_preference());
 
 			// 이동
 			response.sendRedirect("CommentController");
