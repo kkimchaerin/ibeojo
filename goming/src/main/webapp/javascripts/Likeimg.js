@@ -73,19 +73,31 @@ let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소�
 let globalImageSrc = "";*/
 
 
-function openPopup2(imageSrc) {
+function openPopup2(imageSrc, nick, comment) {
 	instance.globalImageSrc = imageSrc;
 	console.log("instance.globalImageSrc = imageSrc;");
+	
 	var popupImg = document.getElementById("popupImage");
 	console.log("var popupImg = document.getElementById('popupImage');");
+	
 	var animationContainer = document.getElementById("animationContainer");
 	console.log('var animationContainer = document.getElementById("animationContainer");');
+	
+	let popupnick = document.getElementById("user-nick-text");
+	let popupcomment = document.getElementById("comment-text");
+	
 	popupImg.src = './post/' + imageSrc; // 팝업 이미지 설정
 	console.log('popupImg.src = imageSrc; // 팝업 이미지 설정');
+	
 	animationContainer.innerHTML = ""; // 애니메이션 컨테이너 초기화
 	console.log('animationContainer.innerHTML = ""; // 애니메이션 컨테이너 초기화');
+	
+	popupnick.textContent = nick; 
+	popupcomment.textContent = comment; 
+	
 	getLikeCount(instance.globalImageSrc);
 	console.log('updateLikeCount();');
+	
 	openPopupBackground(); // 팝업 창 열기
 	console.log('openPopupBackground(); // 팝업 창 열기');
 }
@@ -95,8 +107,11 @@ function openPopup2(imageSrc) {
 
 
 // 좋아요 기능 관련 함수
-function openPopup(imageSrc, imageElement) {
+function openPopup(imageSrc, imageElement, comment, nick) {
 
+	console.log("imageSrc : "+imageSrc );
+	console.log("imageElement : "+imageElement);
+	console.log("comment : " + comment);
 	instance.globalImageSrc = imageSrc;
 
 	var popupImg = document.getElementById("popupImage");
@@ -107,7 +122,16 @@ function openPopup(imageSrc, imageElement) {
 	openPopupBackground(); // 팝업 창 열기
 
 	instance.currentImageElement = imageElement; // 현재 이미지 요소 저장
-
+	let popupnick = document.getElementById("user-nick-text");
+	popupnick.textContent = nick; 
+	let popupcomment = document.getElementById("comment-text");
+	popupcomment.textContent = comment; 
+	console.log(comment);
+	console.log(comment);
+	console.log(comment);
+	console.log(nick);
+	console.log(nick);
+	console.log(nick);
 	// 좋아요 버튼 보이기
 	var likeButton = document.querySelector(".heartBtn img");
 	likeButton.src = "./images/heart-regular.svg"; // 기본 상태 아이콘 설정

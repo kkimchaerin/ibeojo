@@ -28,7 +28,7 @@
         </div>
     </div>
 </div>
-<script src="./javascripts/Likeimg.js"></script>
+<!-- <script src="./javascripts/Likeimg.js"></script> -->
 
 </body>
 </html>

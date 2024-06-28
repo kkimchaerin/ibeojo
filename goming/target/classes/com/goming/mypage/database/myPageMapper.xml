@@ -25,6 +25,7 @@
 		from post_info
 		where user_email = #{user_email}
 	</select>
+	
 	<select id="like_select" parameterType="String"
 		resultType="com.goming.post.model.PostDTO">
 		SELECT *
@@ -35,6 +36,12 @@
 		WHERE user_email = #{user_email}
 		)
 	</select>
+	
+    <select id="user_select" parameterType="String" resultType="com.goming.post.model.PostDTO">
+        SELECT *
+        FROM post_info
+        WHERE user_email = #{user_email}
+    </select>
 
 	<delete id="deleteUserLike"
 		parameterType="com.goming.mypage.model.MyPageDTO">

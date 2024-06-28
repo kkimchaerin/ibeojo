@@ -1,3 +1,4 @@
+<%@page import="com.goming.post.model.PostDTO"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.util.List"%>
 <%@page import="com.goming.mypage.model.MyPageDTO"%>
@@ -20,6 +21,8 @@ if (gender.equals("M")) {
 
 // img_list를 올바른 타입으로 캐스팅
 List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
+List<PostDTO> user_list = (List<PostDTO>) session.getAttribute("user_list");
+
 %>
 
 <!DOCTYPE html>
@@ -64,10 +67,12 @@ List<MyPageDTO> img_list = (List<MyPageDTO>) session.getAttribute("img_list");
 			%>
 			<%
 			for (int i = 0; i < img_list.size(); i++) {
+
+				System.out.println("user_list.get(i).getComment() : "+user_list.get(i).getComment());
 			%>
 
 			<img src='./post/<%=img_list.get(i)%>' alt='이미지'
-				onclick="openPopup('./post/<%=img_list.get(i)%>', this)"
+				onclick="openPopup('./post/<%=img_list.get(i)%>', this, '<%= user_list.get(i).getComment()%>', '<%= user_list.get(i).getUser_nick()%>')"
 				id='myimg<%=i%>'>
 
 			<%
