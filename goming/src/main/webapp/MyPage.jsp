@@ -72,7 +72,7 @@ List<PostDTO> user_list = (List<PostDTO>) session.getAttribute("user_list");
 			%>
 
 			<img src='./post/<%=img_list.get(i)%>' alt='이미지'
-				onclick="openPopup('./post/<%=img_list.get(i)%>', this, '<%= user_list.get(i).getComment()%>', '<%= user_list.get(i).getUser_nick()%>')"
+				onclick="openPopup('./post/<%=img_list.get(i)%>', this, '<%= user_list.get(i).getComment()%>', '<%= user_list.get(i).getUser_nick()%>', '<%= email%>')"
 				id='myimg<%=i%>'>
 
 			<%

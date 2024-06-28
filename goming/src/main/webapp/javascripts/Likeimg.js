@@ -37,8 +37,10 @@ class Singleton {
 	}
 }
 
+let user_email;
+
 function getLikeCount(currentImageElement) {
-	console.log("좋아요 숫자" + currentImageElement);
+	console.log("getLikeCount" + currentImageElement);
 	let filePath = currentImageElement;
 	console.log('let filePath = currentImageElement;');
 	let fileName = filePath.split('/').pop(); // 파일 경로를 '/' 기준으로 나눈 후 마지막 요소를 추출
@@ -73,10 +75,10 @@ let currentImageElement = null; // 현재 팝업에 표시된 이미지 요소�
 let globalImageSrc = "";*/
 
 
-function openPopup2(imageSrc, nick, comment) {
+function openPopup2(imageSrc, nick, comment, user_emails) {
 	instance.globalImageSrc = imageSrc;
 	console.log("instance.globalImageSrc = imageSrc;");
-
+	user_email = user_emails;
 	var popupImg = document.getElementById("popupImage");
 	console.log("var popupImg = document.getElementById('popupImage');");
 
@@ -107,8 +109,9 @@ function openPopup2(imageSrc, nick, comment) {
 
 
 // 좋아요 기능 관련 함수
-function openPopup(imageSrc, imageElement, comment, nick) {
+function openPopup(imageSrc, imageElement, comment, nick, user_emails) {
 
+	user_email = user_emails;
 	console.log("imageSrc : " + imageSrc);
 	console.log("imageElement : " + imageElement);
 	console.log("comment : " + comment);
@@ -134,7 +137,7 @@ function openPopup(imageSrc, imageElement, comment, nick) {
 	console.log(nick);
 	// 좋아요 버튼 보이기
 	var likeButton = document.querySelector(".heartBtn img");
-	likeButton.src = "./images/heart-regular.svg"; // 기본 상태 아이콘 설정
+	/*likeButton.src = "./images/heart-regular.svg"; // 기본 상태 아이콘 설정*/
 
 	getLikeCount(instance.globalImageSrc);
 }
@@ -150,19 +153,56 @@ function closePopup() {
 	popupBackground.style.display = "none";  // 팝업 배경을 숨김
 }
 
-function addLike() {
-	var heartImg = document.querySelector(".heartBtn img");
-	var currentSrc = heartImg.getAttribute("src");
+// 먼저 보내야할건 이미지 src
+// 서블릿에선 그걸 받아서 좋아요 증감을 해주고
+// 그걸 통해서 내가 받아야할건 내 좋아요 여부
 
-	if (currentSrc.includes("heart-regular.svg")) {
+// 송신 : 이미지 src
+// 처리 : 이미지 증감
+// 수신 : 좋아요 boolforwait
+function addLike() {
+	var forwaits = document.getElementById("forwait");
+	forwaits.classList.add('disabled');
+	var heartImg = document.querySelector(".heartBtn img");
+	/*var currentSrc = heartImg.getAttribute("src");*/
+
+/*	if (currentSrc.includes("heart-regular.svg")) {
 		heartImg.src = "./images/heart-solid.svg"; // 좋아요 추가
 		//instance.likeCounter++; // 좋아요 횟수 증가
 	} else {
 		heartImg.src = "./images/heart-regular.svg"; // 좋아요 취소
 		//instance.likeCounter--; // 좋아요 횟수 감소
-	}
+	}*/
 
-	updateLikeCount(); // 좋아요 횟수 업데이트
+	$.ajax({
+		type: "POST",
+		url: "LikeToggleController",
+		data: JSON.stringify({ post_img: instance.globalImageSrc, user_email: user_email }),
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function(response) {
+			console.log("Number of likebool: " + response.likebool);
+			var heartImg = document.querySelector(".heartBtn img");
+			if (response.likebool == 0) {
+				heartImg.src = "./images/heart-regular.svg";
+			}
+			else {
+				heartImg.src = "./images/heart-solid.svg";
+			}
+
+			instance.likeCounter = response.likeCount;
+			var forwaits = document.getElementById("forwait");
+			forwaits.classList.remove('disabled');
+			updateLikeCount(); // 좋아요 횟수 업데이트
+		},
+		error: function(error) {
+			console.error("Error fetching like count: ", error);
+		}
+
+
+	});
+
+	//updateLikeCount(); // 좋아요 횟수 업데이트
 }
 
 
@@ -172,6 +212,7 @@ function updateLikeCount() {
 	console.log('var likeCountElement = document.getElementById("likeCount");');
 	console.log('getLikeCount(instance.globalImageSrc);');
 	console.log("likeCountElement : " + likeCountElement);
+
 	likeCountElement.textContent = instance.likeCounter;
 	console.log("updateLikeCount : " + instance.likeCounter);
 	if (instance.likeCounter == 0) {

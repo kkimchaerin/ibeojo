@@ -186,6 +186,12 @@
     	<description></description>
     	<servlet-class>com.goming.like.controller.LikeCountController</servlet-class>
     </servlet>
+    <servlet>
+    	<servlet-name>LikeToggleController</servlet-name>
+    	<display-name>LikeToggleController</display-name>
+    	<description></description>
+    	<servlet-class>com.goming.like.controller.LikeToggleController</servlet-class>
+    </servlet>
     
     <!-- Servlet mappings -->
     <servlet-mapping>
@@ -308,5 +314,9 @@
     <servlet-mapping>
     	<servlet-name>LikeCountController</servlet-name>
     	<url-pattern>/LikeCountController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>LikeToggleController</servlet-name>
+    	<url-pattern>/LikeToggleController</url-pattern>
     </servlet-mapping>
 </web-app>
