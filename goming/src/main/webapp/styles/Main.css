@@ -27,7 +27,7 @@
 html {
    background-image: url('../images/background2.png'); /* 배경 이미지 설정 */
    background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
-   background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+   background-repeat: repeat; /* 이미지 반복하지 않음 */
    background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
 }
 

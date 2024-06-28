@@ -41,7 +41,7 @@ List<user_DTO> members = (List) request.getAttribute("selectMembers");
 		%>
 
 	</table>
-	<a href="First.jsp" class="button next scrolly">되돌아가기</a>
+	<a href="First.jsp" class="button-next-scrolly">첫 페이지로 가기</a>
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>

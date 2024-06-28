@@ -41,12 +41,12 @@ public class LoginController extends HttpServlet {
 			// 세션에 사용자 정보 저장
 			HttpSession session = request.getSession();
 			session.setAttribute("user_email", m.getUser_email());
+			session.setAttribute("user_pw", m.getUser_pw());
 			session.setAttribute("user_nick", m.getUser_nick());
 			session.setAttribute("user_preference", m.getUser_preference());
 
 			// 관리자인 경우 Admin.jsp로 이동
 			if ("admin".equals(id)) {
-				System.out.println("admin 입장");
 				response.sendRedirect(request.getContextPath() + "/AdminController");
 			} else {
 				// 일반 사용자인 경우 다른 페이지로 이동

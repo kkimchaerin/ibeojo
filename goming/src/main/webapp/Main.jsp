@@ -1,3 +1,4 @@
+
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
 response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
@@ -28,7 +29,7 @@ String comment = (String) session.getAttribute("comment");
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./javascripts/Post.js?ver=2" defer></script>
 <script src="./javascripts/LocationWeather.js" defer></script>
-<script src="./javascripts/Main.js?ver=8" defer></script>
+<script src="./javascripts/Main.js?ver=9" defer></script>
 <script src="./javascripts/ShowDetailModal.js?ver=1" defer></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
@@ -73,8 +74,8 @@ String comment = (String) session.getAttribute("comment");
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
 			<div class="gender-category">
-				<a href="#" id="M" class="get-category checked">MEN</a> 
-				<a href="#" id="F" class="get-category">WOMEN</a>
+				<a href="#" id="M" class="get-category checked">MEN</a> <a href="#"
+					id="F" class="get-category">WOMEN</a>
 			</div>
 
 			<!-- category nav -->
@@ -100,17 +101,18 @@ String comment = (String) session.getAttribute("comment");
 
 	<!-- show detail modal -->
 	<div id="modal" class="modal">
-	    <span class="close">&times;</span>
-	    <div class="modal-content">
-	    	<p id="modal-user-nick"></p>
-	        <img id="modal-img">
-	        <div class="modal-info">
-	            <button id="modal-like-btn" class="liked">
-	            	<img src="./icons/heart-regular.svg" alt="좋아요">
-	            </button>	
-	            <p id="modal-comment"></p>
-	        </div>
-	    </div>
+		<span class="close">&times;</span>
+		<div class="modal-content">
+			<p id="modal-user-nick"></p>
+			<img id="modal-img">
+			<div class="modal-info">
+				<button id="modal-like-btn" class="liked">
+					<img src="./icons/heart-regular.svg" alt="좋아요">
+				</button>
+				<p id="modal-comment"></p>
+			</div>
+		</div>
 	</div>
+
 </body>
 </html>

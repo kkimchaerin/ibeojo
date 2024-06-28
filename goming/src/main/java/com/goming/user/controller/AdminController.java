@@ -23,9 +23,7 @@ public class AdminController extends HttpServlet {
 		List<user_DTO> members = dao.selectAll();
 		
 		request.setAttribute("selectMembers", members);
-		
-		System.out.println("레츠고 admin");
-		
+				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Admin.jsp");
 		
 		dispatcher.forward(request, response);

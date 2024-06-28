@@ -9,7 +9,7 @@
 	</insert>
 
 	<!-- 포스트 필터링 -->
-    <select id="loadImagesByFilters" parameterType="com.goming.post.model.PostDTO" resultType="com.goming.post.model.PostDTO">
+       <select id="loadImagesByFilters" parameterType="com.goming.post.model.PostDTO" resultType="com.goming.post.model.PostDTO">
 	    SELECT p.post_idx, p.user_email, p.user_nick, p.post_img, p.gender, p.style_tag, p.season, p.comment, p.created_at, COUNT(l.like_idx) AS like_count
 	    FROM post_info p
 	    LEFT JOIN like_info l ON p.post_idx = l.post_idx
@@ -27,7 +27,6 @@
 	        </otherwise>
 	    </choose>
     </select>
-  
 
 <!-- 게시글 삭제 -->
 	<delete id="deletecas" parameterType="String">
@@ -41,7 +40,7 @@
 		WHERE post_img = #{post_img}
 	</delete>
 
-
+ 
 
 	<select id="getidx" resultType="String">
 		SELECT post_idx

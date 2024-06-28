@@ -123,3 +123,11 @@ html {
 .black:active {
 	background-color: darkgray;
 }
+
+.hide {
+	display: none;
+}
+
+.success-message {
+	color: green;
+}

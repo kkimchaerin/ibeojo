@@ -150,7 +150,6 @@ public class user_DAO {
 
 			if (members != null) {
 				System.out.println("전체 회원 정보 가져오기 성공");
-				System.out.println(members.get(0));
 				session.commit();
 			} else {
 				System.out.println("전체 회원 정보 가져오기 실패");
