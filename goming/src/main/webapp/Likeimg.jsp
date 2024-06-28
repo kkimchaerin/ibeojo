@@ -46,11 +46,16 @@
 			</p>
 			<!-- 하트 & 하트수 -->
 			<div class="popup-text">
-				<button class="heartBtn" onclick="addLike()">
+<!-- 				<button class="heartBtn" onclick="addLike()">
 					<img id="heartIcon" src="./images/heart-regular.svg" alt="like">
+					로컬 SVG 아이콘 사용
+					<span id="likeCount" style="color: black;">101</span>
+				</button> -->
+				<div class="heartBtn">
+					<img id="heartIcon" src="./images/heart-solid.svg" alt="like">
 					<!-- 로컬 SVG 아이콘 사용 -->
 					<span id="likeCount" style="color: black;">101</span>
-				</button>
+				</div>
 			</div>
 		</div>
 	</div>
