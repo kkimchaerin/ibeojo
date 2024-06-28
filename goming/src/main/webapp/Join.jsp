@@ -1,5 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,9 @@
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 </head>
 <body>
-	<form action="JoinController" method="post" class="join" id="joinForm">
+
+	<form action="JoinController" method="post" class="join" id="joinForm"
+		onsubmit="check_submitForm(event)">
 		<h1>회원가입</h1>
 		<h3>아이디 입력</h3>
 		<br> <input type="text" id="user_id" name="user_id"
@@ -22,8 +26,7 @@
 			중복확인</button>
 		<br>
 		<h3>비밀번호 입력</h3>
-		<br> <input type="password" name="user_pw"
-			placeholder="비밀번호를 입력하세요"><br>
+		<br><input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력하세요"><br> 
 
 		<h3>닉네임 입력</h3>
 		<br> <input type="text" id="user_nick" name="user_nick"
@@ -36,8 +39,8 @@
 		<div class="radio-group-gender">
 			<div>
 
-				<input type="radio" name="user_gender" value="M">남성 
-				<input type="radio" name="user_gender" value="F">여성
+				<input type="radio" name="user_gender" value="M">남성 <input
+					type="radio" name="user_gender" value="F">여성
 			</div>
 		</div>
 		<br> <br>
@@ -45,33 +48,20 @@
 		<br>
 		<div class="radio-group-style">
 			<div>
-				<input type="radio" name="user_preference" value="미니멀">미니멀 
-				<input type="radio" name="user_preference" value="스포티">스포티
+				<input type="radio" name="user_preference" value="미니멀">미니멀 <input
+					type="radio" name="user_preference" value="스포티">스포티
 			</div>
 			<div>
-				<input type="radio" name="user_preference" value="캐주얼">캐주얼 
-				<input type="radio" name="user_preference" value="비즈니스">비즈니스<br>
+				<input type="radio" name="user_preference" value="캐주얼">캐주얼 <input
+					type="radio" name="user_preference" value="비즈니스">비즈니스<br>
 			</div>
 		</div>
 		<br> <br> <br> <input type="submit" class="black"
-			value="회원가입" onclick="submitForm()">
+			value="회원가입">
 		<button type="button" class="black"
 			onclick="window.location.href='First.jsp'">돌아가기</button>
-	</form>
-	</form>
 
-	<script>
-    $(document).ready(function() {
-        var success = '<%=request.getAttribute("success") != null ? request.getAttribute("success") : ""%>
-		';
-							console.log("Success attribute value: " + success); // 디버깅을 위한 로그
-							if (success === 'true') {
-								alert("회원가입이 성공적으로 완료되었습니다!");
-								window.location.href = 'First.jsp';
-							} else if (success === 'false') {
-								alert("회원가입에 실패했습니다. 다시 시도해주세요.");
-							}
-						});
-	</script>
+
+	</form>
 </body>
 </html>
