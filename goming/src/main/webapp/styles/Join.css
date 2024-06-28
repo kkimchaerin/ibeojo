@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+@import "./Reset.css";
+
+@font-face {
+	font-family: 'NanumSquareNeoLight';
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+		format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+		format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+		format("truetype");
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+html {
+	background-image: url('../images/background.png'); /* 배경 이미지 설정 */
+	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
+	background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+	background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
+}
+
+.join {
+	padding: 20px;
+	width: 400px;
+	height: 900px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.join h1 {
+	font-size: 30px;
+	font-weight: bolder;
+	margin-bottom: 60px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 700;
+}
+
+.join h3 {
+	font-weight: bold;
+	text-align: left;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 17px;
+}
+
+#user_id {
+	height: 30px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.join input[type="radio"] {
+	margin-right: 10px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.radio-group-gender {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.radio-group-style {
+	display: flex;
+	flex-wrap: wrap; /* 라디오 버튼들을 여러 줄로 감쌈 */
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.join input[type="text"], .join input[type="password"] {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	/* 입력 요소들 사이에 간격 추가 */
+	height: 30px;
+	/* 입력 요소의 너비를 폼 너비에 맞게 설정 */
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.check {
+	width: 150px;
+	margin-bottom: 10px;
+	justify-content: flex-start;
+	text-align: center;
+	/* 왼쪽 정렬 */
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.black {
+	background-color: black;
+	color: white;
+	padding: 10px 20px;
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 550;
+	font-size: 15px;
+}
+
+.black:active {
+	background-color: darkgray;
+}
+
+.hide {
+	display: none;
+}
+
+.success-message {
+	color: green;
+}
