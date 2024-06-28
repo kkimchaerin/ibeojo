@@ -26,8 +26,7 @@
 			중복확인</button>
 		<br>
 		<h3>비밀번호 입력</h3>
-		<br> <input type="password" name="user_pw" id="user_pw"
-			placeholder="비밀번호를 입력하세요"><br>
+		<br><input type="password" name="user_pw" id="user_pw" placeholder="비밀번호를 입력하세요"><br> 
 
 		<h3>닉네임 입력</h3>
 		<br> <input type="text" id="user_nick" name="user_nick"
