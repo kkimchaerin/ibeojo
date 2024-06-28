@@ -33,9 +33,6 @@
 		<h3>비밀번호 확인</h3>
 		<br> <input type="password" name="user_pw_check"
 			id="user_pw_check" placeholder="비밀번호 확인" required>
-		<div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div>
-		<div class="mismatch-message hide"></div>
-
 		<div class="failure-message">비밀번호를 확인해주세요</div>
 		<div class="success-message hide">비밀번호가 일치합니다</div>
 		<br>
@@ -51,7 +48,7 @@
 			<div>
 
 				<input type="radio" name="user_gender" value="M">남성 <input
-					type="radio" name="user_gender" value="F" required>여성
+					type="radio" name="user_gender" value="F">여성
 			</div>
 		</div>
 		<br> <br>
