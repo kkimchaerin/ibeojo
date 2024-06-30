@@ -301,7 +301,18 @@ function closeDeletePopup() {
 async function deleteConfirmed() {
 	// 이미지 소스를 처리
 
-	img = instance.globalImageSrc;
+    try {
+        const res = await fetch('./DeleteImg', {
+            method: 'POST', // 데이터 전송 방식
+            headers: {
+                'Content-Type': 'application/json' // 헤더에 content-type을 json으로 설정
+            },
+            body: JSON.stringify(data) // json 문자열 데이터로 전송
+        }); // fetch 방식 통신
+        
+        const responseText = await res.text(); // 응답 텍스트를 먼저 받음
+        console.log('Response status:', res.status);
+        console.log('Response text:', responseText);
 
 	img = instance.globalImageSrc.substring(7);
 
