@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goming.user.database.user_mapper">
+
+	<insert id="join" parameterType="com.goming.user.model.user_DTO">
+		INSERT INTO user_info
+		(user_email, user_pw, user_nick, user_gender,
+		user_preference,
+		joined_at, user_type)
+		VALUES (#{user_email}, MD5(#{user_pw}),
+		#{user_nick},
+		#{user_gender},
+		#{user_preference}, now(), 'N');
+	</insert>
+
+	<select id="selectuser_email"
+		parameterType="com.goming.user.model.user_DTO" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM user_info
+		WHERE user_email = #{user_email}
+	</select>
+	<select id="selectuser_nick"
+		parameterType="com.goming.user.model.user_DTO" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM user_info
+		WHERE user_nick = #{user_nick}
+	</select>
+
+	<select id="login"
+		parameterType="com.goming.user.model.user_DTO"
+		resultType="com.goming.user.model.user_DTO">
+		select * from user_info where user_email = #{user_email}
+		and user_pw = MD5(#{user_pw})
+	</select>
+
+	<select id="findIdByNick" parameterType="String"
+		resultType="String">
+		SELECT user_email FROM user_info WHERE user_nick =
+		#{user_nick}
+	</select>
+
+	<update id="updatePasswordByEmail"
+		parameterType="com.goming.user.model.user_DTO">
+		UPDATE user_info
+		SET user_pw = MD5(#{user_pw})
+		WHERE
+		user_email
+		= #{user_email}
+	</update>
+
+	<!-- 관리자 -->
+	<select id="getAllUsers" resultType="com.goming.user.model.user_DTO">
+		SELECT * FROM user_info;
+	</select>
+
+
+</mapper>

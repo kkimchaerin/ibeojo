@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+@import "./Reset.css";
+
+@font-face {
+	font-family: 'NanumSquareNeoLight';
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+	src:
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix)
+		format("embedded-opentype"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff)
+		format("woff"),
+		url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf)
+		format("truetype");
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+html {
+	background-image: url('../images/background.png'); /* 배경 이미지 설정 */
+	background-size: cover; /* 이미지가 화면을 가득 채우도록 조절 */
+	background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+	background-position: center center; /* 이미지가 중앙에 위치하도록 설정 */
+}
+
+.login h1 {
+	font-size: 35px;
+	font-weight: bold;
+	margin-bottom: 60px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 700;
+}
+
+.login input[type="text"] {
+	margin-bottom: 10px;
+	/* 입력 요소들 사이에 간격 추가 */
+	width: 350px;
+	height: 30px;
+	/* 입력 요소의 너비를 폼 너비에 맞게 설정 */
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.login input[type="password"] {
+	margin-bottom: 10px;
+	/* 입력 요소들 사이에 간격 추가 */
+	width: 350px;
+	height: 30px;
+	/* 입력 요소의 너비를 폼 너비에 맞게 설정 */
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.login input[type="submit"] {
+	background-color: black;
+	/* 전송 버튼 배경색 */
+	color: white;
+	/* 전송 버튼 글자색 */
+	padding: 10px 20px;
+	/* 전송 버튼 내부 여백 */
+	cursor: pointer;
+	/* 포인터 커서 설정 */
+	width: 355px;
+	margin-bottom: 200px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 550;
+	font-size: 15px;
+	margin-bottom: 10px; /* 버튼들 사이의 간격 조절 */
+	border-radius: 10px;
+}
+
+.login input[type="button"] {
+	background-color: black;
+	/* 전송 버튼 배경색 */
+	color: white;
+	/* 전송 버튼 글자색 */
+	padding: 10px 20px;
+	/* 전송 버튼 내부 여백 */
+	cursor: pointer;
+	/* 포인터 커서 설정 */
+	width: 355px;
+	margin-bottom: 100px;
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 550;
+	font-size: 15px;
+	margin-bottom: 10px; /* 버튼들 사이의 간격 조절 */
+	border-radius: 10px;
+}
+
+.login {
+	padding: 20px;
+	height: 900px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.8);
+	font-family: "NanumSquareNeoLight", cursive;
+	font-weight: 550;
+}
+
+.login input[type="submit"]:active {
+	background-color: darkgray;
+}
+
+button {
+	/* 전송 버튼 배경색 */
+	color: darkgray;
+	/* 전송 버튼 글자색 */
+	padding: 10px 20px;
+	/* 전송 버튼 내부 여백 */
+	cursor: pointer;
+	/* 포인터 커서 설정 */
+	width: 100%;
+}
+
+.button-group {
+	position: absolute;
+	bottom: 30px;
+	/* 하단에서의 거리 설정 */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: "NanumSquareNeoLight", cursive, !important;
+	font-weight: 600;
+}
+
+.button:active:active {
+	background-color: darkgray;
+}
