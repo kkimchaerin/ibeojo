@@ -47,7 +47,7 @@ public class PostDAO {
         try {
             // MyBatis 매퍼 호출
             postList = session.selectList("com.goming.post.database.post_mapper.loadImagesByFilters", filter);
-			/* System.out.println("필터링DB: " + postList.get(0).toString()); */
+            System.out.println("필터링DB: " + postList.get(0).toString());
         } catch (Exception e) {
             System.out.println("호출 실패");
             e.printStackTrace();
