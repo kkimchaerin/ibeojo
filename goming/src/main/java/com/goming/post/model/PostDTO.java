@@ -1,4 +1,8 @@
+
 package com.goming.post.model;
+
+import java.io.Serializable;
+import java.security.Timestamp;
 
 public class PostDTO {
     private int post_idx;

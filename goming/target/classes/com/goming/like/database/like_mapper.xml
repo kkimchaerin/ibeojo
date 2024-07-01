@@ -5,22 +5,130 @@
 	한 개의 mapper 만들기 mapper 사이에 sql문 작성해야 함 -->
 
 <mapper namespace="com.goming.like.database.like_mapper">
-		
-	<insert id="likeInsert" parameterType="com.goming.like.model.LikeDTO">
-		INSERT INTO like_info (post_idx, user_email, created_at) 
-		VALUES (#{post_idx}, #{user_email}, NOW());
-	</insert>
-	
-	<delete id="likeDelete" parameterType="com.goming.like.model.LikeDTO">
-		DELETE FROM like_info WHERE post_idx = #{post_idx} AND user_email = #{user_email}
-	</delete>
-	
-	<select id="likeCheck" parameterType="com.goming.like.model.LikeDTO" resultType="int">
-		SELECT *
-	  	FROM like_info
-	 	WHERE user_email = #{user_email} 
-	 	AND post_idx = #{post_idx};
+
+	<select id="getUserEmailByNickname"
+		parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT user_email
+		FROM user_info
+		WHERE user_nick = #{userNick}
 	</select>
 
-</mapper>
 
+	<!-- 좋아요 여부 확인 -->
+	<select id="checkLikepostuser" parameterType="java.util.Map"
+		resultType="int">
+		SELECT COUNT(*) AS like_count
+		FROM like_info l
+		JOIN post_info
+		p ON l.post_idx = p.post_idx
+		JOIN user_info u ON l.user_email =
+		u.user_email
+		WHERE u.user_email = #{user_email}
+		AND p.post_img =
+		#{post_img}
+	</select>
+
+	<insert id="addLike" parameterType="java.util.Map">
+		INSERT INTO like_info
+		(post_idx, user_email, created_at)
+		SELECT p.post_idx, u.user_email,
+		NOW()
+		FROM post_info p
+		JOIN user_info u ON p.user_email = u.user_email
+		WHERE p.post_img = #{post_img}
+		AND u.user_email = #{user_email}
+		AND NOT
+		EXISTS (
+		SELECT 1
+		FROM like_info l
+		WHERE l.post_idx = p.post_idx
+		AND
+		l.user_email = u.user_email
+		)
+	</insert>
+
+	<delete id="removeLike" parameterType="java.util.Map">
+		<!-- DELETE FROM like_info WHERE post_idx = ( SELECT p.post_idx FROM post_info 
+			p JOIN user_info u ON p.user_email = u.user_email WHERE p.post_img = #{post_img} 
+			AND u.user_email = #{user_email} ) AND user_email = #{user_email} -->
+
+		DELETE FROM like_info
+		WHERE post_idx IN (
+		SELECT p.post_idx
+		FROM
+		post_info p
+		JOIN user_info u ON p.user_email = u.user_email
+		WHERE
+		p.post_img = #{post_img}
+		AND u.user_email = #{user_email}
+		)
+		AND
+		user_email = #{user_email};
+
+	</delete>
+	<delete id="removeLike2" parameterType="java.util.Map">
+		<!-- DELETE FROM like_info WHERE post_idx = ( SELECT p.post_idx FROM post_info 
+			p JOIN user_info u ON p.user_email = u.user_email WHERE p.post_img = #{post_img} 
+			AND u.user_email = #{user_email} ) AND user_email = #{user_email} -->
+
+		DELETE FROM like_info
+		WHERE post_idx = #{post_idx}
+		AND user_email = #{user_email}
+
+	</delete>
+
+	<!-- post_idx에 대한 좋아요 갯수를 가져오는 쿼리 -->
+	<select id="countLikesByPostIdx" parameterType="String"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM like_info l
+		JOIN post_info p ON
+		l.post_idx = p.post_idx
+		WHERE p.post_img = #{post_img}
+	</select>
+
+	<select id="selectLikedPostsByUserEmail" parameterType="String"
+		resultType="com.goming.post.model.PostDTO">
+		SELECT p.*
+		FROM post_info p
+		JOIN like_info l ON p.post_idx =
+		l.post_idx
+		WHERE l.user_email = #{user_email}
+	</select>
+
+	<select id="check_like"
+		parameterType="com.goming.like.model.LikeDTO"
+		resultType="com.goming.like.model.LikeDTO">
+		select *
+		from like_info
+		where user_email = #{user_email} and
+		post_idx = (select post_idx from
+		post_info where post_img =
+		#{post_img});
+	</select>
+
+	<!-- 좋아요 추가 -->
+	<insert id="likeInsert"
+		parameterType="com.goming.like.model.LikeDTO">
+		INSERT INTO like_info (post_idx, user_email, created_at)
+		VALUES (#{post_idx}, #{user_email}, NOW());
+	</insert>
+
+	<!-- 좋아요 취소 -->
+	<delete id="likeDelete"
+		parameterType="com.goming.like.model.LikeDTO">
+		DELETE FROM like_info WHERE post_idx = #{post_idx} AND
+		user_email =
+		#{user_email}
+	</delete>
+
+	<!-- 기존 좋아요 확인 -->
+	<select id="likeCheck"
+		parameterType="com.goming.like.model.LikeDTO" resultType="int">
+		SELECT *
+		FROM
+		like_info
+		WHERE user_email = #{user_email}
+		AND post_idx = #{post_idx};
+	</select>
+</mapper>

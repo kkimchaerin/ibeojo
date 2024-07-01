@@ -21,6 +21,14 @@ public class user_DTO {
 		this.user_gender = user_gender;
 		this.user_preference = user_preference;
 	}
+	
+	public user_DTO(String user_email, String user_nick, String user_gender, String user_preference){
+		super();
+		this.user_email = user_email;
+		this.user_nick = user_nick;
+		this.user_gender = user_gender;
+		this.user_preference = user_preference;
+	}
 
 	public String getUser_email() {
 		return user_email;

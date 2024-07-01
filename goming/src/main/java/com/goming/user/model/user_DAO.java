@@ -1,5 +1,7 @@
 package com.goming.user.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import com.goming.user.database.SqlSessionManager;
@@ -137,4 +139,31 @@ public class user_DAO {
 
 		return isUpdated;
 	}
+
+	// 관리자 계정
+	public List<user_DTO> selectAll() {
+		SqlSession session = factory.openSession();
+		List<user_DTO> members = null;
+
+		try {
+			members = session.selectList("com.goming.user.database.user_mapper.getAllUsers");
+
+			if (members != null) {
+				System.out.println("전체 회원 정보 가져오기 성공");
+				session.commit();
+			} else {
+				System.out.println("전체 회원 정보 가져오기 실패");
+				session.rollback();
+			}
+
+		} catch (Exception e) {
+			System.out.println("admin 실패");
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return members;
+	}
+
 }
