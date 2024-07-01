@@ -18,7 +18,7 @@
 	display: flex;
 	flex-direction: column; /* 상하 정렬을 위해 column 방향으로 설정 */
 	align-items: flex-start; /* 좌측 정렬 */
-	margin: 20px;
+	margin: 20px 350px;
 }
 
 /* 카카오 맵 컨테이너 설정 */
@@ -39,12 +39,11 @@ html {
 #weatherGraphContainer {
 	position: sticky;
 	top: 20px;
-	width: 100%; /* 가로 전체 너비 설정 */
+	width: 100%;
 	max-height: 600px;
 	overflow: hidden;
-	background-color: #f9f9f9; /* 배경색 설정 */
 	padding: 10px;
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .table-container {
@@ -79,7 +78,8 @@ table {
 .my-class {
 	position: sticky;
 	left: 0;
-	background-color: #f2f2f2; /* 배경색 설정 */
+	background-color: white;
+	font-weight: bold;
 }
 
 /* 카카오 맵 관련 스타일 */
@@ -118,21 +118,22 @@ table {
 	white-space: nowrap;
 }
 
-  .loading-spinner {
-        border: 5px solid rgba(0, 0, 0, 0.1);
-        border-top: 5px solid #3498db;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
-        margin: auto;
-        margin-top: 20px;
-    }
+.loading-spinner {
+      border: 5px solid rgba(0, 0, 0, 0.1);
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
     
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 /*     body {
         display: flex;
         justify-content: center;
@@ -140,3 +141,45 @@ table {
         height: 100vh;
         margin: 0;
     } */
+    
+#map {
+	width: 100%;
+	height: 350px;
+	margin-top: 20px;
+}
+
+
+
+.customInfoWindow {
+	width: 200px;
+	padding: 10px;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+#addressInput {
+	width: 300px;
+	height: 35px;
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: 2px solid black;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	margin: 20px 0;
+}
+
+#getInfoButton{
+	width: 200px;
+	height: 40px;
+    font-size: 16px;
+    border-radius: 5px;
+	border: 2px solid black;
+	background-color: black;
+	color: white;
+}
+
+.table-container{
+    border-radius: 10px;
+	border: 2px solid black;
+	background-color: white;
+}

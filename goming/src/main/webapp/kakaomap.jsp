@@ -10,33 +10,9 @@
 <link rel="stylesheet" type="text/css" href="styles/kakaomap.css">
 <link rel="stylesheet" type="text/css" href="styles/BottomNav.css" />
 <link rel="stylesheet" type="text/css" href="styles/Header.css" />
-<title>Dynamic Table and Chart Example</title>
+<title>오늘의옷</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-#map {
-	width: 100%;
-	height: 350px;
-	margin-top: 20px;
-}
-
-#addressInput {
-	width: 300px; /* 너비를 조정합니다 */
-	height: 40px; /* 높이를 조정합니다 */
-	padding: 10px; /* 내부 여백을 추가합니다 */
-	font-size: 16px; /* 글씨 크기를 조정합니다 */
-	border-radius: 5px; /* 모서리를 둥글게 만듭니다 */
-	border: 1px solid #ccc; /* 테두리 색상과 두께를 설정합니다 */
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 약간의 그림자를 추가합니다 */
-	margin-bottom: 20px; /* 아래 여백을 추가합니다 */
-}
-
-.customInfoWindow {
-	width: 200px;
-	padding: 10px;
-	font-size: 14px;
-	line-height: 1.5;
-}
-</style>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
 <script src="./javascripts/kakaomapjs.js"></script>
 </head>
 <body>
@@ -51,26 +27,19 @@
 					<span class="title">지도중심기준 행정동 주소정보</span> <span id="centerAddr"></span>
 				</div>
 			</div>
-			<p>
 			<div>
-				<input type="text" id="addressInput"
-					placeholder="Enter Address and press Enter">
-				<div class="loading-spinner"></div>
+				<input type="text" id="addressInput" placeholder="Enter Address and press Enter">
+				<button id="getInfoButton" onclick="fetchWeatherAndSaveToDBs()">날씨 정보 가져오기</button>
 			</div>
-
 			<p id="result"></p>
-			<script type="text/javascript"
-				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b7b5d7cfbe3d759287c1aad17b89b913&libraries=services"></script>
-
-			<!-- 			<form id="locationForm" action="WeatherDataUpsertService"
+			<!-- <form id="locationForm" action="WeatherDataUpsertService"
 				method="post" style="display: none;">
 				<input type="hidden" id="latitude" name="lat" value=""> <input
 					type="hidden" id="longitude" name="lng" value="">
 			</form> -->
-			<button id="getInfoButton" onclick="fetchWeatherAndSaveToDBs()">지도
-				정보 가져오기</button>
+			
 		</div>
-
+		<div class="loading-spinner"></div>
 		<div class="table-container" id="Table">
 
 			<div class="my-class">
@@ -123,6 +92,7 @@
 						<th class="my-class">습도</th>
 					</tr>
 				</tbody>
+				
 			</table>
 
 			<div id="weatherGraphContainer" style="position: sticky;">
@@ -148,9 +118,6 @@
 	<%@ include file="BottomNav.jsp"%>
 	<%@ include file="Header.jsp"%>
 	<%@ include file="UploadButton.jsp"%>
-
-
-
 </body>
 </html>
 
@@ -172,10 +139,4 @@
 		열3 - 강수량
 		열4 - 풍속
 		열5 - 습도
-	
-
-
-
-
-
  -->

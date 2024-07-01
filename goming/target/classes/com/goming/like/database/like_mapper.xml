@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<!-- mapper : 순수 sql문만 작성 xml이 하나가 아닐 수 있다 = 여러 개 만들어도 무관 원호쌤 추천 : 테이블마다 
-	한 개의 mapper 만들기 mapper 사이에 sql문 작성해야 함 -->
-
 <mapper namespace="com.goming.like.database.like_mapper">
 
 	<select id="getUserEmailByNickname"
@@ -12,7 +8,6 @@
 		FROM user_info
 		WHERE user_nick = #{userNick}
 	</select>
-
 
 	<!-- 좋아요 여부 확인 -->
 	<select id="checkLikepostuser" parameterType="java.util.Map"
@@ -107,6 +102,7 @@
 		#{post_img});
 	</select>
 
+
 	<!-- 좋아요 추가 -->
 	<insert id="likeInsert"
 		parameterType="com.goming.like.model.LikeDTO">
@@ -122,7 +118,7 @@
 		#{user_email}
 	</delete>
 
-	<!-- 기존 좋아요 확인 -->
+	<!-- 기존 좋아요 확인하기 -->
 	<select id="likeCheck"
 		parameterType="com.goming.like.model.LikeDTO" resultType="int">
 		SELECT *
@@ -131,4 +127,5 @@
 		WHERE user_email = #{user_email}
 		AND post_idx = #{post_idx};
 	</select>
+
 </mapper>

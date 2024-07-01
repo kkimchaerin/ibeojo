@@ -21,7 +21,8 @@
 			<div class="content-wrapper test">
 				<label for="photo" class="form-label"> <span>이미지 업로드</span></br>
 					<span id="file-name">Click to add image</span>
-				</label> <input type="file" accept="*.jpg,*.png,*.jpeg,*.webp,*.avif"
+				</label> 
+				<input type="file" accept="*.jpg,*.png,*.jpeg,*.webp,*.avif"
 					id="photo" name="postImg" style="display: none;" />
 
 			</div>

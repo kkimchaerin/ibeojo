@@ -23,6 +23,5 @@
 				onclick="location.href='Login.jsp'">로그인</button>
 		</div>
 	</div>
-
 </body>
 </html>
