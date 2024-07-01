@@ -47,8 +47,7 @@ public class LikeDAO {
         return cnt;
     }
 	
-	
-
+    // 좋아요한 게시물 불러오기
     public boolean isLiked(LikeDTO like) {
         int count = 0;
         

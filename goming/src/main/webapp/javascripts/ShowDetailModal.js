@@ -87,10 +87,6 @@ $(document).ready(function() {
             },
             dataType: "json",
             success: function(response) {
-				
-				console.log("여기야??",response);
-				
-
                 if (response.result === "success") {
                     if (isLiked) {
                         likeBtnImg.attr("src", "./icons/heart-regular.svg");

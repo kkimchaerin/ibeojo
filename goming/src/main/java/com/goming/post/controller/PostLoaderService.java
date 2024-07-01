@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.goming.post.model.PostDAO;
 import com.goming.post.model.PostDTO;
@@ -19,6 +20,7 @@ public class PostLoaderService extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+        
 		// 요청에서 필터링 정보를 가져옴
 		char gender = request.getParameter("gender").charAt(0);
 		String style_tag = request.getParameter("style_tag");
@@ -35,12 +37,6 @@ public class PostLoaderService extends HttpServlet {
 		// DAO를 통해 필터링된 게시물 리스트 가져오기
 		PostDAO dao = new PostDAO();
 		List<PostDTO> filteredPosts = dao.getPostsByFilters(filter);
-
-//		System.out.println("gender!!" + gender);
-//		System.out.println("style!!" + style);
-//		System.out.println("season!!" + season);
-//		System.out.println("PostLoaderService!!: " + filteredPosts);
-
 
 		// JSON 형식으로 응답
 		response.setContentType("application/json");

@@ -1,12 +1,10 @@
   $(document).ready(function() {
-    let gender = "M";
     
-    if(style_tag == null){
+    if(style_tag == null){ // 세션 스토리지에서 가져오거나 미니멀을 기본값으로 설정
 		style_tag = "미니멀";
 	}
- 
-//    let style_tag = sessionStorage.getItem("user_preference") || "미니멀"; // 세션 스토리지에서 가져오거나 기본값으로 설정
-     // 세션 스토리지에서 가져오거나 기본값으로 설정
+     
+    let gender = "M";
     let season = "봄";
     let sortBy = "new"; // 초기 정렬 기준 설정
     
