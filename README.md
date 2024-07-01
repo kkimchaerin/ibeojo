@@ -69,6 +69,9 @@ GitHub에 README 작성
 
 # 6. 시스템 아키텍처
 
+![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/eb7ca310-5d49-4753-9041-5450da757c5d)
+
+![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/b114a320-6179-4387-b862-7c2f1657280a)
 
 
 # 7. 유스케이스
