@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page errorPage="Error.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>로그인</title>
 <link rel="stylesheet" type="text/css" href="./styles/Login.css?ver=4" />
 <link rel="stylesheet" type="text/css" href="./styles/Reset.css?ver=2" />
 </head>

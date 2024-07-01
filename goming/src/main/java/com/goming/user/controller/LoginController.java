@@ -44,6 +44,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("user_pw", m.getUser_pw());
 			session.setAttribute("user_nick", m.getUser_nick());
 			session.setAttribute("user_preference", m.getUser_preference());
+			session.setAttribute("user_gender", m.getUser_gender());
 
 			// 관리자인 경우 Admin.jsp로 이동
 			if ("admin".equals(id)) {
