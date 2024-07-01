@@ -73,9 +73,12 @@ GitHub에 README 작성
 
 ![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/b114a320-6179-4387-b862-7c2f1657280a)
 
-
 # 7. 유스케이스
+
+![KakaoTalk_20240701_101804384](https://github.com/kkimchaerin/ibeojo/assets/37505511/2b081779-6038-4689-8a40-bac776fa9674)
+
 # 8. 서비스 흐름도
+
 # 9. ER 다이어그램
 # 10 .화면구성
 # 11. 팀원역할
