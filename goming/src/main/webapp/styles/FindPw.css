@@ -39,7 +39,7 @@ html {
 	font-weight: 800;
 }
 
-.Findpw input[type="text"] {
+.Findpw input[type="text"], .Findpw input[type="password"] {
 	margin-bottom: 10px;
 	/* 입력 요소들 사이에 간격 추가 */
 	width: calc(100% - 40px);

@@ -29,7 +29,7 @@ window.onload = function() {
 
 		<h1>비밀번호 찾기</h1>
 		<input type="text" name="user_email" placeholder="이메일을 입력하세요"><br>
-		<input type="text" name="user_pw" placeholder="새 비밀번호를 입력하세요"><br>
+		<input type="password" name="user_pw" placeholder="새 비밀번호를 입력하세요"><br>
 
 		<input type="submit" value="비밀번호 수정">
 	</form>

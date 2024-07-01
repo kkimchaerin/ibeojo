@@ -21,9 +21,17 @@ public class UpdateService extends HttpServlet {
 		
 		PostDAO dao = new PostDAO();
 		
-		dao.update(idx, img);
+		int cnt = dao.update(idx, img);
 		
-		response.sendRedirect("Main.jsp");
+		
+		if (cnt > 0) {
+			System.out.println("업로드 완료");
+			response.sendRedirect("Main.jsp?upload=success");
+				System.out.println("모자이크");
+		} else {
+			System.out.println("업로드 실패");
+			response.sendRedirect("Main.jsp?upload=failure");
+		}
 		
 	}
 
