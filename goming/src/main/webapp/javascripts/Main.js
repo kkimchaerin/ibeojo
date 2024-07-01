@@ -1,19 +1,28 @@
   $(document).ready(function() {
-    let gender = "M";
+	 // 세션 스토리지에서 가져오거나 기본값으로 설정
+    if(gender == null){
+		gender = "M";
+	}
     
     if(style_tag == null){
 		style_tag = "미니멀";
 	}
- 
-//    let style_tag = sessionStorage.getItem("user_preference") || "미니멀"; // 세션 스토리지에서 가져오거나 기본값으로 설정
-     // 세션 스토리지에서 가져오거나 기본값으로 설정
-    let season = "봄";
-    let sortBy = "new"; // 초기 정렬 기준 설정
     
-    // 초기 세션 스토리지에서 가져온 style_tag에 해당하는 라디오 버튼에 checked 클래스 추가
+    let season = "봄";
+    let sortBy = "new"; // 초기 정렬 기준 최신순
+    
+    // 초기 세션 스토리지에서 가져온 style_tag에 해당하는 버튼에 checked 클래스 추가
     $(".category-list .category-btn").each(function() {
         let buttonStyleTag = $(this).find("img").attr("alt");
         if (buttonStyleTag === style_tag) {
+            $(this).addClass("checked");
+        }
+    });
+    
+    // 초기 세션 스토리지에서 가져온 gender에 해당하는 버튼에 checked 클래스 추가
+    $(".gender-category a").each(function() {
+        let genderTag = $(this).attr("id");
+        if (genderTag === gender) {
             $(this).addClass("checked");
         }
     });
