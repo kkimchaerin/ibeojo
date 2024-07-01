@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@page errorPage="Error.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,126 +17,98 @@
 </head>
 <body>
 
-	<div class="container">
-		<div class="map-container">
-			<!-- 카카오 맵 API가 담긴 부분 -->
-			<div class="map_wrap" style="margin-top:70px;">
-				<div id="map"
-					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-				<div class="hAddr">
-					<span class="title">지도중심기준 행정동 주소정보</span> <span id="centerAddr"></span>
-				</div>
-			</div>
-			<div>
-				<input type="text" id="addressInput" placeholder="Enter Address and press Enter">
-				<button id="getInfoButton" onclick="fetchWeatherAndSaveToDBs()">날씨 정보 가져오기</button>
-			</div>
-			<p id="result"></p>
-			<!-- <form id="locationForm" action="WeatherDataUpsertService"
-				method="post" style="display: none;">
-				<input type="hidden" id="latitude" name="lat" value=""> <input
-					type="hidden" id="longitude" name="lng" value="">
-			</form> -->
-			
-		</div>
-		<div class="loading-spinner"></div>
-		<div class="table-container" id="Table">
+   <div class="container">
+      <div class="map-container">
+         <!-- 카카오 맵 API가 담긴 부분 -->
+         <div class="map_wrap" style="margin-top:70px;">
+            <div id="map"
+               style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+            <div class="hAddr">
+               <span class="title">지도중심기준 행정동 주소정보</span> <span id="centerAddr"></span>
+            </div>
+         </div>
+         <div>
+            <input type="text" id="addressInput" placeholder="Enter Address and press Enter">
+            <button id="getInfoButton" onclick="fetchWeatherAndSaveToDBs()">날씨 정보 가져오기</button>
+         </div>
+         <p id="result"></p>
 
-			<div class="my-class">
-				<table id = "daily">
-					<tr>
-						<th rowspan="2">온도</th>
-						<th>강수확률</th>
-						<th>강우량</th>
-						<th>날씨상태</th>
-					</tr>
-					<tr>
-						<!-- <td>Data 1-1</td> -->
-						<td id="date-cell">날짜</td>
-						<!-- 날짜 -->
-						<td id="time-cell">시간</td>
-						<!-- 시간 -->
-						<td id="lat-lon-cell">위도와 경도</td>
-						<!-- 위도와 경도 -->
-					</tr>
-				</table>
-			</div>
-			<table id="dynamicTable">
-				<thead>
-					<tr>
-						<th class="my-class">날짜/시간</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
+      </div>
+      <div class="loading-spinner"></div>
+      <div class="table-container" id="Table">
 
-						<th class="my-class">온도</th>
-						<%-- 						<%
-						for (int i = 2; i <= 20; i++) {
-						%>
-						<th>셀 1-<%=i%></th>
-						<%
-						}
-						%> --%>
-					</tr>
-					<tr>
-						<th class="my-class">강수확률</th>
-					</tr>
-					<tr>
-						<th class="my-class">강수량</th>
-					</tr>
-					<tr>
-						<th class="my-class">풍속</th>
-					</tr>
-					<tr>
-						<th class="my-class">습도</th>
-					</tr>
-				</tbody>
-				
-			</table>
+         <div class="my-class">
+            <table id = "daily">
+               <tr>
+                  <th rowspan="2">온도</th>
+                  <th>강수확률</th>
+                  <th>강우량</th>
+                  <th>날씨상태</th>
+               </tr>
+               <tr>
+                  <!-- <td>Data 1-1</td> -->
+                  <td id="date-cell">날짜</td>
+                  <!-- 날짜 -->
+                  <td id="time-cell">시간</td>
+                  <!-- 시간 -->
+                  <td id="lat-lon-cell">위도와 경도</td>
+                  <!-- 위도와 경도 -->
+               </tr>
+            </table>
+         </div>
+         <table id="dynamicTable">
+            <thead>
+               <tr>
+                  <th class="my-class">날짜/시간</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th class="my-class">온도</th>
+               </tr>
+               <tr>
+                  <th class="my-class">강수확률</th>
+               </tr>
+               <tr>
+                  <th class="my-class">강수량</th>
+               </tr>
+               <tr>
+                  <th class="my-class">풍속</th>
+               </tr>
+               <tr>
+                  <th class="my-class">습도</th>
+               </tr>
+            </tbody>
+            
+         </table>
 
-			<div id="weatherGraphContainer" style="position: sticky;">
-				<canvas id="weatherGraph"></canvas>
-			</div>
-		</div>
-	</div>
-
-	<script>
-		/* document.addEventListener('DOMContentLoaded', function() {
-		 console.log('Enter key pressed!');
-		 let addressInput = document.getElementById('addressInput');
-
-		 addressInput.addEventListener('keypress', function(e) {
-		 if (e.key === 'Enter') {
-		 console.log('Enter key pressed!');
-		 // 여기에 원하는 동작을 추가하면 됩니다.
-		 }
-		 });
-		 }); */
-	</script>
-
-	<%@ include file="BottomNav.jsp"%>
-	<%@ include file="Header.jsp"%>
-	<%@ include file="UploadButton.jsp"%>
+         <div id="weatherGraphContainer" style="position: sticky;">
+            <canvas id="weatherGraph"></canvas>
+         </div>
+      </div>
+   </div>
+   <%@ include file="BottomNav.jsp"%>
+   <%@ include file="Header.jsp"%>
+   <%@ include file="UploadButton.jsp"%>
 </body>
 </html>
 
 <!-- 
-	값 대입하기
-	- db의 컬럼들
-		1. 날짜		- Data 1-2
-		2. 시간		- Data 1-3
-		3. 온도		- Title1
-		4. 습도		- Title4
-		5. 날씨상태	- Title1
-		6. 풍속   	- 
-		7. 강수확률	- Title2
-		8. 강우량		- Title3
-		9. 위도와 경도 - Data 1-4
-	
-		열1 - 온도
-		열2 - 강수확률
-		열3 - 강수량
-		열4 - 풍속
-		열5 - 습도
+   값 대입하기
+   - db의 컬럼들
+      1. 날짜      - Data 1-2
+      2. 시간      - Data 1-3
+      3. 온도      - Title1
+      4. 습도      - Title4
+      5. 날씨상태   - Title1
+      6. 풍속      - 
+      7. 강수확률   - Title2
+      8. 강우량      - Title3
+      9. 위도와 경도 - Data 1-4
+   
+      열1 - 온도
+      열2 - 강수확률
+      열3 - 강수량
+      열4 - 풍속
+      열5 - 습도
  -->

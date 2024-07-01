@@ -43,7 +43,8 @@ String comment = (String) session.getAttribute("comment");
 <script type="text/javascript">
     // JavaScript 코드에서 세션 값 사용
     var style_tag = "<%= session.getAttribute("user_preference") %>";
-    console.log("Session Value: " + style_tag);
+    var gender = "<%= session.getAttribute("user_gender") %>";
+    console.log("gender~!", gender);
 </script>
 
 </head>
@@ -76,7 +77,7 @@ String comment = (String) session.getAttribute("comment");
 		<section class="gallery-wrapper">
 			<h2 id="style-name">미니멀</h2>
 			<div class="gender-category">
-				<a href="#" id="M" class="get-category checked">MEN</a> <a href="#"
+				<a href="#" id="M" class="get-category">MEN</a> <a href="#"
 					id="F" class="get-category">WOMEN</a>
 			</div>
 
