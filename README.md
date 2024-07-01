@@ -11,11 +11,66 @@ GitHub에 README 작성
   - 사진 등록 시 개인정보 보호를 위해 얼굴의 모자이크 기능 제공
 
 # 3. 프로젝트기간
-## 06/17 ~ 07/01
+
+2024/06/17 ~ 2024/07/01
 
 # 4. 주요기능
+
+- 기상청 api, 카카오 api로 지도 선택과 날씨 확인
+- 올린 사진의 얼굴 모자이크
+- 사진으로 다른 사람과 공유하는 게시판 기능
+
 # 5. 기술스택
+
+### Back-end
+<p>
+  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/MyBatis-DC382D?style=for-the-badge&logo=MyBatis&logoColor=white" />
+  <img src="https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Servlet-4E9A06?style=for-the-badge&logo=java&logoColor=white" />
+</p>
+
+### Front-end
+<p>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/JSP-007396?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/AJAX-4E9A06?style=for-the-badge&logo=javascript&logoColor=white" />
+</p>
+
+### Data & Server
+<p>
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Apache Tomcat-333333?style=for-the-badge&logo=apache-tomcat&logoColor=white" />
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+</p>
+
+### Library & API
+<p>
+  <img src="https://img.shields.io/badge/Lombok-BC02AF?style=for-the-badge&logo=lombok&logoColor=white" />
+  <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white" />
+</p>
+
+### IDE
+<p>
+  <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" />
+</p>
+
+### Etc.
+<p>
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+</p>
+
+
+
 # 6. 시스템 아키텍처
+
+
+
 # 7. 유스케이스
 # 8. 서비스 흐름도
 # 9. ER 다이어그램
