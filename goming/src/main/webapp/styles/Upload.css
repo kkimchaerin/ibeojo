@@ -46,6 +46,7 @@ form{
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .test{
@@ -170,6 +171,7 @@ form{
   background-color: black;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .form-btn.checked{
@@ -187,6 +189,7 @@ form{
   border-radius: 5px;
   font-size: 18px;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 #cancel-btn{
