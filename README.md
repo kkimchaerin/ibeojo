@@ -5,7 +5,7 @@
 |----------|--------------|-------------------------------------|
 | 김채린   | 팀장, FE, BE      | [GitHub](https://github.com/kkimchaerin) |
 | 김재희   | BE, API연동(날씨,지도) | [GitHub](https://github.com/kimjaehui02)     |
-| 신현주   | 크롤링, FE, BE | [GitHub]([https://github.com/younghee](https://github.com/shju0317))    |
+| 신현주   | 크롤링, FE, BE | [GitHub](https://github.com/shju0317)    |
 | 임광연   | BE, DB설계, 얼굴인식      | [GitHub](https://github.com/Lim-Gwnagyeon)       |
 | 정지인   | FE, BE | [GitHub](https://github.com/stopin112)     |
 
