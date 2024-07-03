@@ -1,4 +1,13 @@
 # 1. 프로젝트명(팀명:입어조)
+## 팀원 소개
+
+| 이름     | 역할         | GitHub 주소                        |
+|----------|--------------|-------------------------------------|
+| 김채린   | 팀장, FE, BE      | [GitHub](https://github.com/kkimchaerin) |
+| 김재희   | BE, API연동(날씨,지도) | [GitHub](https://github.com/kimjaehui02)     |
+| 신현주   | 크롤링, FE, BE | [GitHub]([https://github.com/younghee](https://github.com/shju0317))    |
+| 임광연   | BE, DB설계, 얼굴인식      | [GitHub](https://github.com/Lim-Gwnagyeon)       |
+| 정지인   | FE, BE | [GitHub](https://github.com/stopin112)     |
 
 # 2. 서비스소개
 ## 주제 : 스타일링에 도움을 받고 싶은 2030 여성, 남성을 위한 플랫폼
