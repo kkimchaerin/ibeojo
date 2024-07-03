@@ -715,10 +715,18 @@ document.addEventListener('DOMContentLoaded', function() {
 ![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/63e36f44-d14c-46cf-bf65-1581e08ffd2b)
 
 # 10 .화면구성
+![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/8a713d86-b24f-4cba-8811-d36fbd269e14)
+
 # 11. 팀원역할
+![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/d4bfd15f-57d4-4357-9569-e77e2fc16ee5)
+
 # 12. 트러블슈팅
 
+## 머신러닝
+![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/59b494f2-8755-4f31-9422-0003b7ecb45a)
 
+## api
+![image](https://github.com/kkimchaerin/ibeojo/assets/37505511/11caeda2-66cb-4141-9dfe-505da7912d6a)
 
 
 
